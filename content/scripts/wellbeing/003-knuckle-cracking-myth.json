@@ -1,0 +1,15 @@
+{
+  "category": "wellbeing",
+  "id": "003-knuckle-cracking-myth",
+  "title": "The Man Who Cracked One Hand's Knuckles for 60 Years to Prove a Point",
+  "description": "You've probably been told cracking your knuckles causes arthritis. One doctor spent 60 years testing that on himself, one hand at a time.\n\nEducational content, not medical advice.\n\n#shorts #wellbeing #mythbusting",
+  "tags": ["wellbeing", "myth busting", "health facts", "did you know", "shorts"],
+  "scenes": [
+    { "text": "You've probably heard that cracking your knuckles causes arthritis later in life. One doctor decided to actually test it.", "visual_query": "hand knuckles closeup" },
+    { "text": "Starting as a teenager, Doctor Donald Unger cracked the knuckles on his left hand every day, and left his right hand alone.", "visual_query": "person cracking knuckles hands" },
+    { "text": "He kept this up for over sixty years, as a personal experiment against his mother's warnings.", "visual_query": "elderly hands close up" },
+    { "text": "At the end, neither hand showed signs of arthritis, and there was no meaningful difference between them.", "visual_query": "hand x-ray medical" },
+    { "text": "His results were published, and in 2009 he won an Ig Nobel Prize, a real award for science that makes people laugh, then think.", "visual_query": "award trophy ceremony" },
+    { "text": "Larger studies since then generally back this up. That cracking sound is just gas bubbles collapsing in the joint fluid, not damage.", "visual_query": "joint bones illustration medical" }
+  ]
+}

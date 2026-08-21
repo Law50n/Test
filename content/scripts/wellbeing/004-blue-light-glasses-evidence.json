@@ -1,0 +1,15 @@
+{
+  "category": "wellbeing",
+  "id": "004-blue-light-glasses-evidence",
+  "title": "What the Research Actually Says About Blue Light Glasses",
+  "description": "Blue light glasses are marketed to reduce eye strain and improve sleep. Here's what a major review of the actual research found.\n\nEducational content, not medical advice.\n\n#shorts #wellbeing #sleepfacts",
+  "tags": ["wellbeing", "sleep facts", "health facts", "did you know", "shorts"],
+  "scenes": [
+    { "text": "Blue light glasses are sold with a simple promise: block blue light from screens, protect your eyes, sleep better.", "visual_query": "blue light glasses screen" },
+    { "text": "In 2023, a major research review looked at existing studies to see if the evidence actually backed that up.", "visual_query": "researcher reviewing documents" },
+    { "text": "The review found insufficient evidence that blue light lenses reduce eye strain from screen use compared to regular lenses.", "visual_query": "person tired eyes screen" },
+    { "text": "It also found no clear evidence they improve sleep quality for most people.", "visual_query": "person sleeping bedroom night" },
+    { "text": "That doesn't mean screens have zero effect on your eyes or sleep, just that this specific product's core claims aren't well supported yet.", "visual_query": "smartphone screen dark room" },
+    { "text": "Researchers pointed to bigger factors instead, like screen brightness, how close you sit, and just taking regular breaks.", "visual_query": "person taking break from computer" }
+  ]
+}

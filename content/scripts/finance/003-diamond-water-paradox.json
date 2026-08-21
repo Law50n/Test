@@ -1,0 +1,15 @@
+{
+  "category": "finance",
+  "id": "003-diamond-water-paradox",
+  "title": "Why Diamonds Cost More Than Water (Even Though Water Keeps You Alive)",
+  "description": "Water is essential and diamonds aren't, so why does water cost almost nothing? A 200-year-old economics puzzle explains it.\n\nEducational content, not financial advice.\n\n#shorts #financefacts #economics",
+  "tags": ["finance facts", "economics", "money facts", "did you know", "shorts"],
+  "scenes": [
+    { "text": "You need water to survive. You do not need diamonds. So why is water nearly free, and diamonds are not?", "visual_query": "diamond sparkling closeup" },
+    { "text": "Economists call this the diamond water paradox, and it puzzled thinkers for over a century.", "visual_query": "water glass pouring" },
+    { "text": "The answer isn't about how useful something is overall. It's about how much one more unit of it is worth to you, right now.", "visual_query": "economics chart illustration" },
+    { "text": "Water is everywhere, so one more glass barely matters. Diamonds are scarce, so one more diamond matters a lot to whoever wants it.", "visual_query": "scarcity rare gemstone" },
+    { "text": "Economists call this idea marginal value, and it's the foundation of how modern pricing actually works.", "visual_query": "price tags shopping" },
+    { "text": "Scarcity, not importance, is usually what sets the price. That single idea reshaped economics.", "visual_query": "supply demand market" }
+  ]
+}

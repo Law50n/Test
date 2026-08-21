@@ -1,0 +1,15 @@
+{
+  "category": "tech",
+  "id": "004-google-name-origin",
+  "title": "Google's Name Is Actually a Typo",
+  "description": "One of the most valuable brand names on Earth exists because of a spelling mistake nobody bothered to fix. Here's the real story.\n\n#shorts #techfacts #google",
+  "tags": ["tech facts", "google history", "startup facts", "did you know", "shorts"],
+  "scenes": [
+    { "text": "Google is one of the most recognized names on the planet. It's also, technically, a typo.", "visual_query": "search engine technology" },
+    { "text": "The founders wanted a name based on 'googol,' the mathematical term for the number one followed by a hundred zeros.", "visual_query": "mathematics numbers chalkboard" },
+    { "text": "It was meant to represent the huge amount of information the search engine would organize.", "visual_query": "data servers technology" },
+    { "text": "When a colleague checked if the domain was available, he misspelled it as g-o-o-g-l-e instead of g-o-o-g-o-l.", "visual_query": "typing domain website" },
+    { "text": "The founders liked it anyway, and registered google.com in September of 1997.", "visual_query": "vintage computer 1990s office" },
+    { "text": "So the correct spelling of the idea was never actually used. The typo became the trillion dollar brand.", "visual_query": "modern technology company building" }
+  ]
+}

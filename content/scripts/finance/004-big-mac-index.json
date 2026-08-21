@@ -1,0 +1,15 @@
+{
+  "category": "finance",
+  "id": "004-big-mac-index",
+  "title": "Economists Compare Countries Using the Price of a Burger",
+  "description": "There's a real, semi-serious index that economists use to check if a currency is over or undervalued, and it's based entirely on the price of a Big Mac.\n\nEducational content, not financial advice.\n\n#shorts #financefacts #economics",
+  "tags": ["finance facts", "economics", "currency", "did you know", "shorts"],
+  "scenes": [
+    { "text": "Since 1986, The Economist magazine has tracked one of the most useful tools in international finance. It's a burger.", "visual_query": "burger fast food restaurant" },
+    { "text": "It's called the Big Mac Index, and it compares the price of the same burger in different countries.", "visual_query": "world map countries currency" },
+    { "text": "Because a Big Mac is made almost the same way everywhere, its price reflects local costs, wages, and currency value.", "visual_query": "fast food kitchen preparation" },
+    { "text": "If a Big Mac costs a lot more in one country after converting currencies, that currency might be overvalued.", "visual_query": "currency exchange money" },
+    { "text": "If it costs a lot less, the currency might be undervalued relative to what it should be.", "visual_query": "stock market currency exchange" },
+    { "text": "It's not a precise scientific model, but economists still reference it decades later because it's a surprisingly good rough estimate.", "visual_query": "financial newspaper economics" }
+  ]
+}
