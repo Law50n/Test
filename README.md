@@ -56,8 +56,32 @@ Drop a new JSON file in `content/scripts/`:
 
 Each scene becomes its own TTS clip + one Ken Burns still. Keep scene text to
 a sentence or two — that's what keeps the visual change matched to the
-narration beat. Ask Claude for a batch of new scripts in this niche and it'll
-follow this schema.
+narration beat.
+
+### Two ways to source a script
+
+**Evergreen facts** (scripts 001–005) — a standalone fact that doesn't depend
+on anything currently happening. Ask Claude for a batch in this niche and
+it'll write from general knowledge, following the schema above.
+
+**Commentary on something real** (script 006 on) — research an actual current
+claim, story, or hoax circulating right now, and write a script that reports
+on and explains it, sources cited in the `description`. This is the
+"clip other creators' content" idea in its legally sound form: you're not
+re-uploading anyone's video, you're doing commentary/analysis on a claim —
+the same fair-use footing as news coverage. Script 006 (the "Earth loses
+gravity for 7 seconds" hoax) is a worked example: real viral claim, NASA's
+actual debunk, sources in the description. Ask Claude to find a current
+story in the niche and draft one of these when you want the channel to be
+reacting to what's actually happening rather than running on an evergreen
+backlog alone.
+
+What this repo deliberately does **not** build: downloading and embedding
+clips of someone else's video (reaction/picture-in-picture style). That's a
+heavier pipeline with its own YouTube ToS exposure on top of the copyright
+question, and straight re-uploads with no added commentary are the weakest
+legal position of the three options — treat it as a separate decision, not
+a natural next step from this pipeline.
 
 ## How captions get their timing
 
