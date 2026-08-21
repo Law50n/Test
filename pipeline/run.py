@@ -1,7 +1,8 @@
-"""End-to-end: one script JSON in, one captioned vertical (or horizontal)
-video and a thumbnail out.
+"""End-to-end: one or more script JSONs in, one captioned vertical (or
+horizontal) video and a thumbnail out per script.
 
-    python -m pipeline.run content/scripts/001-mantis-shrimp.json
+    python -m pipeline.run content/scripts/science/001-mantis-shrimp-punch.json
+    python -m pipeline.run content/scripts/tech/*.json   # a whole category
 """
 import argparse
 import shutil
@@ -93,13 +94,33 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("script", type=Path, help="path to a content/scripts/*.json file")
+    parser.add_argument(
+        "scripts", type=Path, nargs="+", help="one or more content/scripts/**/*.json files"
+    )
     parser.add_argument("--out", type=Path, default=Path("output"), help="output directory")
     args = parser.parse_args()
 
     cfg = Config.load()
     print(f"engine={cfg.tts_engine} voice={cfg.tts_voice} format={cfg.video_format} size={cfg.size}")
-    build(args.script, cfg, args.out)
+
+    if len(args.scripts) == 1:
+        build(args.scripts[0], cfg, args.out)
+        return
+
+    failed = []
+    for i, script_path in enumerate(args.scripts, start=1):
+        print(f"\n=== [{i}/{len(args.scripts)}] {script_path} ===")
+        try:
+            build(script_path, cfg, args.out)
+        except (SystemExit, Exception) as e:
+            if not isinstance(e, SystemExit):
+                print(f"  ! {script_path} failed: {e}", file=sys.stderr)
+            failed.append(script_path)
+    if failed:
+        print(f"\n{len(failed)} of {len(args.scripts)} script(s) failed:", file=sys.stderr)
+        for p in failed:
+            print(f"  {p}", file=sys.stderr)
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":

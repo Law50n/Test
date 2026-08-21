@@ -39,6 +39,11 @@ a real photo, which is useful for testing but not for actually publishing.
 
 ```bash
 python -m pipeline.run content/scripts/science/001-mantis-shrimp-punch.json
+
+# or a whole category / the whole backlog at once -- one bad script
+# doesn't stop the rest, failures are summarized at the end
+python -m pipeline.run content/scripts/tech/*.json
+python -m pipeline.run content/scripts/*/*.json
 ```
 
 Output lands in `output/<script-id>/`: `video.mp4`, `thumbnail.jpg`,
