@@ -1,0 +1,15 @@
+{
+  "category": "tech",
+  "id": "002-apollo-vs-smartphone",
+  "title": "Your Phone Could Have Flown the Apollo Missions Millions of Times Over",
+  "description": "The computer that guided Apollo 11 to the Moon had a tiny fraction of the processing power of the phone in your pocket. Here's the actual comparison.\n\n#shorts #techfacts #space",
+  "tags": ["tech facts", "space history", "apollo 11", "did you know", "shorts"],
+  "scenes": [
+    { "text": "The computer that landed astronauts on the Moon was less powerful than a calculator you'd find in a drawer today.", "visual_query": "apollo mission control vintage" },
+    { "text": "The Apollo Guidance Computer ran at about one point two megahertz, with roughly seventy three kilobytes of memory total.", "visual_query": "vintage circuit board computer" },
+    { "text": "A modern smartphone runs at billions of operations per second, with memory measured in gigabytes, not kilobytes.", "visual_query": "smartphone technology closeup" },
+    { "text": "That's a difference of roughly a hundred thousand times the processing power, sitting in your pocket right now.", "visual_query": "moon landing astronaut" },
+    { "text": "And yet the Apollo Guidance Computer got three separate missions safely to the lunar surface and back.", "visual_query": "moon surface apollo mission" },
+    { "text": "It's not really about raw power. It's that every line of that code had to work perfectly, on the first try, with no updates possible.", "visual_query": "rocket launch night sky" }
+  ]
+}

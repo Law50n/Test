@@ -1,0 +1,40 @@
+{
+  "category": "science",
+  "id": "006-gravity-hoax-debunked",
+  "title": "The 'Earth Loses Gravity' Hoax, Explained",
+  "description": "A viral claim said Earth would lose gravity for 7 seconds on August 12, 2026, and that NASA spent $89 billion preparing for it. Neither is true. Here's where the hoax actually came from, and why gravity can't do what the claim says.\n\nSources: NASA's public statement debunking the claim; reporting from Newskarnataka and VT.co tracing the hoax's origin to a 2020 hypothetical video by the YouTube channel What If.\n\n#shorts #sciencefacts #mythbusting",
+  "tags": [
+    "science facts",
+    "myth busting",
+    "nasa",
+    "viral hoax debunked",
+    "did you know",
+    "shorts"
+  ],
+  "scenes": [
+    {
+      "text": "In August 2026, a claim went viral that Earth would lose gravity for exactly seven seconds. Here's what actually happened.",
+      "visual_query": "earth from space viral"
+    },
+    {
+      "text": "The claim said NASA spent eighty nine billion dollars on a secret project called Operation Anchor, just to survive it.",
+      "visual_query": "nasa control room space"
+    },
+    {
+      "text": "NASA never confirmed any of this, because none of it is real. There is no Operation Anchor, and no such budget.",
+      "visual_query": "nasa building exterior"
+    },
+    {
+      "text": "Gravity also isn't the kind of thing that can just pause. It's not a switch, it's the shape spacetime takes because mass exists.",
+      "visual_query": "spacetime gravity illustration"
+    },
+    {
+      "text": "The hoax traces back to a 2020 video by the channel What If, which explored gravity vanishing as a pure thought experiment, not a prediction.",
+      "visual_query": "hypothetical space thought experiment"
+    },
+    {
+      "text": "August twelfth came and went. Nothing happened, because nothing was ever going to. Always check who's actually making the claim.",
+      "visual_query": "calendar date passing time"
+    }
+  ]
+}

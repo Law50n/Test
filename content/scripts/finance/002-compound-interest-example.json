@@ -1,0 +1,15 @@
+{
+  "category": "finance",
+  "id": "002-compound-interest-example",
+  "title": "The Math Trick That Quietly Doubles Money",
+  "description": "Compound interest looks boring until you actually run the numbers. Here's the simple rule that shows how fast it moves.\n\nEducational content, not financial advice.\n\n#shorts #financefacts #money",
+  "tags": ["finance facts", "compound interest", "money facts", "did you know", "shorts"],
+  "scenes": [
+    { "text": "There's a simple trick that tells you how fast money doubles, and it's just one division problem.", "visual_query": "calculator numbers finance" },
+    { "text": "It's called the rule of seventy two. Divide seventy two by your interest rate, and you get roughly how many years it takes to double.", "visual_query": "growth chart arrow up" },
+    { "text": "At six percent a year, that's seventy two divided by six, or twelve years to double your money.", "visual_query": "money growing plant coins" },
+    { "text": "At two percent, it's thirty six years. The rate doesn't just matter a little, it changes the entire timeline.", "visual_query": "clock time passing" },
+    { "text": "The reason it works is that each year's growth also earns growth of its own, not just the original amount.", "visual_query": "compound growth chart graph" },
+    { "text": "That compounding effect is exactly why starting earlier tends to matter more than the exact rate you get.", "visual_query": "savings jar coins growing" }
+  ]
+}

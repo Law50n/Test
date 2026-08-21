@@ -1,0 +1,15 @@
+{
+  "category": "wellbeing",
+  "id": "002-all-nighter-memory",
+  "title": "Why All-Nighters Wreck Your Memory the Next Day",
+  "description": "Pulling an all-nighter doesn't just make you tired. Here's what's actually happening to your memory while you skip sleep.\n\nEducational content, not medical advice.\n\n#shorts #wellbeing #sleepfacts",
+  "tags": ["wellbeing", "sleep facts", "brain facts", "did you know", "shorts"],
+  "scenes": [
+    { "text": "Skipping a full night of sleep doesn't just make you tired. It changes how your brain handles what you just learned.", "visual_query": "person tired studying night" },
+    { "text": "During deep sleep, the brain replays the day's experiences, moving them from short-term into longer-term storage.", "visual_query": "brain sleep illustration" },
+    { "text": "Researchers call this memory consolidation, and it happens mainly in specific sleep stages you only get with real, uninterrupted sleep.", "visual_query": "person sleeping peacefully" },
+    { "text": "Pull an all-nighter, and that replay process gets cut short, so the information never fully locks in.", "visual_query": "alarm clock late night" },
+    { "text": "That's part of why cramming right before a test often backfires, even if it feels productive in the moment.", "visual_query": "coffee cup late night desk" },
+    { "text": "Sleep researchers generally agree that a full night of sleep after learning something new does more for retention than extra study time.", "visual_query": "person waking up rested morning" }
+  ]
+}

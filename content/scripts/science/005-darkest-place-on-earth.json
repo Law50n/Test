@@ -1,0 +1,40 @@
+{
+  "category": "science",
+  "id": "005-darkest-place-on-earth",
+  "title": "The Deepest Point On Earth Is Darker Than You Think",
+  "description": "Challenger Deep, at the bottom of the Mariana Trench, is deep enough to swallow Mount Everest with room to spare. This is what it actually takes to survive down there.\n\n#shorts #sciencefacts #ocean",
+  "tags": [
+    "science facts",
+    "mariana trench",
+    "ocean facts",
+    "deep sea",
+    "did you know",
+    "shorts"
+  ],
+  "scenes": [
+    {
+      "text": "Sunlight stops reaching the ocean in any meaningful way at around one thousand meters down.",
+      "visual_query": "deep ocean dark blue water"
+    },
+    {
+      "text": "The Mariana Trench's deepest point, Challenger Deep, sits almost eleven thousand meters below the surface.",
+      "visual_query": "ocean trench dark deep"
+    },
+    {
+      "text": "If you dropped Mount Everest into it, the peak would still sit over two kilometers underwater.",
+      "visual_query": "mountain peak snow aerial"
+    },
+    {
+      "text": "Down there, the water pressure is over a thousand times what you feel at the surface, enough to crush most submarines.",
+      "visual_query": "submarine deep ocean"
+    },
+    {
+      "text": "And yet, life still finds a way. Researchers have found shrimp-like creatures and even microbial life at the very bottom.",
+      "visual_query": "deep sea creature bioluminescent"
+    },
+    {
+      "text": "We've mapped more of the surface of Mars than we have of our own ocean floor.",
+      "visual_query": "ocean floor dark mysterious"
+    }
+  ]
+}

@@ -4,7 +4,23 @@ Turns a script (JSON) into a captioned, vertical Short: text-to-speech
 narration, stock or generated visuals with a Ken Burns pan/zoom, burned-in
 captions, and a thumbnail. Every stage has a genuinely free path — see the
 [blueprint](https://claude.ai/code/artifact/e2569c60-49e2-44b7-928c-6d35963d9351)
-this was planned from for the niche pick and reasoning.
+this was planned from for the original niche reasoning (since revised, see
+below).
+
+## Multiple sectors, one channel
+
+The channel now runs several content pillars at once instead of a single
+niche: `science`, `tech`, `finance`, `wellbeing`, with room for more. One
+tradeoff worth knowing going in: a single-niche channel usually gets
+recommended faster early on, because YouTube's algorithm has a narrower
+audience intent to match against. Running several pillars from day one
+trades some of that early velocity for a faster read on which sector
+actually resonates — reasonable, as long as each pillar stays organized
+enough that a viewer (and the algorithm) can still tell what they're getting.
+That's what `category` does: it's a playlist/series label, not decoration —
+group each category into its own YouTube playlist so the structure carries
+through to the channel itself, and watch view/retention numbers per category
+to decide where to double down.
 
 ## Setup
 
@@ -22,7 +38,7 @@ a real photo, which is useful for testing but not for actually publishing.
 ## Run it
 
 ```bash
-python -m pipeline.run content/scripts/001-mantis-shrimp-punch.json
+python -m pipeline.run content/scripts/science/001-mantis-shrimp-punch.json
 ```
 
 Output lands in `output/<script-id>/`: `video.mp4`, `thumbnail.jpg`,
@@ -40,14 +56,16 @@ Output lands in `output/<script-id>/`: `video.mp4`, `thumbnail.jpg`,
 
 ## Writing a new script
 
-Drop a new JSON file in `content/scripts/`:
+Drop a new JSON file in `content/scripts/<category>/`, where `<category>` is
+`science`, `tech`, `finance`, `wellbeing`, or a new one you're testing:
 
 ```json
 {
-  "id": "006-my-topic",
+  "category": "tech",
+  "id": "003-my-topic",
   "title": "Video title",
   "description": "YouTube description, hashtags included.",
-  "tags": ["science facts", "shorts"],
+  "tags": ["tech facts", "shorts"],
   "scenes": [
     { "text": "One or two sentences of narration.", "visual_query": "search terms for a matching stock photo" }
   ]
@@ -56,25 +74,34 @@ Drop a new JSON file in `content/scripts/`:
 
 Each scene becomes its own TTS clip + one Ken Burns still. Keep scene text to
 a sentence or two — that's what keeps the visual change matched to the
-narration beat.
+narration beat. `category` isn't just organizational: it lands in
+`metadata.txt` as the playlist to file the upload under.
+
+`finance` and `wellbeing` scripts carry real compliance weight the other two
+don't: keep them factual/historical/educational (what happened, what the
+research says) rather than prescriptive ("do X with your money", "you should
+sleep Y hours"), and put an "Educational content, not financial/medical
+advice" line in the description, same as scripts 001 in each of those
+folders. That's a content-liability line, not boilerplate — skipping it on
+these two categories is the one shortcut worth not taking.
 
 ### Two ways to source a script
 
-**Evergreen facts** (scripts 001–005) — a standalone fact that doesn't depend
-on anything currently happening. Ask Claude for a batch in this niche and
-it'll write from general knowledge, following the schema above.
+**Evergreen facts** — a standalone fact that doesn't depend on anything
+currently happening. Ask Claude for a batch in a given category and it'll
+write from general knowledge, following the schema above.
 
-**Commentary on something real** (script 006 on) — research an actual current
-claim, story, or hoax circulating right now, and write a script that reports
-on and explains it, sources cited in the `description`. This is the
+**Commentary on something real** (`science/006` on) — research an actual
+current claim, story, or hoax circulating right now, and write a script that
+reports on and explains it, sources cited in the `description`. This is the
 "clip other creators' content" idea in its legally sound form: you're not
 re-uploading anyone's video, you're doing commentary/analysis on a claim —
-the same fair-use footing as news coverage. Script 006 (the "Earth loses
+the same fair-use footing as news coverage. `science/006` (the "Earth loses
 gravity for 7 seconds" hoax) is a worked example: real viral claim, NASA's
 actual debunk, sources in the description. Ask Claude to find a current
-story in the niche and draft one of these when you want the channel to be
-reacting to what's actually happening rather than running on an evergreen
-backlog alone.
+story in any of the categories and draft one of these when you want the
+channel reacting to what's actually happening rather than running on an
+evergreen backlog alone.
 
 What this repo deliberately does **not** build: downloading and embedding
 clips of someone else's video (reaction/picture-in-picture style). That's a

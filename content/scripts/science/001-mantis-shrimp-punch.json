@@ -1,0 +1,40 @@
+{
+  "category": "science",
+  "id": "001-mantis-shrimp-punch",
+  "title": "The Punch That Boils Water",
+  "description": "The peacock mantis shrimp throws the fastest punch in the animal kingdom \u2014 fast enough to superheat the water around it. Here's how it works, and why its eyes are just as wild as its claw.\n\n#shorts #sciencefacts #oceananimals",
+  "tags": [
+    "science facts",
+    "mantis shrimp",
+    "ocean animals",
+    "weird animals",
+    "did you know",
+    "shorts"
+  ],
+  "scenes": [
+    {
+      "text": "This shrimp punches so fast, it makes the water around it boil.",
+      "visual_query": "mantis shrimp colorful macro"
+    },
+    {
+      "text": "The peacock mantis shrimp swings its claw with the acceleration of a bullet leaving a gun barrel.",
+      "visual_query": "bullet gun barrel closeup"
+    },
+    {
+      "text": "It moves so fast it superheats the water for a fraction of a second, creating a flash of light and a shockwave called cavitation.",
+      "visual_query": "underwater bubbles shockwave"
+    },
+    {
+      "text": "That shockwave alone can stun or kill prey, even if the claw itself misses.",
+      "visual_query": "small fish swimming ocean"
+    },
+    {
+      "text": "Its eyes are just as strange. It sees with sixteen types of color receptors, compared to the three humans have.",
+      "visual_query": "coral reef macro eye colorful"
+    },
+    {
+      "text": "Follow for more facts about the ocean that sound made up but aren't.",
+      "visual_query": "coral reef wide shot ocean"
+    }
+  ]
+}

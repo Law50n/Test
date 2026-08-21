@@ -1,0 +1,15 @@
+{
+  "category": "wellbeing",
+  "id": "001-contagious-yawns",
+  "title": "Why Yawns Are Contagious (Probably)",
+  "description": "You just yawned reading that, didn't you? Here's what scientists actually think is going on when yawns spread between people.\n\nEducational content, not medical advice.\n\n#shorts #wellbeing #psychologyfacts",
+  "tags": ["wellbeing", "psychology facts", "brain facts", "did you know", "shorts"],
+  "scenes": [
+    { "text": "Just reading the word yawn makes a lot of people yawn. That's not a coincidence.", "visual_query": "person yawning tired" },
+    { "text": "Contagious yawning shows up in humans as early as childhood, and researchers have also seen it in chimps and dogs.", "visual_query": "dog yawning cute" },
+    { "text": "One leading theory ties it to empathy. Studies have found people yawn more in response to those they feel socially close to.", "visual_query": "people talking closely social" },
+    { "text": "Brain imaging studies point to regions involved in social awareness lighting up during contagious yawning.", "visual_query": "brain scan illustration" },
+    { "text": "It's still an active area of research, and not every scientist agrees on exactly why it happens.", "visual_query": "scientist research lab" },
+    { "text": "But the pattern itself is well documented: yawns spread through a room like a quiet, involuntary form of social mirroring.", "visual_query": "group of people yawning" }
+  ]
+}

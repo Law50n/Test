@@ -12,6 +12,7 @@ class Scene:
 @dataclass
 class VideoScript:
     id: str
+    category: str
     title: str
     description: str
     tags: list[str]
@@ -20,12 +21,13 @@ class VideoScript:
     @classmethod
     def load(cls, path: Path) -> "VideoScript":
         data = json.loads(Path(path).read_text())
-        required = {"id", "title", "description", "tags", "scenes"}
+        required = {"id", "category", "title", "description", "tags", "scenes"}
         missing = required - data.keys()
         if missing:
             raise ValueError(f"{path} is missing required field(s): {sorted(missing)}")
         return cls(
             id=data["id"],
+            category=data["category"],
             title=data["title"],
             description=data["description"],
             tags=data["tags"],

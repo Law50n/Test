@@ -81,7 +81,10 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
         shutil.copy(srt_path, out_dir / "captions.srt")
 
     (out_dir / "metadata.txt").write_text(
-        f"Title: {script.title}\n\n{script.description}\n\nTags: {', '.join(script.tags)}\n"
+        f"Title: {script.title}\n"
+        f"Category/playlist: {script.category}\n\n"
+        f"{script.description}\n\n"
+        f"Tags: {', '.join(script.tags)}\n"
     )
 
     print(f"\nDone: {out_dir}/")

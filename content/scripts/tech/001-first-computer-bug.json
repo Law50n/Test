@@ -1,0 +1,15 @@
+{
+  "category": "tech",
+  "id": "001-first-computer-bug",
+  "title": "The First Computer 'Bug' Was an Actual Bug",
+  "description": "Before \"bug\" meant a software glitch, it meant an actual insect stuck in a computer. Here's the real 1947 story, and the logbook page that's still around to prove it.\n\n#shorts #techfacts #computerhistory",
+  "tags": ["tech facts", "computer history", "programming", "did you know", "shorts"],
+  "scenes": [
+    { "text": "In 1947, engineers at Harvard found the first ever computer bug. It was a literal moth.", "visual_query": "vintage computer relay machine" },
+    { "text": "The Harvard Mark II, a room-sized relay computer, kept failing, and nobody could figure out why.", "visual_query": "old mainframe computer room vintage" },
+    { "text": "When the team opened it up, they found a moth trapped between the relay contacts, jamming the circuit.", "visual_query": "moth insect macro" },
+    { "text": "They taped the moth into the logbook with the note, quote, first actual case of bug being found.", "visual_query": "old notebook logbook handwriting" },
+    { "text": "The term 'bug' for a technical glitch already existed before this, going back to Thomas Edison. But this moment is why 'debugging' stuck.", "visual_query": "thomas edison workshop vintage" },
+    { "text": "That logbook page still exists today, in the Smithsonian's collection. A real moth, taped down, that gave programming its favorite word.", "visual_query": "museum archive display case" }
+  ]
+}

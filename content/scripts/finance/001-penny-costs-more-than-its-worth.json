@@ -1,0 +1,15 @@
+{
+  "category": "finance",
+  "id": "001-penny-costs-more-than-its-worth",
+  "title": "Why It Costs More Than a Penny to Make a Penny",
+  "description": "The US penny has cost more to produce than it's actually worth for years running. Here's why, and why that math finally caught up with it.\n\nEducational content, not financial advice.\n\n#shorts #financefacts #money",
+  "tags": ["finance facts", "money facts", "us mint", "did you know", "shorts"],
+  "scenes": [
+    { "text": "For years, it has cost the US government more than one cent to make a single penny.", "visual_query": "us penny coin closeup" },
+    { "text": "Most of that cost comes from the metal itself, mainly zinc with a thin copper coating, plus the cost of striking and shipping the coins.", "visual_query": "coin manufacturing factory" },
+    { "text": "The US Mint has reported a loss on every penny made for well over a decade, adding up to real money at billions of coins produced.", "visual_query": "pile of coins pennies" },
+    { "text": "It's not just a US problem either. Canada eliminated its penny back in 2013 for the exact same reason.", "visual_query": "canadian coins currency" },
+    { "text": "When a coin costs more to make than it's worth, minting more of them is a losing trade by definition, no matter how small each loss looks.", "visual_query": "government treasury building" },
+    { "text": "That math is exactly why the US has been moving to wind down penny production altogether.", "visual_query": "coins on table finance" }
+  ]
+}
