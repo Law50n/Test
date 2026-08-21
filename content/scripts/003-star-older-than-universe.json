@@ -1,0 +1,14 @@
+{
+  "id": "003-star-older-than-universe",
+  "title": "The Star That's Older Than The Universe",
+  "description": "For years, one star's age estimate was older than the universe it lives in. It's not magic, it's measurement error — but the story shows how astronomers actually date the cosmos.\n\n#shorts #sciencefacts #space",
+  "tags": ["science facts", "space facts", "astronomy", "universe", "did you know", "shorts"],
+  "scenes": [
+    { "text": "There is a star that, for a while, was calculated to be older than the universe itself.", "visual_query": "bright star night sky" },
+    { "text": "It's called HD 140283, nicknamed the Methuselah star, and it sits about two hundred light years away.", "visual_query": "deep space stars telescope" },
+    { "text": "Early measurements put its age at around sixteen billion years. The universe itself is only about thirteen point eight billion years old.", "visual_query": "galaxy spiral space" },
+    { "text": "That's a paradox. A star cannot be older than the universe that made it.", "visual_query": "black space stars wide" },
+    { "text": "The fix came from the Hubble Space Telescope, which narrowed the star's age to around fourteen point five billion years, with enough uncertainty to fit inside the universe's real age after all.", "visual_query": "space telescope stars" },
+    { "text": "Still one of the oldest stars ever found, and a reminder that even the universe's age comes with error bars.", "visual_query": "night sky full of stars" }
+  ]
+}

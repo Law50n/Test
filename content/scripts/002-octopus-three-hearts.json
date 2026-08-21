@@ -1,0 +1,14 @@
+{
+  "id": "002-octopus-three-hearts",
+  "title": "Why Octopuses Have Three Hearts",
+  "description": "Octopuses run on three hearts and blue blood — and two of those hearts stop beating every time they swim. Here's why evolution built them this way.\n\n#shorts #sciencefacts #octopus",
+  "tags": ["science facts", "octopus", "ocean animals", "biology facts", "did you know", "shorts"],
+  "scenes": [
+    { "text": "An octopus has three hearts. And when it swims, one of them actually stops beating.", "visual_query": "octopus swimming ocean" },
+    { "text": "Two of the hearts pump blood to the gills, and one pumps it to the rest of the body.", "visual_query": "octopus gills underwater closeup" },
+    { "text": "That third heart is so inefficient at circulating blood during swimming that octopuses get tired fast, and mostly prefer crawling.", "visual_query": "octopus crawling ocean floor" },
+    { "text": "Their blood is also blue, not red, because it uses copper instead of iron to carry oxygen.", "visual_query": "ocean deep blue water" },
+    { "text": "That copper-based blood works better in cold, low-oxygen water, exactly where a lot of octopuses live.", "visual_query": "cold deep ocean water dark" },
+    { "text": "Three hearts, blue blood, and nine brains total. The ocean did not hold back on this one.", "visual_query": "octopus close up eye" }
+  ]
+}
