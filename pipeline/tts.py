@@ -26,20 +26,29 @@ async def _synthesize_edge(text: str, out_mp3: Path, voice: str) -> list[dict]:
     import edge_tts
 
     words: list[dict] = []
-    communicate = edge_tts.Communicate(text, voice)
-    with open(out_mp3, "wb") as f:
-        async for chunk in communicate.stream():
-            if chunk["type"] == "audio":
-                f.write(chunk["data"])
-            elif chunk["type"] == "WordBoundary":
-                # edge-tts reports offsets in 100-nanosecond units.
-                words.append(
-                    {
-                        "word": chunk["text"],
-                        "start": chunk["offset"] / 1e7,
-                        "end": (chunk["offset"] + chunk["duration"]) / 1e7,
-                    }
-                )
+    try:
+        communicate = edge_tts.Communicate(text, voice)
+        with open(out_mp3, "wb") as f:
+            async for chunk in communicate.stream():
+                if chunk["type"] == "audio":
+                    f.write(chunk["data"])
+                elif chunk["type"] == "WordBoundary":
+                    # edge-tts reports offsets in 100-nanosecond units. Each
+                    # "text" is a bare word with no trailing space, so add one
+                    # here -- captions.words_to_captions() joins these back
+                    # together and expects the same convention _synthesize_offline
+                    # below already uses.
+                    words.append(
+                        {
+                            "word": chunk["text"] + " ",
+                            "start": chunk["offset"] / 1e7,
+                            "end": (chunk["offset"] + chunk["duration"]) / 1e7,
+                        }
+                    )
+    except TTSError:
+        raise
+    except Exception as e:
+        raise TTSError(f"edge-tts failed: {e}") from e
     if out_mp3.stat().st_size == 0:
         raise TTSError(
             "edge-tts returned no audio (usually a network/firewall issue reaching "

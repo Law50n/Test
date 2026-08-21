@@ -5,7 +5,9 @@ import hashlib
 from pathlib import Path
 
 import requests
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw
+
+from pipeline.fonts import load_font, wrap
 
 PEXELS_SEARCH_URL = "https://api.pexels.com/v1/search"
 
@@ -27,21 +29,28 @@ class _PexelsError(RuntimeError):
 
 
 def _fetch_pexels(query: str, out_path: Path, api_key: str) -> None:
-    resp = requests.get(
-        PEXELS_SEARCH_URL,
-        headers={"Authorization": api_key},
-        params={"query": query, "orientation": "portrait", "per_page": 1},
-        timeout=15,
-    )
-    if resp.status_code != 200:
-        raise _PexelsError(f"HTTP {resp.status_code}")
-    photos = resp.json().get("photos") or []
-    if not photos:
-        raise _PexelsError("no results")
-    image_url = photos[0]["src"]["large2x"]
-    image_resp = requests.get(image_url, timeout=30)
-    image_resp.raise_for_status()
-    out_path.write_bytes(image_resp.content)
+    try:
+        resp = requests.get(
+            PEXELS_SEARCH_URL,
+            headers={"Authorization": api_key},
+            params={"query": query, "orientation": "portrait", "per_page": 1},
+            timeout=15,
+        )
+        if resp.status_code != 200:
+            raise _PexelsError(f"HTTP {resp.status_code}")
+        photos = resp.json().get("photos") or []
+        if not photos:
+            raise _PexelsError("no results")
+        image_url = photos[0]["src"]["large2x"]
+        image_resp = requests.get(image_url, timeout=30)
+        image_resp.raise_for_status()
+        out_path.write_bytes(image_resp.content)
+    except _PexelsError:
+        raise
+    except requests.exceptions.RequestException as e:
+        raise _PexelsError(f"request failed: {e}") from e
+    except (KeyError, ValueError) as e:
+        raise _PexelsError(f"unexpected response shape: {e}") from e
 
 
 def _generate_placeholder(query: str, out_path: Path, size: tuple[int, int]) -> None:
@@ -62,8 +71,8 @@ def _generate_placeholder(query: str, out_path: Path, size: tuple[int, int]) -> 
         ImageDraw.Draw(img).line([(0, y), (width, y)], fill=row)
 
     draw = ImageDraw.Draw(img)
-    font = _load_font(size=int(width * 0.06))
-    lines = _wrap(query.upper(), font, draw, max_width=int(width * 0.85))
+    font = load_font(size=int(width * 0.06))
+    lines = wrap(query.upper(), font, draw, max_width=int(width * 0.85))
     line_height = font.size * 1.2
     y = (height - line_height * len(lines)) / 2
     for line in lines:
@@ -79,32 +88,6 @@ def _generate_placeholder(query: str, out_path: Path, size: tuple[int, int]) -> 
         )
         y += line_height
     img.save(out_path, quality=90)
-
-
-def _wrap(text: str, font: ImageFont.FreeTypeFont, draw: ImageDraw.ImageDraw, max_width: int) -> list[str]:
-    words = text.split()
-    lines, current = [], ""
-    for word in words:
-        candidate = f"{current} {word}".strip()
-        if draw.textlength(candidate, font=font) <= max_width:
-            current = candidate
-        else:
-            if current:
-                lines.append(current)
-            current = word
-    if current:
-        lines.append(current)
-    return lines
-
-
-def _load_font(size: int) -> ImageFont.FreeTypeFont:
-    for candidate in (
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
-        "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
-    ):
-        if Path(candidate).exists():
-            return ImageFont.truetype(candidate, size)
-    return ImageFont.load_default()
 
 
 def _hsl_to_rgb(h: float, s: float, l: float) -> tuple[int, int, int]:

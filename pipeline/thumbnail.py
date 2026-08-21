@@ -3,7 +3,9 @@ always something to upload without opening a design tool.
 """
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageEnhance, ImageFont
+from PIL import Image, ImageDraw, ImageEnhance
+
+from pipeline.fonts import load_font, wrap
 
 THUMB_SIZE = (1280, 720)  # YouTube's recommended thumbnail size
 
@@ -23,8 +25,8 @@ def make_thumbnail(source_image: Path, title: str, out_path: Path) -> None:
     img = Image.alpha_composite(img.convert("RGBA"), overlay).convert("RGB")
 
     draw = ImageDraw.Draw(img)
-    font = _load_font(size=int(img.width * 0.075))
-    lines = _wrap(title.upper(), font, draw, max_width=int(img.width * 0.9))
+    font = load_font(size=int(img.width * 0.075))
+    lines = wrap(title.upper(), font, draw, max_width=int(img.width * 0.9))
     line_height = font.size * 1.15
     total_h = line_height * len(lines)
     y = img.height - total_h - img.height * 0.06
@@ -58,29 +60,3 @@ def _cover_resize(img: Image.Image, size: tuple[int, int]) -> Image.Image:
     left = (new_w - target_w) // 2
     top = (new_h - target_h) // 2
     return img.crop((left, top, left + target_w, top + target_h))
-
-
-def _wrap(text: str, font: ImageFont.FreeTypeFont, draw: ImageDraw.ImageDraw, max_width: int) -> list[str]:
-    words = text.split()
-    lines, current = [], ""
-    for word in words:
-        candidate = f"{current} {word}".strip()
-        if draw.textlength(candidate, font=font) <= max_width:
-            current = candidate
-        else:
-            if current:
-                lines.append(current)
-            current = word
-    if current:
-        lines.append(current)
-    return lines
-
-
-def _load_font(size: int) -> ImageFont.FreeTypeFont:
-    for candidate in (
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
-        "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
-    ):
-        if Path(candidate).exists():
-            return ImageFont.truetype(candidate, size)
-    return ImageFont.load_default()
