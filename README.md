@@ -115,6 +115,41 @@ question, and straight re-uploads with no added commentary are the weakest
 legal position of the three options — treat it as a separate decision, not
 a natural next step from this pipeline.
 
+## Optional: AI talking-head presenter (experimental, untested)
+
+`pipeline/avatar.py` renders one full script as a single talking-head video
+through [D-ID's API](https://www.d-id.com/) instead of the stock-visual Ken
+Burns pipeline, for testing whether a synthetic on-screen presenter is worth
+pursuing before investing further. Some things worth knowing before you try
+it:
+
+- **It's not a repeatable step.** D-ID's free trial is a one-time ~5 minutes
+  of video, not a per-video budget like Pexels/edge-tts above. HeyGen, the
+  other obvious option, dropped free API access entirely as of Feb 2026 —
+  its free tier is web-UI-only, watermarked, and can't be scripted, so it
+  doesn't fit this pipeline at all.
+- **It's genuinely untested.** This was built and reviewed in a sandbox whose
+  network policy blocks both `api.d-id.com` and D-ID's own docs, so unlike
+  the rest of this repo, nobody has run it against the real API yet. The
+  request shape matches D-ID's long-stable `/talks` endpoint, but confirm
+  field names against your own dashboard before spending trial credits on it.
+- **The source face matters.** Use a synthetic (AI-generated, not a real
+  person) or explicitly-licensed presenter image. A real, identifiable
+  person's photo turned into a fake talking channel persona is a
+  likeness/consent problem no matter how the photo itself is licensed.
+- **Disclose it.** If the result is realistic enough to pass for an actual
+  person, YouTube's synthetic media policy requires labeling it as
+  AI-generated/altered.
+
+```bash
+# D_ID_API_KEY in .env, from your D-ID dashboard
+python -m pipeline.avatar content/scripts/science/006-gravity-hoax-debunked.json \
+  --face-url https://example.com/your-synthetic-presenter.jpg
+```
+
+Spend the one-time trial on your strongest script — there's no re-run budget
+if the first attempt doesn't land.
+
 ## How captions get their timing
 
 The `edge` engine reports word-level timestamps as it synthesizes (an
