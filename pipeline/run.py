@@ -10,7 +10,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-from pipeline import assemble, captions, thumbnail, visuals
+from pipeline import assemble, captions, thumbnail, video_clips, visuals
 from pipeline.config import Config
 from pipeline.script_loader import VideoScript
 from pipeline.tts import TTSError, synthesize
@@ -39,11 +39,28 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
                 raise SystemExit(1)
             duration = assemble.get_duration(audio_path)
 
-            image_path = tmp_dir / f"scene_{i:02d}.jpg"
-            source = visuals.fetch_visual(scene.visual_query, image_path, cfg.pexels_api_key, cfg.size)
-            print(f"  visual: {source} ({scene.visual_query!r})")
+            clip_path = tmp_dir / f"clip_{i:02d}.mp4"
+            if script.visual_mode == "video":
+                visual_path = tmp_dir / f"scene_{i:02d}.media"
+                source = video_clips.fetch_video_clip(
+                    scene.visual_query, visual_path, cfg.pexels_api_key, cfg.size, duration
+                )
+                print(f"  visual: {source} ({scene.visual_query!r})")
+                if source == "pexels_video":
+                    assemble.make_scene_clip_from_video(visual_path, audio_path, duration, clip_path, cfg.size)
+                else:
+                    assemble.make_scene_clip(
+                        visual_path, audio_path, duration, clip_path, cfg.size, zoom_in=(i % 2 == 0)
+                    )
+            else:
+                visual_path = tmp_dir / f"scene_{i:02d}.jpg"
+                source = visuals.fetch_visual(scene.visual_query, visual_path, cfg.pexels_api_key, cfg.size)
+                print(f"  visual: {source} ({scene.visual_query!r})")
+                assemble.make_scene_clip(
+                    visual_path, audio_path, duration, clip_path, cfg.size, zoom_in=(i % 2 == 0)
+                )
             if first_visual is None:
-                first_visual = image_path
+                first_visual = visual_path
 
             if words:
                 for w in words:
@@ -53,10 +70,6 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
                     all_captions.append({**w, "start": w["start"] + cursor, "end": w["end"] + cursor})
             cursor += duration
 
-            clip_path = tmp_dir / f"clip_{i:02d}.mp4"
-            assemble.make_scene_clip(
-                image_path, audio_path, duration, clip_path, cfg.size, zoom_in=(i % 2 == 0)
-            )
             clip_paths.append(clip_path)
 
         print("Concatenating scenes...")
@@ -77,7 +90,9 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
         assemble.burn_captions(concat_path, ass_path, final_video)
 
         print("Building thumbnail...")
-        thumbnail.make_thumbnail(first_visual, script.title, out_dir / "thumbnail.jpg")
+        thumb_source = tmp_dir / "thumb_source.jpg"
+        assemble.extract_frame(first_visual, thumb_source)
+        thumbnail.make_thumbnail(thumb_source, script.title, out_dir / "thumbnail.jpg")
 
         shutil.copy(srt_path, out_dir / "captions.srt")
 

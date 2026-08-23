@@ -6,6 +6,7 @@ from pathlib import Path
 # Script ids become tempdir prefixes and get embedded, unescaped, in ffmpeg
 # concat-file paths (see assemble.concat_clips) -- keep them shell/ffmpeg-safe.
 _ID_PATTERN = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
+VISUAL_MODES = {"photo", "video"}
 
 
 @dataclass
@@ -22,6 +23,7 @@ class VideoScript:
     description: str
     tags: list[str]
     scenes: list[Scene]
+    visual_mode: str = "photo"
 
     @classmethod
     def load(cls, path: Path) -> "VideoScript":
@@ -36,6 +38,9 @@ class VideoScript:
             )
         if not data["scenes"]:
             raise ValueError(f"{path} has an empty \"scenes\" list")
+        visual_mode = data.get("visual_mode", "photo")
+        if visual_mode not in VISUAL_MODES:
+            raise ValueError(f"{path}: \"visual_mode\" must be one of {sorted(VISUAL_MODES)}, got {visual_mode!r}")
         scenes = []
         for i, s in enumerate(data["scenes"]):
             missing_scene_fields = {"text", "visual_query"} - s.keys()
@@ -49,4 +54,5 @@ class VideoScript:
             description=data["description"],
             tags=data["tags"],
             scenes=scenes,
+            visual_mode=visual_mode,
         )

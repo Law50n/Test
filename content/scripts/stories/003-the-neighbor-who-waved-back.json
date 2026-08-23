@@ -1,0 +1,16 @@
+{
+  "category": "stories",
+  "id": "003-the-neighbor-who-waved-back",
+  "title": "My New Neighbor Waves At The Exact Same Second Every Morning",
+  "description": "A short fiction story. When you move somewhere new, you notice things. This is about the thing I noticed at 7:14 every morning.\n\n#shorts #shortstory #fiction",
+  "tags": ["short story", "fiction", "creepy story", "shorts"],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "When I moved in, I noticed my neighbor across the street waves at me every morning. Same time. Seven fourteen, exactly.", "visual_query": "suburban street morning" },
+    { "text": "Not close to seven fourteen. Exactly. I started timing it on my phone out of curiosity, and it never once changed.", "visual_query": "hand holding phone checking time" },
+    { "text": "So I tested it. I left ten minutes late one day. I still caught the wave, dead on seven fourteen, like they knew I'd be there.", "visual_query": "empty street early morning" },
+    { "text": "I asked a different neighbor about them. She looked confused. She said that house has been empty for eight months.", "visual_query": "house window curtains" },
+    { "text": "I stood on my porch the next morning, staring at that dark, empty window, waiting.", "visual_query": "dark window house exterior" },
+    { "text": "At seven fourteen, I saw the wave again. It was in the glass. I was looking at my own reflection the whole time.", "visual_query": "window reflection glass" }
+  ]
+}

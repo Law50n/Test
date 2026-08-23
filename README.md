@@ -10,7 +10,8 @@ below).
 ## Multiple sectors, one channel
 
 The channel now runs several content pillars at once instead of a single
-niche: `science`, `tech`, `finance`, `wellbeing`, with room for more. One
+niche: `science`, `tech`, `finance`, `wellbeing`, `stories`, with room for
+more. One
 tradeoff worth knowing going in: a single-niche channel usually gets
 recommended faster early on, because YouTube's algorithm has a narrower
 audience intent to match against. Running several pillars from day one
@@ -114,6 +115,38 @@ heavier pipeline with its own YouTube ToS exposure on top of the copyright
 question, and straight re-uploads with no added commentary are the weakest
 legal position of the three options — treat it as a separate decision, not
 a natural next step from this pipeline.
+
+## The `stories` category: narrative Shorts with real video clips
+
+`stories` is a different content shape from the fact-list categories above:
+a beginning-middle-twist narrative instead of a run of standalone facts,
+mixing real researched events (`001`, `002` — D.B. Cooper, the Boston
+Molasses Flood, both sourced and cited the same way as `science/006`) with
+original short fiction (`003`, `004`).
+
+It also runs on real stock **video** clips instead of Ken Burns stills — set
+`"visual_mode": "video"` in the script JSON (default is `"photo"`, so nothing
+about the existing categories changes). `pipeline/video_clips.py` calls
+Pexels' Videos endpoint (a separate search from the Photos one `visuals.py`
+uses, same free API key), picks whichever result is at least as long as the
+scene's narration so it only ever trims rather than looping mid-line, and
+falls back to the same generated placeholder as photo mode when no key is
+set or nothing suitable comes back. This is the legally clean version of
+"use clips to tell the story": licensed stock footage chosen to match the
+mood of each beat, not repurposed footage from other creators — see the
+commentary-vs-clipping discussion above for why that line matters.
+
+```json
+{
+  "category": "stories",
+  "visual_mode": "video",
+  "id": "005-my-story",
+  ...
+  "scenes": [
+    { "text": "One beat of the story.", "visual_query": "mood-matched search terms, not a literal caption" }
+  ]
+}
+```
 
 ## Optional: AI talking-head presenter (experimental, untested)
 

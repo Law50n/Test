@@ -1,0 +1,16 @@
+{
+  "category": "stories",
+  "id": "004-the-app-that-remembers-you",
+  "title": "The Journal App That Finished My Sentence Before I Wrote It",
+  "description": "A short fiction story about a new journaling app, and the moment I realized it wasn't guessing.\n\n#shorts #shortstory #fiction",
+  "tags": ["short story", "fiction", "tech horror", "shorts"],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "I downloaded a journal app that claims to finish your thoughts for you. I figured it was just clever autocomplete.", "visual_query": "person typing phone night" },
+    { "text": "I typed, 'The thing I never told anyone is,' just to test it. It suggested the rest of the sentence before I could.", "visual_query": "smartphone screen typing closeup" },
+    { "text": "It was exactly right. Word for word, a secret I had never written down, never said out loud, not once.", "visual_query": "person shocked looking screen" },
+    { "text": "I dug through the app's permissions at two in the morning, hands shaking, expecting something sinister.", "visual_query": "laptop screen dark room settings" },
+    { "text": "What I found was almost worse. Years ago, I'd linked an old diary app to this one to 'back up my memories.' I'd forgotten completely.", "visual_query": "old notebook diary pages" },
+    { "text": "It wasn't reading my mind. It had just been reading me, the whole time, because I gave it permission and never thought about it again.", "visual_query": "person closing laptop dark" }
+  ]
+}

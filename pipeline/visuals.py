@@ -20,7 +20,7 @@ def fetch_visual(query: str, out_path: Path, api_key: str, size: tuple[int, int]
             return "pexels"
         except _PexelsError as e:
             print(f"  ! Pexels lookup failed for {query!r} ({e}); using a placeholder instead")
-    _generate_placeholder(query, out_path, size)
+    generate_placeholder(query, out_path, size)
     return "placeholder"
 
 
@@ -53,7 +53,7 @@ def _fetch_pexels(query: str, out_path: Path, api_key: str) -> None:
         raise _PexelsError(f"unexpected response shape: {e}") from e
 
 
-def _generate_placeholder(query: str, out_path: Path, size: tuple[int, int]) -> None:
+def generate_placeholder(query: str, out_path: Path, size: tuple[int, int]) -> None:
     """A deterministic gradient card labeled with the search query, so a
     missing Pexels key still produces a watchable (if plain) test render.
     """
@@ -87,7 +87,7 @@ def _generate_placeholder(query: str, out_path: Path, size: tuple[int, int]) -> 
             stroke_fill=(0, 0, 0),
         )
         y += line_height
-    img.save(out_path, quality=90)
+    img.save(out_path, format="JPEG", quality=90)
 
 
 def _hsl_to_rgb(h: float, s: float, l: float) -> tuple[int, int, int]:

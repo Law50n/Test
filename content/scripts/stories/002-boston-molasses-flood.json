@@ -1,0 +1,16 @@
+{
+  "category": "stories",
+  "id": "002-boston-molasses-flood",
+  "title": "The Day a Wave of Molasses Killed 21 People",
+  "description": "In 1919, a giant tank of molasses burst in Boston and sent a wave through the streets faster than people could run. It sounds absurd. Twenty-one people died.\n\nSources: History.com's account of the January 1919 Great Molasses Flood; the Great Molasses Flood entry and investigation findings.\n\n#shorts #truestory #history",
+  "tags": ["true story", "history", "disaster", "boston", "shorts"],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "January 15th, 1919, Boston. A fifty eight foot tall tank holding two and a half million gallons of molasses suddenly gives way.", "visual_query": "industrial tank factory old" },
+    { "text": "The bolts blow out like bullets. A wave of molasses twenty five feet high tears through the streets at thirty five miles an hour.", "visual_query": "city street flood disaster" },
+    { "text": "That's faster than most people can run. The wave crushed buildings, swept away train cars, and trapped people and horses in the street.", "visual_query": "old city street buildings vintage" },
+    { "text": "Twenty one people died. Some were found days later, still stuck in molasses that had hardened like concrete.", "visual_query": "rescue workers vintage disaster" },
+    { "text": "A six year investigation followed, with three thousand witnesses. The cause: the tank had been built too fast, too cheap, and never properly tested.", "visual_query": "courtroom vintage investigation" },
+    { "text": "Locals said you could smell molasses in that part of Boston on hot summer days for decades afterward.", "visual_query": "boston harbor waterfront" }
+  ]
+}
