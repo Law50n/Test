@@ -40,7 +40,11 @@ def _ordinal_word(n: int) -> str:
     if n in _ORDINAL_ONES:
         return _ORDINAL_ONES[n]
     tens, ones = divmod(n, 10)
-    return f"{_TENS[tens]}-{_ORDINAL_ONES[ones]}"
+    # A space, not the grammatically-correct hyphen: confirmed by silence
+    # analysis that Piper's phonemizer reads "twenty-fourth" with an ~800ms
+    # gap in the middle, as if it were two separate words, vs. a normal
+    # ~175ms word gap for "twenty fourth" with a plain space.
+    return f"{_TENS[tens]} {_ORDINAL_ONES[ones]}"
 
 
 def _spoken_year(year: int) -> str:
