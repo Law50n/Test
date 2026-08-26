@@ -33,7 +33,7 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
 
             audio_path = tmp_dir / f"scene_{i:02d}.mp3"
             try:
-                words = synthesize(scene.text, audio_path, cfg.tts_engine, cfg.tts_voice)
+                words = synthesize(scene.text, audio_path, cfg)
             except TTSError as e:
                 print(f"  ! TTS failed: {e}", file=sys.stderr)
                 raise SystemExit(1)

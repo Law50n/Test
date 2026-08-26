@@ -56,9 +56,39 @@ Output lands in `output/<script-id>/`: `video.mp4`, `thumbnail.jpg`,
 | Variable | Default | Notes |
 |---|---|---|
 | `PEXELS_API_KEY` | (empty) | leave unset to use placeholder visuals |
-| `TTS_ENGINE` | `edge` | `edge` (free, natural, needs internet) or `offline` (espeak-ng, robotic, no internet — good for testing) |
-| `TTS_VOICE` | `en-US-GuyNeural` | any voice from `edge-tts --list-voices` |
+| `TTS_ENGINE` | `edge` | `edge` (free, natural, needs internet), `piper` (free, natural, fully offline — see below), or `offline` (espeak-ng, robotic, no download needed) |
+| `TTS_VOICE` | `en-US-GuyNeural` | any voice from `edge-tts --list-voices` (only used by `TTS_ENGINE=edge`) |
+| `PIPER_MODEL_PATH` | `voices/en-us-libritts-high.onnx` | only used by `TTS_ENGINE=piper` |
+| `PIPER_SPEAKER_ID` | `90` | LibriTTS is a 904-speaker model; only used by `TTS_ENGINE=piper` |
 | `VIDEO_FORMAT` | `short` | `short` = 1080x1920 (Shorts), `long` = 1920x1080 |
+
+### Better offline voice: Piper
+
+`edge` sounds the most natural but needs internet at render time; `offline`
+(espeak-ng) never needs a network but sounds like a GPS unit from 2004.
+[Piper](https://github.com/rhasspy/piper) closes most of that gap: a real
+neural voice, fully local, no API key ever — you download the voice model
+once, then it synthesizes with no network call at all.
+
+```bash
+pip install piper-tts   # already in requirements.txt
+mkdir -p voices
+curl -L https://github.com/rhasspy/piper/releases/download/v0.0.2/voice-en-us-libritts-high.tar.gz \
+  | tar -xz -C voices en-us-libritts-high.onnx en-us-libritts-high.onnx.json
+```
+
+That's an older release tag (v0.0.2) -- Piper's newer, even-higher-quality
+voices have moved to Hugging Face's `rhasspy/piper-voices` repo, worth
+checking if you want to try one of those instead; this one was picked
+because it's a single self-contained download with no separate host to sign
+up with.
+
+Then set `TTS_ENGINE=piper` in `.env`. LibriTTS is a 904-speaker model —
+`PIPER_SPEAKER_ID=90` is a decent-sounding default picked by ear, but nothing
+stops you from trying others (0–903) for a voice that fits the channel
+better. Like `offline`, Piper doesn't report word-level timing, so captions
+fall back to the same even-spread estimate rather than `edge`'s exact
+per-word sync.
 
 ## Writing a new script
 

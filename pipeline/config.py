@@ -17,6 +17,8 @@ class Config:
     tts_engine: str
     tts_voice: str
     video_format: str
+    piper_model_path: str
+    piper_speaker_id: int
 
     @property
     def size(self) -> tuple[int, int]:
@@ -32,4 +34,6 @@ class Config:
             tts_engine=os.environ.get("TTS_ENGINE", "edge").strip(),
             tts_voice=os.environ.get("TTS_VOICE", "en-US-GuyNeural").strip(),
             video_format=video_format,
+            piper_model_path=os.environ.get("PIPER_MODEL_PATH", "voices/en-us-libritts-high.onnx").strip(),
+            piper_speaker_id=int(os.environ.get("PIPER_SPEAKER_ID", "90")),
         )
