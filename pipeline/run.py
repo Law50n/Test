@@ -13,6 +13,7 @@ from pathlib import Path
 from pipeline import assemble, captions, thumbnail, video_clips, visuals
 from pipeline.config import Config
 from pipeline.script_loader import VideoScript
+from pipeline.text_normalize import normalize_dates_for_speech
 from pipeline.tts import TTSError, synthesize
 
 
@@ -29,11 +30,12 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
         first_visual: Path | None = None
 
         for i, scene in enumerate(script.scenes):
-            print(f"[{i + 1}/{len(script.scenes)}] {scene.text[:60]}...")
+            narration = normalize_dates_for_speech(scene.text)
+            print(f"[{i + 1}/{len(script.scenes)}] {narration[:60]}...")
 
             audio_path = tmp_dir / f"scene_{i:02d}.mp3"
             try:
-                words = synthesize(scene.text, audio_path, cfg)
+                words = synthesize(narration, audio_path, cfg)
             except TTSError as e:
                 print(f"  ! TTS failed: {e}", file=sys.stderr)
                 raise SystemExit(1)
@@ -66,7 +68,7 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
                 for w in words:
                     all_captions.append({**w, "start": w["start"] + cursor, "end": w["end"] + cursor})
             else:
-                for w in captions.estimate_word_timings(scene.text, duration):
+                for w in captions.estimate_word_timings(narration, duration):
                     all_captions.append({**w, "start": w["start"] + cursor, "end": w["end"] + cursor})
             cursor += duration
 

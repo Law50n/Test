@@ -22,7 +22,9 @@ def synthesize(text: str, out_mp3: Path, cfg: Config) -> list[dict]:
     if cfg.tts_engine == "offline":
         return _synthesize_offline(text, out_mp3)
     if cfg.tts_engine == "piper":
-        return _synthesize_piper(text, out_mp3, cfg.piper_model_path, cfg.piper_speaker_id)
+        return _synthesize_piper(
+            text, out_mp3, cfg.piper_model_path, cfg.piper_speaker_id, cfg.piper_sentence_silence
+        )
     raise TTSError(f"Unknown TTS_ENGINE {cfg.tts_engine!r}, expected 'edge', 'offline', or 'piper'")
 
 
@@ -91,10 +93,17 @@ def _synthesize_offline(text: str, out_mp3: Path) -> list[dict]:
     return []
 
 
-def _synthesize_piper(text: str, out_mp3: Path, model_path: str, speaker_id: int) -> list[dict]:
+def _synthesize_piper(
+    text: str, out_mp3: Path, model_path: str, speaker_id: int, sentence_silence: float
+) -> list[dict]:
     """Local neural TTS via Piper (https://github.com/rhasspy/piper) -- no
     internet needed at synthesis time, and far more natural than espeak-ng.
     No word-level timing (same tradeoff as the offline engine).
+
+    sentence_silence adds a pause between sentences within one scene's text.
+    Without it, multi-sentence scenes run straight into the next sentence
+    with no breath -- confirmed by listening comparison that this, not the
+    speaker choice, was the main thing making the default sound rushed/flat.
 
     Needs a voice model downloaded once -- see README setup.
     """
@@ -114,6 +123,8 @@ def _synthesize_piper(text: str, out_mp3: Path, model_path: str, speaker_id: int
                 model_path,
                 "--speaker",
                 str(speaker_id),
+                "--sentence-silence",
+                str(sentence_silence),
                 "-f",
                 str(wav_path),
             ],

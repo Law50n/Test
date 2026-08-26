@@ -6,7 +6,7 @@
   "tags": ["true story", "unsolved mystery", "true crime", "history", "shorts"],
   "visual_mode": "video",
   "scenes": [
-    { "text": "November 24th, 1971. A man in a business suit boards a flight from Portland to Seattle, using the name Dan Cooper.", "visual_query": "airplane boarding vintage" },
+    { "text": "On 24/11/1971, a man in a business suit boards a flight from Portland to Seattle, using the name Dan Cooper.", "visual_query": "airplane boarding vintage" },
     { "text": "Mid-flight, he hands a flight attendant a note. He has a bomb, and he wants two hundred thousand dollars and four parachutes.", "visual_query": "airplane window flying clouds" },
     { "text": "The airline pays. Cooper releases all thirty six passengers in Seattle, and orders the plane back into the air, heading for Mexico.", "visual_query": "airport runway night" },
     { "text": "Somewhere over the dense forests of southwest Washington, he lowers the plane's rear stairs and jumps into a storm, alone, at night.", "visual_query": "dark forest storm night" },

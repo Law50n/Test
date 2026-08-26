@@ -60,6 +60,7 @@ Output lands in `output/<script-id>/`: `video.mp4`, `thumbnail.jpg`,
 | `TTS_VOICE` | `en-US-GuyNeural` | any voice from `edge-tts --list-voices` (only used by `TTS_ENGINE=edge`) |
 | `PIPER_MODEL_PATH` | `voices/en-us-libritts-high.onnx` | only used by `TTS_ENGINE=piper` |
 | `PIPER_SPEAKER_ID` | `90` | LibriTTS is a 904-speaker model; only used by `TTS_ENGINE=piper` |
+| `PIPER_SENTENCE_SILENCE` | `0.35` | pause (seconds) between sentences within a scene; only used by `TTS_ENGINE=piper` |
 | `VIDEO_FORMAT` | `short` | `short` = 1080x1920 (Shorts), `long` = 1920x1080 |
 
 ### Better offline voice: Piper
@@ -87,8 +88,26 @@ Then set `TTS_ENGINE=piper` in `.env`. LibriTTS is a 904-speaker model —
 `PIPER_SPEAKER_ID=90` is a decent-sounding default picked by ear, but nothing
 stops you from trying others (0–903) for a voice that fits the channel
 better. Like `offline`, Piper doesn't report word-level timing, so captions
-fall back to the same even-spread estimate rather than `edge`'s exact
-per-word sync.
+fall back to a character-length-weighted estimate instead of `edge`'s exact
+per-word sync — close, but not measured.
+
+Confirmed by direct listening comparison: `PIPER_SENTENCE_SILENCE` (a pause
+between sentences within one scene) mattered more to how natural it sounded
+than which of the 904 speakers was picked — the default speaker with no
+pause read a multi-sentence scene as one rushed run-on line.
+
+### Write dates as DD/MM/YYYY, not prose
+
+Also confirmed by listening test: Piper (via its espeak-ng phonemizer)
+badly mangles a written-out date like "November 24th, 1971" — the
+ordinal-suffix-plus-year combination trips it up in a way a bare year on
+its own doesn't. Rather than relying on every script remembering to spell
+dates out by hand (easy to forget — it shipped once already, see
+`stories/001` and `002`'s git history), write a specific date as
+`24/11/1971` in the script text and `pipeline/text_normalize.py` converts
+it to natural spoken words automatically, for every engine, before both
+synthesis and caption timing. A bare year on its own ("in 1971") doesn't
+need this — it's the day+month+year combination that breaks.
 
 ## Writing a new script
 

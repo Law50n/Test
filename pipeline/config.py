@@ -19,6 +19,7 @@ class Config:
     video_format: str
     piper_model_path: str
     piper_speaker_id: int
+    piper_sentence_silence: float
 
     @property
     def size(self) -> tuple[int, int]:
@@ -36,4 +37,5 @@ class Config:
             video_format=video_format,
             piper_model_path=os.environ.get("PIPER_MODEL_PATH", "voices/en-us-libritts-high.onnx").strip(),
             piper_speaker_id=int(os.environ.get("PIPER_SPEAKER_ID", "90")),
+            piper_sentence_silence=float(os.environ.get("PIPER_SENTENCE_SILENCE", "0.35")),
         )
