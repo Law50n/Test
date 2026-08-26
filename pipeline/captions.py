@@ -22,18 +22,26 @@ def words_to_captions(words: list[dict], max_words: int = MAX_WORDS_PER_LINE) ->
 
 
 def estimate_word_timings(text: str, duration: float) -> list[dict]:
-    """No per-word timing available (offline engine): split the script text
-    into words and spread them evenly across the known clip duration, in the
-    same {"word", "start", "end"} shape words_to_captions() expects.
+    """No per-word timing available (offline/piper engines): split the script
+    text into words and distribute the known clip duration by word length
+    rather than splitting it evenly. Real speech takes longer on longer
+    words, so this tracks actual pacing noticeably better than a flat
+    per-word split, though it's still an estimate, not measured timing.
     """
     words = text.split()
     if not words:
         return []
-    per_word = duration / len(words)
-    return [
-        {"word": w + " ", "start": i * per_word, "end": (i + 1) * per_word}
-        for i, w in enumerate(words)
-    ]
+    # +1 approximates the brief gap after each word, so a run of short words
+    # doesn't get compressed into an unnaturally clipped caption pace.
+    weights = [len(w) + 1 for w in words]
+    total_weight = sum(weights)
+    timings = []
+    cursor = 0.0
+    for word, weight in zip(words, weights):
+        share = duration * (weight / total_weight)
+        timings.append({"word": word + " ", "start": cursor, "end": cursor + share})
+        cursor += share
+    return timings
 
 
 def _srt_timestamp(seconds: float) -> str:
