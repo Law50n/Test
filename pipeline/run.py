@@ -28,6 +28,8 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
         all_captions: list[dict] = []
         cursor = 0.0
         first_visual: Path | None = None
+        first_visual_query = ""
+        first_visual_was_placeholder = False
 
         for i, scene in enumerate(script.scenes):
             narration = normalize_dates_for_speech(scene.text)
@@ -63,6 +65,8 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
                 )
             if first_visual is None:
                 first_visual = visual_path
+                first_visual_query = scene.visual_query
+                first_visual_was_placeholder = source == "placeholder"
 
             if words:
                 for w in words:
@@ -93,7 +97,14 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
 
         print("Building thumbnail...")
         thumb_source = tmp_dir / "thumb_source.jpg"
-        assemble.extract_frame(first_visual, thumb_source)
+        if first_visual_was_placeholder:
+            # The scene's own placeholder is labeled with its search query;
+            # thumbnail.make_thumbnail() draws the real title over the same
+            # bottom third, so reusing that file ghosts one label behind the
+            # other. Render a clean, unlabeled card instead, just for this.
+            visuals.generate_placeholder_unlabeled(first_visual_query, thumb_source, cfg.size)
+        else:
+            assemble.extract_frame(first_visual, thumb_source)
         thumbnail.make_thumbnail(thumb_source, script.title, out_dir / "thumbnail.jpg")
 
         shutil.copy(srt_path, out_dir / "captions.srt")
