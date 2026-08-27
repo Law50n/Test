@@ -22,6 +22,8 @@ class Config:
     piper_sentence_silence: float
     piper_noise_scale: float
     piper_noise_w: float
+    elevenlabs_api_key: str
+    elevenlabs_voice_id: str
 
     @property
     def size(self) -> tuple[int, int]:
@@ -42,4 +44,6 @@ class Config:
             piper_sentence_silence=float(os.environ.get("PIPER_SENTENCE_SILENCE", "0.35")),
             piper_noise_scale=float(os.environ.get("PIPER_NOISE_SCALE", "1.0")),
             piper_noise_w=float(os.environ.get("PIPER_NOISE_W", "1.1")),
+            elevenlabs_api_key=os.environ.get("ELEVENLABS_API_KEY", "").strip(),
+            elevenlabs_voice_id=os.environ.get("ELEVENLABS_VOICE_ID", "21m00Tcm4TlvDq8ikWAM").strip(),
         )

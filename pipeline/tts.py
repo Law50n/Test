@@ -5,6 +5,8 @@ import asyncio
 import subprocess
 from pathlib import Path
 
+import requests
+
 from pipeline.config import Config
 
 
@@ -31,7 +33,11 @@ def synthesize(text: str, out_mp3: Path, cfg: Config) -> list[dict]:
             cfg.piper_noise_scale,
             cfg.piper_noise_w,
         )
-    raise TTSError(f"Unknown TTS_ENGINE {cfg.tts_engine!r}, expected 'edge', 'offline', or 'piper'")
+    if cfg.tts_engine == "elevenlabs":
+        return _synthesize_elevenlabs(text, out_mp3, cfg.elevenlabs_api_key, cfg.elevenlabs_voice_id)
+    raise TTSError(
+        f"Unknown TTS_ENGINE {cfg.tts_engine!r}, expected 'edge', 'offline', 'piper', or 'elevenlabs'"
+    )
 
 
 async def _synthesize_edge(text: str, out_mp3: Path, voice: str) -> list[dict]:
@@ -165,3 +171,86 @@ def _synthesize_piper(
     finally:
         wav_path.unlink(missing_ok=True)
     return []
+
+
+ELEVENLABS_API_BASE = "https://api.elevenlabs.io/v1"
+
+
+def _synthesize_elevenlabs(text: str, out_mp3: Path, api_key: str, voice_id: str) -> list[dict]:
+    """Paid/free-tier cloud TTS (https://elevenlabs.io) -- the quality
+    ceiling above everything else in this file, at the cost of needing an
+    account, a key, and internet at render time.
+
+    Unverified: this sandbox's network policy blocks api.elevenlabs.io (same
+    as api.pexels.com and api.d-id.com), so this has not been run against
+    the real API. The request/response shape matches ElevenLabs'
+    long-documented /text-to-speech/{voice_id}/with-timestamps endpoint, but
+    confirm against your own dashboard/docs before relying on it.
+
+    Uses the with-timestamps endpoint specifically because it returns real
+    character-level alignment -- converted to word timing below -- instead
+    of the estimated timing the offline/piper engines fall back to. This
+    should give the tightest caption sync of any engine in this file,
+    edge included.
+
+    ElevenLabs' free-tier API access has genuinely conflicting reports as of
+    when this was written (some sources say API access is paid-only, others
+    say a small free monthly quota is included) -- confirm current terms on
+    your own account rather than assuming either way.
+    """
+    if not api_key:
+        raise TTSError("ELEVENLABS_API_KEY is not set")
+    try:
+        resp = requests.post(
+            f"{ELEVENLABS_API_BASE}/text-to-speech/{voice_id}/with-timestamps",
+            headers={"xi-api-key": api_key, "Content-Type": "application/json"},
+            json={"text": text, "model_id": "eleven_multilingual_v2"},
+            timeout=60,
+        )
+        if resp.status_code >= 400:
+            raise TTSError(f"ElevenLabs request failed: HTTP {resp.status_code}: {resp.text[:300]}")
+        data = resp.json()
+    except TTSError:
+        raise
+    except requests.exceptions.RequestException as e:
+        raise TTSError(f"request to ElevenLabs failed: {e}") from e
+    except ValueError as e:
+        raise TTSError(f"unexpected response from ElevenLabs: {e}") from e
+
+    import base64
+
+    try:
+        out_mp3.write_bytes(base64.b64decode(data["audio_base64"]))
+        alignment = data.get("alignment") or {}
+        words = _chars_to_words(
+            alignment.get("characters", []),
+            alignment.get("character_start_times_seconds", []),
+            alignment.get("character_end_times_seconds", []),
+        )
+    except (KeyError, ValueError) as e:
+        raise TTSError(f"unexpected response shape from ElevenLabs: {e}") from e
+    return words
+
+
+def _chars_to_words(chars: list[str], starts: list[float], ends: list[float]) -> list[dict]:
+    """Groups ElevenLabs' per-character timing into per-word timing, in the
+    same {"word", "start", "end"} shape every other engine here returns.
+    """
+    words: list[dict] = []
+    current = ""
+    current_start = None
+    last_end = 0.0
+    for ch, start, end in zip(chars, starts, ends):
+        if ch.isspace():
+            if current:
+                words.append({"word": current + " ", "start": current_start, "end": last_end})
+                current = ""
+                current_start = None
+        else:
+            if current_start is None:
+                current_start = start
+            current += ch
+        last_end = end
+    if current:
+        words.append({"word": current + " ", "start": current_start, "end": last_end})
+    return words

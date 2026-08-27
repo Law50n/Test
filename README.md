@@ -63,6 +63,8 @@ Output lands in `output/<script-id>/`: `video.mp4`, `thumbnail.jpg`,
 | `PIPER_SENTENCE_SILENCE` | `0.35` | pause (seconds) between sentences within a scene; only used by `TTS_ENGINE=piper` |
 | `PIPER_NOISE_SCALE` | `1.0` | generator variation, above Piper's own default of 0.667; only used by `TTS_ENGINE=piper` |
 | `PIPER_NOISE_W` | `1.1` | phoneme-duration variation, above Piper's own default of 0.8; only used by `TTS_ENGINE=piper` |
+| `ELEVENLABS_API_KEY` | (empty) | required for `TTS_ENGINE=elevenlabs` |
+| `ELEVENLABS_VOICE_ID` | Rachel | any voice ID from your ElevenLabs voice library; only used by `TTS_ENGINE=elevenlabs` |
 | `VIDEO_FORMAT` | `short` | `short` = 1080x1920 (Shorts), `long` = 1920x1080 |
 
 ### Better offline voice: Piper
@@ -99,10 +101,15 @@ than which of the 904 speakers was picked — the default speaker with no
 pause read a multi-sentence scene as one rushed run-on line.
 
 Piper's own defaults (`noise_scale=0.667`, `noise_w=0.8`) also read as
-noticeably monotone. `PIPER_NOISE_SCALE=1.0` and `PIPER_NOISE_W=1.1` came
-out of a 5-way listening comparison (baseline, each raised individually,
-both together, and a different speaker entirely) as sounding the least flat
-— more so than switching speakers did.
+noticeably monotone on a single test line. Raising them (`PIPER_NOISE_SCALE=1.0`,
+`PIPER_NOISE_W=1.1`, current values) won that comparison, but on a fuller
+multi-scene render it came back sounding rougher, not just more expressive
+— a real regression, not just a taste call. Current status: unresolved.
+A different single-speaker model (`en-us-ryan-medium`, same release tag
+above) read better on the same lines at Piper's own default noise settings,
+but hasn't been confirmed on a full script yet. If you're picking this back
+up, that's the next thing to test before trusting either the noise
+settings or the model choice as final.
 
 ### Write dates as DD/MM/YYYY, not prose
 
@@ -116,6 +123,42 @@ dates out by hand (easy to forget — it shipped once already, see
 it to natural spoken words automatically, for every engine, before both
 synthesis and caption timing. A bare year on its own ("in 1971") doesn't
 need this — it's the day+month+year combination that breaks.
+
+### Highest-quality voice: ElevenLabs (paid/limited free tier)
+
+Every other engine above is free but caps out somewhere short of a real
+"good enough to stop tuning" voice. [ElevenLabs](https://elevenlabs.io) is
+the actual quality ceiling of the four options here, at the cost of an
+account, a key, and internet at render time.
+
+**Unverified.** This sandbox's network policy blocks `api.elevenlabs.io`,
+same as it blocks Pexels and D-ID -- this integration has not been run
+against the real API. The request shape matches ElevenLabs' long-documented
+`/text-to-speech/{voice_id}/with-timestamps` endpoint, but confirm it works
+against your own key before relying on it.
+
+**Free tier is genuinely unclear right now.** Sources conflict on whether
+API access requires a paid plan or comes with a small free monthly quota --
+unlike the HeyGen situation earlier (a clear, confirmed change), this one
+couldn't be resolved from search alone. Check your own dashboard after
+signing up rather than assuming either way.
+
+Setup:
+
+1. Sign up free at [elevenlabs.io](https://elevenlabs.io) — no card needed
+   to create an account and see your dashboard's actual quota/pricing.
+2. Get a key from [Settings → API Keys](https://elevenlabs.io/app/settings/api-keys).
+3. Put it in `.env` as `ELEVENLABS_API_KEY`.
+4. Optionally browse [the voice library](https://elevenlabs.io/app/voice-library)
+   for a voice that fits the channel better than the default (Rachel), and
+   set `ELEVENLABS_VOICE_ID` to its ID.
+5. Set `TTS_ENGINE=elevenlabs`.
+
+One real advantage beyond voice quality: this engine uses ElevenLabs'
+`with-timestamps` endpoint, which returns real character-level timing
+converted to word timing in `pipeline/tts.py::_chars_to_words`. That should
+give tighter caption sync than any other engine here, `edge` included,
+which reports timing per-word rather than per-character.
 
 ## Writing a new script
 
