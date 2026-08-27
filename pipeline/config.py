@@ -24,6 +24,9 @@ class Config:
     piper_noise_w: float
     elevenlabs_api_key: str
     elevenlabs_voice_id: str
+    google_tts_api_key: str
+    google_tts_voice_name: str
+    google_tts_language_code: str
 
     @property
     def size(self) -> tuple[int, int]:
@@ -46,4 +49,7 @@ class Config:
             piper_noise_w=float(os.environ.get("PIPER_NOISE_W", "1.1")),
             elevenlabs_api_key=os.environ.get("ELEVENLABS_API_KEY", "").strip(),
             elevenlabs_voice_id=os.environ.get("ELEVENLABS_VOICE_ID", "21m00Tcm4TlvDq8ikWAM").strip(),
+            google_tts_api_key=os.environ.get("GOOGLE_TTS_API_KEY", "").strip(),
+            google_tts_voice_name=os.environ.get("GOOGLE_TTS_VOICE_NAME", "en-US-Neural2-D").strip(),
+            google_tts_language_code=os.environ.get("GOOGLE_TTS_LANGUAGE_CODE", "en-US").strip(),
         )

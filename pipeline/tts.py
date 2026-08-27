@@ -35,8 +35,12 @@ def synthesize(text: str, out_mp3: Path, cfg: Config) -> list[dict]:
         )
     if cfg.tts_engine == "elevenlabs":
         return _synthesize_elevenlabs(text, out_mp3, cfg.elevenlabs_api_key, cfg.elevenlabs_voice_id)
+    if cfg.tts_engine == "google":
+        return _synthesize_google(
+            text, out_mp3, cfg.google_tts_api_key, cfg.google_tts_voice_name, cfg.google_tts_language_code
+        )
     raise TTSError(
-        f"Unknown TTS_ENGINE {cfg.tts_engine!r}, expected 'edge', 'offline', 'piper', or 'elevenlabs'"
+        f"Unknown TTS_ENGINE {cfg.tts_engine!r}, expected 'edge', 'offline', 'piper', 'elevenlabs', or 'google'"
     )
 
 
@@ -254,3 +258,86 @@ def _chars_to_words(chars: list[str], starts: list[float], ends: list[float]) ->
     if current:
         words.append({"word": current + " ", "start": current_start, "end": last_end})
     return words
+
+
+GOOGLE_TTS_API_BASE = "https://texttospeech.googleapis.com/v1"
+
+
+def _synthesize_google(
+    text: str, out_mp3: Path, api_key: str, voice_name: str, language_code: str
+) -> list[dict]:
+    """Google Cloud Text-to-Speech -- a genuinely generous recurring free
+    tier (1M characters/month for Neural2 voices, confirmed live via search,
+    no expiration), unlike ElevenLabs' much smaller one. Needs a Google
+    Cloud project with the Text-to-Speech API enabled and an API key --
+    Google requires a billing account (a card on file) to create one even
+    though usage under the free quota isn't charged.
+
+    Unverified: this sandbox's network policy blocks
+    texttospeech.googleapis.com, same as every other paid/cloud engine in
+    this file, so this has not been run against the real API. The request
+    shape matches Google's long-documented text:synthesize endpoint.
+
+    Gets real per-word timing by wrapping the input in SSML with a <mark>
+    before every word and requesting SSML_MARK time-pointing -- Google's
+    plain-text synthesis doesn't return timing on its own. Each word's end
+    time is the next word's start; the last word's end comes from probing
+    the actual rendered audio's duration, since there's no mark after it.
+    """
+    if not api_key:
+        raise TTSError("GOOGLE_TTS_API_KEY is not set")
+    words_list = text.split()
+    ssml = "<speak>" + "".join(
+        f'<mark name="w{i}"/>{_xml_escape(w)} ' for i, w in enumerate(words_list)
+    ) + "</speak>"
+
+    try:
+        resp = requests.post(
+            f"{GOOGLE_TTS_API_BASE}/text:synthesize",
+            params={"key": api_key},
+            json={
+                "input": {"ssml": ssml},
+                "voice": {"languageCode": language_code, "name": voice_name},
+                "audioConfig": {"audioEncoding": "MP3"},
+                "enableTimePointing": ["SSML_MARK"],
+            },
+            timeout=60,
+        )
+        if resp.status_code >= 400:
+            raise TTSError(f"Google TTS request failed: HTTP {resp.status_code}: {resp.text[:300]}")
+        data = resp.json()
+    except TTSError:
+        raise
+    except requests.exceptions.RequestException as e:
+        raise TTSError(f"request to Google TTS failed: {e}") from e
+    except ValueError as e:
+        raise TTSError(f"unexpected response from Google TTS: {e}") from e
+
+    import base64
+
+    try:
+        out_mp3.write_bytes(base64.b64decode(data["audioContent"]))
+    except (KeyError, ValueError) as e:
+        raise TTSError(f"unexpected response shape from Google TTS: {e}") from e
+
+    starts: list[float | None] = [None] * len(words_list)
+    for tp in data.get("timepoints", []):
+        mark_name = tp.get("markName", "")
+        if mark_name.startswith("w") and mark_name[1:].isdigit():
+            idx = int(mark_name[1:])
+            if 0 <= idx < len(starts):
+                starts[idx] = tp["timeSeconds"]
+
+    from pipeline.assemble import get_duration
+
+    total_duration = get_duration(out_mp3)
+    words: list[dict] = []
+    for i, w in enumerate(words_list):
+        start = starts[i] if starts[i] is not None else 0.0
+        end = starts[i + 1] if i + 1 < len(starts) and starts[i + 1] is not None else total_duration
+        words.append({"word": w + " ", "start": start, "end": end})
+    return words
+
+
+def _xml_escape(s: str) -> str:
+    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")

@@ -124,12 +124,12 @@ it to natural spoken words automatically, for every engine, before both
 synthesis and caption timing. A bare year on its own ("in 1971") doesn't
 need this — it's the day+month+year combination that breaks.
 
-### Highest-quality voice: ElevenLabs (paid/limited free tier)
+### Highest-quality voice: ElevenLabs (paid, or a fragile free tier)
 
-Every other engine above is free but caps out somewhere short of a real
-"good enough to stop tuning" voice. [ElevenLabs](https://elevenlabs.io) is
-the actual quality ceiling of the four options here, at the cost of an
-account, a key, and internet at render time.
+Every free engine above caps out somewhere short of a real "good enough to
+stop tuning" voice. [ElevenLabs](https://elevenlabs.io) is the highest
+quality of the five options here, at the cost of an account, a key, and
+internet at render time.
 
 **Unverified.** This sandbox's network policy blocks `api.elevenlabs.io`,
 same as it blocks Pexels and D-ID -- this integration has not been run
@@ -137,11 +137,18 @@ against the real API. The request shape matches ElevenLabs' long-documented
 `/text-to-speech/{voice_id}/with-timestamps` endpoint, but confirm it works
 against your own key before relying on it.
 
-**Free tier is genuinely unclear right now.** Sources conflict on whether
-API access requires a paid plan or comes with a small free monthly quota --
-unlike the HeyGen situation earlier (a clear, confirmed change), this one
-couldn't be resolved from search alone. Check your own dashboard after
-signing up rather than assuming either way.
+**The free tier is not just small, it can lock you out entirely.** One real
+account hit this on the very first request:
+
+```
+"detected_unusual_activity" / "Free Tier access has been disabled ...
+Please upgrade to a paid subscription to continue."
+```
+
+with nothing unusual actually done -- a fresh signup, one API call. If you
+hit this, the free tier isn't available to you and the practical options
+are paying (their cheapest plan is roughly $5/month) or using `google`
+below instead, which doesn't have this failure mode.
 
 Setup:
 
@@ -154,11 +161,56 @@ Setup:
    set `ELEVENLABS_VOICE_ID` to its ID.
 5. Set `TTS_ENGINE=elevenlabs`.
 
-One real advantage beyond voice quality: this engine uses ElevenLabs'
-`with-timestamps` endpoint, which returns real character-level timing
-converted to word timing in `pipeline/tts.py::_chars_to_words`. That should
-give tighter caption sync than any other engine here, `edge` included,
-which reports timing per-word rather than per-character.
+One real advantage beyond voice quality, if you get a working key: this
+engine uses ElevenLabs' `with-timestamps` endpoint, which returns real
+character-level timing converted to word timing in
+`pipeline/tts.py::_chars_to_words`. That should give tighter caption sync
+than `edge`, which reports timing per-word rather than per-character.
+
+### Free-tier voice that doesn't require gambling on account flags: Google Cloud TTS
+
+Confirmed live (not assumed from stale training knowledge): Google Cloud
+Text-to-Speech gives **1 million characters/month free for Neural2 voices,
+recurring every month, no expiration**. A six-scene short runs maybe
+500-700 characters, so that's easily 1,000+ videos/month at zero cost —
+the most generous free tier of any engine in this file.
+
+**Unverified**, same caveat as ElevenLabs and D-ID: `texttospeech.googleapis.com`
+is blocked in this sandbox, so this hasn't been run against the real API.
+The request shape matches Google's long-documented `text:synthesize`
+endpoint.
+
+**A card is still required** to create the API key, even though usage
+under the free quota isn't charged -- Google ties API key creation to a
+billing account. That's a real barrier if you don't want to hand over card
+details anywhere, even for something that won't be charged; it's not "free"
+in the no-strings sense Piper is.
+
+Setup:
+
+1. Go to [console.cloud.google.com](https://console.cloud.google.com/) and
+   create a project (any name).
+2. Enable **billing** on the project (Google requires this to issue an API
+   key, even for free-tier usage) — you'll need a card, but nothing is
+   charged while you stay under 1M characters/month.
+3. Enable the **Cloud Text-to-Speech API** for that project (search for it
+   in the console's API library and click Enable).
+4. Create an API key: **APIs & Services → Credentials → Create Credentials
+   → API Key**.
+5. Put it in `.env` as `GOOGLE_TTS_API_KEY`.
+6. Set `TTS_ENGINE=google`.
+
+Optionally, browse [available voices](https://cloud.google.com/text-to-speech/docs/voices)
+and change `GOOGLE_TTS_VOICE_NAME` (default `en-US-Neural2-D`) to one that
+fits the channel better.
+
+Like ElevenLabs, this gets real per-word timing rather than an estimate —
+Google's plain synthesis endpoint doesn't report timing on its own, so
+`pipeline/tts.py::_synthesize_google` wraps the input in SSML with a
+`<mark>` tag before every word and requests `SSML_MARK` time-pointing.
+Each word's end time is simply the next word's start; the last word's end
+comes from probing the actual rendered audio's duration, since there's no
+mark after it to report one.
 
 ## Writing a new script
 
