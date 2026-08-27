@@ -61,6 +61,8 @@ Output lands in `output/<script-id>/`: `video.mp4`, `thumbnail.jpg`,
 | `PIPER_MODEL_PATH` | `voices/en-us-libritts-high.onnx` | only used by `TTS_ENGINE=piper` |
 | `PIPER_SPEAKER_ID` | `90` | LibriTTS is a 904-speaker model; only used by `TTS_ENGINE=piper` |
 | `PIPER_SENTENCE_SILENCE` | `0.35` | pause (seconds) between sentences within a scene; only used by `TTS_ENGINE=piper` |
+| `PIPER_NOISE_SCALE` | `1.0` | generator variation, above Piper's own default of 0.667; only used by `TTS_ENGINE=piper` |
+| `PIPER_NOISE_W` | `1.1` | phoneme-duration variation, above Piper's own default of 0.8; only used by `TTS_ENGINE=piper` |
 | `VIDEO_FORMAT` | `short` | `short` = 1080x1920 (Shorts), `long` = 1920x1080 |
 
 ### Better offline voice: Piper
@@ -95,6 +97,12 @@ Confirmed by direct listening comparison: `PIPER_SENTENCE_SILENCE` (a pause
 between sentences within one scene) mattered more to how natural it sounded
 than which of the 904 speakers was picked — the default speaker with no
 pause read a multi-sentence scene as one rushed run-on line.
+
+Piper's own defaults (`noise_scale=0.667`, `noise_w=0.8`) also read as
+noticeably monotone. `PIPER_NOISE_SCALE=1.0` and `PIPER_NOISE_W=1.1` came
+out of a 5-way listening comparison (baseline, each raised individually,
+both together, and a different speaker entirely) as sounding the least flat
+— more so than switching speakers did.
 
 ### Write dates as DD/MM/YYYY, not prose
 

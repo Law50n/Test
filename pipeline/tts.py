@@ -23,7 +23,13 @@ def synthesize(text: str, out_mp3: Path, cfg: Config) -> list[dict]:
         return _synthesize_offline(text, out_mp3)
     if cfg.tts_engine == "piper":
         return _synthesize_piper(
-            text, out_mp3, cfg.piper_model_path, cfg.piper_speaker_id, cfg.piper_sentence_silence
+            text,
+            out_mp3,
+            cfg.piper_model_path,
+            cfg.piper_speaker_id,
+            cfg.piper_sentence_silence,
+            cfg.piper_noise_scale,
+            cfg.piper_noise_w,
         )
     raise TTSError(f"Unknown TTS_ENGINE {cfg.tts_engine!r}, expected 'edge', 'offline', or 'piper'")
 
@@ -94,7 +100,13 @@ def _synthesize_offline(text: str, out_mp3: Path) -> list[dict]:
 
 
 def _synthesize_piper(
-    text: str, out_mp3: Path, model_path: str, speaker_id: int, sentence_silence: float
+    text: str,
+    out_mp3: Path,
+    model_path: str,
+    speaker_id: int,
+    sentence_silence: float,
+    noise_scale: float,
+    noise_w: float,
 ) -> list[dict]:
     """Local neural TTS via Piper (https://github.com/rhasspy/piper) -- no
     internet needed at synthesis time, and far more natural than espeak-ng.
@@ -104,6 +116,11 @@ def _synthesize_piper(
     Without it, multi-sentence scenes run straight into the next sentence
     with no breath -- confirmed by listening comparison that this, not the
     speaker choice, was the main thing making the default sound rushed/flat.
+
+    noise_scale/noise_w raise generator and phoneme-duration variation above
+    Piper's defaults (0.667/0.8) -- confirmed by listening comparison across
+    5 variants that this combination read as noticeably less monotone than
+    the model's defaults, more than switching speakers did.
 
     Needs a voice model downloaded once -- see README setup.
     """
@@ -125,6 +142,10 @@ def _synthesize_piper(
                 str(speaker_id),
                 "--sentence-silence",
                 str(sentence_silence),
+                "--noise-scale",
+                str(noise_scale),
+                "--noise-w-scale",
+                str(noise_w),
                 "-f",
                 str(wav_path),
             ],

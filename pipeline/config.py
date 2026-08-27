@@ -20,6 +20,8 @@ class Config:
     piper_model_path: str
     piper_speaker_id: int
     piper_sentence_silence: float
+    piper_noise_scale: float
+    piper_noise_w: float
 
     @property
     def size(self) -> tuple[int, int]:
@@ -38,4 +40,6 @@ class Config:
             piper_model_path=os.environ.get("PIPER_MODEL_PATH", "voices/en-us-libritts-high.onnx").strip(),
             piper_speaker_id=int(os.environ.get("PIPER_SPEAKER_ID", "90")),
             piper_sentence_silence=float(os.environ.get("PIPER_SENTENCE_SILENCE", "0.35")),
+            piper_noise_scale=float(os.environ.get("PIPER_NOISE_SCALE", "1.0")),
+            piper_noise_w=float(os.environ.get("PIPER_NOISE_W", "1.1")),
         )
