@@ -200,6 +200,37 @@ Setup:
 5. Put it in `.env` as `GOOGLE_TTS_API_KEY`.
 6. Set `TTS_ENGINE=google`.
 
+#### Making sure you never get charged
+
+"Nothing is charged under 1M characters/month" is not the same as "it's
+impossible to be charged" — if this pipeline ever runs away (a bug, a
+batch job left running, a much longer script) and crosses that line,
+Google will bill the card on file per character with no warning first.
+Two Google Cloud features sound like a fix and aren't, plus one that
+actually is (confirmed live, August 2026):
+
+- **Billing budgets** (Billing → Budgets & alerts) only send you an email
+  when spending crosses a threshold. They do **not** stop usage or block
+  further charges by default — by the time the email arrives you may
+  already have kept spending.
+- Google's newer **spend cap budgets** (a real hard stop that pauses
+  usage) exist, but as of now only cover Gemini API, Vertex AI, Cloud Run,
+  and Maps — **Text-to-Speech is not on that list**, so it can't be used
+  here.
+- **Quotas** are the actual fix. Cloud Text-to-Speech has an adjustable
+  characters-per-day quota. Go to **APIs & Services → Text-to-Speech API
+  → Quotas** (or **IAM & Admin → Quotas**, filtered to the Text-to-Speech
+  API), find the characters-per-day metric, and edit it down to something
+  like **30,000/day** (≈900k/month — comfortably under the 1M free tier
+  with room to spare). Lowering a quota is self-serve and takes effect
+  immediately, unlike raising one. Once that daily quota is hit, further
+  requests are simply rejected with a quota-exceeded error — nothing gets
+  billed for a rejected request.
+
+Do both: the quota is the real guardrail, and a low-threshold billing
+budget (e.g. $1) is a free early-warning email in case the quota is ever
+misconfigured.
+
 Optionally, browse [available voices](https://cloud.google.com/text-to-speech/docs/voices)
 and change `GOOGLE_TTS_VOICE_NAME` (default `en-US-Neural2-D`) to one that
 fits the channel better.
