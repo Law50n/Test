@@ -5,6 +5,7 @@ horizontal) video and a thumbnail out per script.
     python -m pipeline.run content/scripts/tech/*.json   # a whole category
 """
 import argparse
+import glob
 import shutil
 import sys
 import tempfile
@@ -120,6 +121,21 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
     print("  video.mp4, thumbnail.jpg, captions.srt, metadata.txt")
 
 
+def _expand_globs(patterns: list[Path]) -> list[Path]:
+    """bash/zsh expand a wildcard like content/scripts/tech/*.json into a
+    file list before this script ever sees it, but Windows' cmd.exe and
+    PowerShell both pass the literal '*.json' straight through -- so on
+    Windows every argument here needs expanding ourselves. glob.glob() on
+    a plain filename with no wildcard just returns that filename unchanged,
+    so this is a safe no-op on Linux/Mac where the shell already expanded it.
+    """
+    paths = []
+    for pattern in patterns:
+        matches = sorted(Path(m) for m in glob.glob(str(pattern)))
+        paths.extend(matches if matches else [pattern])
+    return paths
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -127,6 +143,7 @@ def main() -> None:
     )
     parser.add_argument("--out", type=Path, default=Path("output"), help="output directory")
     args = parser.parse_args()
+    args.scripts = _expand_globs(args.scripts)
 
     cfg = Config.load()
     print(f"engine={cfg.tts_engine} voice={cfg.tts_voice} format={cfg.video_format} size={cfg.size}")
