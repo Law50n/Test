@@ -131,11 +131,9 @@ stop tuning" voice. [ElevenLabs](https://elevenlabs.io) is the highest
 quality of the five options here, at the cost of an account, a key, and
 internet at render time.
 
-**Unverified.** This sandbox's network policy blocks `api.elevenlabs.io`,
-same as it blocks Pexels and D-ID -- this integration has not been run
-against the real API. The request shape matches ElevenLabs' long-documented
-`/text-to-speech/{voice_id}/with-timestamps` endpoint, but confirm it works
-against your own key before relying on it.
+**Confirmed working** against a real paid account -- this sandbox's network
+policy blocks `api.elevenlabs.io` so it can't be tested from here directly,
+but it's been run end to end on a real machine with a real key.
 
 **The free tier is not just small, it can lock you out entirely.** One real
 account hit this on the very first request:
@@ -166,6 +164,27 @@ engine uses ElevenLabs' `with-timestamps` endpoint, which returns real
 character-level timing converted to word timing in
 `pipeline/tts.py::_chars_to_words`. That should give tighter caption sync
 than `edge`, which reports timing per-word rather than per-character.
+
+#### Tuning the delivery
+
+Left at ElevenLabs' own defaults, narration comes out flat -- little pitch
+or pace variation between lines. Three knobs in `.env` control this
+(all `0.0`-`1.0`):
+
+- `ELEVENLABS_STABILITY` (default `0.4`) -- lower means more natural pitch
+  and pacing variation between takes; higher means flatter but more
+  consistent. This is the main lever for "monotone."
+- `ELEVENLABS_SIMILARITY_BOOST` (default `0.8`) -- how closely it sticks to
+  the reference voice's actual timbre. Rarely needs changing.
+- `ELEVENLABS_STYLE` (default `0.35`) -- pushes toward a more exaggerated,
+  performative delivery. Higher also means slower generation and less
+  consistency between renders of the same line, so treat it as a small
+  push rather than cranking it up.
+
+There's no formula for "correct" here -- retune by ear per voice. If a
+voice still reads flat after lowering stability, it's often the voice
+itself rather than the settings; try a different one from the voice
+library rather than pushing style too high to compensate.
 
 ### Free-tier voice that doesn't require gambling on account flags: Google Cloud TTS
 

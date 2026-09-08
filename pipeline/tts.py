@@ -34,7 +34,15 @@ def synthesize(text: str, out_mp3: Path, cfg: Config) -> list[dict]:
             cfg.piper_noise_w,
         )
     if cfg.tts_engine == "elevenlabs":
-        return _synthesize_elevenlabs(text, out_mp3, cfg.elevenlabs_api_key, cfg.elevenlabs_voice_id)
+        return _synthesize_elevenlabs(
+            text,
+            out_mp3,
+            cfg.elevenlabs_api_key,
+            cfg.elevenlabs_voice_id,
+            cfg.elevenlabs_stability,
+            cfg.elevenlabs_similarity_boost,
+            cfg.elevenlabs_style,
+        )
     if cfg.tts_engine == "google":
         return _synthesize_google(
             text, out_mp3, cfg.google_tts_api_key, cfg.google_tts_voice_name, cfg.google_tts_language_code
@@ -180,16 +188,18 @@ def _synthesize_piper(
 ELEVENLABS_API_BASE = "https://api.elevenlabs.io/v1"
 
 
-def _synthesize_elevenlabs(text: str, out_mp3: Path, api_key: str, voice_id: str) -> list[dict]:
+def _synthesize_elevenlabs(
+    text: str,
+    out_mp3: Path,
+    api_key: str,
+    voice_id: str,
+    stability: float,
+    similarity_boost: float,
+    style: float,
+) -> list[dict]:
     """Paid/free-tier cloud TTS (https://elevenlabs.io) -- the quality
     ceiling above everything else in this file, at the cost of needing an
     account, a key, and internet at render time.
-
-    Unverified: this sandbox's network policy blocks api.elevenlabs.io (same
-    as api.pexels.com and api.d-id.com), so this has not been run against
-    the real API. The request/response shape matches ElevenLabs'
-    long-documented /text-to-speech/{voice_id}/with-timestamps endpoint, but
-    confirm against your own dashboard/docs before relying on it.
 
     Uses the with-timestamps endpoint specifically because it returns real
     character-level alignment -- converted to word timing below -- instead
@@ -197,10 +207,11 @@ def _synthesize_elevenlabs(text: str, out_mp3: Path, api_key: str, voice_id: str
     should give the tightest caption sync of any engine in this file,
     edge included.
 
-    ElevenLabs' free-tier API access has genuinely conflicting reports as of
-    when this was written (some sources say API access is paid-only, others
-    say a small free monthly quota is included) -- confirm current terms on
-    your own account rather than assuming either way.
+    Without an explicit voice_settings block, ElevenLabs defaults to
+    stability=0.5/style=0, which reads flat and monotone on narration --
+    lower stability and a bit of style push the delivery toward more
+    natural pitch/pace variation. See README for what each knob does and
+    how to retune them by ear.
     """
     if not api_key:
         raise TTSError("ELEVENLABS_API_KEY is not set")
@@ -208,7 +219,16 @@ def _synthesize_elevenlabs(text: str, out_mp3: Path, api_key: str, voice_id: str
         resp = requests.post(
             f"{ELEVENLABS_API_BASE}/text-to-speech/{voice_id}/with-timestamps",
             headers={"xi-api-key": api_key, "Content-Type": "application/json"},
-            json={"text": text, "model_id": "eleven_multilingual_v2"},
+            json={
+                "text": text,
+                "model_id": "eleven_multilingual_v2",
+                "voice_settings": {
+                    "stability": stability,
+                    "similarity_boost": similarity_boost,
+                    "style": style,
+                    "use_speaker_boost": True,
+                },
+            },
             timeout=60,
         )
         if resp.status_code >= 400:
