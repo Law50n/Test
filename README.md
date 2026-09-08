@@ -171,20 +171,25 @@ Left at ElevenLabs' own defaults, narration comes out flat -- little pitch
 or pace variation between lines. Three knobs in `.env` control this
 (all `0.0`-`1.0`):
 
-- `ELEVENLABS_STABILITY` (default `0.4`) -- lower means more natural pitch
-  and pacing variation between takes; higher means flatter but more
-  consistent. This is the main lever for "monotone."
+- `ELEVENLABS_STABILITY` (default `0.5`, ElevenLabs' own baseline) -- lower
+  means more natural pitch and pacing variation between takes; higher means
+  flatter but more consistent. This is the main lever for "monotone."
 - `ELEVENLABS_SIMILARITY_BOOST` (default `0.8`) -- how closely it sticks to
   the reference voice's actual timbre. Rarely needs changing.
-- `ELEVENLABS_STYLE` (default `0.35`) -- pushes toward a more exaggerated,
+- `ELEVENLABS_STYLE` (default `0.15`) -- pushes toward a more exaggerated,
   performative delivery. Higher also means slower generation and less
   consistency between renders of the same line, so treat it as a small
   push rather than cranking it up.
 
-There's no formula for "correct" here -- retune by ear per voice. If a
-voice still reads flat after lowering stability, it's often the voice
-itself rather than the settings; try a different one from the voice
-library rather than pushing style too high to compensate.
+**Confirmed by ear, not just in theory: pushing these too far makes some
+lines better and others noticeably worse in the same script**, the same
+regression already documented above for Piper's `noise_scale` -- more
+expressive settings can sound great in isolation and rougher across a full
+render. `STABILITY=0.4` / `STYLE=0.35` was tried first and produced exactly
+that; the defaults above are a smaller, safer nudge off ElevenLabs' own
+baseline instead. If a voice still reads flat at these defaults, that's
+more likely the voice itself than the settings -- try a different one from
+the voice library rather than pushing style higher to compensate.
 
 ### Free-tier voice that doesn't require gambling on account flags: Google Cloud TTS
 
