@@ -13,7 +13,7 @@
   ],
   "scenes": [
     {
-      "text": "This shrimp punches so fast, it makes the water around it boil.",
+      "text": "This shrimp can boil water with a single punch.",
       "visual_query": "mantis shrimp colorful macro"
     },
     {
@@ -21,19 +21,23 @@
       "visual_query": "bullet gun barrel closeup"
     },
     {
-      "text": "It moves so fast it superheats the water for a fraction of a second, creating a flash of light and a shockwave called cavitation.",
-      "visual_query": "underwater bubbles shockwave"
+      "text": "It's so fast the water flashes into light and boils for a fraction of a second.",
+      "visual_query": "underwater bubbles shockwave flash light"
     },
     {
-      "text": "That shockwave alone can stun or kill prey, even if the claw itself misses.",
+      "text": "Scientists call that cavitation, and the shockwave can kill prey even if the claw misses.",
       "visual_query": "small fish swimming ocean"
     },
     {
-      "text": "Its eyes are just as strange. It sees with sixteen types of color receptors, compared to the three humans have.",
+      "text": "Its eyes are just as wild. It has sixteen types of color receptors.",
       "visual_query": "coral reef macro eye colorful"
     },
     {
-      "text": "Follow for more facts about the ocean that sound made up but aren't.",
+      "text": "You have three. It might be seeing colors that don't even have a name.",
+      "visual_query": "coral reef vibrant colors underwater"
+    },
+    {
+      "text": "Follow for more ocean facts that sound fake but are completely real.",
       "visual_query": "coral reef wide shot ocean"
     }
   ]
