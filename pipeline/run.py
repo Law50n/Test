@@ -89,7 +89,7 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
         ass_path = tmp_dir / "captions.ass"
         font_size = max(cfg.size[0] // 22, 18)
         margin_v = cfg.size[1] // 7
-        captions.write_ass(caption_lines, ass_path, cfg.size, font_size, margin_v)
+        captions.write_ass_karaoke(all_captions, ass_path, cfg.size, font_size, margin_v)
 
         print("Burning in captions...")
         final_video = out_dir / "video.mp4"

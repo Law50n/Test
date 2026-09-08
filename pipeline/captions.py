@@ -3,7 +3,9 @@ a duration-based estimate (offline engine).
 """
 from pathlib import Path
 
-MAX_WORDS_PER_LINE = 6
+MAX_WORDS_PER_LINE = 4
+ACCENT_COLOR = "&H00D4FF&"  # ASS BGR, no alpha -- renders as a bright gold/yellow
+WHITE = "&HFFFFFF&"
 
 
 def words_to_captions(words: list[dict], max_words: int = MAX_WORDS_PER_LINE) -> list[dict]:
@@ -78,14 +80,9 @@ def _ass_escape(text: str) -> str:
     return text.replace("{", "(").replace("}", ")").replace("\n", "\\N")
 
 
-def write_ass(captions: list[dict], out_path: Path, size: tuple[int, int], font_size: int, margin_v: int) -> None:
-    """A plain .srt burned via ffmpeg's `subtitles` filter gets its font size
-    and margins interpreted against libass's fallback script resolution
-    (384x288), not the actual video size -- captions come out oversized and
-    mispositioned. Writing PlayResX/PlayResY ourselves avoids that.
-    """
+def _ass_header(size: tuple[int, int], font_size: int, margin_v: int) -> str:
     w, h = size
-    header = (
+    return (
         "[Script Info]\n"
         "ScriptType: v4.00+\n"
         f"PlayResX: {w}\n"
@@ -96,13 +93,62 @@ def write_ass(captions: list[dict], out_path: Path, size: tuple[int, int], font_
         "Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, "
         "Alignment, MarginL, MarginR, MarginV, Encoding\n"
         f"Style: Default,DejaVu Sans,{font_size},&H00FFFFFF,&H000000FF,&H00000000,&H00000000,"
-        f"-1,0,0,0,100,100,0,0,1,2,0,2,40,40,{margin_v},1\n\n"
+        f"-1,0,0,0,100,100,0,0,1,3,1,2,40,40,{margin_v},1\n\n"
         "[Events]\n"
         "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\n"
     )
+
+
+def write_ass(captions: list[dict], out_path: Path, size: tuple[int, int], font_size: int, margin_v: int) -> None:
+    """A plain .srt burned via ffmpeg's `subtitles` filter gets its font size
+    and margins interpreted against libass's fallback script resolution
+    (384x288), not the actual video size -- captions come out oversized and
+    mispositioned. Writing PlayResX/PlayResY ourselves avoids that.
+    """
+    header = _ass_header(size, font_size, margin_v)
     events = "".join(
         f"Dialogue: 0,{_ass_timestamp(c['start'])},{_ass_timestamp(c['end'])},Default,,0,0,0,,"
         f"{_ass_escape(c['text'])}\n"
         for c in captions
     )
     out_path.write_text(header + events, encoding="utf-8")
+
+
+def write_ass_karaoke(
+    words: list[dict],
+    out_path: Path,
+    size: tuple[int, int],
+    font_size: int,
+    margin_v: int,
+    max_words: int = MAX_WORDS_PER_LINE,
+) -> None:
+    """Same layout as write_ass, but the word currently being spoken pops to
+    ACCENT_COLOR while the rest of its chunk stays white -- the moving
+    per-word highlight seen on most trending Shorts/TikTok captions.
+
+    libass's \\k "karaoke" tag does NOT auto-color text as it's spoken (
+    confirmed by direct render+pixel-sample test -- both sides of the \\k
+    timer rendered identically), so instead this emits one Dialogue event
+    per word, re-rendering the same chunk of words each time with only the
+    active one wrapped in an explicit \\c override.
+    """
+    header = _ass_header(size, font_size, margin_v)
+    events = []
+    for i in range(0, len(words), max_words):
+        chunk = words[i : i + max_words]
+        for j, active in enumerate(chunk):
+            if active["end"] <= active["start"]:
+                continue
+            pieces = []
+            for k, w in enumerate(chunk):
+                token = _ass_escape(w["word"])
+                if k == j:
+                    pieces.append(f"{{\\c{ACCENT_COLOR}}}{token}{{\\c{WHITE}}}")
+                else:
+                    pieces.append(token)
+            text = "".join(pieces).strip()
+            events.append(
+                f"Dialogue: 0,{_ass_timestamp(active['start'])},{_ass_timestamp(active['end'])},"
+                f"Default,,0,0,0,,{text}\n"
+            )
+    out_path.write_text(header + "".join(events), encoding="utf-8")
