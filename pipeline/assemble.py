@@ -180,6 +180,16 @@ def concat_clips(clip_paths: list[Path], out_path: Path) -> None:
     list_file.unlink(missing_ok=True)
 
 
+def _escape_filter_path(path: Path) -> str:
+    """ffmpeg's filtergraph option parser treats ':' and '\\' as syntax, so
+    a Windows path like 'C:\\Users\\...' gets misparsed -- the drive
+    letter's colon is read as an option separator, silently truncating the
+    path. Forward slashes are accepted on Windows too, and escaping the
+    remaining (drive-letter) colon avoids the misparse on every platform.
+    """
+    return str(path).replace("\\", "/").replace(":", "\\:")
+
+
 def burn_captions(video_path: Path, ass_path: Path, out_path: Path) -> None:
     """ass_path must be a .ass file with its own PlayResX/PlayResY (see
     captions.write_ass) -- ffmpeg's plain-.srt autoconversion sizes and
@@ -194,7 +204,7 @@ def burn_captions(video_path: Path, ass_path: Path, out_path: Path) -> None:
             "-i",
             str(video_path),
             "-vf",
-            f"ass={ass_path}",
+            f"ass={_escape_filter_path(ass_path)}",
             "-c:a",
             "copy",
             str(out_path),
