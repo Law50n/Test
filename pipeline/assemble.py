@@ -181,13 +181,16 @@ def concat_clips(clip_paths: list[Path], out_path: Path) -> None:
 
 
 def _escape_filter_path(path: Path) -> str:
-    """ffmpeg's filtergraph option parser treats ':' and '\\' as syntax, so
-    a Windows path like 'C:\\Users\\...' gets misparsed -- the drive
-    letter's colon is read as an option separator, silently truncating the
-    path. Forward slashes are accepted on Windows too, and escaping the
-    remaining (drive-letter) colon avoids the misparse on every platform.
+    """ffmpeg's filtergraph parser splits filter options on ':', so a
+    Windows path like 'C:\\Users\\...' gets torn apart at the drive
+    letter -- escaping just that colon isn't enough for the ass/subtitles
+    filter specifically (confirmed against ffmpeg 9.0.1: it still mis-splits
+    on the escaped colon unless the whole value is single-quoted). Forward
+    slashes are accepted on Windows too, so backslashes are swapped rather
+    than escaped; the drive-letter colon is escaped and the value is passed
+    as filename='...' rather than a bare positional value.
     """
-    return str(path).replace("\\", "/").replace(":", "\\:")
+    return "'" + str(path).replace("\\", "/").replace(":", "\\:") + "'"
 
 
 def burn_captions(video_path: Path, ass_path: Path, out_path: Path) -> None:
@@ -204,7 +207,7 @@ def burn_captions(video_path: Path, ass_path: Path, out_path: Path) -> None:
             "-i",
             str(video_path),
             "-vf",
-            f"ass={_escape_filter_path(ass_path)}",
+            f"ass=filename={_escape_filter_path(ass_path)}",
             "-c:a",
             "copy",
             str(out_path),
