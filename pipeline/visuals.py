@@ -3,6 +3,7 @@ otherwise a generated placeholder so the pipeline still runs end to end.
 """
 import hashlib
 import random
+import re
 from pathlib import Path
 
 import requests
@@ -11,6 +12,7 @@ from PIL import Image, ImageDraw, ImageFilter
 from pipeline.fonts import load_font, wrap
 
 PEXELS_SEARCH_URL = "https://api.pexels.com/v1/search"
+CANDIDATE_POOL = 12
 
 
 def fetch_visual(query: str, out_path: Path, api_key: str, size: tuple[int, int]) -> str:
@@ -29,12 +31,32 @@ class _PexelsError(RuntimeError):
     pass
 
 
+def _score_match(query_words: set[str], photo: dict) -> int:
+    alt_words = set(re.findall(r"[a-z0-9]+", (photo.get("alt") or "").lower()))
+    return len(query_words & alt_words)
+
+
+def _best_match(query: str, photos: list[dict]) -> dict:
+    """Pexels ranks its own results by a relevance signal that can favor
+    whichever noun phrase in the query dominates (e.g. picking a plain coral
+    reef shot for "coral reef macro eye colorful", ignoring "eye" entirely).
+    Each result carries a short 'alt' description -- re-rank the page of
+    candidates by how many of the query's own words actually appear in that
+    description, keeping Pexels' original order as the tiebreaker so a
+    genuine tie (or an empty/unhelpful alt field) still falls back to
+    Pexels' own best guess.
+    """
+    query_words = set(re.findall(r"[a-z0-9]+", query.lower()))
+    ranked = sorted(enumerate(photos), key=lambda pair: (-_score_match(query_words, pair[1]), pair[0]))
+    return ranked[0][1]
+
+
 def _fetch_pexels(query: str, out_path: Path, api_key: str) -> None:
     try:
         resp = requests.get(
             PEXELS_SEARCH_URL,
             headers={"Authorization": api_key},
-            params={"query": query, "orientation": "portrait", "per_page": 1},
+            params={"query": query, "orientation": "portrait", "per_page": CANDIDATE_POOL},
             timeout=15,
         )
         if resp.status_code != 200:
@@ -42,7 +64,8 @@ def _fetch_pexels(query: str, out_path: Path, api_key: str) -> None:
         photos = resp.json().get("photos") or []
         if not photos:
             raise _PexelsError("no results")
-        image_url = photos[0]["src"]["large2x"]
+        photo = _best_match(query, photos)
+        image_url = photo["src"]["large2x"]
         image_resp = requests.get(image_url, timeout=30)
         image_resp.raise_for_status()
         out_path.write_bytes(image_resp.content)
