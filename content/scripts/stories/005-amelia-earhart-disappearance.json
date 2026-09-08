@@ -1,0 +1,16 @@
+{
+  "category": "stories",
+  "id": "005-amelia-earhart-disappearance",
+  "title": "She Vanished Over the Pacific and Was Never Found",
+  "description": "In 1937, Amelia Earhart was attempting to fly around the world at the equator when she and navigator Fred Noonan vanished over the Pacific Ocean. The largest search in US history at the time found nothing. Almost ninety years later, no one knows what happened to them.\n\nSources: Smithsonian National Air and Space Museum's Amelia Earhart biography; U.S. Navy History and Heritage Command's account of the 1937 search.\n\n#shorts #truestory #unsolvedmystery",
+  "tags": ["true story", "unsolved mystery", "amelia earhart", "history", "shorts"],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "In 1937, the most famous pilot in the world vanished over the Pacific Ocean, and was never found.", "visual_query": "vintage airplane propeller closeup" },
+    { "text": "On 02/07/1937, Amelia Earhart and navigator Fred Noonan were flying the final leg of an attempt to circle the globe.", "visual_query": "vintage airplane flying clouds" },
+    { "text": "Their target was Howland Island, a strip of land two miles long, lost in the middle of the Pacific Ocean.", "visual_query": "aerial ocean tiny island" },
+    { "text": "Her last radio message said she was running low on fuel and couldn't find the island. Then the radio went silent.", "visual_query": "old radio equipment vintage" },
+    { "text": "The US Navy launched the largest search in history at the time. It found absolutely nothing.", "visual_query": "navy ship ocean searching" },
+    { "text": "Nearly ninety years later, there's no wreckage, no bodies, and still no answer for what happened to Amelia Earhart.", "visual_query": "ocean horizon sunset" }
+  ]
+}
