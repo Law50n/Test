@@ -19,6 +19,18 @@ FONTS_DIR = Path(__file__).resolve().parent.parent / "assets" / "fonts"
 # gentle vignette unifies them without looking heavily filtered.
 GRADE_FILTER = "eq=contrast=1.08:saturation=1.15,vignette=PI/6"
 
+# Every clip must share this exact framerate before concat_clips crossfades
+# them -- confirmed directly: xfade requires matching input timebases, and
+# a Pexels video's native rate (24/25/29.97fps, whatever the source was
+# shot at) is never guaranteed to match make_scene_clip's Ken Burns output.
+# Reproduced the failure with two synthetic clips at 30fps and 25fps: this
+# ffmpeg build rejected it outright ("timebase do not match"), but a
+# different build could plausibly emit a technically-non-erroring file
+# with broken frame timing that only a strict player (confirmed: Windows
+# Media Player) refuses to open. Fixing this at the source is what
+# actually prevents both failure modes.
+SCENE_FPS = 30
+
 
 def run(cmd: list[str]) -> None:
     result = subprocess.run(cmd, capture_output=True, text=True)
@@ -52,7 +64,7 @@ def make_scene_clip(
     out_path: Path,
     size: tuple[int, int],
     zoom_in: bool,
-    fps: int = 30,
+    fps: int = SCENE_FPS,
 ) -> None:
     w, h = size
     frames = max(int(duration * fps), 1)
@@ -114,7 +126,7 @@ def make_scene_clip_from_video(
     w, h = size
     filter_complex = (
         f"[0:v]scale={w}:{h}:force_original_aspect_ratio=increase,"
-        f"crop={w}:{h},{GRADE_FILTER},format=yuv420p[v]"
+        f"crop={w}:{h},{GRADE_FILTER},fps={SCENE_FPS},format=yuv420p[v]"
     )
     run(
         [
