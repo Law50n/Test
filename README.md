@@ -47,7 +47,7 @@ python -m pipeline.run content/scripts/tech/*.json
 python -m pipeline.run content/scripts/*/*.json
 ```
 
-Output lands in `output/<script-id>/`: `video.mp4`, `thumbnail.jpg`,
+Output lands in `output/<category>/<script-id>/`: `video.mp4`, `thumbnail.jpg`,
 `captions.srt` (upload as a caption track for accessibility/SEO), and
 `metadata.txt` (title/description/tags to paste into YouTube Studio).
 
@@ -408,5 +408,5 @@ oversized and pinned near the top — that's the failure mode this avoids.
 
 - A Pexels API key for real visuals (free, but you have to sign up for it).
 - Reviewing script/topic output before it renders — nothing here auto-uploads.
-- Actually uploading: `output/<id>/metadata.txt` has the title, description,
-  and tags ready to paste into YouTube Studio.
+- Actually uploading: `output/<category>/<id>/metadata.txt` has the title,
+  description, and tags ready to paste into YouTube Studio.

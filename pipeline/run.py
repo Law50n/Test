@@ -20,7 +20,7 @@ from pipeline.tts import TTSError, synthesize
 
 def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
     script = VideoScript.load(script_path)
-    out_dir = out_dir / script.id
+    out_dir = out_dir / script.category / script.id
     out_dir.mkdir(parents=True, exist_ok=True)
 
     with tempfile.TemporaryDirectory(prefix=f"{script.id}-") as tmp:
