@@ -60,10 +60,9 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
                     # that here by checking the clip we just built actually
                     # matches the audio it's paired with, and fall back to
                     # a placeholder rather than ship broken footage.
-                    actual = assemble.get_duration(clip_path)
-                    if abs(actual - duration) > 0.75:
+                    if abs(assemble.get_duration(clip_path) - duration) > 0.75:
                         print(
-                            f"  ! scene clip duration is {actual:.1f}s, expected {duration:.1f}s "
+                            f"  ! scene clip duration is way off from its audio "
                             f"(likely a corrupt download) -- using a placeholder instead"
                         )
                         source = "placeholder"
@@ -87,13 +86,28 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
                 first_visual_query = scene.visual_query
                 first_visual_was_placeholder = source == "placeholder"
 
+            # The clip's real rendered length can be a touch shorter than
+            # its audio's nominal duration -- zoompan quantizes to whole
+            # frames, and -shortest then quietly trims the audio to match.
+            # Confirmed by direct measurement: using the audio-based
+            # `duration` for cross-scene timing instead of this compounds
+            # a growing gap between the concatenated video's real length
+            # and where captions think each scene starts.
+            clip_duration = assemble.get_duration(clip_path)
+
             if words:
                 for w in words:
                     all_captions.append({**w, "start": w["start"] + cursor, "end": w["end"] + cursor})
             else:
                 for w in captions.estimate_word_timings(narration, duration):
                     all_captions.append({**w, "start": w["start"] + cursor, "end": w["end"] + cursor})
-            cursor += duration
+            # Every scene after the first overlaps the previous one by
+            # assemble.CROSSFADE_DURATION once concat_clips blends them
+            # together, so each one actually starts that much earlier in
+            # the final video than a plain sum of durations would suggest
+            # -- skipping this would drift captions further out of sync
+            # with every scene.
+            cursor += clip_duration if i == 0 else clip_duration - assemble.CROSSFADE_DURATION
 
             clip_paths.append(clip_path)
 

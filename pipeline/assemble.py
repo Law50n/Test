@@ -11,6 +11,14 @@ from pathlib import Path
 # happen to already be present on whichever machine renders this.
 FONTS_DIR = Path(__file__).resolve().parent.parent / "assets" / "fonts"
 
+# A single, consistent grade applied to every scene regardless of source.
+# Real Pexels photos and video each carry their own exposure/white balance,
+# and our own placeholder cards are a third, different look -- with no
+# shared grade, cutting between them reads as a mismatched slideshow
+# rather than one edited video. A modest contrast/saturation push plus a
+# gentle vignette unifies them without looking heavily filtered.
+GRADE_FILTER = "eq=contrast=1.08:saturation=1.15,vignette=PI/6"
+
 
 def run(cmd: list[str]) -> None:
     result = subprocess.run(cmd, capture_output=True, text=True)
@@ -58,7 +66,7 @@ def make_scene_clip(
         f"crop={w * 2}:{h * 2},"
         f"zoompan=z='{zoom_expr}':d={frames}"
         f":x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={w}x{h}:fps={fps},"
-        f"format=yuv420p[v]"
+        f"{GRADE_FILTER},format=yuv420p[v]"
     )
     run(
         [
@@ -106,7 +114,7 @@ def make_scene_clip_from_video(
     w, h = size
     filter_complex = (
         f"[0:v]scale={w}:{h}:force_original_aspect_ratio=increase,"
-        f"crop={w}:{h},format=yuv420p[v]"
+        f"crop={w}:{h},{GRADE_FILTER},format=yuv420p[v]"
     )
     run(
         [
@@ -163,27 +171,65 @@ def extract_frame(source_path: Path, out_path: Path) -> None:
     )
 
 
-def concat_clips(clip_paths: list[Path], out_path: Path) -> None:
-    list_file = out_path.with_suffix(".txt")
-    list_file.write_text("".join(f"file '{p.resolve()}'\n" for p in clip_paths))
+CROSSFADE_DURATION = 0.35  # seconds -- short enough to stay snappy at Shorts pacing
+
+
+def concat_clips(clip_paths: list[Path], out_path: Path, crossfade: float = CROSSFADE_DURATION) -> None:
+    """Crossfades between consecutive scenes instead of hard-cutting straight
+    to the next one -- a hard cut every few seconds across mismatched stock
+    sources reads as a slideshow; a short blend reads as an edited video.
+
+    This replaces the old stream-copy concat demuxer with an xfade/
+    acrossfade filter chain, since blending frames means actually
+    re-encoding rather than just concatenating existing encoded streams.
+    Each transition eats `crossfade` seconds from both neighboring clips
+    (they overlap during the blend), so the output is shorter than the sum
+    of the inputs by crossfade * (n - 1) -- callers tracking cumulative
+    timing (caption offsets) must subtract that same amount per scene
+    after the first, or captions drift out of sync more with every scene.
+    """
+    if len(clip_paths) == 1:
+        run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(clip_paths[0]), "-c", "copy", str(out_path)])
+        return
+
+    durations = [get_duration(p) for p in clip_paths]
+    inputs = []
+    for p in clip_paths:
+        inputs += ["-i", str(p)]
+
+    filter_parts = []
+    v_label, a_label = "0:v", "0:a"
+    cumulative = durations[0]
+    for i in range(1, len(clip_paths)):
+        offset = max(cumulative - crossfade, 0.0)
+        next_v, next_a = f"v{i}", f"a{i}"
+        filter_parts.append(
+            f"[{v_label}][{i}:v]xfade=transition=fade:duration={crossfade}:offset={offset:.3f}[{next_v}]"
+        )
+        filter_parts.append(f"[{a_label}][{i}:a]acrossfade=d={crossfade}[{next_a}]")
+        v_label, a_label = next_v, next_a
+        cumulative = cumulative + durations[i] - crossfade
+
     run(
         [
             "ffmpeg",
             "-y",
             "-loglevel",
             "error",
-            "-f",
-            "concat",
-            "-safe",
-            "0",
-            "-i",
-            str(list_file),
-            "-c",
-            "copy",
+            *inputs,
+            "-filter_complex",
+            ";".join(filter_parts),
+            "-map",
+            f"[{v_label}]",
+            "-map",
+            f"[{a_label}]",
+            "-c:v",
+            "libx264",
+            "-c:a",
+            "aac",
             str(out_path),
         ]
     )
-    list_file.unlink(missing_ok=True)
 
 
 def _escape_filter_path(path: Path) -> str:
