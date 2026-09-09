@@ -13,6 +13,7 @@ VISUAL_MODES = {"photo", "video"}
 class Scene:
     text: str
     visual_query: str
+    local_image: Path | None = None
 
 
 @dataclass
@@ -46,7 +47,15 @@ class VideoScript:
             missing_scene_fields = {"text", "visual_query"} - s.keys()
             if missing_scene_fields:
                 raise ValueError(f"{path}: scene {i} is missing field(s): {sorted(missing_scene_fields)}")
-            scenes.append(Scene(text=s["text"], visual_query=s["visual_query"]))
+            local_image = s.get("local_image")
+            if local_image:
+                # Resolved relative to the script file itself, not the cwd
+                # the pipeline happens to be run from, so a script and its
+                # own asset folder stay portable together.
+                local_image = (Path(path).resolve().parent / local_image).resolve()
+                if not local_image.exists():
+                    raise ValueError(f"{path}: scene {i}'s local_image {local_image} does not exist")
+            scenes.append(Scene(text=s["text"], visual_query=s["visual_query"], local_image=local_image))
         return cls(
             id=data["id"],
             category=data["category"],

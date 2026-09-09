@@ -1,0 +1,21 @@
+{
+  "category": "experiments",
+  "id": "001-rwg-explainer",
+  "title": "How Real World Goblins Actually Works",
+  "description": "A plain explanation of the mechanics behind Real World Goblins, an NFT/token project built on Robinhood Chain -- based on the project's own published documentation.\n\nThis is not financial advice, and it's not an endorsement -- it's a mechanical explainer. For transparency: the creator of this video holds Real World Goblins NFTs and RWG tokens.\n\n#web3 #nft #cryptoexplainer",
+  "tags": ["real world goblins", "rwg", "nft explainer", "web3", "crypto"],
+  "visual_mode": "photo",
+  "scenes": [
+    { "text": "Real World Goblins is a new project on a chain called Robinhood Chain, built around a fantasy NFT collection with real financial mechanics underneath it.", "visual_query": "dark fantasy castle silhouette" },
+    { "text": "Each Goblin NFT gets its own smart contract wallet, called an ERC 6551 account, so it can hold and manage its own assets on chain.", "visual_query": "digital wallet technology abstract" },
+    { "text": "How many Goblins ever exist depends on how many whitelist spots get reserved by burning for them before September the eleventh, at eleven eleven AM Eastern.", "visual_query": "hourglass sand time" },
+    { "text": "Minting itself is free. Once minted, a Goblin can be exchanged for one million RWG tokens at a marketplace called the Grotto, which charges a variable fee based on RWG's price.", "visual_query": "old wooden market stall" },
+    { "text": "Goblins can equip items bought with a token called GG. The very first item is the Enchanted Doll, which actually gets consumed to mint a Goblin.", "visual_query": "stitched fabric doll toy", "local_image": "assets/enchanted_doll.png" },
+    { "text": "Trading fees from three different sources get shared with Goblin holders who join something called the Horde, as long as their Goblin has a financial item equipped.", "visual_query": "financial data flow abstract" },
+    { "text": "You can also lock GG for a token called xGG, or stake different liquidity pairs, to earn a share of ongoing GG and RWG rewards.", "visual_query": "bank vault gold" },
+    { "text": "A portion of the protocol's fees get converted into a separate token called GLD. Eighty percent of those fees go to one randomly chosen Goblin, every single week.", "visual_query": "dice rolling luck" },
+    { "text": "There's also a lending system. You can borrow against a locked Goblin or against items, but items get liquidated once the loan reaches seventy percent of their value.", "visual_query": "medieval dungeon dark stone" },
+    { "text": "The rest of the roadmap includes the RWG token launching on Uniswap, Goblins actually being minted, and the Grotto, Bazaar, and Counting House opening up over time.", "visual_query": "old map path illustration" },
+    { "text": "That's how the mechanics work as of today. This isn't financial advice, and for full transparency, I hold Goblin NFTs and RWG tokens myself.", "visual_query": "dark forest path fog" }
+  ]
+}

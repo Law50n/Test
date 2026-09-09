@@ -46,7 +46,18 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
             duration = assemble.get_duration(audio_path)
 
             clip_path = tmp_dir / f"clip_{i:02d}.mp4"
-            if script.visual_mode == "video":
+            if scene.local_image is not None:
+                # A specific, provided-in-advance image (project artwork,
+                # a frame pulled from a reference clip, etc.) instead of a
+                # Pexels search or a generated placeholder -- still gets
+                # the same Ken Burns treatment as any other still image.
+                visual_path = scene.local_image
+                source = "local_image"
+                print(f"  visual: {source} ({visual_path.name})")
+                assemble.make_scene_clip(
+                    visual_path, audio_path, duration, clip_path, cfg.size, zoom_in=(i % 2 == 0)
+                )
+            elif script.visual_mode == "video":
                 visual_path = tmp_dir / f"scene_{i:02d}.media"
                 source = video_clips.fetch_video_clip(
                     scene.visual_query, visual_path, cfg.pexels_api_key, cfg.size, duration
