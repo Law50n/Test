@@ -2,6 +2,7 @@
 captions. No re-encoding tricks beyond what a solo creator's laptop can run.
 """
 import json
+import os
 import subprocess
 from pathlib import Path
 
@@ -64,6 +65,33 @@ def get_duration(media_path: Path) -> float:
         check=True,
     )
     return float(json.loads(result.stdout)["format"]["duration"])
+
+
+def normalize_audio(audio_path: Path, target_lufs: float = -16.0) -> None:
+    """Loudness-normalizes narration in place (EBU R128 via ffmpeg's
+    loudnorm). Each scene is a separate TTS request, and nothing guarantees
+    two separate requests come back at the same perceived loudness --
+    confirmed by ear: every line at a different volume. Run once per scene
+    right after synthesis, before anything downstream (duration, clip
+    building) touches the audio, so everything after this already sees a
+    consistent level. -16 LUFS is a standard target for spoken-word/online
+    video (podcasts, YouTube's own normalization reference).
+    """
+    tmp_path = audio_path.with_suffix(audio_path.suffix + ".norm.mp3")
+    run(
+        [
+            "ffmpeg",
+            "-y",
+            "-loglevel",
+            "error",
+            "-i",
+            str(audio_path),
+            "-af",
+            f"loudnorm=I={target_lufs}:TP=-1.5:LRA=11",
+            str(tmp_path),
+        ]
+    )
+    os.replace(tmp_path, audio_path)
 
 
 def make_scene_clip(
@@ -192,7 +220,7 @@ def extract_frame(source_path: Path, out_path: Path) -> None:
     )
 
 
-CROSSFADE_DURATION = 0.35  # seconds -- short enough to stay snappy at Shorts pacing
+CROSSFADE_DURATION = 0.2  # seconds -- 0.35 read as excessive on a real render, confirmed by ear
 
 
 def concat_clips(clip_paths: list[Path], out_path: Path, crossfade: float = CROSSFADE_DURATION) -> None:

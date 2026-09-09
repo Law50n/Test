@@ -42,6 +42,7 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
             except TTSError as e:
                 print(f"  ! TTS failed: {e}", file=sys.stderr)
                 raise SystemExit(1)
+            assemble.normalize_audio(audio_path)
             duration = assemble.get_duration(audio_path)
 
             clip_path = tmp_dir / f"clip_{i:02d}.mp4"
