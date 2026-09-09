@@ -30,6 +30,8 @@ class Config:
     google_tts_api_key: str
     google_tts_voice_name: str
     google_tts_language_code: str
+    gemini_api_key: str
+    gemini_image_model: str
 
     @property
     def size(self) -> tuple[int, int]:
@@ -58,4 +60,6 @@ class Config:
             google_tts_api_key=os.environ.get("GOOGLE_TTS_API_KEY", "").strip(),
             google_tts_voice_name=os.environ.get("GOOGLE_TTS_VOICE_NAME", "en-US-Neural2-D").strip(),
             google_tts_language_code=os.environ.get("GOOGLE_TTS_LANGUAGE_CODE", "en-US").strip(),
+            gemini_api_key=os.environ.get("GEMINI_API_KEY", "").strip(),
+            gemini_image_model=os.environ.get("GEMINI_IMAGE_MODEL", "gemini-3.1-flash-image").strip(),
         )

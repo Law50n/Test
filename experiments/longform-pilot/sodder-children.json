@@ -1,0 +1,25 @@
+{
+  "category": "experiments",
+  "id": "001-sodder-children",
+  "title": "The Fire That Left No Bodies",
+  "description": "In 1945, a fire destroyed the Sodder family home in West Virginia. Five of the ten children were never found -- no remains, no confirmed answer, to this day.\n\nThis is a pilot for a longform unsolved-mysteries format using AI-generated illustrated visuals instead of stock photography. Every scene here uses a Gemini-generated image, not a real photograph -- flagging that plainly since some scenes describe real people.\n\nSources: West Virginia State Police case reopening coverage (2021); Smithsonian Magazine's account of the Sodder family fire and investigation.\n\n#unsolvedmystery #truestory #history",
+  "tags": ["true story", "unsolved mystery", "sodder", "history", "longform pilot"],
+  "visual_mode": "generated",
+  "image_style_prompt": "Moody illustrated style, muted desaturated color palette, dramatic low lighting, subtle painterly brushwork and film grain, cinematic wide framing, 1940s rural American setting, no text or watermarks, no photorealistic faces",
+  "scenes": [
+    { "text": "In the early hours of 25/12/1945, a fire tore through a family home in rural West Virginia, and what happened next has never been fully explained.", "visual_query": "a wood-frame farmhouse engulfed in fire at night, rural hillside in the background" },
+    { "text": "George and Jennie Sodder had ten children. Nine of them were home that night. George, Jennie, and four of the children escaped the burning house.", "visual_query": "a family standing outside a burning house at night, backs to camera, watching in shock" },
+    { "text": "The other five children were never seen again. Officially, they died in the fire. Their parents never believed that.", "visual_query": "an empty snow-covered yard at dawn after a house fire, smoke still rising from the ruins" },
+    { "text": "Investigators found no bones, no skulls, nothing you'd expect from bodies burned in a house fire that hot.", "visual_query": "a burned house foundation in daylight, investigators sifting through ash, muted colors" },
+    { "text": "Stranger still, the family's phone line had gone dead earlier that same night, so no one could call for help.", "visual_query": "an old rotary telephone on a wall, cut wire hanging, dim interior light" },
+    { "text": "A ladder the family normally kept by the house had been moved and left far away, instead of used to reach a window.", "visual_query": "a wooden ladder lying in tall grass far from a farmhouse, overcast light" },
+    { "text": "The local fire department was only a few miles away, but didn't arrive until morning, hours after the fire started.", "visual_query": "an old fire truck parked on a rural road at dawn, fog, distant smoke on the horizon" },
+    { "text": "Weeks before the fire, a man had reportedly warned George Sodder that his house would go up in smoke and his children would be destroyed.", "visual_query": "a shadowed figure standing at a farmhouse gate at dusk, back to camera, ominous mood" },
+    { "text": "George Sodder was an Italian immigrant who was openly critical of Mussolini, which some believe made his family a target.", "visual_query": "a 1940s American small town main street, dusk, a few pedestrians, muted sepia tones" },
+    { "text": "In the years after, witnesses came forward describing seeing the missing children that same night, including one woman who said she served them breakfast at a nearby rest stop.", "visual_query": "an old roadside diner interior at night, empty booths, warm lamp light, 1940s style" },
+    { "text": "The Sodders spent years chasing leads and offering rewards, eventually putting up a billboard along the highway with the children's photos, hoping someone would recognize them.", "visual_query": "a weathered roadside billboard along a rural highway, faded, overcast sky" },
+    { "text": "The billboard stayed up for nearly forty years. No one ever came forward with a confirmed answer.", "visual_query": "an empty two-lane highway stretching toward the horizon, autumn trees, muted light" },
+    { "text": "In 2021, West Virginia State Police reopened the case using modern forensic techniques. It remains unsolved to this day.", "visual_query": "a dim archive room with old case files and boxes stacked on shelves, single desk lamp" },
+    { "text": "To this day, no one knows for certain whether the five Sodder children died that night, or somewhere out there, survived.", "visual_query": "a quiet rural hillside at dusk, empty dirt road leading into fog, distant lights" }
+  ]
+}

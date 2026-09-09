@@ -11,8 +11,9 @@ import sys
 import tempfile
 from pathlib import Path
 
-from pipeline import assemble, captions, thumbnail, video_clips, visuals
+from pipeline import assemble, captions, image_gen, thumbnail, video_clips, visuals
 from pipeline.config import Config
+from pipeline.image_gen import ImageGenError
 from pipeline.script_loader import VideoScript
 from pipeline.text_normalize import normalize_dates_for_speech
 from pipeline.tts import TTSError, synthesize
@@ -86,6 +87,22 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
                     assemble.make_scene_clip(
                         visual_path, audio_path, duration, clip_path, cfg.size, zoom_in=(i % 2 == 0)
                     )
+            elif script.visual_mode == "generated":
+                visual_path = tmp_dir / f"scene_{i:02d}.png"
+                try:
+                    image_gen.generate_image(
+                        scene.visual_query, visual_path, cfg.gemini_api_key, script.image_style_prompt,
+                        cfg.gemini_image_model,
+                    )
+                    source = "generated"
+                except ImageGenError as e:
+                    print(f"  ! image generation failed for {scene.visual_query!r} ({e}); using a placeholder instead")
+                    visuals.generate_placeholder(scene.visual_query, visual_path, cfg.size)
+                    source = "placeholder"
+                print(f"  visual: {source} ({scene.visual_query!r})")
+                assemble.make_scene_clip(
+                    visual_path, audio_path, duration, clip_path, cfg.size, zoom_in=(i % 2 == 0)
+                )
             else:
                 visual_path = tmp_dir / f"scene_{i:02d}.jpg"
                 source = visuals.fetch_visual(scene.visual_query, visual_path, cfg.pexels_api_key, cfg.size)

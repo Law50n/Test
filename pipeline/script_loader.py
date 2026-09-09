@@ -6,7 +6,7 @@ from pathlib import Path
 # Script ids become tempdir prefixes and get embedded, unescaped, in ffmpeg
 # concat-file paths (see assemble.concat_clips) -- keep them shell/ffmpeg-safe.
 _ID_PATTERN = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
-VISUAL_MODES = {"photo", "video"}
+VISUAL_MODES = {"photo", "video", "generated"}
 
 
 @dataclass
@@ -25,6 +25,10 @@ class VideoScript:
     tags: list[str]
     scenes: list[Scene]
     visual_mode: str = "photo"
+    # Appended to every generate_image() prompt when visual_mode=="generated"
+    # so a whole series reads as one consistent, recognizable look rather
+    # than each scene being independently AI-generated with no throughline.
+    image_style_prompt: str = ""
 
     @classmethod
     def load(cls, path: Path) -> "VideoScript":
@@ -64,4 +68,5 @@ class VideoScript:
             tags=data["tags"],
             scenes=scenes,
             visual_mode=visual_mode,
+            image_style_prompt=data.get("image_style_prompt", ""),
         )

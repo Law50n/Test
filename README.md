@@ -355,6 +355,53 @@ commentary-vs-clipping discussion above for why that line matters.
 }
 ```
 
+## Experimental: AI-generated visuals (`experiments/longform-pilot/`)
+
+A third `visual_mode`, `"generated"`, sources each scene's image from Gemini
+(`pipeline/image_gen.py`) instead of Pexels or a placeholder -- built as a
+pilot for a longform unsolved-mysteries format, where a consistent
+illustrated look across a whole series matters more than it does for a
+6-scene Short. Not used by any of the main `content/scripts/` categories;
+opt in per script.
+
+**Model choice matters here and will keep changing.** Imagen 4's dedicated
+endpoints (standard/ultra/fast) were deprecated and shut down 17/08/2026 --
+confirmed live, they simply don't work anymore. `GEMINI_IMAGE_MODEL`
+defaults to `gemini-3.1-flash-image` (the current "Nano Banana 2"
+generation), but check [Google's current model list](https://ai.google.dev/gemini-api/docs/imagen)
+before relying on this being current by the time you read it -- this space
+moves fast.
+
+**Real, per-image cost** (roughly a few cents each at the time this was
+written, resolution-dependent) -- unlike Pexels/placeholders, this isn't
+free. Check current pricing before rendering a long script.
+
+**Unverified end-to-end.** This sandbox has no Gemini API key, so this has
+only been tested against a mocked response and via the pipeline's fallback
+path (see `experiments/longform-pilot/sodder-children.json` — it renders
+clean with every scene falling back to a placeholder and printing exactly
+why: `GEMINI_API_KEY is not set`). The request/response shape matches
+Google's current documented format, but confirm it against a real key
+before trusting it.
+
+Setup:
+
+1. Get a key at [aistudio.google.com/apikey](https://aistudio.google.com/apikey).
+2. Put it in `.env` as `GEMINI_API_KEY`.
+3. Set `"visual_mode": "generated"` in a script, and optionally
+   `"image_style_prompt"` -- a shared style descriptor appended to every
+   scene's generation prompt so a whole series reads as one consistent,
+   recognizable look instead of each scene being independently generated
+   with no throughline. See `sodder-children.json` for a real example
+   (illustrated, muted, cinematic -- deliberately not photorealistic,
+   since several scenes describe real people).
+
+One thing this pipeline does **not** do yet: automatically flag YouTube's
+"Altered Content" disclosure at upload. There's no automated upload step at
+all currently (uploads are manual, see above) -- so for now, if you publish
+something made with generated visuals depicting a real person/place/event,
+that disclosure toggle needs to be set by hand in YouTube Studio.
+
 ## Optional: AI talking-head presenter (experimental, untested)
 
 `pipeline/avatar.py` renders one full script as a single talking-head video
