@@ -5,6 +5,12 @@ import json
 import subprocess
 from pathlib import Path
 
+# Same bundled font as pipeline/fonts.py, passed to libass via fontsdir so
+# it's found by name ("Anton", set in captions.write_ass's style) without
+# needing to be installed on the OS -- avoids relying on whatever fonts
+# happen to already be present on whichever machine renders this.
+FONTS_DIR = Path(__file__).resolve().parent.parent / "assets" / "fonts"
+
 
 def run(cmd: list[str]) -> None:
     result = subprocess.run(cmd, capture_output=True, text=True)
@@ -207,7 +213,7 @@ def burn_captions(video_path: Path, ass_path: Path, out_path: Path) -> None:
             "-i",
             str(video_path),
             "-vf",
-            f"ass=filename={_escape_filter_path(ass_path)}",
+            f"ass=filename={_escape_filter_path(ass_path)}:fontsdir={_escape_filter_path(FONTS_DIR)}",
             "-c:a",
             "copy",
             str(out_path),

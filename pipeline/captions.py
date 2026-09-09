@@ -89,10 +89,15 @@ def _ass_header(size: tuple[int, int], font_size: int, margin_v: int) -> str:
         f"PlayResY: {h}\n"
         "ScaledBorderAndShadow: yes\n\n"
         "[V4+ Styles]\n"
+        # Fontname must be "Anton" (the font's real family name, not a
+        # filename) to match assets/fonts/Anton-Regular.ttf -- libass
+        # resolves this by name, and assemble.burn_captions() points it at
+        # that folder via the ass filter's fontsdir option so it's found
+        # the same way on every OS, with nothing needing to be installed.
         "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, "
         "Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, "
         "Alignment, MarginL, MarginR, MarginV, Encoding\n"
-        f"Style: Default,DejaVu Sans,{font_size},&H00FFFFFF,&H000000FF,&H00000000,&H00000000,"
+        f"Style: Default,Anton,{font_size},&H00FFFFFF,&H000000FF,&H00000000,&H00000000,"
         f"-1,0,0,0,100,100,0,0,1,3,1,2,40,40,{margin_v},1\n\n"
         "[Events]\n"
         "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\n"

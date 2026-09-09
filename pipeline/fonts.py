@@ -3,24 +3,19 @@ from pathlib import Path
 
 from PIL import ImageDraw, ImageFont
 
+# Bundled directly in the repo (assets/fonts/) rather than relying on
+# whatever's installed on the OS -- the previous version guessed at Linux/
+# Windows/macOS system font paths, which is fragile (exact filenames vary
+# by Windows locale/edition) and pointless when every real render happens
+# on the same machine anyway. Anton (OFL-licensed, see assets/fonts/
+# Anton-OFL.txt) is also just a better fit for bold video titles/captions
+# than generic Arial.
+FONT_PATH = Path(__file__).resolve().parent.parent / "assets" / "fonts" / "Anton-Regular.ttf"
+
 
 def load_font(size: int) -> ImageFont.FreeTypeFont:
-    """The Linux paths below don't exist on Windows or macOS, so without the
-    OS-specific candidates this silently fell through to Pillow's generic
-    bundled default font on every non-Linux machine -- not a crash, just a
-    plainer typeface than intended (confirmed: this pipeline's real users
-    so far are on Windows).
-    """
-    for candidate in (
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
-        "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
-        r"C:\Windows\Fonts\arialbd.ttf",
-        r"C:\Windows\Fonts\segoeuib.ttf",
-        "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
-        "/System/Library/Fonts/Helvetica.ttc",
-    ):
-        if Path(candidate).exists():
-            return ImageFont.truetype(candidate, size)
+    if FONT_PATH.exists():
+        return ImageFont.truetype(str(FONT_PATH), size)
     return ImageFont.load_default(size=size)
 
 
