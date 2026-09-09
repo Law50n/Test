@@ -3,6 +3,7 @@ endpoint from the photo search in visuals.py, same free API key), falling
 back to the same generated placeholder image visuals.py uses when no key is
 configured or nothing suitable comes back.
 """
+import os
 from pathlib import Path
 
 import requests
@@ -10,6 +11,14 @@ import requests
 from pipeline.visuals import generate_placeholder
 
 PEXELS_VIDEO_SEARCH_URL = "https://api.pexels.com/videos/search"
+
+# A real Pexels clip at any resolution this pipeline requests is well into
+# the hundreds of KB at minimum. A file smaller than this is almost
+# certainly a truncated download (a network hiccup mid-transfer, not a
+# small-but-valid video) -- feeding that to ffmpeg's -stream_loop -1 has
+# been confirmed to produce badly broken output (way-too-long, visibly
+# glitchy) for the one affected scene rather than a clean failure.
+MIN_VIDEO_BYTES = 50_000
 
 
 class _VideoError(RuntimeError):
@@ -62,7 +71,14 @@ def _fetch_pexels_video(
 
         video_resp = requests.get(video_file["link"], timeout=60)
         video_resp.raise_for_status()
-        out_path.write_bytes(video_resp.content)
+        if len(video_resp.content) < MIN_VIDEO_BYTES:
+            raise _VideoError(f"downloaded video is only {len(video_resp.content)} bytes, likely truncated")
+        # Write via a temp file + atomic rename so a failure never leaves a
+        # partial/corrupt file sitting at out_path for a later step to
+        # trip over.
+        tmp_path = out_path.with_suffix(out_path.suffix + ".part")
+        tmp_path.write_bytes(video_resp.content)
+        os.replace(tmp_path, out_path)
     except _VideoError:
         raise
     except requests.exceptions.RequestException as e:

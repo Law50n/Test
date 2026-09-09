@@ -53,6 +53,24 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
                 print(f"  visual: {source} ({scene.visual_query!r})")
                 if source == "pexels_video":
                     assemble.make_scene_clip_from_video(visual_path, audio_path, duration, clip_path, cfg.size)
+                    # A stock clip that passed the download-size check can
+                    # still be subtly corrupt in a way ffmpeg doesn't error
+                    # on -- confirmed to produce a badly broken/glitchy,
+                    # way-too-long scene instead of a clean failure. Catch
+                    # that here by checking the clip we just built actually
+                    # matches the audio it's paired with, and fall back to
+                    # a placeholder rather than ship broken footage.
+                    actual = assemble.get_duration(clip_path)
+                    if abs(actual - duration) > 0.75:
+                        print(
+                            f"  ! scene clip duration is {actual:.1f}s, expected {duration:.1f}s "
+                            f"(likely a corrupt download) -- using a placeholder instead"
+                        )
+                        source = "placeholder"
+                        visuals.generate_placeholder(scene.visual_query, visual_path, cfg.size)
+                        assemble.make_scene_clip(
+                            visual_path, audio_path, duration, clip_path, cfg.size, zoom_in=(i % 2 == 0)
+                        )
                 else:
                     assemble.make_scene_clip(
                         visual_path, audio_path, duration, clip_path, cfg.size, zoom_in=(i % 2 == 0)
