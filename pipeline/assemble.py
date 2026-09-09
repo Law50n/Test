@@ -19,6 +19,15 @@ FONTS_DIR = Path(__file__).resolve().parent.parent / "assets" / "fonts"
 # gentle vignette unifies them without looking heavily filtered.
 GRADE_FILTER = "eq=contrast=1.08:saturation=1.15,vignette=PI/6"
 
+# Standard consumer-playback H.264: 4:2:0 chroma subsampling, High profile
+# capped at a level any modern device decodes in hardware. Every per-scene
+# filter chain already ends in format=yuv420p, but concat_clips (xfade) and
+# burn_captions (ass) did not -- confirmed directly: without it, ffmpeg's
+# encoder defaults drifted to yuv444p / "High 4:4:4 Predictive", which
+# browsers' flexible software decoders play fine but which Windows Media
+# Player (and most hardware decoders) simply cannot open at all.
+H264_OUTPUT_ARGS = ["-c:v", "libx264", "-profile:v", "high", "-level:v", "4.1", "-pix_fmt", "yuv420p"]
+
 # Every clip must share this exact framerate before concat_clips crossfades
 # them -- confirmed directly: xfade requires matching input timebases, and
 # a Pexels video's native rate (24/25/29.97fps, whatever the source was
@@ -235,8 +244,7 @@ def concat_clips(clip_paths: list[Path], out_path: Path, crossfade: float = CROS
             f"[{v_label}]",
             "-map",
             f"[{a_label}]",
-            "-c:v",
-            "libx264",
+            *H264_OUTPUT_ARGS,
             "-c:a",
             "aac",
             str(out_path),
@@ -271,7 +279,8 @@ def burn_captions(video_path: Path, ass_path: Path, out_path: Path) -> None:
             "-i",
             str(video_path),
             "-vf",
-            f"ass=filename={_escape_filter_path(ass_path)}:fontsdir={_escape_filter_path(FONTS_DIR)}",
+            f"ass=filename={_escape_filter_path(ass_path)}:fontsdir={_escape_filter_path(FONTS_DIR)},format=yuv420p",
+            *H264_OUTPUT_ARGS,
             "-c:a",
             "copy",
             str(out_path),
