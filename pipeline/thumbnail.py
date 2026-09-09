@@ -8,6 +8,7 @@ from PIL import Image, ImageDraw, ImageEnhance
 from pipeline.fonts import load_font, wrap
 
 THUMB_SIZE = (1280, 720)  # YouTube's recommended thumbnail size
+ACCENT_RGB = (255, 212, 0)  # same gold as the caption highlight, for a consistent look
 
 
 MAX_TEXT_HEIGHT_FRACTION = 0.5  # never let title text claim more than this much of the frame
@@ -17,35 +18,59 @@ MAX_LINES = 4
 def make_thumbnail(source_image: Path, title: str, out_path: Path) -> None:
     img = Image.open(source_image).convert("RGB")
     img = _cover_resize(img, THUMB_SIZE)
-    img = ImageEnhance.Contrast(img).enhance(1.1)
-    img = ImageEnhance.Brightness(img).enhance(0.85)
+    img = ImageEnhance.Contrast(img).enhance(1.15)
+    img = ImageEnhance.Brightness(img).enhance(0.8)
 
     draw = ImageDraw.Draw(img)
     font, lines, line_height = _fit_title(title.upper(), draw, img.width, img.height)
     total_h = line_height * len(lines)
+    top_y = img.height - total_h - img.height * 0.08
 
-    overlay = Image.new("RGBA", img.size, (0, 0, 0, 0))
-    overlay_draw = ImageDraw.Draw(overlay)
-    overlay_top = img.height - total_h - img.height * 0.1
-    overlay_draw.rectangle([(0, overlay_top), (img.width, img.height)], fill=(0, 0, 0, 150))
-    img = Image.alpha_composite(img.convert("RGBA"), overlay).convert("RGB")
+    img = _bottom_scrim(img, top_y / img.height)
 
     draw = ImageDraw.Draw(img)
-    y = img.height - total_h - img.height * 0.06
-    for line in lines:
-        bbox = draw.textbbox((0, 0), line, font=font)
-        x = (img.width - (bbox[2] - bbox[0])) / 2
-        draw.text(
-            (x, y),
-            line,
-            font=font,
-            fill=(255, 255, 255),
-            stroke_width=max(3, img.width // 220),
-            stroke_fill=(0, 0, 0),
-        )
+    stroke_width = max(3, img.width // 220)
+    y = img.height - total_h - img.height * 0.05
+    for i, line in enumerate(lines):
+        words = line.split(" ")
+        # the last word on the last line is the payoff of the title -- pull
+        # it out in the same gold used for the caption highlight instead of
+        # leaving every line flat white, which read as generic meme-text.
+        highlight_last = i == len(lines) - 1
+        space_w = draw.textlength(" ", font=font)
+        word_widths = [draw.textlength(w, font=font) for w in words]
+        line_w = sum(word_widths) + space_w * (len(words) - 1)
+        x = (img.width - line_w) / 2
+        for j, (word, ww) in enumerate(zip(words, word_widths)):
+            color = ACCENT_RGB if (highlight_last and j == len(words) - 1) else (255, 255, 255)
+            draw.text((x, y), word, font=font, fill=color, stroke_width=stroke_width, stroke_fill=(0, 0, 0))
+            x += ww + space_w
         y += line_height
 
     img.save(out_path, quality=92)
+
+
+def _bottom_scrim(img: Image.Image, top_frac: float, max_alpha: int = 205) -> Image.Image:
+    """A smooth gradient darkening from `top_frac` down to the bottom edge,
+    instead of a flat semi-transparent rectangle -- the hard edge on a flat
+    box is what made the previous version look like a sticker slapped over
+    the photo rather than a graded, intentional frame.
+    """
+    w, h = img.size
+    small_h = 128
+    top_row = int(small_h * max(top_frac, 0))
+    mask = Image.new("L", (2, small_h), 0)
+    for y in range(small_h):
+        if y < top_row:
+            alpha = 0
+        else:
+            t = (y - top_row) / max(small_h - top_row - 1, 1)
+            alpha = int(max_alpha * (t**1.3))
+        mask.putpixel((0, y), alpha)
+        mask.putpixel((1, y), alpha)
+    mask = mask.resize((w, h), Image.BILINEAR)
+    black = Image.new("RGB", (w, h), (0, 0, 0))
+    return Image.composite(black, img, mask)
 
 
 def _fit_title(text: str, draw: ImageDraw.ImageDraw, width: int, height: int):

@@ -5,9 +5,19 @@ from PIL import ImageDraw, ImageFont
 
 
 def load_font(size: int) -> ImageFont.FreeTypeFont:
+    """The Linux paths below don't exist on Windows or macOS, so without the
+    OS-specific candidates this silently fell through to Pillow's generic
+    bundled default font on every non-Linux machine -- not a crash, just a
+    plainer typeface than intended (confirmed: this pipeline's real users
+    so far are on Windows).
+    """
     for candidate in (
         "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
         "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+        r"C:\Windows\Fonts\arialbd.ttf",
+        r"C:\Windows\Fonts\segoeuib.ttf",
+        "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+        "/System/Library/Fonts/Helvetica.ttc",
     ):
         if Path(candidate).exists():
             return ImageFont.truetype(candidate, size)
