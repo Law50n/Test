@@ -149,7 +149,7 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
         caption_lines = captions.words_to_captions(all_captions)
         captions.write_srt(caption_lines, srt_path)
         ass_path = tmp_dir / "captions.ass"
-        font_size = max(cfg.size[0] // 22, 18)
+        font_size = max(cfg.size[0] // 15, 18)
         margin_v = cfg.size[1] // 7
         captions.write_ass_karaoke(all_captions, ass_path, cfg.size, font_size, margin_v)
 

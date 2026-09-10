@@ -3,7 +3,7 @@ a duration-based estimate (offline engine).
 """
 from pathlib import Path
 
-MAX_WORDS_PER_LINE = 4
+MAX_WORDS_PER_LINE = 3  # 4 got too wide once font_size increased -- risks libass auto-wrapping mid-chunk
 ACCENT_COLOR = "&H00D4FF&"  # ASS BGR, no alpha -- renders as a bright gold/yellow
 WHITE = "&HFFFFFF&"
 
