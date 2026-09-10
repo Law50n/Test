@@ -29,6 +29,16 @@ class VideoScript:
     # so a whole series reads as one consistent, recognizable look rather
     # than each scene being independently AI-generated with no throughline.
     image_style_prompt: str = ""
+    # Overrides thumbnail.py's default heuristic (highlight the last word of
+    # the title) -- that default works fine for a title ending on a strong
+    # word ("...Boils Water") but picks something weak for one that doesn't
+    # ("...Actually Works"). Case-insensitive substring match against the
+    # title.
+    thumbnail_highlight: str = ""
+    # Which scene's visual becomes the thumbnail background (0 = first,
+    # the old fixed behavior). A later scene sometimes has a more striking
+    # image than the cold-open shot.
+    thumbnail_scene: int = 0
 
     @classmethod
     def load(cls, path: Path) -> "VideoScript":
@@ -43,6 +53,12 @@ class VideoScript:
             )
         if not data["scenes"]:
             raise ValueError(f"{path} has an empty \"scenes\" list")
+        thumbnail_scene = data.get("thumbnail_scene", 0)
+        if not (0 <= thumbnail_scene < len(data["scenes"])):
+            raise ValueError(
+                f"{path}: \"thumbnail_scene\" {thumbnail_scene} is out of range "
+                f"for {len(data['scenes'])} scene(s)"
+            )
         visual_mode = data.get("visual_mode", "photo")
         if visual_mode not in VISUAL_MODES:
             raise ValueError(f"{path}: \"visual_mode\" must be one of {sorted(VISUAL_MODES)}, got {visual_mode!r}")
@@ -69,4 +85,6 @@ class VideoScript:
             scenes=scenes,
             visual_mode=visual_mode,
             image_style_prompt=data.get("image_style_prompt", ""),
+            thumbnail_highlight=data.get("thumbnail_highlight", ""),
+            thumbnail_scene=thumbnail_scene,
         )

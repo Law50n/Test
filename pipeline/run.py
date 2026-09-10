@@ -110,7 +110,7 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
                 assemble.make_scene_clip(
                     visual_path, audio_path, duration, clip_path, cfg.size, zoom_in=(i % 2 == 0)
                 )
-            if first_visual is None:
+            if i == script.thumbnail_scene:
                 first_visual = visual_path
                 first_visual_query = scene.visual_query
                 first_visual_was_placeholder = source == "placeholder"
@@ -167,7 +167,7 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
             visuals.generate_placeholder_unlabeled(first_visual_query, thumb_source, cfg.size)
         else:
             assemble.extract_frame(first_visual, thumb_source)
-        thumbnail.make_thumbnail(thumb_source, script.title, out_dir / "thumbnail.jpg")
+        thumbnail.make_thumbnail(thumb_source, script.title, out_dir / "thumbnail.jpg", script.thumbnail_highlight)
 
         shutil.copy(srt_path, out_dir / "captions.srt")
 

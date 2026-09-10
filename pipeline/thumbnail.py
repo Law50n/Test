@@ -15,11 +15,16 @@ MAX_TEXT_HEIGHT_FRACTION = 0.5  # never let title text claim more than this much
 MAX_LINES = 4
 
 
-def make_thumbnail(source_image: Path, title: str, out_path: Path) -> None:
+def make_thumbnail(source_image: Path, title: str, out_path: Path, highlight: str = "") -> None:
     img = Image.open(source_image).convert("RGB")
     img = _cover_resize(img, THUMB_SIZE)
     img = ImageEnhance.Contrast(img).enhance(1.15)
     img = ImageEnhance.Brightness(img).enhance(0.8)
+    # Thumbnails need to be more vivid than the video itself to catch the
+    # eye in a scrolling feed -- the in-video grade (assemble.GRADE_FILTER)
+    # is deliberately subtle so a whole video isn't oversaturated, but a
+    # thumbnail can and should push further.
+    img = ImageEnhance.Color(img).enhance(1.35)
 
     draw = ImageDraw.Draw(img)
     font, lines, line_height = _fit_title(title.upper(), draw, img.width, img.height)
@@ -28,21 +33,28 @@ def make_thumbnail(source_image: Path, title: str, out_path: Path) -> None:
 
     img = _bottom_scrim(img, top_y / img.height)
 
+    highlight_words = {w.strip(".,;:!?()\"'").lower() for w in highlight.split()} if highlight else set()
+
     draw = ImageDraw.Draw(img)
     stroke_width = max(3, img.width // 220)
     y = img.height - total_h - img.height * 0.05
     for i, line in enumerate(lines):
         words = line.split(" ")
-        # the last word on the last line is the payoff of the title -- pull
-        # it out in the same gold used for the caption highlight instead of
-        # leaving every line flat white, which read as generic meme-text.
-        highlight_last = i == len(lines) - 1
+        # Default (no explicit highlight given): the last word on the last
+        # line is usually the payoff of the title -- pull it out in gold
+        # instead of leaving every line flat white, which read as generic
+        # meme-text. An explicit `highlight` overrides this, since "last
+        # word" is sometimes a throwaway ("...Actually Works") rather than
+        # the punchy part of the title.
+        highlight_last_word = not highlight_words and i == len(lines) - 1
         space_w = draw.textlength(" ", font=font)
         word_widths = [draw.textlength(w, font=font) for w in words]
         line_w = sum(word_widths) + space_w * (len(words) - 1)
         x = (img.width - line_w) / 2
         for j, (word, ww) in enumerate(zip(words, word_widths)):
-            color = ACCENT_RGB if (highlight_last and j == len(words) - 1) else (255, 255, 255)
+            is_last_word_default = highlight_last_word and j == len(words) - 1
+            is_explicit_match = word.strip(".,;:!?()\"'").lower() in highlight_words
+            color = ACCENT_RGB if (is_last_word_default or is_explicit_match) else (255, 255, 255)
             draw.text((x, y), word, font=font, fill=color, stroke_width=stroke_width, stroke_fill=(0, 0, 0))
             x += ww + space_w
         y += line_height
