@@ -1,0 +1,15 @@
+{
+  "category": "finance",
+  "id": "005-beanie-baby-bubble",
+  "title": "People Treated Stuffed Animals Like Stocks",
+  "description": "In the late 1990s, people were taking out loans and draining savings to buy stuffed toys as investments. It's now studied as a textbook speculative bubble.\n\nEducational content, not financial advice.\n\n#shorts #financefacts #economics",
+  "tags": ["finance facts", "economics", "market bubble", "did you know", "shorts"],
+  "scenes": [
+    { "text": "In the late 1990s, people were treating stuffed animals like they were stocks.", "visual_query": "stuffed animal toy closeup" },
+    { "text": "Beanie Babies, silly little bean-filled toys, started selling for hundreds or even thousands of dollars each.", "visual_query": "money cash stack" },
+    { "text": "Retired designs were traded like collectibles, with price guides and secondary markets built entirely around them.", "visual_query": "collectibles marketplace trading" },
+    { "text": "Some people took out loans, or drained retirement savings, betting a certain Beanie Baby would keep going up in value forever.", "visual_query": "stock market chart rising" },
+    { "text": "Then demand collapsed almost overnight, and most of those investments became worthless plush toys again.", "visual_query": "stock market chart falling crash" },
+    { "text": "It's now studied as one of the clearest examples of a pure speculative bubble that had nothing to do with the actual product.", "visual_query": "economics textbook study" }
+  ]
+}

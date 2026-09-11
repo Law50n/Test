@@ -1,0 +1,16 @@
+{
+  "category": "science",
+  "id": "007-tardigrade-survives-space",
+  "title": "This Animal Survived Being Launched Into Space",
+  "description": "In 2007, scientists exposed a tiny animal to the vacuum of space with no protection at all, on purpose. Most of them lived.\n\n#shorts #sciencefacts #space",
+  "tags": ["science facts", "tardigrade", "space facts", "did you know", "shorts"],
+  "scenes": [
+    { "text": "In 2007, scientists launched a creature into space with basically no protection, on purpose.", "visual_query": "rocket launch space" },
+    { "text": "It's called a tardigrade, or water bear, less than a millimeter long.", "visual_query": "microscopic organism macro" },
+    { "text": "They opened a capsule in orbit and exposed the tardigrades directly to the vacuum of space.", "visual_query": "satellite orbit earth space" },
+    { "text": "No air, no pressure, and unfiltered solar radiation, for ten days straight.", "visual_query": "sun solar radiation space" },
+    { "text": "When the capsule came back to Earth, most of them were still alive.", "visual_query": "spacecraft reentry earth" },
+    { "text": "Some even went on to reproduce normally afterward.", "visual_query": "laboratory research microscope" },
+    { "text": "Scientists still don't fully understand how a multicellular animal survives that.", "visual_query": "scientist research lab" }
+  ]
+}

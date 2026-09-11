@@ -1,0 +1,15 @@
+{
+  "category": "tech",
+  "id": "005-first-webcam-coffee-pot",
+  "title": "The First Webcam Was Pointed at a Coffee Pot",
+  "description": "The world's first webcam wasn't built for video calls or security. It existed for one reason: so nobody had to walk to an empty coffee pot again.\n\n#shorts #techfacts #techhistory",
+  "tags": ["tech facts", "tech history", "internet history", "did you know", "shorts"],
+  "scenes": [
+    { "text": "The world's first webcam was pointed at a coffee pot.", "visual_query": "coffee pot brewing kitchen" },
+    { "text": "In 1991, researchers at Cambridge University's computer lab kept walking to their shared coffee machine, only to find it empty.", "visual_query": "vintage computer lab 1990s" },
+    { "text": "So they rigged a camera pointed at the pot, and wrote software so anyone in the building could check the coffee level from their desk.", "visual_query": "old camera wire setup technology" },
+    { "text": "In 1993, they put the feed online, and it became one of the most visited websites in the world.", "visual_query": "vintage website internet 1990s" },
+    { "text": "People all over the planet were checking on a coffee pot in Cambridge, for years.", "visual_query": "world map internet connections" },
+    { "text": "It finally got switched off in 2001, and the camera itself was later auctioned off for over three thousand pounds.", "visual_query": "auction gavel vintage technology" }
+  ]
+}
