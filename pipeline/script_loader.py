@@ -1,12 +1,13 @@
 import json
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 # Script ids become tempdir prefixes and get embedded, unescaped, in ffmpeg
 # concat-file paths (see assemble.concat_clips) -- keep them shell/ffmpeg-safe.
 _ID_PATTERN = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 VISUAL_MODES = {"photo", "video", "generated"}
+FORMATS = {"short", "longform"}
 
 
 @dataclass
@@ -39,6 +40,13 @@ class VideoScript:
     # the old fixed behavior). A later scene sometimes has a more striking
     # image than the cold-open shot.
     thumbnail_scene: int = 0
+    # "short": the existing per-scene Ken Burns/video/generated pipeline.
+    # "longform": one continuous narration track held under a small set of
+    # slowly-panning background_images (crossfading between them every few
+    # minutes) instead of cutting to a new visual every scene -- see
+    # run.py::build_longform. Requires background_images.
+    format: str = "short"
+    background_images: list[Path] = field(default_factory=list)
 
     @classmethod
     def load(cls, path: Path) -> "VideoScript":
@@ -62,6 +70,17 @@ class VideoScript:
         visual_mode = data.get("visual_mode", "photo")
         if visual_mode not in VISUAL_MODES:
             raise ValueError(f"{path}: \"visual_mode\" must be one of {sorted(VISUAL_MODES)}, got {visual_mode!r}")
+        video_format = data.get("format", "short")
+        if video_format not in FORMATS:
+            raise ValueError(f"{path}: \"format\" must be one of {sorted(FORMATS)}, got {video_format!r}")
+        background_images = [
+            (Path(path).resolve().parent / p).resolve() for p in data.get("background_images", [])
+        ]
+        if video_format == "longform" and not background_images:
+            raise ValueError(f"{path}: format is \"longform\" but \"background_images\" is empty")
+        for p in background_images:
+            if not p.exists():
+                raise ValueError(f"{path}: background_images entry {p} does not exist")
         scenes = []
         for i, s in enumerate(data["scenes"]):
             missing_scene_fields = {"text", "visual_query"} - s.keys()
@@ -87,4 +106,6 @@ class VideoScript:
             image_style_prompt=data.get("image_style_prompt", ""),
             thumbnail_highlight=data.get("thumbnail_highlight", ""),
             thumbnail_scene=thumbnail_scene,
+            format=video_format,
+            background_images=background_images,
         )

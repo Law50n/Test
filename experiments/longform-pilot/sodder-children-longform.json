@@ -1,0 +1,25 @@
+{
+  "category": "experiments",
+  "id": "002-sodder-children-longform",
+  "title": "The Fire That Left No Bodies",
+  "description": "In 1945, a fire destroyed the Sodder family home in West Virginia. Five of the ten children were never found -- no remains, no confirmed answer, to this day.\n\nThis is a pilot for the held-visual longform format: one continuous narration track under a small set of slowly-panning background images, rather than cutting to a new AI-generated image every scene.\n\nSources: West Virginia State Police case reopening coverage (2021); Smithsonian Magazine's account of the Sodder family fire and investigation.\n\n#unsolvedmystery #truestory #history",
+  "tags": ["true story", "unsolved mystery", "sodder", "history", "longform pilot"],
+  "format": "longform",
+  "background_images": ["assets/hero1.png", "assets/hero2.png"],
+  "scenes": [
+    { "text": "In the early hours of 25/12/1945, a fire tore through a family home in rural West Virginia, and what happened next has never been fully explained.", "visual_query": "" },
+    { "text": "George and Jennie Sodder had ten children. Nine of them were home that night. George, Jennie, and four of the children escaped the burning house.", "visual_query": "" },
+    { "text": "The other five children were never seen again. Officially, they died in the fire. Their parents never believed that.", "visual_query": "" },
+    { "text": "Investigators found no bones, no skulls, nothing you'd expect from bodies burned in a house fire that hot.", "visual_query": "" },
+    { "text": "Stranger still, the family's phone line had gone dead earlier that same night, so no one could call for help.", "visual_query": "" },
+    { "text": "A ladder the family normally kept by the house had been moved and left far away, instead of used to reach a window.", "visual_query": "" },
+    { "text": "The local fire department was only a few miles away, but didn't arrive until morning, hours after the fire started.", "visual_query": "" },
+    { "text": "Weeks before the fire, a man had reportedly warned George Sodder that his house would go up in smoke and his children would be destroyed.", "visual_query": "" },
+    { "text": "George Sodder was an Italian immigrant who was openly critical of Mussolini, which some believe made his family a target.", "visual_query": "" },
+    { "text": "In the years after, witnesses came forward describing seeing the missing children that same night, including one woman who said she served them breakfast at a nearby rest stop.", "visual_query": "" },
+    { "text": "The Sodders spent years chasing leads and offering rewards, eventually putting up a billboard along the highway with the children's photos, hoping someone would recognize them.", "visual_query": "" },
+    { "text": "The billboard stayed up for nearly forty years. No one ever came forward with a confirmed answer.", "visual_query": "" },
+    { "text": "In 2021, West Virginia State Police reopened the case using modern forensic techniques. It remains unsolved to this day.", "visual_query": "" },
+    { "text": "To this day, no one knows for certain whether the five Sodder children died that night, or somewhere out there, survived.", "visual_query": "" }
+  ]
+}

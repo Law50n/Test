@@ -21,6 +21,13 @@ from pipeline.tts import TTSError, synthesize
 
 def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
     script = VideoScript.load(script_path)
+    if script.format == "longform":
+        build_longform(script, cfg, out_dir)
+    else:
+        build_short(script, cfg, out_dir)
+
+
+def build_short(script: VideoScript, cfg: Config, out_dir: Path) -> None:
     out_dir = out_dir / script.category / script.id
     out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -168,6 +175,109 @@ def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
         else:
             assemble.extract_frame(first_visual, thumb_source)
         thumbnail.make_thumbnail(thumb_source, script.title, out_dir / "thumbnail.jpg", script.thumbnail_highlight)
+
+        shutil.copy(srt_path, out_dir / "captions.srt")
+
+    (out_dir / "metadata.txt").write_text(
+        f"Title: {script.title}\n"
+        f"Category/playlist: {script.category}\n\n"
+        f"{script.description}\n\n"
+        f"Tags: {', '.join(script.tags)}\n"
+    )
+
+    print(f"\nDone: {out_dir}/")
+    print("  video.mp4, thumbnail.jpg, captions.srt, metadata.txt")
+
+
+def build_longform(script: VideoScript, cfg: Config, out_dir: Path) -> None:
+    """One continuous narration track held under a small set of slowly-
+    panning background_images, crossfading between them every few minutes,
+    instead of cutting to a new visual every scene -- for content meant to
+    be listened to (audiobook-style), where the captions carry the visual
+    interest rather than per-scene imagery. See README for how this
+    differs from build_short.
+    """
+    out_dir = out_dir / script.category / script.id
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    with tempfile.TemporaryDirectory(prefix=f"{script.id}-") as tmp:
+        tmp_dir = Path(tmp)
+        audio_paths: list[Path] = []
+        all_captions: list[dict] = []
+        cursor = 0.0
+
+        for i, scene in enumerate(script.scenes):
+            narration = normalize_dates_for_speech(scene.text)
+            print(f"[{i + 1}/{len(script.scenes)}] {narration[:60]}...")
+
+            audio_path = tmp_dir / f"scene_{i:02d}.mp3"
+            try:
+                words = synthesize(narration, audio_path, cfg)
+            except TTSError as e:
+                print(f"  ! TTS failed: {e}", file=sys.stderr)
+                raise SystemExit(1)
+            assemble.normalize_audio(audio_path)
+            duration = assemble.get_duration(audio_path)
+
+            if words:
+                for w in words:
+                    all_captions.append({**w, "start": w["start"] + cursor, "end": w["end"] + cursor})
+            else:
+                for w in captions.estimate_word_timings(narration, duration):
+                    all_captions.append({**w, "start": w["start"] + cursor, "end": w["end"] + cursor})
+            cursor += duration  # plain back-to-back concat, no crossfade to account for
+
+            audio_paths.append(audio_path)
+
+        print("Concatenating narration...")
+        narration_path = tmp_dir / "narration.mp3"
+        assemble.concat_audio(audio_paths, narration_path)
+        total_duration = assemble.get_duration(narration_path)
+        print(f"  total narration: {total_duration:.1f}s")
+
+        print("Building background visuals...")
+        images = script.background_images
+        n = len(images)
+        # Built a bit longer than an even split so the (possibly
+        # crossfaded) background is never shorter than the narration --
+        # mux_audio's -shortest then trims any excess rather than risking
+        # the background running out before the narration does.
+        hold_duration = total_duration / n + (assemble.LONGFORM_CROSSFADE_DURATION if n > 1 else 0)
+        hero_clips = []
+        for idx, img in enumerate(images):
+            clip_path = tmp_dir / f"hero_{idx:02d}.mp4"
+            assemble.make_hero_clip(img, hold_duration, clip_path, cfg.size, zoom_in=(idx % 2 == 0))
+            hero_clips.append(clip_path)
+
+        bg_path = tmp_dir / "bg.mp4"
+        if n == 1:
+            shutil.copy(hero_clips[0], bg_path)
+        else:
+            assemble.concat_clips(hero_clips, bg_path, crossfade=assemble.LONGFORM_CROSSFADE_DURATION)
+
+        print("Muxing narration onto the background...")
+        muxed_path = tmp_dir / "muxed.mp4"
+        assemble.mux_audio(bg_path, narration_path, muxed_path)
+
+        print("Writing captions...")
+        srt_path = tmp_dir / "captions.srt"
+        caption_lines = captions.words_to_captions(all_captions)
+        captions.write_srt(caption_lines, srt_path)
+        ass_path = tmp_dir / "captions.ass"
+        # Bigger and more vertically centered than the Shorts treatment --
+        # here the captions ARE the primary visual interest (a "read
+        # along" experience over a mostly-static screen), not a
+        # bottom-third accessibility afterthought.
+        font_size = max(cfg.size[0] // 11, 18)
+        margin_v = cfg.size[1] // 2 - font_size
+        captions.write_ass_karaoke(all_captions, ass_path, cfg.size, font_size, margin_v)
+
+        print("Burning in captions...")
+        final_video = out_dir / "video.mp4"
+        assemble.burn_captions(muxed_path, ass_path, final_video)
+
+        print("Building thumbnail...")
+        thumbnail.make_thumbnail(images[0], script.title, out_dir / "thumbnail.jpg", script.thumbnail_highlight)
 
         shutil.copy(srt_path, out_dir / "captions.srt")
 

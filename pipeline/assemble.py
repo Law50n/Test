@@ -147,6 +147,129 @@ def make_scene_clip(
     )
 
 
+def make_hero_clip(
+    image_path: Path,
+    duration: float,
+    out_path: Path,
+    size: tuple[int, int],
+    zoom_in: bool,
+    fps: int = SCENE_FPS,
+) -> None:
+    """Same Ken Burns treatment as make_scene_clip, for long-form's held
+    background visuals -- two differences: silent (long-form pairs one
+    continuous narration track against the whole held-visual sequence
+    separately, see mux_audio, rather than one audio clip per image), and
+    the zoom rate is computed to reach its target smoothly across the
+    *entire* hold duration instead of make_scene_clip's fixed per-frame
+    rate, which is tuned for a few-second Short -- unchanged, a multi-
+    minute hold would hit the 1.4x cap in ~9 seconds and then sit
+    motionless for the rest.
+    """
+    w, h = size
+    frames = max(int(duration * fps), 1)
+    zoom_rate = 0.4 / frames
+    if zoom_in:
+        zoom_expr = f"min(zoom+{zoom_rate:.8f},1.4)"
+    else:
+        zoom_expr = f"if(eq(on,0),1.4,max(zoom-{zoom_rate:.8f},1.0))"
+
+    filter_complex = (
+        f"[0:v]scale={w * 2}:{h * 2}:force_original_aspect_ratio=increase,"
+        f"crop={w * 2}:{h * 2},"
+        f"zoompan=z='{zoom_expr}':d={frames}"
+        f":x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={w}x{h}:fps={fps},"
+        f"{GRADE_FILTER},format=yuv420p[v]"
+    )
+    run(
+        [
+            "ffmpeg",
+            "-y",
+            "-loglevel",
+            "error",
+            "-loop",
+            "1",
+            "-i",
+            str(image_path),
+            "-f",
+            "lavfi",
+            "-i",
+            "anullsrc=r=44100:cl=mono",
+            "-filter_complex",
+            filter_complex,
+            "-map",
+            "[v]",
+            "-map",
+            "1:a",
+            *H264_OUTPUT_ARGS,
+            "-c:a",
+            "aac",
+            "-t",
+            f"{duration:.3f}",
+            "-shortest",
+            str(out_path),
+        ]
+    )
+
+
+def concat_audio(audio_paths: list[Path], out_path: Path) -> None:
+    """Plain back-to-back concatenation of narration clips for long-form --
+    deliberately no crossfade (unlike concat_clips' video/audio blend for
+    Shorts scene transitions): fading one line's audio into the next would
+    blur word endings together, which is fine for a scene transition but
+    not for continuous narration.
+    """
+    list_file = out_path.with_suffix(".txt")
+    list_file.write_text("".join(f"file '{p.resolve()}'\n" for p in audio_paths))
+    run(
+        [
+            "ffmpeg",
+            "-y",
+            "-loglevel",
+            "error",
+            "-f",
+            "concat",
+            "-safe",
+            "0",
+            "-i",
+            str(list_file),
+            "-c",
+            "copy",
+            str(out_path),
+        ]
+    )
+    list_file.unlink(missing_ok=True)
+
+
+def mux_audio(video_path: Path, audio_path: Path, out_path: Path) -> None:
+    """Replaces video_path's own audio (silence, for a hero-clip background)
+    with audio_path's track. -shortest bounds the output to the (shorter)
+    narration track, since the background is deliberately built a little
+    longer than the narration needs rather than risking it running short.
+    """
+    run(
+        [
+            "ffmpeg",
+            "-y",
+            "-loglevel",
+            "error",
+            "-i",
+            str(video_path),
+            "-i",
+            str(audio_path),
+            "-map",
+            "0:v",
+            "-map",
+            "1:a",
+            "-c:v",
+            "copy",
+            "-c:a",
+            "aac",
+            "-shortest",
+            str(out_path),
+        ]
+    )
+
+
 def make_scene_clip_from_video(
     video_path: Path,
     audio_path: Path,
@@ -221,6 +344,7 @@ def extract_frame(source_path: Path, out_path: Path) -> None:
 
 
 CROSSFADE_DURATION = 0.2  # seconds -- 0.35 read as excessive on a real render, confirmed by ear
+LONGFORM_CROSSFADE_DURATION = 2.5  # seconds -- a slow, calm blend between multi-minute held visuals
 
 
 def concat_clips(clip_paths: list[Path], out_path: Path, crossfade: float = CROSSFADE_DURATION) -> None:

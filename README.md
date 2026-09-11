@@ -355,6 +355,55 @@ commentary-vs-clipping discussion above for why that line matters.
 }
 ```
 
+## Experimental: longform / audiobook-style format (`"format": "longform"`)
+
+A second script format, alongside the default `"short"`. Instead of one
+Ken Burns/video/generated clip per scene, `build_longform()`
+(`pipeline/run.py`) does:
+
+- Synthesizes and loudness-normalizes every scene's narration exactly like
+  `"short"` does, but concatenates all of it into **one continuous audio
+  track** (`assemble.concat_audio`) with a clean cut between scenes --
+  deliberately no crossfade, since blending one line's ending into the
+  next scene's opening would blur words together.
+- Holds a small set of **background_images** for the whole episode
+  instead of cutting to a new visual every scene, each with a slow
+  continuous Ken Burns pan (`assemble.make_hero_clip` -- the zoom rate is
+  computed per-image so it paces smoothly across the *entire* hold instead
+  of hitting its cap in ~9 seconds and sitting static, which is what
+  `make_scene_clip`'s Shorts-tuned rate would do over a multi-minute
+  hold), crossfading between images every few minutes
+  (`assemble.LONGFORM_CROSSFADE_DURATION`, 2.5s -- much slower than the
+  Shorts crossfade) rather than every scene.
+- Makes the **captions themselves the primary visual interest** -- bigger
+  and more vertically centered than the Shorts bottom-third treatment,
+  since a mostly-static screen needs something more engaging on it than a
+  small subtitle strip. This is why per-scene visual variety matters less
+  here than it does for Shorts: the word-by-word highlight is doing the
+  attention-holding work, not the background.
+
+```json
+{
+  "format": "longform",
+  "background_images": ["assets/hero1.png", "assets/hero2.png"],
+  "scenes": [
+    { "text": "...", "visual_query": "" }
+  ]
+}
+```
+
+`visual_query` is still required by the schema but unused in this format
+-- `background_images` (resolved relative to the script file, same as
+`local_image`) drives the visuals instead, so a real usable script still
+needs actual artwork there, not a placeholder.
+
+Verified end-to-end with `experiments/longform-pilot/sodder-children-longform.json`:
+rendered a real 14-scene, ~115s narration with two background images,
+confirmed final duration matches the narration exactly, the crossfade
+between the two images actually happens partway through (extracted and
+compared frames before/after), and the usual pixel-format/decode checks
+pass.
+
 ## Experimental: AI-generated visuals (`experiments/longform-pilot/`)
 
 A third `visual_mode`, `"generated"`, sources each scene's image from Gemini
