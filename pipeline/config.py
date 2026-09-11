@@ -53,7 +53,7 @@ class Config:
             piper_noise_scale=float(os.environ.get("PIPER_NOISE_SCALE", "1.0")),
             piper_noise_w=float(os.environ.get("PIPER_NOISE_W", "1.1")),
             elevenlabs_api_key=os.environ.get("ELEVENLABS_API_KEY", "").strip(),
-            elevenlabs_voice_id=os.environ.get("ELEVENLABS_VOICE_ID", "lnUnPeUhSI5EcqtFBux7").strip(),
+            elevenlabs_voice_id=os.environ.get("ELEVENLABS_VOICE_ID", "HVls8FPCdrYsty3uUV9E").strip(),
             elevenlabs_stability=float(os.environ.get("ELEVENLABS_STABILITY", "0.5")),
             elevenlabs_similarity_boost=float(os.environ.get("ELEVENLABS_SIMILARITY_BOOST", "0.8")),
             elevenlabs_style=float(os.environ.get("ELEVENLABS_STYLE", "0.15")),

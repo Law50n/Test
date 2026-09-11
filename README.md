@@ -64,7 +64,7 @@ Output lands in `output/<category>/<script-id>/`: `video.mp4`, `thumbnail.jpg`,
 | `PIPER_NOISE_SCALE` | `1.0` | generator variation, above Piper's own default of 0.667; only used by `TTS_ENGINE=piper` |
 | `PIPER_NOISE_W` | `1.1` | phoneme-duration variation, above Piper's own default of 0.8; only used by `TTS_ENGINE=piper` |
 | `ELEVENLABS_API_KEY` | (empty) | required for `TTS_ENGINE=elevenlabs` |
-| `ELEVENLABS_VOICE_ID` | Rachel | any voice ID from your ElevenLabs voice library; only used by `TTS_ENGINE=elevenlabs` |
+| `ELEVENLABS_VOICE_ID` | George | any voice ID from your ElevenLabs voice library; only used by `TTS_ENGINE=elevenlabs` |
 | `VIDEO_FORMAT` | `short` | `short` = 1080x1920 (Shorts), `long` = 1920x1080 |
 
 ### Better offline voice: Piper
@@ -155,7 +155,7 @@ Setup:
 2. Get a key from [Settings → API Keys](https://elevenlabs.io/app/settings/api-keys).
 3. Put it in `.env` as `ELEVENLABS_API_KEY`.
 4. Optionally browse [the voice library](https://elevenlabs.io/app/voice-library)
-   for a voice that fits the channel better than the default (Rachel), and
+   for a voice that fits the channel better than the default (George), and
    set `ELEVENLABS_VOICE_ID` to its ID.
 5. Set `TTS_ENGINE=elevenlabs`.
 
