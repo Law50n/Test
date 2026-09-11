@@ -7,7 +7,7 @@ from pathlib import Path
 # concat-file paths (see assemble.concat_clips) -- keep them shell/ffmpeg-safe.
 _ID_PATTERN = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 VISUAL_MODES = {"photo", "video", "generated"}
-FORMATS = {"short", "longform"}
+FORMATS = {"short", "longform", "compilation"}
 
 
 @dataclass
@@ -47,11 +47,22 @@ class VideoScript:
     # run.py::build_longform. Requires background_images.
     format: str = "short"
     background_images: list[Path] = field(default_factory=list)
+    # "compilation" only: paths to other longform-format scripts, stitched
+    # together into one sitting with a short spoken transition between
+    # each. See run.py::build_compilation.
+    episodes: list[Path] = field(default_factory=list)
 
     @classmethod
     def load(cls, path: Path) -> "VideoScript":
         data = json.loads(Path(path).read_text())
-        required = {"id", "category", "title", "description", "tags", "scenes"}
+        video_format = data.get("format", "short")
+        if video_format not in FORMATS:
+            raise ValueError(f"{path}: \"format\" must be one of {sorted(FORMATS)}, got {video_format!r}")
+        is_compilation = video_format == "compilation"
+
+        required = {"id", "category", "title", "description", "tags"}
+        if not is_compilation:
+            required.add("scenes")
         missing = required - data.keys()
         if missing:
             raise ValueError(f"{path} is missing required field(s): {sorted(missing)}")
@@ -59,6 +70,25 @@ class VideoScript:
             raise ValueError(
                 f"{path}: \"id\" must be lowercase letters/digits/hyphens only, got {data['id']!r}"
             )
+
+        episodes = [(Path(path).resolve().parent / p).resolve() for p in data.get("episodes", [])]
+        if is_compilation:
+            if not episodes:
+                raise ValueError(f"{path}: format is \"compilation\" but \"episodes\" is empty")
+            for p in episodes:
+                if not p.exists():
+                    raise ValueError(f"{path}: episodes entry {p} does not exist")
+            return cls(
+                id=data["id"],
+                category=data["category"],
+                title=data["title"],
+                description=data["description"],
+                tags=data["tags"],
+                scenes=[],
+                format=video_format,
+                episodes=episodes,
+            )
+
         if not data["scenes"]:
             raise ValueError(f"{path} has an empty \"scenes\" list")
         thumbnail_scene = data.get("thumbnail_scene", 0)
@@ -70,9 +100,6 @@ class VideoScript:
         visual_mode = data.get("visual_mode", "photo")
         if visual_mode not in VISUAL_MODES:
             raise ValueError(f"{path}: \"visual_mode\" must be one of {sorted(VISUAL_MODES)}, got {visual_mode!r}")
-        video_format = data.get("format", "short")
-        if video_format not in FORMATS:
-            raise ValueError(f"{path}: \"format\" must be one of {sorted(FORMATS)}, got {video_format!r}")
         background_images = [
             (Path(path).resolve().parent / p).resolve() for p in data.get("background_images", [])
         ]

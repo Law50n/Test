@@ -1,0 +1,10 @@
+{
+  "category": "stories",
+  "id": "comp-001-two-unsolved-mysteries",
+  "title": "2 Unsolved Mysteries",
+  "format": "compilation",
+  "episodes": ["sodder-children-longform.json", "isdal-woman.json"],
+  "description": "Two real unsolved cases back to back: the 1945 Sodder children disappearance, and the 1970 Isdal Woman case. Full sources and details for each are in their own episode scripts.\n\n#unsolvedmystery #truestory #coldcase",
+  "tags": ["true story", "unsolved mystery", "compilation", "longform"],
+  "scenes": []
+}
