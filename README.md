@@ -404,6 +404,70 @@ between the two images actually happens partway through (extracted and
 compared frames before/after), and the usual pixel-format/decode checks
 pass.
 
+## Experimental: multi-episode compilations (`"format": "compilation"`)
+
+A third script format for stitching several existing `"longform"` episode
+scripts into one continuous sitting -- built once a single well-researched
+real case turned out to run well short of a real 15-25+ minute target
+(the case's own documented material runs out; padding it with speculation
+isn't an option -- see the accuracy rules in the longform research prompt).
+Combining several complete episodes back to back, with a short spoken
+transition between them, is the real path to that longer runtime, and
+matches what this kind of content is for anyway: something to put on and
+listen to for a while, like a true-crime podcast, not one two-minute clip.
+
+`run.py::build_compilation()`:
+
+- Loads each script named in `episodes` (each must itself be
+  `"format": "longform"`) and runs the same per-episode narration/
+  background-building logic `build_longform()` uses (shared via
+  `_build_longform_segment()`), one after another.
+- Between episodes (not before the first), synthesizes a short spoken
+  transition line -- `"Case 2. <episode title>."` -- with its own hero
+  clip (using that episode's first background image), so one case doesn't
+  bleed straight into the next with nothing marking the change.
+- Concatenates all narration (clean cuts, no crossfade -- same reasoning
+  as `"longform"`) and all backgrounds (crossfaded,
+  `LONGFORM_CROSSFADE_DURATION`) into one continuous track, then finishes
+  exactly like a standalone `"longform"` video (mux, captions, thumbnail).
+
+```json
+{
+  "category": "stories",
+  "id": "comp-001-two-unsolved-mysteries",
+  "title": "2 Unsolved Mysteries",
+  "format": "compilation",
+  "episodes": ["sodder-children-longform.json", "isdal-woman.json"],
+  "description": "...",
+  "tags": ["true story", "unsolved mystery", "compilation", "longform"],
+  "scenes": []
+}
+```
+
+Notes on the schema:
+- `episodes` paths are resolved relative to the compilation script's own
+  file, same as `background_images`/`local_image` elsewhere.
+- A compilation script needs no `scenes` of its own (`scenes: []` is
+  fine/expected) -- all the actual narration comes from its episodes.
+- Each episode keeps using its own `background_images` for its own
+  segment; there's no separate visual asset to prepare for the
+  compilation itself.
+
+Verified end-to-end with `experiments/longform-pilot/two-unsolved-mysteries.json`,
+combining the already-verified Sodder children (115.1s) and Isdal Woman
+(466.7s) episodes: final duration (584.6s) matches narration + transition
+exactly, pixel-format/profile/framerate and full decode checks pass, and
+frame-by-frame inspection at the episode seam confirms the spoken "Case 2.
+The Woman With Eight Names." transition displays with its own background,
+then correctly crossfades into the second episode's (visually distinct)
+background as its narration begins.
+
+One caveat worth flagging: `make_hero_clip`'s `zoompan` step is genuinely
+slow at multi-minute hold durations (real wall-clock minutes per hero
+clip, not a hang), and a compilation multiplies that by however many
+episodes and their own background images it's built from -- a long
+compilation will take a while to render, budget for it.
+
 ## Experimental: AI-generated visuals (`experiments/longform-pilot/`)
 
 A third `visual_mode`, `"generated"`, sources each scene's image from Gemini
