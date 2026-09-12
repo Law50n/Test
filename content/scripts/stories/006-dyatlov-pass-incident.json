@@ -12,7 +12,9 @@
     "dyatlovpass.com's case archive, including the Mansi trail and Semyon Zolotaryov background",
     "TASS's reporting on the 2020 Russian Prosecutor General's office conclusion",
     "Puzrin and Gaume, 'Mechanisms of slab avalanche release and impact in the Dyatlov Pass incident in 1959,' Communications Earth & Environment (2021)",
-    "Donnie Eichar's 'Dead Mountain: The Untold True Story of the Dyatlov Pass Incident' (2013)"
+    "Donnie Eichar's 'Dead Mountain: The Untold True Story of the Dyatlov Pass Incident' (2013)",
+    "Aleksey Rakitin's published account proposing the KGB-operation theory",
+    "Komsomolskaya Pravda's reporting on the 2018 exhumation and DNA results"
   ],
   "description": "In the early hours of 02/02/1959, nine experienced hikers cut their way out of their own tent and ran into a Ural Mountains night that could kill in an hour, without their boots. It took until 2021 for real science to offer an explanation that actually fits the evidence -- and even that isn't the whole story.\n\n#unsolvedmystery #truestory #coldcase",
   "tags": ["true story", "unsolved mystery", "dyatlov pass", "cold case", "russia", "longform"],
@@ -22,16 +24,23 @@
 
     { "text": "On 23/01/1959, ten hikers and skiers, most of them students or graduates of the Ural Polytechnic Institute, set out on a demanding winter trek through the Northern Urals.", "visual_query": "" },
     { "text": "They were led by twenty three year old Igor Dyatlov, an experienced outdoorsman -- the expedition still carries his name today.", "visual_query": "" },
+    { "text": "Dyatlov was a fifth year radio engineering student, and a skilled enough amateur that he'd built his own shortwave radio transmitter by hand. Every member of the group already held an intermediate hiking certification, and this specific trip, if completed, would earn them the next grade up.", "visual_query": "" },
     { "text": "One member, Yuri Yudin, fell ill early into the trip and turned back. It's the only reason he isn't counted among the dead.", "visual_query": "" },
     { "text": "The other nine continued: Dyatlov, Zinaida Kolmogorova, Rustem Slobodin, Nikolai Thibeaux-Brignolles, Lyudmila Dubinina, Alexander Kolevatov, Yuri Doroshenko, and Yuri Krivonishchenko.", "visual_query": "" },
     { "text": "The ninth was Semyon Zolotaryov, thirty seven years old, and conspicuously older than the rest of the group. He was a World War Two veteran, from a Cossack family, who'd gone on to study physical education and work as a professional ski and mountain instructor.", "visual_query": "" },
-    { "text": "He'd joined this specific trip at the last minute, reportedly to help the students qualify for a hiking certification. For reasons nobody has ever established, he introduced himself to the group as Sasha, not Semyon.", "visual_query": "" },
-    { "text": "It's a small detail, and it isn't evidence of anything specific. It's just one of the case's genuine, unresolved oddities, a loose thread nobody ever got to tie off.", "visual_query": "" },
+    { "text": "He'd joined this specific trip at the last minute, already certified himself, reportedly to help the students qualify. For reasons nobody has ever established, he introduced himself to the group as Sasha, not Semyon.", "visual_query": "" },
+    { "text": "He also carried tattoos from his wartime years that were never fully explained either: a five pointed star, his own birth year, and a string of letters, D-A-E-R-M-M-U-A-Z-U-A-Y-A, that has never been translated or decoded into any known language, by anyone.", "visual_query": "" },
+    { "text": "None of that is evidence of anything specific. It's just some of the case's genuine, unresolved oddities, loose threads nobody ever got to tie off.", "visual_query": "" },
+
+    { "text": "Before their final push toward the summit, the group buried a supply cache to lighten their load for the return trip, food and equipment they wouldn't need going up.", "visual_query": "" },
+    { "text": "The group kept a shared expedition diary. Its last entry, written on 31/01/1959, described plain exhaustion and how hard it was to make camp that day. The diary breaks off completely after that.", "visual_query": "" },
+    { "text": "Their cameras were recovered and developed afterward. The final photographs on the roll, taken on 01/02/1959, show members of the group digging a platform into the snow to pitch their tent. It was hours before they died.", "visual_query": "" },
 
     { "text": "The group planned to send a telegram home once they reached the town of Vizhai on their way back, expected around the middle of February.", "visual_query": "" },
-    { "text": "No telegram came. By 20/02/1959, family members had pushed hard enough that a search was finally organized.", "visual_query": "" },
+    { "text": "No telegram came. By 20/02/1959, family members had pushed hard enough that a search was finally organized, starting with friends and volunteer students from the institute.", "visual_query": "" },
+    { "text": "Within two days it had grown into something much bigger. By 22/02/1959, police officers and prison camp guards from the regional administration had joined, backed by a military helicopter and army tents.", "visual_query": "" },
 
-    { "text": "On 26/02/1959, a search party found the group's tent, pitched on the slope of a mountain the local Mansi people called Kholat Syakhl. It translates to Dead Mountain, a name the mountain already carried, long before any of this happened.", "visual_query": "" },
+    { "text": "On 26/02/1959, that search party found the group's tent, pitched on the slope of a mountain the local Mansi people called Kholat Syakhl. It translates to Dead Mountain, a name the mountain already carried, long before any of this happened.", "visual_query": "" },
     { "text": "The tent was cut open. Not torn. Cut, and from the inside.", "visual_query": "" },
     { "text": "Boots. Warm coats. Their other belongings. All of it was still inside the tent. Whatever made nine experienced winter hikers leave, they left in a hurry, without the one thing that could have kept them alive out there.", "visual_query": "" },
     { "text": "Footprints led away from the tent toward a treeline more than a kilometer downhill. Some of the prints were bare feet. None of them belonged to anyone wearing proper winter boots.", "visual_query": "" },
@@ -40,7 +49,10 @@
     { "text": "At the treeline, searchers found the first two bodies: Krivonishchenko and Doroshenko, partially undressed, beneath a large cedar tree.", "visual_query": "" },
     { "text": "The cedar's lower branches were broken, as if someone had climbed it, maybe trying to see something back toward the tent in the dark.", "visual_query": "" },
     { "text": "Between the cedar and the tent, searchers found three more: Dyatlov, Kolmogorova, and Slobodin, in positions suggesting they'd been trying to make it back.", "visual_query": "" },
-    { "text": "The remaining four, Dubinina, Zolotaryov, Kolevatov, and Thibeaux-Brignolles, weren't found until May, buried under several meters of snow in a ravine further from the tent.", "visual_query": "" },
+    { "text": "The remaining four, Dubinina, Zolotaryov, Kolevatov, and Thibeaux-Brignolles, weren't found until 04/05/1959, more than two months later, under roughly four meters of compacted snow in a ravine about seventy five meters further into the woods than the others.", "visual_query": "" },
+
+    { "text": "Searchers also found the buried supply cache from earlier in the trip, on 02/03/1959. It was still well hidden, packed with firewood, and covered over with planks and branches, exactly as the group had left it.", "visual_query": "" },
+    { "text": "Researchers who later reviewed what was inside it noted something odd: roughly forty kilograms of the group's food provisions were never accounted for at all. Nobody has ever explained where that food went.", "visual_query": "" },
 
     { "text": "The autopsies split the nine deaths into two very different categories. Six of them died of hypothermia, plain exposure to the cold.", "visual_query": "" },
     { "text": "The four in the ravine died of something else. Thibeaux-Brignolles had a fatal skull fracture. Zolotaryov and Dubinina both had multiple broken ribs, severe enough to be fatal, with no matching wound on the skin to explain how.", "visual_query": "" },
@@ -49,7 +61,8 @@
     { "text": "That distinction actually matters here. Investigators at the time explicitly recorded, in writing, an absence of external injuries or any sign of struggle on any of the nine bodies.", "visual_query": "" },
     { "text": "Every valuable the group carried was still accounted for. There were no footprints at the scene besides the nine hikers' own.", "visual_query": "" },
     { "text": "Whatever happened to them, the evidence has never actually supported the idea that another person did it to them.", "visual_query": "" },
-    { "text": "Some of the recovered clothing, including Krivonishchenko's, tested positive for elevated radioactive contamination. Where it came from was never established, and the investigation never tied it to any cause of death.", "visual_query": "" },
+    { "text": "Some of the recovered clothing, including Krivonishchenko's, tested positive for elevated radioactive contamination. Where it came from was never officially established, and the investigation never tied it to any cause of death.", "visual_query": "" },
+    { "text": "There is a mundane, real world explanation on the table, though. Two years earlier, in 1957, an actual Soviet nuclear accident contaminated part of that wider region. Some accounts note a member of the group had lived or worked in the affected area beforehand, which alone could explain a lingering trace on their clothes, with nothing sinister required at all.", "visual_query": "" },
 
     { "text": "The original investigation's first working theory was an attack by the Mansi, the Indigenous people of the region.", "visual_query": "" },
     { "text": "It didn't hold up. There was no history of hostility between the Mansi and Soviet settlers, that stretch of terrain wasn't used by them for hunting or herding in winter, and there was no physical evidence anyone but the nine hikers had ever been at the site.", "visual_query": "" },
@@ -63,6 +76,13 @@
     { "text": "One idea that circulated for years pointed to Soviet military testing, specifically parachute mines, ordnance designed to detonate before hitting the ground, which can cause severe internal injury with very little external wound.", "visual_query": "" },
     { "text": "That detail lines up with what happened to the four hikers found in the ravine. And the region did have confirmed military activity around that time.", "visual_query": "" },
     { "text": "But neither the original 1959 investigation nor the modern one ever found an explosion crater, chemical residue, or any record of a test at that specific site on that date. The theory explains the injuries; it doesn't have any physical evidence behind it.", "visual_query": "" },
+
+    { "text": "A more elaborate theory, proposed by Russian author Aleksey Rakitin in his own book on the case, argues that Zolotaryov, Kolevatov, and Krivonishchenko were intelligence operatives, using the trek as cover for a meeting with foreign agents to pass along radioactive material and false nuclear secrets, and that the meeting turned violent.", "visual_query": "" },
+    { "text": "It's a real, published theory, and it would explain both the radiation trace and the specific injuries to the older, more experienced members of the group. It's also just that: one author's reconstruction, built without any declassified document, physical evidence, or admission from any intelligence service, asking you to believe three separate group members were all secretly undercover at once.", "visual_query": "" },
+
+    { "text": "That theory got an unexpected jolt in 2018, from a completely different direction. At the request of relatives, journalists arranged the exhumation of the grave marked as Semyon Zolotaryov's, to settle old doubts about tattoos on the body that his family didn't recognize.", "visual_query": "" },
+    { "text": "Cemetery records turned out not to list anyone as buried in that plot at all. An initial DNA comparison against one of Zolotaryov's nieces excluded a family match.", "visual_query": "" },
+    { "text": "That result has never been treated as final. A DNA comparison against a single distant relative carries real uncertainty on its own, and nobody has ever come up with an alternative identity for whoever is actually in that grave. It's an open thread, not a solved one, but it's real, and it's still unresolved.", "visual_query": "" },
 
     { "text": "In 2013, American author Donnie Eichar proposed a different explanation in his book Dead Mountain.", "visual_query": "" },
     { "text": "Wind moving over the mountain's dome-shaped peak, he argued, can generate a pattern called a Karman vortex street, which produces infrasound: sound too low to consciously hear, but documented to cause nausea, disorientation, and panic in people exposed to it.", "visual_query": "" },

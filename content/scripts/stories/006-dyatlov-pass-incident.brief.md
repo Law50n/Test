@@ -90,6 +90,67 @@ study, and at least four genuinely distinct theories with real proponents
   little visible trace by the time searchers arrived weeks later.
   [Puzrin & Gaume, Communications Earth & Environment, Jan 2021; EPFL press release]
 
+## Established facts -- second pass (search operation, diary, cache, exhumation)
+
+- Igor Dyatlov was a fifth-year radio engineering student at the Ural
+  Polytechnic Institute, an experienced Grade II hiker, and a skilled
+  radio amateur who had built his own shortwave transmitter. Every
+  member of the group held Grade II hiking certification and was set to
+  receive Grade III certification on completing this trip -- which is
+  specifically why Zolotaryov, already certified, joined at the last
+  minute: to help them qualify. [dyatlovpass.com: Igor Dyatlov; Wikipedia: Igor Dyatlov]
+- The group kept a shared expedition diary. Its last entry, dated
+  31/01/1959, describes their exhaustion and the difficulty of making
+  camp; the diary breaks off entirely after 01/02/1959. [dyatlovpass.com:
+  Dyatlov group diary]
+- Before their final ascent, the group buried a supply cache (a "labaz")
+  to lighten their load for the return trip. It wasn't found by
+  searchers until 02/03/1959 -- well hidden, packed with firewood, and
+  covered with planks and spruce branches. Researchers who reviewed it
+  estimated roughly 40 kg of the group's food provisions were unaccounted
+  for. [dyatlovpass.com: the cache site (labaz)]
+- The group's cameras were recovered and developed after their deaths.
+  The final photographs, taken on 01/02/1959, show members of the group
+  digging out a platform in the snow to pitch the tent -- taken only
+  hours before they died. [dyatlovpass.com; multiple case summaries]
+- The search launched on 20/02/1959 began with friends and volunteer
+  students. By 22/02/1959 it had been reinforced with MVD (police)
+  officers and prison-camp guards from the regional Ivdellag
+  administration, along with a military Mi-4 helicopter and additional
+  army tents. [dyatlovpass.com: the search in 1959]
+- The final four bodies were found on 04/05/1959, under roughly four
+  meters of compacted snow in a ravine about 75 meters further into the
+  woods than the first five. [dyatlovpass.com: the search in 1959; Wikipedia]
+- A commonly cited, non-sinister explanation exists for the radioactive
+  clothing trace: two years earlier, in 1957, a real Soviet nuclear
+  accident (the Kyshtym disaster, at the Mayak facility) had contaminated
+  part of the surrounding region. Some accounts note that at least one
+  member of the group had lived in or worked in the affected area
+  beforehand, which could explain trace contamination on clothing
+  independent of anything that happened at the death scene. This has
+  never been officially confirmed as *the* explanation, but it's a real,
+  separately documented event the theory rests on, not speculation from
+  nothing. [dyatlovpass.com: the radioactive trace -- two conflicting
+  opinions; general Kyshtym disaster reporting]
+- Zolotaryov carried several tattoos from his wartime years: a five-pointed
+  star, his own birth year (1921), and a string of characters --
+  "DAERMMUAZUAYA" -- that has never been translated or decoded into any
+  known language by any researcher who has examined it. [dyatlov.looo.ch:
+  daermmuazuaya; dyatlovpass.com: Semyon Zolotaryov]
+- In 2018, at the request of relatives, journalists from Komsomolskaya
+  Pravda arranged the exhumation of the grave marked as Semyon
+  Zolotaryov's at Ivanovskoe Cemetery in Yekaterinburg, to settle
+  long-standing doubts about tattoos on the body that relatives didn't
+  recognize. Cemetery records turned out not to list anyone as buried in
+  that plot at all. An initial DNA comparison against a niece of
+  Zolotaryov's excluded a family match. [dyatlovpass.com: Zolotaryov
+  exhumation; DNA results]
+- That result has never been treated as final or fully conclusive by
+  investigators -- exhumation-era DNA comparisons against a single
+  distant relative carry real uncertainty, and no alternative identity
+  for the exhumed remains has ever been established. It remains an open,
+  unresolved thread of the case rather than a settled finding. [dyatlovpass.com]
+
 ## Theories, attributed
 
 - **Slab avalanche (Soviet/Russian official conclusion, 2020; supported
@@ -133,6 +194,18 @@ study, and at least four genuinely distinct theories with real proponents
   that same investigation (see facts above) -- included here only
   because it's a real, documented step in the case's history, not
   because the evidence supports it.
+- **A covert KGB operation gone wrong (proposed by Russian author Aleksey
+  Rakitin in his book on the case)**: that Zolotaryov, Kolevatov, and
+  Krivonishchenko were intelligence operatives using the trek as cover to
+  meet foreign agents and pass them radioactive material and false
+  nuclear secrets, and that the meeting turned violent. *For*: would
+  explain the radiation trace and the three older/more experienced
+  members' injuries as something other than natural causes. *Against*:
+  it's one writer's published reconstruction, not built on any
+  declassified document, physical evidence, or admission from any
+  intelligence service, and it requires assuming several coincidences
+  (three specific group members all being undercover) that no official
+  investigation, past or present, has ever supported.
 
 No credible investigator or serious researcher has proposed a named
 living individual as responsible; nothing in this case implicates any
@@ -150,5 +223,7 @@ draft (see docs/episode-workflow.md).
 "dyatlovpass.com's case archive, including the Mansi trail and Semyon Zolotaryov background",
 "TASS's reporting on the 2020 Russian Prosecutor General's office conclusion",
 "Puzrin and Gaume, 'Mechanisms of slab avalanche release and impact in the Dyatlov Pass incident in 1959,' Communications Earth & Environment (2021)",
-"Donnie Eichar's 'Dead Mountain: The Untold True Story of the Dyatlov Pass Incident' (2013)"
+"Donnie Eichar's 'Dead Mountain: The Untold True Story of the Dyatlov Pass Incident' (2013)",
+"Aleksey Rakitin's published account proposing the KGB-operation theory",
+"Komsomolskaya Pravda's reporting on the 2018 exhumation and DNA results"
 ```
