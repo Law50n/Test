@@ -31,24 +31,47 @@ is the entry point (`python -m pipeline.run <script.json>`), `pipeline/tts.py`
 has all 5 TTS engine integrations, `pipeline/config.py` loads `.env`.
 Content scripts live in `content/scripts/<category>/*.json`.
 
-# Two YouTube channels, launched together
+# Three YouTube channels, launched together
 
-Will runs two separate channels, both live from early on rather than
-one channel splitting into two later:
+Will runs three separate channels, all live from early on rather than
+one channel splitting into more later:
 
 - **Facts channel**: science/tech/finance/wellbeing Shorts -- short,
   scrolling, "did you know" content.
-- **Mysteries channel**: everything in `category: "stories"` -- true
-  crime/unsolved-mystery Shorts *and* the longform/compilation episodes,
-  plus the original short fiction. Shorts there double as a discovery
-  funnel into the longform catalog on the same channel.
+- **Mysteries channel** (`category: "stories"`): real, sourced true
+  crime/unsolved-mystery content only -- Shorts *and* the longform/
+  compilation episodes. Shorts there double as a discovery funnel into
+  the longform catalog on the same channel. Goes through the full
+  research -> writing -> skeptic-check workflow below; every script here
+  needs real, non-empty `sources`.
+- **Fiction channel** (`category: "fiction"`, `content/scripts/fiction/`):
+  original made-up stories only -- Shorts and, eventually, longform
+  "fictional audiobook" episodes, same `format` mechanics as everything
+  else. No sourcing, no research/skeptic-check workflow -- it's just
+  good writing. Never mixed with `"stories"` -- a script is either a real,
+  sourced case in `stories`, or made up in `fiction`, never both and
+  never ambiguous between them.
 
 `category` alone decides the channel (`pipeline/run.py::CHANNEL_BY_CATEGORY`)
 and metadata.txt prints a `Channel:` line accordingly -- don't invent a
-separate "channel" field in the schema, and don't split `stories` across
-two channels. Other platforms/channels (a fiction-audiobook channel,
-non-YouTube platforms) are a deliberately later decision -- don't build
-or plan for them until asked.
+separate "channel" field in the schema, and don't split a category's
+content across two channels. Non-YouTube platforms are a deliberately
+later decision -- don't build or plan for them until asked.
+
+**On batching work across all three channels**: rendering already batches
+today -- `pipeline/run.py` takes multiple scripts or a whole folder glob
+in one invocation, so "build every video across all three channels" is
+already just one command, nothing new needed. Research and the skeptic-
+check are not that kind of deterministic, scriptable step -- they're
+judgment work (real web research, then reading a script against its
+brief) done per episode, not a `pipeline.verify`-style command. Several
+episodes' research/writing/skeptic-check can happen in one sitting when
+asked, but don't front-load *all* research across every channel before
+any writing happens -- a brief's gaps often only surface once a script is
+actually drafted and skeptic-checked against it (see the Dyatlov Pass
+episode's second research pass), so collapsing research into one
+big up-front batch risks missing exactly what this workflow exists to
+catch.
 
 # Long-form/`stories` episode content rules
 
@@ -63,10 +86,11 @@ don't wait to be reminded of them per episode:
   journalist X holds that...") -- never asserted as settled fact, even
   the one that seems most convincing.
 - **True and fictional episodes are kept strictly separate and
-  structurally labeled.** Every `category: "stories"` script sets
-  `"is_fiction": true` (original fiction) or carries a real, non-empty
-  `"sources"` list (see `pipeline/script_loader.py`) -- there's no
-  in-between, and the loader rejects a script that's neither.
+  structurally labeled.** Real cases are `category: "stories"` with a
+  real, non-empty `"sources"` list; original fiction is `category:
+  "fiction"` instead, its own folder and channel (see
+  `pipeline/script_loader.py`) -- there's no in-between, and the loader
+  rejects a `"stories"` script with no sources.
 - **Never name a living private individual as a perpetrator** unless
   they were actually charged/convicted and it's part of the public
   record. This is a legal boundary, not a courtesy one.

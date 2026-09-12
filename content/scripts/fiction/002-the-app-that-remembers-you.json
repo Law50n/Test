@@ -1,10 +1,9 @@
 {
-  "category": "stories",
-  "id": "004-the-app-that-remembers-you",
+  "category": "fiction",
+  "id": "002-the-app-that-remembers-you",
   "title": "The Journal App That Finished My Sentence Before I Wrote It",
   "description": "A short fiction story about a new journaling app, and the moment I realized it wasn't guessing.\n\n#shorts #shortstory #fiction",
   "tags": ["short story", "fiction", "tech horror", "shorts"],
-  "is_fiction": true,
   "visual_mode": "video",
   "scenes": [
     { "text": "I downloaded a journal app that claims to finish your thoughts for you. I figured it was just clever autocomplete.", "visual_query": "person typing phone night" },

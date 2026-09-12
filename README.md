@@ -7,16 +7,21 @@ captions, and a thumbnail. Every stage has a genuinely free path — see the
 this was planned from for the original niche reasoning (since revised, see
 below).
 
-## Multiple sectors, two channels
+## Multiple sectors, three channels
 
-Content runs across several pillars, split across two YouTube channels
-launched together rather than one channel spun into two later:
+Content runs across several pillars, split across three YouTube channels
+launched together rather than one channel splitting into more later:
 
 - **Facts channel**: `science`, `tech`, `finance`, `wellbeing`.
-- **Mysteries channel**: `stories` — true crime/unsolved-mystery Shorts,
-  the longform/compilation episodes, and the original short fiction, all
-  on one channel (Shorts there double as a discovery funnel into the
-  longform catalog).
+- **Mysteries channel**: `stories` — real, sourced true crime/
+  unsolved-mystery Shorts and longform/compilation episodes (Shorts there
+  double as a discovery funnel into the longform catalog).
+- **Fiction channel**: `fiction` — original made-up stories, Shorts now
+  and longform "fictional audiobook" episodes eventually, same
+  short/longform mechanics as everywhere else, no sourcing involved.
+
+`stories` and `fiction` are never mixed on the same channel, even though
+they're both narrative rather than fact-list content — see `CLAUDE.md`.
 
 `category` decides the channel automatically (`pipeline/run.py::CHANNEL_BY_CATEGORY`)
 and `metadata.txt` prints a `Channel:` line so a folder of rendered videos
@@ -334,22 +339,23 @@ a natural next step from this pipeline.
 
 `stories` is a different content shape from the fact-list categories above:
 a beginning-middle-twist narrative instead of a run of standalone facts,
-mixing real researched events (`001`, `002` — D.B. Cooper, the Boston
-Molasses Flood) with original short fiction (`003`, `004`).
+built entirely from real, researched events (`001`, `002` — D.B. Cooper,
+the Boston Molasses Flood). It's structurally real-only now: every
+`stories` script needs a non-empty `"sources"` list (see below) — one
+with none fails to load rather than quietly shipping unsourced.
+`run.py` folds `sources` into `metadata.txt`'s `Sources:` line
+automatically; don't type it into `description` by hand anymore.
 
-Every `stories` script must be explicitly true or fiction, structurally —
-not just by convention in the description text:
+Original short fiction lives in its own `fiction` category and channel
+instead (`content/scripts/fiction/`, e.g. `001`, `002`) — same schema and
+`format` mechanics (short/longform), no sourcing requirement, and no
+research/skeptic-check workflow, since it isn't making any factual
+claims. `stories` and `fiction` are never mixed on the same channel — see
+`CLAUDE.md`.
 
-- Real cases need a non-empty `"sources"` list (see below) — a `stories`
-  script with no `sources` and no `"is_fiction": true` fails to load
-  rather than quietly shipping unsourced. `run.py` folds `sources` into
-  `metadata.txt`'s `Sources:` line automatically; don't type it into
-  `description` by hand anymore.
-- Original fiction sets `"is_fiction": true` instead — see `003`, `004`.
-
-For the fuller research → write → skeptic-check process real cases should
-go through before they're scripted at all (especially longform
-unsolved-mystery episodes), see `docs/episode-workflow.md`.
+For the fuller research → write → skeptic-check process real `stories`
+cases should go through before they're scripted at all (especially
+longform unsolved-mystery episodes), see `docs/episode-workflow.md`.
 
 It also runs on real stock **video** clips instead of Ken Burns stills — set
 `"visual_mode": "video"` in the script JSON (default is `"photo"`, so nothing

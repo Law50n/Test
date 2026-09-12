@@ -19,13 +19,15 @@ from pipeline.text_normalize import normalize_dates_for_speech
 from pipeline.tts import TTSError, synthesize
 
 
-# Which of the two YouTube channels each category uploads to -- "stories"
-# (Shorts and longform/compilation alike) goes on the mysteries channel,
+# Which of the three YouTube channels each category uploads to -- "stories"
+# (real cases, Shorts and longform/compilation alike) goes on the true
+# stories/mysteries channel, "fiction" (original made-up stories, Shorts
+# and longform alike) goes on its own separate fiction channel, and
 # everything else goes on the facts channel. Printed into metadata.txt so
 # a folder of rendered videos says where each one goes without having to
 # remember the mapping by hand; update this if a category ever needs to
-# move channels or a third channel gets added.
-CHANNEL_BY_CATEGORY = {"stories": "Mysteries"}
+# move channels or another channel gets added.
+CHANNEL_BY_CATEGORY = {"stories": "Mysteries", "fiction": "Fiction"}
 DEFAULT_CHANNEL = "Facts"
 
 

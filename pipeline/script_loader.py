@@ -51,18 +51,15 @@ class VideoScript:
     # together into one sitting with a short spoken transition between
     # each. See run.py::build_compilation.
     episodes: list[Path] = field(default_factory=list)
-    # True only for original short fiction (see content/scripts/stories/003,
-    # 004) -- makes the true/fiction split a checkable field instead of a
-    # convention that only lives in the description text and tags. See
-    # docs/episode-workflow.md.
-    is_fiction: bool = False
-    # Real, checkable citations for every non-fiction "stories" script --
-    # required (see load()) rather than typed by hand into the end of
-    # `description`, so a script that skips real sourcing fails to load
-    # instead of quietly shipping. run.py folds these into metadata.txt's
-    # "Sources:" line automatically. Per-claim traceability lives in that
-    # episode's research brief (docs/episode-workflow.md), not here -- this
-    # is just the flat citation list for the video description.
+    # Real, checkable citations for every "stories" script -- required (see
+    # load()) rather than typed by hand into the end of `description`, so a
+    # script that skips real sourcing fails to load instead of quietly
+    # shipping. run.py folds these into metadata.txt's "Sources:" line
+    # automatically. Per-claim traceability lives in that episode's
+    # research brief (docs/episode-workflow.md), not here -- this is just
+    # the flat citation list for the video description. Original fiction
+    # lives under category "fiction" instead, which needs no sourcing at
+    # all -- see content/scripts/fiction/.
     sources: list[str] = field(default_factory=list)
 
     @classmethod
@@ -104,12 +101,11 @@ class VideoScript:
 
         if not data["scenes"]:
             raise ValueError(f"{path} has an empty \"scenes\" list")
-        is_fiction = bool(data.get("is_fiction", False))
         sources = list(data.get("sources", []))
-        if data["category"] == "stories" and not is_fiction and not sources:
+        if data["category"] == "stories" and not sources:
             raise ValueError(
                 f"{path}: category \"stories\" scripts must list real \"sources\" "
-                f"(or set \"is_fiction\": true for original fiction)"
+                f"(original fiction belongs under category \"fiction\" instead)"
             )
         thumbnail_scene = data.get("thumbnail_scene", 0)
         if not (0 <= thumbnail_scene < len(data["scenes"])):
@@ -155,6 +151,5 @@ class VideoScript:
             thumbnail_scene=thumbnail_scene,
             format=video_format,
             background_images=background_images,
-            is_fiction=is_fiction,
             sources=sources,
         )

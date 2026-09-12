@@ -2,9 +2,10 @@
 
 This is the process for every real-case `stories` episode (Shorts or
 longform) -- built to keep the house rules in `CLAUDE.md` from quietly
-drifting once a script is mid-draft. It doesn't apply to original fiction
-(`"is_fiction": true`) or the fact-list categories (science/tech/finance/
-wellbeing), which don't carry the same true-crime accuracy stakes.
+drifting once a script is mid-draft. It doesn't apply to `category:
+"fiction"` (original made-up stories, its own channel, no sourcing
+requirement at all) or the fact-list categories (science/tech/finance/
+wellbeing), neither of which carry the same true-crime accuracy stakes.
 
 The core problem it solves: writing a script in one open-ended pass means
 research recall and prose drafting happen in the same breath, so a
@@ -65,29 +66,28 @@ This pass is silent when it's clean. It only gets surfaced to you when
 something's actually flagged and fixed, so it doesn't turn into a status
 report you have to read through on every episode.
 
-## 4. `sources` and `is_fiction` -- structural, not typed by hand
+## 4. `sources` -- structural, not typed by hand
 
-Once the script JSON is written:
+Once the script JSON is written, add a flat list of the brief's citations
+(outlet/book/report names, specific enough to verify), e.g.:
 
-- `"sources"`: a flat list of the brief's citations (outlet/book/report
-  names, specific enough to verify), e.g.:
+```json
+"sources": [
+  "Wikipedia's Isdal Woman entry",
+  "The BBC/NRK podcast 'Death in Ice Valley'"
+]
+```
 
-  ```json
-  "sources": [
-    "Wikipedia's Isdal Woman entry",
-    "The BBC/NRK podcast 'Death in Ice Valley'"
-  ]
-  ```
+`pipeline/script_loader.py` requires this to be non-empty for every
+`category: "stories"` script -- a script that skips real sourcing fails
+to load instead of quietly shipping. `run.py` folds it into
+`metadata.txt`'s `Sources:` line automatically; don't type a `Sources:`
+line into `description` by hand anymore.
 
-  `pipeline/script_loader.py` requires this to be non-empty for any
-  `category: "stories"` script that isn't fiction -- a script that skips
-  real sourcing fails to load instead of quietly shipping. `run.py` folds
-  it into `metadata.txt`'s `Sources:` line automatically; don't type a
-  `Sources:` line into `description` by hand anymore.
-
-- `"is_fiction": true` on original short fiction instead (see
-  `content/scripts/stories/003`, `004`) -- makes the true/fiction split a
-  field the loader checks, not just a line in the description and a tag.
+Original fiction doesn't go through any of this: it lives under
+`category: "fiction"` (its own folder, its own channel) instead of
+`"stories"`, needs no `sources` at all, and skips this whole workflow --
+see `content/scripts/fiction/001`, `002`.
 
 Per-claim traceability (which specific source backs which specific
 sentence) lives in the episode's `.brief.md` from step 1, not in the
