@@ -1,0 +1,21 @@
+{
+  "category": "stories",
+  "id": "007-flight-19-disappearance",
+  "title": "Five Navy Planes Vanished. So Did The Plane Sent To Find Them.",
+  "description": "In 1945, five Navy bombers vanished on a routine training flight. The rescue plane sent to find them vanished too. No wreckage from any of them has ever been found.\n\n#shorts #truestory #unsolvedmystery",
+  "tags": ["true story", "unsolved mystery", "bermuda triangle", "history", "shorts"],
+  "sources": [
+    "Smithsonian Magazine's account of the Flight 19 disappearance",
+    "Naval History and Heritage Command's official loss report on Flight 19",
+    "History.com's coverage of the Bermuda Triangle squadron disappearance"
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "On 05/12/1945, five Navy bomber planes took off from Fort Lauderdale for a routine training flight, and none of them ever came back.", "visual_query": "vintage military airplane runway 1940s" },
+    { "text": "The flight was led by Lieutenant Charles Taylor, a combat veteran with twenty five hundred hours of flying experience. Two hours in, he radioed that his compass had failed and he didn't know his position.", "visual_query": "airplane cockpit compass instruments vintage" },
+    { "text": "The other four pilots reported the same thing. Their instruments were failing too, and radio contact grew fainter as their fuel ran out.", "visual_query": "airplane flying clouds ocean vintage" },
+    { "text": "The Navy sent a rescue plane carrying thirteen more men to find them. It also vanished, dropping off radio contact mid-flight.", "visual_query": "vintage search plane flying ocean" },
+    { "text": "In total, six aircraft and twenty seven men disappeared that day. Despite one of the largest air and sea searches in history, no confirmed wreckage from any of them has ever been found.", "visual_query": "ocean aerial search vintage ships" },
+    { "text": "The official Navy view is that the planes drifted out over open ocean and ran out of fuel. But the case is part of what built the entire legend of the Bermuda Triangle.", "visual_query": "ocean horizon sunset mysterious" }
+  ]
+}

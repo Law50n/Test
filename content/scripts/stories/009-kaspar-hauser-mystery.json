@@ -1,0 +1,21 @@
+{
+  "category": "stories",
+  "id": "009-kaspar-hauser-mystery",
+  "title": "A Boy Appeared In A German Town Square In 1828. Nobody Ever Learned Where He Came From.",
+  "description": "In 1828, a teenage boy wandered into a Nuremberg square, barely able to speak. He claimed he'd spent his whole life locked in a dark cell. Nobody ever found out if that was true.\n\n#shorts #truestory #unsolvedmystery",
+  "tags": ["true story", "unsolved mystery", "kaspar hauser", "history", "shorts"],
+  "sources": [
+    "Wikipedia's Kaspar Hauser entry",
+    "Live Science's account of the Kaspar Hauser mystery",
+    "Mental Floss's coverage of Kaspar Hauser's life and death"
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "On 26/05/1828, a teenage boy wandered into a public square in Nuremberg, Germany, barely able to speak and unable to walk properly.", "visual_query": "old european town square cobblestone" },
+    { "text": "He was carrying two letters. One asked a local army captain to take him in. The other, supposedly from his mother, said his father was dead and she could no longer care for him.", "visual_query": "old letter envelope vintage paper" },
+    { "text": "The boy said his name was Kaspar Hauser, and that he had spent his entire life alone in a dark, locked cell, only recently let out.", "visual_query": "dark prison cell vintage stone" },
+    { "text": "One of the letters turned out to be a forgery. It was addressed to a captain who wasn't even in the city the year it was supposedly written.", "visual_query": "vintage handwriting forged document" },
+    { "text": "Some believed Hauser was a secret prince, hidden away to protect a royal bloodline. Others thought he'd invented the entire story.", "visual_query": "european castle royal vintage" },
+    { "text": "In 1833, Hauser was found with a fatal stab wound, claiming a stranger had attacked him. Investigators at the time suspected he may have stabbed himself. Whether it was murder or a hoax gone wrong has never been settled.", "visual_query": "vintage cemetery gravestone europe" }
+  ]
+}

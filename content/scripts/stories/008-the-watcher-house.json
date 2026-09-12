@@ -1,0 +1,21 @@
+{
+  "category": "stories",
+  "id": "008-the-watcher-house",
+  "title": "A Family Bought A $1.3M House. Then Letters From 'The Watcher' Started Arriving.",
+  "description": "In 2014, a New Jersey family bought their dream home. Before they even moved in, someone calling themselves The Watcher started sending letters.\n\n#shorts #truestory #unsolvedmystery",
+  "tags": ["true story", "unsolved mystery", "the watcher", "true crime", "shorts"],
+  "sources": [
+    "Wikipedia's \"The Watcher of Westfield, New Jersey\" entry",
+    "CBS News's account of the real story behind Netflix's The Watcher",
+    "NBC News's coverage of the Broaddus family's lawsuit and the house sale"
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "In June of 2014, Derek and Maria Broaddus bought their dream home in Westfield, New Jersey, for one point three million dollars.", "visual_query": "large suburban house exterior daytime" },
+    { "text": "Before they even moved in, they got a typed letter. It said the house had been watched by the same family for generations, and called their three young kids 'new blood.'", "visual_query": "typewritten letter envelope closeup" },
+    { "text": "More letters followed. Whoever was writing them knew the family's names, their car, and details about the renovation work happening inside the house in real time.", "visual_query": "family home renovation construction" },
+    { "text": "The family never moved in. They spent about a hundred thousand dollars trying to fix the house up, then tried to get permission to tear it down instead. The town said no.", "visual_query": "empty house for sale sign daytime" },
+    { "text": "They finally sold the house years later, at a loss. Police have said there's never been a confirmed suspect.", "visual_query": "house exterior sold sign" },
+    { "text": "The letters stopped. Whoever called themselves The Watcher was never identified, and the case is still officially open.", "visual_query": "dark house window night" }
+  ]
+}
