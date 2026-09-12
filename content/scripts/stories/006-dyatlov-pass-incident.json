@@ -1,0 +1,87 @@
+{
+  "category": "stories",
+  "id": "006-dyatlov-pass-incident",
+  "title": "Nine Hikers Cut Their Way Out of Their Tent and Ran Into -30C. Only Recently Did Science Explain Why.",
+  "format": "longform",
+  "background_images": ["assets/hero1.png", "assets/hero2.png"],
+  "is_fiction": false,
+  "sources": [
+    "Wikipedia's Dyatlov Pass incident entry",
+    "History.com's account of the Dyatlov Pass incident",
+    "Mental Floss's coverage of the case and the nine victims",
+    "dyatlovpass.com's case archive, including the Mansi trail and Semyon Zolotaryov background",
+    "TASS's reporting on the 2020 Russian Prosecutor General's office conclusion",
+    "Puzrin and Gaume, 'Mechanisms of slab avalanche release and impact in the Dyatlov Pass incident in 1959,' Communications Earth & Environment (2021)",
+    "Donnie Eichar's 'Dead Mountain: The Untold True Story of the Dyatlov Pass Incident' (2013)"
+  ],
+  "description": "In the early hours of 02/02/1959, nine experienced hikers cut their way out of their own tent and ran into a Ural Mountains night that could kill in an hour, without their boots. It took until 2021 for real science to offer an explanation that actually fits the evidence -- and even that isn't the whole story.\n\n#unsolvedmystery #truestory #coldcase",
+  "tags": ["true story", "unsolved mystery", "dyatlov pass", "cold case", "russia", "longform"],
+  "scenes": [
+    { "text": "In the early hours of 02/02/1959, nine experienced hikers died in Russia's Ural Mountains, and more than sixty years of investigation still hasn't fully explained why.", "visual_query": "" },
+    { "text": "What makes this case different from most unsolved deaths is how much is actually known. There's a full timeline, named victims, individual autopsy findings, and, decades later, a real peer-reviewed scientific study. And it's still not fully settled.", "visual_query": "" },
+
+    { "text": "On 23/01/1959, ten hikers and skiers, most of them students or graduates of the Ural Polytechnic Institute, set out on a demanding winter trek through the Northern Urals.", "visual_query": "" },
+    { "text": "They were led by twenty three year old Igor Dyatlov, an experienced outdoorsman -- the expedition still carries his name today.", "visual_query": "" },
+    { "text": "One member, Yuri Yudin, fell ill early into the trip and turned back. It's the only reason he isn't counted among the dead.", "visual_query": "" },
+    { "text": "The other nine continued: Dyatlov, Zinaida Kolmogorova, Rustem Slobodin, Nikolai Thibeaux-Brignolles, Lyudmila Dubinina, Alexander Kolevatov, Yuri Doroshenko, and Yuri Krivonishchenko.", "visual_query": "" },
+    { "text": "The ninth was Semyon Zolotaryov, thirty seven years old, and conspicuously older than the rest of the group. He was a World War Two veteran, from a Cossack family, who'd gone on to study physical education and work as a professional ski and mountain instructor.", "visual_query": "" },
+    { "text": "He'd joined this specific trip at the last minute, reportedly to help the students qualify for a hiking certification. For reasons nobody has ever established, he introduced himself to the group as Sasha, not Semyon.", "visual_query": "" },
+    { "text": "It's a small detail, and it isn't evidence of anything specific. It's just one of the case's genuine, unresolved oddities, a loose thread nobody ever got to tie off.", "visual_query": "" },
+
+    { "text": "The group planned to send a telegram home once they reached the town of Vizhai on their way back, expected around the middle of February.", "visual_query": "" },
+    { "text": "No telegram came. By 20/02/1959, family members had pushed hard enough that a search was finally organized.", "visual_query": "" },
+
+    { "text": "On 26/02/1959, a search party found the group's tent, pitched on the slope of a mountain the local Mansi people called Kholat Syakhl. It translates to Dead Mountain, a name the mountain already carried, long before any of this happened.", "visual_query": "" },
+    { "text": "The tent was cut open. Not torn. Cut, and from the inside.", "visual_query": "" },
+    { "text": "Boots. Warm coats. Their other belongings. All of it was still inside the tent. Whatever made nine experienced winter hikers leave, they left in a hurry, without the one thing that could have kept them alive out there.", "visual_query": "" },
+    { "text": "Footprints led away from the tent toward a treeline more than a kilometer downhill. Some of the prints were bare feet. None of them belonged to anyone wearing proper winter boots.", "visual_query": "" },
+    { "text": "Temperatures that night are estimated at twenty five to thirty degrees below zero Celsius.", "visual_query": "" },
+
+    { "text": "At the treeline, searchers found the first two bodies: Krivonishchenko and Doroshenko, partially undressed, beneath a large cedar tree.", "visual_query": "" },
+    { "text": "The cedar's lower branches were broken, as if someone had climbed it, maybe trying to see something back toward the tent in the dark.", "visual_query": "" },
+    { "text": "Between the cedar and the tent, searchers found three more: Dyatlov, Kolmogorova, and Slobodin, in positions suggesting they'd been trying to make it back.", "visual_query": "" },
+    { "text": "The remaining four, Dubinina, Zolotaryov, Kolevatov, and Thibeaux-Brignolles, weren't found until May, buried under several meters of snow in a ravine further from the tent.", "visual_query": "" },
+
+    { "text": "The autopsies split the nine deaths into two very different categories. Six of them died of hypothermia, plain exposure to the cold.", "visual_query": "" },
+    { "text": "The four in the ravine died of something else. Thibeaux-Brignolles had a fatal skull fracture. Zolotaryov and Dubinina both had multiple broken ribs, severe enough to be fatal, with no matching wound on the skin to explain how.", "visual_query": "" },
+    { "text": "Dubinina's autopsy specifically recorded four broken ribs on one side and seven on the other. Investigators attributed her death to the resulting internal bleeding.", "visual_query": "" },
+    { "text": "Her autopsy also recorded that her eyes, her tongue, and some soft tissue around her face were missing. Investigators attributed this to the time her body spent exposed in the ravine, not to an attack, and nothing else about her injuries supported the idea of one.", "visual_query": "" },
+    { "text": "That distinction actually matters here. Investigators at the time explicitly recorded, in writing, an absence of external injuries or any sign of struggle on any of the nine bodies.", "visual_query": "" },
+    { "text": "Every valuable the group carried was still accounted for. There were no footprints at the scene besides the nine hikers' own.", "visual_query": "" },
+    { "text": "Whatever happened to them, the evidence has never actually supported the idea that another person did it to them.", "visual_query": "" },
+    { "text": "Some of the recovered clothing, including Krivonishchenko's, tested positive for elevated radioactive contamination. Where it came from was never established, and the investigation never tied it to any cause of death.", "visual_query": "" },
+
+    { "text": "The original investigation's first working theory was an attack by the Mansi, the Indigenous people of the region.", "visual_query": "" },
+    { "text": "It didn't hold up. There was no history of hostility between the Mansi and Soviet settlers, that stretch of terrain wasn't used by them for hunting or herding in winter, and there was no physical evidence anyone but the nine hikers had ever been at the site.", "visual_query": "" },
+    { "text": "The Soviet investigation formally closed in May of 1959. Its official verdict named the cause of death only as an unspecified 'compelling natural force,' and the file was sealed for decades.", "visual_query": "" },
+
+    { "text": "One more detail from that same February deserves mentioning, because it's real and documented, even if nobody has ever proven it connects to the case at all.", "visual_query": "" },
+    { "text": "A separate group of hikers roughly fifty kilometers south reported seeing glowing orange spheres moving in the night sky on the same night the group died. Similar sightings were independently reported by others over the following weeks, including Soviet meteorological and military observers.", "visual_query": "" },
+    { "text": "Nobody has ever established a connection between those sightings and what happened on the mountain. It's included here because it's genuinely part of the documented record, not because it explains anything.", "visual_query": "" },
+
+    { "text": "For sixty years, that vague official verdict was the entire record. In its absence, theories filled the space. Some grounded, some not.", "visual_query": "" },
+    { "text": "One idea that circulated for years pointed to Soviet military testing, specifically parachute mines, ordnance designed to detonate before hitting the ground, which can cause severe internal injury with very little external wound.", "visual_query": "" },
+    { "text": "That detail lines up with what happened to the four hikers found in the ravine. And the region did have confirmed military activity around that time.", "visual_query": "" },
+    { "text": "But neither the original 1959 investigation nor the modern one ever found an explosion crater, chemical residue, or any record of a test at that specific site on that date. The theory explains the injuries; it doesn't have any physical evidence behind it.", "visual_query": "" },
+
+    { "text": "In 2013, American author Donnie Eichar proposed a different explanation in his book Dead Mountain.", "visual_query": "" },
+    { "text": "Wind moving over the mountain's dome-shaped peak, he argued, can generate a pattern called a Karman vortex street, which produces infrasound: sound too low to consciously hear, but documented to cause nausea, disorientation, and panic in people exposed to it.", "visual_query": "" },
+    { "text": "It's a genuinely compelling idea, because it explains fleeing the tent in blind panic without requiring any structural collapse of the tent itself. What it explains less cleanly is the specific, severe crushing injuries the four in the ravine sustained.", "visual_query": "" },
+    { "text": "A related theory points to katabatic wind: sudden, severe downslope wind, documented in exactly that kind of terrain, potentially severe enough on its own to make staying near the tent feel unsurvivable.", "visual_query": "" },
+
+    { "text": "In February of 2019, more than sixty years after the case first closed, Russia's Prosecutor General's office reopened it, using forensic methods that hadn't existed in 1959.", "visual_query": "" },
+    { "text": "In July of 2020, the office, under investigator Andrei Kuryakov, reached a conclusion: an avalanche, or something close to one, had most likely triggered the group's flight from the tent.", "visual_query": "" },
+    { "text": "That took real explaining, because the slope where the tent actually stood isn't steep enough for the kind of avalanche most people picture.", "visual_query": "" },
+    { "text": "The following year, in January of 2021, two engineers, Alexander Puzrin of ETH Zurich and Johan Gaume of EPFL, published a peer-reviewed study addressing exactly that problem.", "visual_query": "" },
+    { "text": "Using real data on snow friction and the mountain's actual terrain, they modeled something specific: the hikers had cut directly into the slope to pitch their tent, and wind-loaded snow building up above that cut could trigger a small slab avalanche, even on ground that gentle.", "visual_query": "" },
+    { "text": "Their model showed a slide that small could still injure people inside the tent, panic the rest into cutting their way out, and leave little visible trace behind by the time anyone else reached the site, weeks later.", "visual_query": "" },
+    { "text": "It's the most scientifically grounded explanation this case has ever had. It fits the tent being cut open in a hurry, the fleeing without boots, and even why the original 1959 searchers, standing on that same slope, didn't see anything they recognized as avalanche damage.", "visual_query": "" },
+
+    { "text": "It's also not a complete, universally accepted answer. Some researchers who've studied this case for years still find it hard to square a slide that small with injuries as severe as Zolotaryov's and Dubinina's.", "visual_query": "" },
+    { "text": "So the honest answer sits somewhere between certainty and mystery. Something forced nine experienced winter hikers to cut their way out of a secure tent, in the middle of the night, in cold that could kill within the hour, without stopping to grab boots sitting right next to them.", "visual_query": "" },
+    { "text": "Whatever it actually was, it terrified them enough to run first and think later. Six of them didn't outrun the cold. Four of them didn't survive whatever happened after that.", "visual_query": "" },
+
+    { "text": "A small slab avalanche, hidden by its own size, is now the leading, most scientifically supported explanation. It may well be the correct one.", "visual_query": "" },
+    { "text": "But more than sixty five years later, no single version of the story accounts for every piece of it at once, and a case that's been formally closed twice still doesn't feel finished.", "visual_query": "" }
+  ]
+}

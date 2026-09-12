@@ -27,6 +27,8 @@ study, and at least four genuinely distinct theories with real proponents
 - The group planned to send a telegram on their expected return around
   12/02/1959; when nothing came by 20/02, a search was organized.
   [Wikipedia; History.com]
+- The hikers died in the early hours of 02/02/1959, days into the trek.
+  [Wikipedia; History.com]
 - On 26/02/1959, searchers found the group's tent on the slope of Kholat
   Syakhl ("Dead Mountain" in the Mansi language) -- cut open from the
   inside, and abandoned with the hikers' boots, warm clothing, and
