@@ -58,6 +58,19 @@ separate "channel" field in the schema, and don't split a category's
 content across two channels. Non-YouTube platforms are a deliberately
 later decision -- don't build or plan for them until asked.
 
+**`category` records the fiction/non-fiction decision, it doesn't make
+it.** Whether something is fiction is decided by which process created
+it -- real research + a sourced brief + a skeptic-check means `stories`;
+sitting down and inventing a plot with no research means `fiction`.
+Nothing in the schema can catch a script deliberately mislabeled to dodge
+sourcing -- that's a process/honesty question, not a code one: always say
+which one is being written, and category should follow that decision, not
+decide it. What *is* structurally guaranteed: every `category: "fiction"`
+script gets an automatic disclosure line in metadata.txt
+(`run.py::_FICTION_DISCLOSURE`, "This is a work of fiction. It is not a
+true story.") -- viewer-facing labeling doesn't depend on remembering to
+type it into `description` by hand, same reasoning as the `sources` line.
+
 **On batching work across all three channels**: rendering already batches
 today -- `pipeline/run.py` takes multiple scripts or a whole folder glob
 in one invocation, so "build every video across all three channels" is

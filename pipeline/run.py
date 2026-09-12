@@ -31,15 +31,25 @@ CHANNEL_BY_CATEGORY = {"stories": "Mysteries", "fiction": "Fiction"}
 DEFAULT_CHANNEL = "Facts"
 
 
+_FICTION_DISCLOSURE = "This is a work of fiction. It is not a true story."
+
+
 def _compose_metadata(script: VideoScript) -> str:
     """Builds metadata.txt's content, folding script.sources into a
     "Sources:" line automatically instead of requiring it typed by hand
     into the end of `description` -- see script_loader.VideoScript.sources.
+
+    category=="fiction" gets a guaranteed disclosure line the same way --
+    relying on every fiction script's own description to remember to say
+    "this is fiction" by hand is the exact same failure mode a hand-typed
+    Sources: line was, just pointed at viewers instead of at accuracy.
     """
     channel = CHANNEL_BY_CATEGORY.get(script.category, DEFAULT_CHANNEL)
     body = script.description
     if script.sources:
         body = f"{body}\n\nSources: {'; '.join(script.sources)}."
+    if script.category == "fiction":
+        body = f"{body}\n\n{_FICTION_DISCLOSURE}"
     return (
         f"Title: {script.title}\n"
         f"Channel: {channel}\n"

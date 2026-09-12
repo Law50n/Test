@@ -350,7 +350,13 @@ Original short fiction lives in its own `fiction` category and channel
 instead (`content/scripts/fiction/`, e.g. `001`, `002`) — same schema and
 `format` mechanics (short/longform), no sourcing requirement, and no
 research/skeptic-check workflow, since it isn't making any factual
-claims. `stories` and `fiction` are never mixed on the same channel — see
+claims. `category` doesn't detect which one a script is — that's decided
+by whichever process wrote it (real research vs. inventing a plot) --
+it just records the decision so the schema can enforce it afterward.
+What that does guarantee: `run.py` appends a disclosure line to every
+`fiction` script's `metadata.txt` automatically ("This is a work of
+fiction. It is not a true story.") rather than relying on `description`
+saying so by hand. `stories` and `fiction` are never mixed on the same channel — see
 `CLAUDE.md`.
 
 For the fuller research → write → skeptic-check process real `stories`
