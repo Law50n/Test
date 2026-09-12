@@ -1,0 +1,16 @@
+{
+  "category": "fiction",
+  "id": "003-the-doorbell-caught-me-leaving",
+  "title": "My Doorbell Camera Caught Me Leaving At 3AM. I Was Already Asleep.",
+  "description": "A motion alert from my own front door, at three in the morning, of myself.\n\n#shorts #shortstory #fiction",
+  "tags": ["short story", "fiction", "psychological horror", "shorts"],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "My doorbell camera sent me a motion alert at three in the morning. Front door, person detected.", "visual_query": "phone notification screen dark night" },
+    { "text": "I opened it expecting a raccoon. Instead, I watched myself walk out my own front door, in the exact robe I'd gone to bed in.", "visual_query": "front porch security camera night" },
+    { "text": "I checked upstairs first. I was still in bed, asleep, the whole time the camera says I was standing on my porch.", "visual_query": "person sleeping dark bedroom" },
+    { "text": "I called the company sure the app had glitched. They confirmed the timestamp. Three-oh-four that morning. Live.", "visual_query": "phone call customer service night" },
+    { "text": "Then, almost as an afterthought, they mentioned this wasn't the first clip like it. Fourteen more, going back eight months, filed under reviewed, no action needed.", "visual_query": "laptop screen notification list dark room" },
+    { "text": "Nobody had thought to mention that for eight months, I'd been walking out of my own house every few weeks. And somehow, every single time, I made it back inside before I woke up.", "visual_query": "empty street porch night lamp" }
+  ]
+}
