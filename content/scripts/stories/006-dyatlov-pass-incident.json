@@ -3,7 +3,12 @@
   "id": "006-dyatlov-pass-incident",
   "title": "Nine Hikers Cut Their Way Out of Their Tent and Ran Into -30C. Only Recently Did Science Explain Why.",
   "format": "longform",
-  "background_images": ["assets/hero1.png", "assets/hero2.png"],
+  "background_images": [
+    "assets/dyatlov-mountain.jpg",
+    "assets/dyatlov-tent.jpg",
+    "assets/dyatlov-forest.jpg",
+    "assets/dyatlov-valley.jpg"
+  ],
   "is_fiction": false,
   "sources": [
     "Wikipedia's Dyatlov Pass incident entry",

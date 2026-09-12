@@ -410,6 +410,22 @@ Ken Burns/video/generated clip per scene, `build_longform()`
 `local_image`) drives the visuals instead, so a real usable script still
 needs actual artwork there, not a placeholder.
 
+To source that artwork from real Pexels photos (rather than hand-picking
+and downloading them one at a time), use `pipeline/fetch_backgrounds.py`:
+
+```
+python -m pipeline.fetch_backgrounds content/scripts/stories/assets ^
+    dyatlov-mountain "snowy mountain slope dusk winter" ^
+    dyatlov-forest "dark pine forest snow night"
+```
+
+(`^` is cmd.exe's line-continuation character; drop it and put it all on
+one line if that's easier.) It reuses the same `visuals.fetch_visual()`
+lookup the Shorts pipeline uses per scene, needs a real `PEXELS_API_KEY`
+in `.env`, and has no placeholder fallback -- a script meant to source
+real artwork failing loudly beats it silently writing a gradient into an
+assets folder. Point `background_images` at whatever names you chose.
+
 Verified end-to-end with `experiments/longform-pilot/sodder-children-longform.json`:
 rendered a real 14-scene, ~115s narration with two background images,
 confirmed final duration matches the narration exactly, the crossfade
