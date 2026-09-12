@@ -30,3 +30,29 @@ See README.md for full setup/usage docs. Quick orientation: `pipeline/run.py`
 is the entry point (`python -m pipeline.run <script.json>`), `pipeline/tts.py`
 has all 5 TTS engine integrations, `pipeline/config.py` loads `.env`.
 Content scripts live in `content/scripts/<category>/*.json`.
+
+# Long-form/`stories` episode content rules
+
+These apply automatically to every unsolved-mystery/true-story episode --
+don't wait to be reminded of them per episode:
+
+- **Every factual claim must be real and checkable.** Never invent
+  statistics, quotes, studies, or dialogue that weren't actually reported
+  somewhere real.
+- **Disputed theories are presented as theories, attributed to who
+  proposed them** ("investigators believed...", "a theory pushed by
+  journalist X holds that...") -- never asserted as settled fact, even
+  the one that seems most convincing.
+- **True and fictional episodes are kept strictly separate and
+  structurally labeled.** Every `category: "stories"` script sets
+  `"is_fiction": true` (original fiction) or carries a real, non-empty
+  `"sources"` list (see `pipeline/script_loader.py`) -- there's no
+  in-between, and the loader rejects a script that's neither.
+- **Never name a living private individual as a perpetrator** unless
+  they were actually charged/convicted and it's part of the public
+  record. This is a legal boundary, not a courtesy one.
+
+Follow the research -> writing -> skeptic-check process in
+`docs/episode-workflow.md` for every real-case episode, especially
+longform ones -- it's what actually keeps the above rules from drifting
+as an episode gets drafted.

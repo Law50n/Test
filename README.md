@@ -328,8 +328,21 @@ a natural next step from this pipeline.
 `stories` is a different content shape from the fact-list categories above:
 a beginning-middle-twist narrative instead of a run of standalone facts,
 mixing real researched events (`001`, `002` — D.B. Cooper, the Boston
-Molasses Flood, both sourced and cited the same way as `science/006`) with
-original short fiction (`003`, `004`).
+Molasses Flood) with original short fiction (`003`, `004`).
+
+Every `stories` script must be explicitly true or fiction, structurally —
+not just by convention in the description text:
+
+- Real cases need a non-empty `"sources"` list (see below) — a `stories`
+  script with no `sources` and no `"is_fiction": true` fails to load
+  rather than quietly shipping unsourced. `run.py` folds `sources` into
+  `metadata.txt`'s `Sources:` line automatically; don't type it into
+  `description` by hand anymore.
+- Original fiction sets `"is_fiction": true` instead — see `003`, `004`.
+
+For the fuller research → write → skeptic-check process real cases should
+go through before they're scripted at all (especially longform
+unsolved-mystery episodes), see `docs/episode-workflow.md`.
 
 It also runs on real stock **video** clips instead of Ken Burns stills — set
 `"visual_mode": "video"` in the script JSON (default is `"photo"`, so nothing

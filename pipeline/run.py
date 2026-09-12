@@ -19,6 +19,22 @@ from pipeline.text_normalize import normalize_dates_for_speech
 from pipeline.tts import TTSError, synthesize
 
 
+def _compose_metadata(script: VideoScript) -> str:
+    """Builds metadata.txt's content, folding script.sources into a
+    "Sources:" line automatically instead of requiring it typed by hand
+    into the end of `description` -- see script_loader.VideoScript.sources.
+    """
+    body = script.description
+    if script.sources:
+        body = f"{body}\n\nSources: {'; '.join(script.sources)}."
+    return (
+        f"Title: {script.title}\n"
+        f"Category/playlist: {script.category}\n\n"
+        f"{body}\n\n"
+        f"Tags: {', '.join(script.tags)}\n"
+    )
+
+
 def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
     script = VideoScript.load(script_path)
     if script.format == "compilation":
@@ -180,12 +196,7 @@ def build_short(script: VideoScript, cfg: Config, out_dir: Path) -> None:
 
         shutil.copy(srt_path, out_dir / "captions.srt")
 
-    (out_dir / "metadata.txt").write_text(
-        f"Title: {script.title}\n"
-        f"Category/playlist: {script.category}\n\n"
-        f"{script.description}\n\n"
-        f"Tags: {', '.join(script.tags)}\n"
-    )
+    (out_dir / "metadata.txt").write_text(_compose_metadata(script))
 
     print(f"\nDone: {out_dir}/")
     print("  video.mp4, thumbnail.jpg, captions.srt, metadata.txt")
@@ -307,12 +318,7 @@ def _finish_longform_output(
 
     shutil.copy(srt_path, out_dir / "captions.srt")
 
-    (out_dir / "metadata.txt").write_text(
-        f"Title: {script.title}\n"
-        f"Category/playlist: {script.category}\n\n"
-        f"{script.description}\n\n"
-        f"Tags: {', '.join(script.tags)}\n"
-    )
+    (out_dir / "metadata.txt").write_text(_compose_metadata(script))
 
     print(f"\nDone: {out_dir}/")
     print("  video.mp4, thumbnail.jpg, captions.srt, metadata.txt")

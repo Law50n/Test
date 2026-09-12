@@ -4,6 +4,7 @@
   "title": "My New Neighbor Waves At The Exact Same Second Every Morning",
   "description": "A short fiction story. When you move somewhere new, you notice things. This is about the thing I noticed at 7:14 every morning.\n\n#shorts #shortstory #fiction",
   "tags": ["short story", "fiction", "creepy story", "shorts"],
+  "is_fiction": true,
   "visual_mode": "video",
   "scenes": [
     { "text": "When I moved in, I noticed my neighbor across the street waves at me every morning. Same time. Seven fourteen, exactly.", "visual_query": "suburban street morning" },

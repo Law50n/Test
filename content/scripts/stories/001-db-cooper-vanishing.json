@@ -2,8 +2,13 @@
   "category": "stories",
   "id": "001-db-cooper-vanishing",
   "title": "The Only Unsolved Hijacking in US History",
-  "description": "In 1971, a man in a suit hijacked a plane, collected $200,000 in cash, and jumped out over the Pacific Northwest. He was never seen again.\n\nSources: FBI's official case history on the D.B. Cooper hijacking; HistoryLink.org's account of the 1980 ransom money discovery.\n\n#shorts #truestory #unsolvedmystery",
+  "description": "In 1971, a man in a suit hijacked a plane, collected $200,000 in cash, and jumped out over the Pacific Northwest. He was never seen again.\n\n#shorts #truestory #unsolvedmystery",
   "tags": ["true story", "unsolved mystery", "true crime", "history", "shorts"],
+  "is_fiction": false,
+  "sources": [
+    "FBI's official case history on the D.B. Cooper hijacking",
+    "HistoryLink.org's account of the 1980 ransom money discovery"
+  ],
   "visual_mode": "video",
   "scenes": [
     { "text": "On 24/11/1971, a man in a business suit boards a flight from Portland to Seattle, using the name Dan Cooper.", "visual_query": "airplane boarding vintage" },

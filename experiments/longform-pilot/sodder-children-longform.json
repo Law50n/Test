@@ -2,8 +2,13 @@
   "category": "experiments",
   "id": "002-sodder-children-longform",
   "title": "The Fire That Left No Bodies",
-  "description": "In 1945, a fire destroyed the Sodder family home in West Virginia. Five of the ten children were never found -- no remains, no confirmed answer, to this day.\n\nThis is a pilot for the held-visual longform format: one continuous narration track under a small set of slowly-panning background images, rather than cutting to a new AI-generated image every scene.\n\nSources: West Virginia State Police case reopening coverage (2021); Smithsonian Magazine's account of the Sodder family fire and investigation.\n\n#unsolvedmystery #truestory #history",
+  "description": "In 1945, a fire destroyed the Sodder family home in West Virginia. Five of the ten children were never found -- no remains, no confirmed answer, to this day.\n\nThis is a pilot for the held-visual longform format: one continuous narration track under a small set of slowly-panning background images, rather than cutting to a new AI-generated image every scene.\n\n#unsolvedmystery #truestory #history",
   "tags": ["true story", "unsolved mystery", "sodder", "history", "longform pilot"],
+  "is_fiction": false,
+  "sources": [
+    "West Virginia State Police case reopening coverage (2021)",
+    "Smithsonian Magazine's account of the Sodder family fire and investigation"
+  ],
   "format": "longform",
   "background_images": ["assets/hero1.png", "assets/hero2.png"],
   "scenes": [
