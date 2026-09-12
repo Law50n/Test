@@ -19,16 +19,28 @@ from pipeline.text_normalize import normalize_dates_for_speech
 from pipeline.tts import TTSError, synthesize
 
 
+# Which of the two YouTube channels each category uploads to -- "stories"
+# (Shorts and longform/compilation alike) goes on the mysteries channel,
+# everything else goes on the facts channel. Printed into metadata.txt so
+# a folder of rendered videos says where each one goes without having to
+# remember the mapping by hand; update this if a category ever needs to
+# move channels or a third channel gets added.
+CHANNEL_BY_CATEGORY = {"stories": "Mysteries"}
+DEFAULT_CHANNEL = "Facts"
+
+
 def _compose_metadata(script: VideoScript) -> str:
     """Builds metadata.txt's content, folding script.sources into a
     "Sources:" line automatically instead of requiring it typed by hand
     into the end of `description` -- see script_loader.VideoScript.sources.
     """
+    channel = CHANNEL_BY_CATEGORY.get(script.category, DEFAULT_CHANNEL)
     body = script.description
     if script.sources:
         body = f"{body}\n\nSources: {'; '.join(script.sources)}."
     return (
         f"Title: {script.title}\n"
+        f"Channel: {channel}\n"
         f"Category/playlist: {script.category}\n\n"
         f"{body}\n\n"
         f"Tags: {', '.join(script.tags)}\n"

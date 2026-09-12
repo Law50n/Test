@@ -31,6 +31,25 @@ is the entry point (`python -m pipeline.run <script.json>`), `pipeline/tts.py`
 has all 5 TTS engine integrations, `pipeline/config.py` loads `.env`.
 Content scripts live in `content/scripts/<category>/*.json`.
 
+# Two YouTube channels, launched together
+
+Will runs two separate channels, both live from early on rather than
+one channel splitting into two later:
+
+- **Facts channel**: science/tech/finance/wellbeing Shorts -- short,
+  scrolling, "did you know" content.
+- **Mysteries channel**: everything in `category: "stories"` -- true
+  crime/unsolved-mystery Shorts *and* the longform/compilation episodes,
+  plus the original short fiction. Shorts there double as a discovery
+  funnel into the longform catalog on the same channel.
+
+`category` alone decides the channel (`pipeline/run.py::CHANNEL_BY_CATEGORY`)
+and metadata.txt prints a `Channel:` line accordingly -- don't invent a
+separate "channel" field in the schema, and don't split `stories` across
+two channels. Other platforms/channels (a fiction-audiobook channel,
+non-YouTube platforms) are a deliberately later decision -- don't build
+or plan for them until asked.
+
 # Long-form/`stories` episode content rules
 
 These apply automatically to every unsolved-mystery/true-story episode --

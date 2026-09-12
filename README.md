@@ -7,21 +7,28 @@ captions, and a thumbnail. Every stage has a genuinely free path — see the
 this was planned from for the original niche reasoning (since revised, see
 below).
 
-## Multiple sectors, one channel
+## Multiple sectors, two channels
 
-The channel now runs several content pillars at once instead of a single
-niche: `science`, `tech`, `finance`, `wellbeing`, `stories`, with room for
-more. One
-tradeoff worth knowing going in: a single-niche channel usually gets
+Content runs across several pillars, split across two YouTube channels
+launched together rather than one channel spun into two later:
+
+- **Facts channel**: `science`, `tech`, `finance`, `wellbeing`.
+- **Mysteries channel**: `stories` — true crime/unsolved-mystery Shorts,
+  the longform/compilation episodes, and the original short fiction, all
+  on one channel (Shorts there double as a discovery funnel into the
+  longform catalog).
+
+`category` decides the channel automatically (`pipeline/run.py::CHANNEL_BY_CATEGORY`)
+and `metadata.txt` prints a `Channel:` line so a folder of rendered videos
+says where each one goes. `category` is also still a playlist/series label
+within its channel, same as before — group each category into its own
+YouTube playlist so the structure carries through to the channel itself,
+and watch view/retention numbers per category to decide where to double
+down. One tradeoff worth knowing: a single-niche channel usually gets
 recommended faster early on, because YouTube's algorithm has a narrower
-audience intent to match against. Running several pillars from day one
+audience intent to match against — running several pillars per channel
 trades some of that early velocity for a faster read on which sector
-actually resonates — reasonable, as long as each pillar stays organized
-enough that a viewer (and the algorithm) can still tell what they're getting.
-That's what `category` does: it's a playlist/series label, not decoration —
-group each category into its own YouTube playlist so the structure carries
-through to the channel itself, and watch view/retention numbers per category
-to decide where to double down.
+actually resonates.
 
 ## Setup
 
