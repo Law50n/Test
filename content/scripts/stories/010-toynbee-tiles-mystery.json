@@ -1,0 +1,22 @@
+{
+  "category": "stories",
+  "id": "010-toynbee-tiles-mystery",
+  "title": "Mysterious Tiles Have Been Appearing In City Streets Since The 1980s",
+  "description": "Since the early 1980s, cryptic tiles have been embedded into the asphalt of major city streets. Nobody has ever been officially credited with making them.\n\n#shorts #truestory #unsolvedmystery",
+  "tags": ["true story", "unsolved mystery", "toynbee tiles", "street art", "shorts"],
+  "sources": [
+    "Wikipedia's Toynbee tiles entry",
+    "Atlas Obscura's account of the Toynbee tiles",
+    "Wikipedia's \"Resurrect Dead: The Mystery of the Toynbee Tiles\" entry",
+    "Coverage of the 2011 documentary Resurrect Dead and its investigation into Severino Verna"
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "Since the early 1980s, strange tiles have been turning up embedded in the asphalt of city streets, from Philadelphia all the way to Chile.", "visual_query": "city street crosswalk asphalt" },
+    { "text": "They're about license plate sized, made of layered linoleum, and nearly impossible to remove once they've fused into the road.", "visual_query": "street tile mosaic closeup" },
+    { "text": "Almost all of them carry the same message: Toynbee idea in movie 2001, resurrect dead on planet Jupiter.", "visual_query": "cryptic text pavement closeup" },
+    { "text": "Some later tiles added something stranger, and darker, phrases like 'murder every journalist, I beg of you,' with no explanation attached.", "visual_query": "dark city street night mysterious" },
+    { "text": "In 2011, a documentary crew spent years tracing the tiles to a reclusive Philadelphia man, Severino Verna, after finding his home address on one of the tiles, found in Chile.", "visual_query": "philadelphia rowhouse street" },
+    { "text": "He never confirmed it publicly, and nobody has ever been officially credited. New tiles are still turning up decades later, and nobody knows who's still making them.", "visual_query": "empty street intersection dusk" }
+  ]
+}
