@@ -86,6 +86,31 @@ episode's second research pass), so collapsing research into one
 big up-front batch risks missing exactly what this workflow exists to
 catch.
 
+# Trending and date-anchored topics
+
+Both channels can pull from things beyond the evergreen backlog, but the
+two are different bets and get treated differently:
+
+- **Date-anchored topics** (anniversaries, "on this day," awareness days)
+  are the safe version -- plannable well in advance, no freshness
+  pressure, and they go through the exact same research -> write ->
+  skeptic-check process as anything else. Tracked in the Content Desk's
+  "Ideas" panel with a target date so they can be scripted ahead of time
+  rather than scrambled on the day.
+- **Trending topics are fine too, with one gate**: research time isn't
+  actually the issue (a trending topic with real sourcing takes the same
+  effort to verify as any other Facts topic) -- sourcing *maturity* is.
+  Before scripting a trending topic, confirm it's already been reported
+  by reputable outlets, official statements, or published research, not
+  just "going viral" on social media. Breaking/rumor-stage stories get
+  revised and retracted; a claim only confirmed by social posts or a
+  single unverified source waits until it either firms up or drops off,
+  it doesn't get scripted on a deadline. (The gravity-hoax script is a
+  built-in reminder of why: it exists specifically to debunk a viral
+  claim nobody bothered to check.) Once a trending pick clears that bar,
+  script it exactly like anything else in the backlog -- no rushed
+  research, no shortened skeptic-check.
+
 # Community/engagement conventions
 
 - **Facts and Mysteries scripts end on a genuine, on-topic question**, as
