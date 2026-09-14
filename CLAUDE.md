@@ -36,8 +36,20 @@ Content scripts live in `content/scripts/<category>/*.json`.
 Will runs three separate channels, all live from early on rather than
 one channel splitting into more later:
 
-- **Facts channel**: science/tech/finance/wellbeing Shorts -- short,
-  scrolling, "did you know" content.
+- **Facts channel**: science/tech/finance/wellbeing/idioms Shorts --
+  short, scrolling, "did you know" content. **Idioms/etymology** is its
+  own subcategory (`category: "idioms"`, `content/scripts/idioms/`) --
+  where something like a phrase came from. This niche is an especially
+  common source of confidently-repeated folk etymology (the "rule of
+  thumb" wife-beating myth, invented origins for "the whole nine
+  yards"), so treat a popular explanation as a claim to verify against
+  real sources (OED, Etymonline, Snopes-style debunking), not something
+  to repeat because it's widely told -- and when the real answer is
+  "genuinely disputed" or "the popular story is likely wrong," say that
+  rather than picking whichever version sounds best. This plays well
+  with the existing debunking format (see the gravity-hoax script) and
+  the Mysteries-style habit of presenting competing theories as
+  theories, not settled fact.
 - **Mysteries channel** (`category: "stories"`): real, sourced true
   crime/unsolved-mystery content only -- Shorts *and* the longform/
   compilation episodes. Shorts there double as a discovery funnel into
@@ -110,6 +122,13 @@ two are different bets and get treated differently:
   claim nobody bothered to check.) Once a trending pick clears that bar,
   script it exactly like anything else in the backlog -- no rushed
   research, no shortened skeptic-check.
+- **Some trending topics are recurring, not one-off** (FOMC rate
+  decisions, quarterly earnings season, cold-case genetic-genealogy
+  breakthroughs, a tech conference season). Those are better as a
+  numbered/recurring segment ("Crypto Watch #N," "Cold Case Breakthrough
+  of the Month") than a single video -- but the sourcing gate still
+  applies to every individual episode; "it's a recurring series" isn't
+  a reason to skip verifying that specific installment's claims.
 
 # Community/engagement conventions
 
