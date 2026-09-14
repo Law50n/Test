@@ -15,6 +15,7 @@
     { "text": "That's faster than most people can run. The wave crushed buildings, swept away train cars, and trapped people and horses in the street.", "visual_query": "old city street buildings vintage" },
     { "text": "Twenty one people died. Some were found days later, still stuck in molasses that had hardened like concrete.", "visual_query": "rescue workers vintage disaster" },
     { "text": "A six year investigation followed, with three thousand witnesses. The cause: the tank had been built too fast, too cheap, and never properly tested.", "visual_query": "courtroom vintage investigation" },
-    { "text": "Locals said you could smell molasses in that part of Boston on hot summer days for decades afterward.", "visual_query": "boston harbor waterfront" }
+    { "text": "Locals said you could smell molasses in that part of Boston on hot summer days for decades afterward.", "visual_query": "boston harbor waterfront" },
+    { "text": "Had you ever heard of the Boston Molasses Flood before this?", "visual_query": "vintage newspaper headline clipping" }
   ]
 }

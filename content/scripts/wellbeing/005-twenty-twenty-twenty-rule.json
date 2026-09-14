@@ -10,6 +10,7 @@
     { "text": "Every 20 minutes, look at something at least 20 feet away, for at least 20 seconds.", "visual_query": "person looking out window distance" },
     { "text": "Your eye muscles stay locked into close focus the whole time you're looking at a screen, and that's what causes the strain, not the screen itself.", "visual_query": "close up eye focus macro" },
     { "text": "Looking far away lets those muscles actually relax before you go back to focusing close up again.", "visual_query": "person relaxing looking outside" },
-    { "text": "It's not a cure for everything, but it's one of the few screen-time habits actually backed by eye doctors.", "visual_query": "laptop desk workspace" }
+    { "text": "It's not a cure for everything, but it's one of the few screen-time habits actually backed by eye doctors.", "visual_query": "laptop desk workspace" },
+    { "text": "Have you actually tried the 20-20-20 rule, or does it slide by the end of the day?", "visual_query": "phone timer alarm screen" }
   ]
 }

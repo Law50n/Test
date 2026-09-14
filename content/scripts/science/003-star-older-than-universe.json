@@ -35,6 +35,10 @@
     {
       "text": "Still one of the oldest stars ever found, and a reminder that even the universe's age comes with error bars.",
       "visual_query": "night sky full of stars"
+    },
+    {
+      "text": "Does it surprise you that even the universe's age comes with a margin of error?",
+      "visual_query": "observatory dome night exterior"
     }
   ]
 }

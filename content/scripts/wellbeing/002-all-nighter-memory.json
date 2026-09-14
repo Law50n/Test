@@ -10,6 +10,7 @@
     { "text": "Researchers call this memory consolidation, and it happens mainly in specific sleep stages you only get with real, uninterrupted sleep.", "visual_query": "person sleeping peacefully" },
     { "text": "Pull an all-nighter, and that replay process gets cut short, so the information never fully locks in.", "visual_query": "alarm clock late night" },
     { "text": "That's part of why cramming right before a test often backfires, even if it feels productive in the moment.", "visual_query": "coffee cup late night desk" },
-    { "text": "Sleep researchers generally agree that a full night of sleep after learning something new does more for retention than extra study time.", "visual_query": "person waking up rested morning" }
+    { "text": "Sleep researchers generally agree that a full night of sleep after learning something new does more for retention than extra study time.", "visual_query": "person waking up rested morning" },
+    { "text": "Have you ever pulled an all-nighter before a big test or deadline -- did it actually help?", "visual_query": "student exam room desks" }
   ]
 }

@@ -10,6 +10,7 @@
     { "text": "A modern smartphone runs at billions of operations per second, with memory measured in gigabytes, not kilobytes.", "visual_query": "smartphone technology closeup" },
     { "text": "That's a difference of roughly a hundred thousand times the processing power, sitting in your pocket right now.", "visual_query": "moon landing astronaut" },
     { "text": "And yet the Apollo Guidance Computer got three separate missions safely to the lunar surface and back.", "visual_query": "moon surface apollo mission" },
-    { "text": "It's not really about raw power. It's that every line of that code had to work perfectly, on the first try, with no updates possible.", "visual_query": "rocket launch night sky" }
+    { "text": "It's not really about raw power. It's that every line of that code had to work perfectly, on the first try, with no updates possible.", "visual_query": "rocket launch night sky" },
+    { "text": "Knowing your phone has this much more power, what do you actually use all of it for?", "visual_query": "person scrolling phone couch" }
   ]
 }

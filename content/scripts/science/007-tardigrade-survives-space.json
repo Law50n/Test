@@ -11,6 +11,7 @@
     { "text": "No air, no pressure, and unfiltered solar radiation, for ten days straight.", "visual_query": "sun solar radiation space" },
     { "text": "When the capsule came back to Earth, most of them were still alive.", "visual_query": "spacecraft reentry earth" },
     { "text": "Some even went on to reproduce normally afterward.", "visual_query": "laboratory research microscope" },
-    { "text": "Scientists still don't fully understand how a multicellular animal survives that.", "visual_query": "scientist research lab" }
+    { "text": "Scientists still don't fully understand how a multicellular animal survives that.", "visual_query": "scientist research lab" },
+    { "text": "Would you have guessed an animal could survive the vacuum of space?", "visual_query": "spacecraft window earth view" }
   ]
 }

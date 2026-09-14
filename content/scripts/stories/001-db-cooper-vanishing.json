@@ -10,11 +10,13 @@
   ],
   "visual_mode": "video",
   "scenes": [
-    { "text": "On 24/11/1971, a man in a business suit boards a flight from Portland to Seattle, using the name Dan Cooper.", "visual_query": "airplane boarding vintage" },
-    { "text": "Mid-flight, he hands a flight attendant a note. He has a bomb, and he wants two hundred thousand dollars and four parachutes.", "visual_query": "airplane window flying clouds" },
-    { "text": "The airline pays. Cooper releases all thirty six passengers in Seattle, and orders the plane back into the air, heading for Mexico.", "visual_query": "airport runway night" },
-    { "text": "Somewhere over the dense forests of southwest Washington, he lowers the plane's rear stairs and jumps into a storm, alone, at night.", "visual_query": "dark forest storm night" },
-    { "text": "He was never found. No body, no parachute, nothing. To this day it's the only unsolved commercial hijacking in US history.", "visual_query": "misty forest mountains" },
-    { "text": "In 1980, a boy playing by the Columbia River dug up three rotting bundles of cash. Only 294 of the ten thousand bills were ever recovered.", "visual_query": "river bank sand digging" }
+    { "text": "In 1971, a hijacker jumped out of a moving passenger plane with two hundred thousand dollars in cash -- and was never seen again.", "visual_query": "airplane flying night storm" },
+    { "text": "On 24/11/1971, a man calling himself Dan Cooper boarded a flight from Portland to Seattle in a plain business suit.", "visual_query": "airplane boarding vintage" },
+    { "text": "Mid-flight, he handed a flight attendant a note. He had a bomb, and wanted two hundred thousand dollars and four parachutes.", "visual_query": "airplane window flying clouds" },
+    { "text": "The airline paid. Cooper released all thirty six passengers in Seattle, then ordered the plane back into the air, heading for Mexico.", "visual_query": "airport runway night" },
+    { "text": "Somewhere over the dense forests of southwest Washington, he lowered the plane's rear stairs and jumped into a storm, alone, at night.", "visual_query": "dark forest storm night" },
+    { "text": "No body, no parachute, nothing. To this day, it's the only unsolved commercial hijacking in US history.", "visual_query": "misty forest mountains" },
+    { "text": "In 1980, a boy playing by the Columbia River dug up three rotting bundles of cash. Only 294 of the ten thousand bills were ever recovered.", "visual_query": "river bank sand digging" },
+    { "text": "If he survived that jump, where do you think Cooper actually landed?", "visual_query": "night sky clouds mysterious" }
   ]
 }

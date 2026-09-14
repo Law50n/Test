@@ -35,6 +35,10 @@
     {
       "text": "August twelfth came and went. Nothing happened, because nothing was ever going to. Always check who's actually making the claim.",
       "visual_query": "calendar date passing time"
+    },
+    {
+      "text": "Have you seen other viral science hoaxes like this one going around?",
+      "visual_query": "phone social media scrolling"
     }
   ]
 }

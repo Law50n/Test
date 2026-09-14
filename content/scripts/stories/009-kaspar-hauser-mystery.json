@@ -16,6 +16,7 @@
     { "text": "The boy said his name was Kaspar Hauser, and that he had spent his entire life alone in a dark, locked cell, only recently let out.", "visual_query": "dark prison cell vintage stone" },
     { "text": "One of the letters turned out to be a forgery. It was addressed to a captain who wasn't even in the city the year it was supposedly written.", "visual_query": "vintage handwriting forged document" },
     { "text": "Some believed Hauser was a secret prince, hidden away to protect a royal bloodline. Others thought he'd invented the entire story.", "visual_query": "european castle royal vintage" },
-    { "text": "In 1833, Hauser was found with a fatal stab wound, claiming a stranger had attacked him. Investigators at the time suspected he may have stabbed himself. Whether it was murder or a hoax gone wrong has never been settled.", "visual_query": "vintage cemetery gravestone europe" }
+    { "text": "In 1833, Hauser was found with a fatal stab wound, claiming a stranger had attacked him. Investigators at the time suspected he may have stabbed himself. Whether it was murder or a hoax gone wrong has never been settled.", "visual_query": "vintage cemetery gravestone europe" },
+    { "text": "Do you think Kaspar Hauser was telling the truth, or that he made the story up?", "visual_query": "vintage street lantern fog night" }
   ]
 }

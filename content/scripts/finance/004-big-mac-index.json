@@ -10,6 +10,7 @@
     { "text": "Because a Big Mac is made almost the same way everywhere, its price reflects local costs, wages, and currency value.", "visual_query": "fast food kitchen preparation" },
     { "text": "If a Big Mac costs a lot more in one country after converting currencies, that currency might be overvalued.", "visual_query": "currency exchange money" },
     { "text": "If it costs a lot less, the currency might be undervalued relative to what it should be.", "visual_query": "stock market currency exchange" },
-    { "text": "It's not a precise scientific model, but economists still reference it decades later because it's a surprisingly good rough estimate.", "visual_query": "financial newspaper economics" }
+    { "text": "It's not a precise scientific model, but economists still reference it decades later because it's a surprisingly good rough estimate.", "visual_query": "financial newspaper economics" },
+    { "text": "What do you think a Big Mac actually costs where you live?", "visual_query": "restaurant menu board prices" }
   ]
 }

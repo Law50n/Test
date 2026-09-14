@@ -13,16 +13,16 @@
   ],
   "scenes": [
     {
-      "text": "Sunlight stops reaching the ocean in any meaningful way at around one thousand meters down.",
-      "visual_query": "deep ocean dark blue water"
+      "text": "There's a point in the ocean so deep that if you dropped Mount Everest into it, the peak would still sit over two kilometers underwater.",
+      "visual_query": "mountain peak snow aerial"
     },
     {
-      "text": "The Mariana Trench's deepest point, Challenger Deep, sits almost eleven thousand meters below the surface.",
+      "text": "It's called Challenger Deep, in the Mariana Trench, almost eleven thousand meters below the surface.",
       "visual_query": "ocean trench dark deep"
     },
     {
-      "text": "If you dropped Mount Everest into it, the peak would still sit over two kilometers underwater.",
-      "visual_query": "mountain peak snow aerial"
+      "text": "Sunlight stops reaching the ocean in any meaningful way at around one thousand meters down -- Challenger Deep is ten times deeper than that.",
+      "visual_query": "deep ocean dark blue water"
     },
     {
       "text": "Down there, the water pressure is over a thousand times what you feel at the surface, enough to crush most submarines.",
@@ -35,6 +35,10 @@
     {
       "text": "We've mapped more of the surface of Mars than we have of our own ocean floor.",
       "visual_query": "ocean floor dark mysterious"
+    },
+    {
+      "text": "Would you ever want to see the ocean floor yourself, or is it better left unexplored?",
+      "visual_query": "ocean surface horizon calm"
     }
   ]
 }

@@ -10,6 +10,7 @@
     { "text": "The answer isn't about how useful something is overall. It's about how much one more unit of it is worth to you, right now.", "visual_query": "economics chart illustration" },
     { "text": "Water is everywhere, so one more glass barely matters. Diamonds are scarce, so one more diamond matters a lot to whoever wants it.", "visual_query": "scarcity rare gemstone" },
     { "text": "Economists call this idea marginal value, and it's the foundation of how modern pricing actually works.", "visual_query": "price tags shopping" },
-    { "text": "Scarcity, not importance, is usually what sets the price. That single idea reshaped economics.", "visual_query": "supply demand market" }
+    { "text": "Scarcity, not importance, is usually what sets the price. That single idea reshaped economics.", "visual_query": "supply demand market" },
+    { "text": "Can you think of another everyday example where scarcity beats importance in pricing?", "visual_query": "jewelry store display window" }
   ]
 }

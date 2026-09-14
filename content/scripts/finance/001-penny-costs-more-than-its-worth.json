@@ -10,6 +10,7 @@
     { "text": "The US Mint has reported a loss on every penny made for well over a decade, adding up to real money at billions of coins produced.", "visual_query": "pile of coins pennies" },
     { "text": "It's not just a US problem either. Canada eliminated its penny back in 2013 for the exact same reason.", "visual_query": "canadian coins currency" },
     { "text": "When a coin costs more to make than it's worth, minting more of them is a losing trade by definition, no matter how small each loss looks.", "visual_query": "government treasury building" },
-    { "text": "That math is exactly why the US has been moving to wind down penny production altogether.", "visual_query": "coins on table finance" }
+    { "text": "That math is exactly why the US has been moving to wind down penny production altogether.", "visual_query": "coins on table finance" },
+    { "text": "Do you think the US should get rid of the penny completely?", "visual_query": "hand holding pocket change" }
   ]
 }
