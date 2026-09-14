@@ -94,7 +94,10 @@ catch.
   difference?" or, for a mystery, "Which theory do you find most
   convincing?" The goal is real comments/community, not a "like and
   subscribe" ask -- skip it if a genuine question doesn't fit the topic
-  rather than forcing a generic one.
+  rather than forcing a generic one. One clean question, full stop --
+  don't pad it with a second, vaguer restatement of the same ask
+  ("...noticed a difference? Curious what people are finding in real
+  life." is the same question asked twice, and reads as filler).
 - **Fiction scripts skip this.** They're built to trail off on the
   twist/final line -- see `docs/episode-workflow.md` and the existing
   fiction scripts. A tacked-on question undercuts the ending on purpose.
