@@ -4,6 +4,7 @@
   "title": "The Man Who Cracked One Hand's Knuckles for 60 Years to Prove a Point",
   "description": "You've probably been told cracking your knuckles causes arthritis. One doctor spent 60 years testing that on himself, one hand at a time.\n\nEducational content, not medical advice.\n\n#shorts #wellbeing #mythbusting",
   "tags": ["wellbeing", "myth busting", "health facts", "did you know", "shorts"],
+  "visual_mode": "video",
   "scenes": [
     { "text": "One doctor cracked the knuckles on his left hand every single day for over sixty years, leaving his right hand alone as the control.", "visual_query": "person cracking knuckles hands" },
     { "text": "It started as a teenager, to settle his mother's warning that knuckle-cracking causes arthritis.", "visual_query": "hand knuckles closeup" },

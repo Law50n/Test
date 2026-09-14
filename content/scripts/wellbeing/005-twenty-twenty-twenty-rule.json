@@ -4,6 +4,7 @@
   "title": "There's an Actual Rule for Screen-Tired Eyes",
   "description": "If your eyes feel wrecked after a long day on a screen, eye doctors actually have a specific rule for that.\n\n#shorts #wellbeingfacts #eyehealth",
   "tags": ["wellbeing facts", "eye health", "screen time", "did you know", "shorts"],
+  "visual_mode": "video",
   "scenes": [
     { "text": "If your eyes feel wrecked after a long day on a screen, there's a real rule for that.", "visual_query": "tired eyes person screen" },
     { "text": "It's called the 20-20-20 rule, and eye doctors actually recommend it.", "visual_query": "eye doctor optometrist clinic" },

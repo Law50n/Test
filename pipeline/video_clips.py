@@ -1,14 +1,19 @@
 """Sources one real stock video clip per scene (Pexels Videos -- a separate
-endpoint from the photo search in visuals.py, same free API key), falling
-back to the same generated placeholder image visuals.py uses when no key is
-configured or nothing suitable comes back.
+endpoint from the photo search in visuals.py, same free API key). When no
+suitable clip is found for a query, falls back to a real Pexels *photo*
+for that same query before ever falling back to a generated placeholder --
+a real photo is a strictly better stand-in than a solid-color card, and
+this is what lets a visual_mode="video" script land a natural per-scene
+mix of real video and real photos, based on whatever Pexels actually has
+for each specific query, rather than committing an entire script to one
+mode or the other up front.
 """
 import os
 from pathlib import Path
 
 import requests
 
-from pipeline.visuals import generate_placeholder
+from pipeline.visuals import fetch_visual
 
 PEXELS_VIDEO_SEARCH_URL = "https://api.pexels.com/videos/search"
 
@@ -28,18 +33,19 @@ class _VideoError(RuntimeError):
 def fetch_video_clip(
     query: str, out_path: Path, api_key: str, size: tuple[int, int], min_duration: float
 ) -> str:
-    """Returns "pexels_video" or "placeholder". A "placeholder" result is a
-    still image, not a video -- assemble.make_scene_clip (the Ken Burns
-    path) handles it the same way the photo-mode pipeline does.
+    """Returns "pexels_video", "pexels", or "placeholder" indicating what was
+    written to out_path. Anything other than "pexels_video" is a still
+    image -- assemble.make_scene_clip (the Ken Burns path) handles it the
+    same way the photo-mode pipeline does; run.py's caller already branches
+    on exactly that distinction.
     """
     if api_key:
         try:
             _fetch_pexels_video(query, out_path, api_key, size, min_duration)
             return "pexels_video"
         except _VideoError as e:
-            print(f"  ! Pexels video lookup failed for {query!r} ({e}); using a placeholder instead")
-    generate_placeholder(query, out_path, size)
-    return "placeholder"
+            print(f"  ! Pexels video lookup failed for {query!r} ({e}); trying a photo instead")
+    return fetch_visual(query, out_path, api_key, size)
 
 
 def _fetch_pexels_video(

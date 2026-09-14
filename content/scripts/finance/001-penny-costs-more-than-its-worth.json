@@ -4,6 +4,7 @@
   "title": "Why It Costs More Than a Penny to Make a Penny",
   "description": "The US penny has cost more to produce than it's actually worth for years running. Here's why, and why that math finally caught up with it.\n\nEducational content, not financial advice.\n\n#shorts #financefacts #money",
   "tags": ["finance facts", "money facts", "us mint", "did you know", "shorts"],
+  "visual_mode": "video",
   "scenes": [
     { "text": "For years, it has cost the US government more than one cent to make a single penny.", "visual_query": "us penny coin closeup" },
     { "text": "Most of that cost comes from the metal itself, mainly zinc with a thin copper coating, plus the cost of striking and shipping the coins.", "visual_query": "coin manufacturing factory" },

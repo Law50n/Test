@@ -153,6 +153,18 @@ two are different bets and get treated differently:
   `visual_query` values before finalizing a new script's, and prefer
   specific phrasing (a concrete object/angle) over generic ones (a
   person, a screen, a desk) that any topic could reuse.
+- **Every script sets `"visual_mode": "video"`** (Facts included, matching
+  Mysteries/Fiction). This isn't "commit the whole script to video" --
+  `pipeline/video_clips.py::fetch_video_clip` tries a real Pexels video
+  clip per scene first, falls back to a real Pexels *photo* for that same
+  query if no clip matches, and only falls back to a generated
+  placeholder card if neither is found. That gives every script a natural
+  per-scene mix of real video and real photos, decided automatically by
+  whatever Pexels actually has for each specific query at render time --
+  nobody needs to pick per script or per scene up front. Still images
+  (Pexels photos, local images, placeholders) always get the existing
+  Ken Burns pan/zoom (`assemble.make_scene_clip`), so nothing looks like
+  a flat slideshow either way.
 - **For real image variety**, a script's `scenes[].local_image` (path
   resolved relative to the script file, same as `background_images`)
   overrides the Pexels lookup for that one scene with a real local

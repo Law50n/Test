@@ -4,6 +4,7 @@
   "title": "The Math Trick That Quietly Doubles Money",
   "description": "Compound interest looks boring until you actually run the numbers. Here's the simple rule that shows how fast it moves.\n\nEducational content, not financial advice.\n\n#shorts #financefacts #money",
   "tags": ["finance facts", "compound interest", "money facts", "did you know", "shorts"],
+  "visual_mode": "video",
   "scenes": [
     { "text": "At six percent interest, your money doubles in exactly twelve years -- and there's one simple trick that tells you the number for any rate.", "visual_query": "money growing plant coins" },
     { "text": "It's called the rule of seventy two. Divide seventy two by your interest rate, and you get roughly how many years it takes to double.", "visual_query": "calculator numbers finance" },

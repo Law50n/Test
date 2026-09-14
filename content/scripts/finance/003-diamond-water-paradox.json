@@ -4,6 +4,7 @@
   "title": "Why Diamonds Cost More Than Water (Even Though Water Keeps You Alive)",
   "description": "Water is essential and diamonds aren't, so why does water cost almost nothing? A 200-year-old economics puzzle explains it.\n\nEducational content, not financial advice.\n\n#shorts #financefacts #economics",
   "tags": ["finance facts", "economics", "money facts", "did you know", "shorts"],
+  "visual_mode": "video",
   "scenes": [
     { "text": "You need water to survive. You do not need diamonds. So why is water nearly free, and diamonds are not?", "visual_query": "diamond sparkling closeup" },
     { "text": "Economists call this the diamond water paradox, and it puzzled thinkers for over a century.", "visual_query": "water glass pouring" },

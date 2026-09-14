@@ -4,6 +4,7 @@
   "title": "Google's Name Is Actually a Typo",
   "description": "One of the most valuable brand names on Earth exists because of a spelling mistake nobody bothered to fix. Here's the real story.\n\n#shorts #techfacts #google",
   "tags": ["tech facts", "google history", "startup facts", "did you know", "shorts"],
+  "visual_mode": "video",
   "scenes": [
     { "text": "Google is one of the most recognized names on the planet. It's also, technically, a typo.", "visual_query": "search engine technology" },
     { "text": "The founders wanted a name based on 'googol,' the mathematical term for the number one followed by a hundred zeros.", "visual_query": "mathematics numbers chalkboard" },

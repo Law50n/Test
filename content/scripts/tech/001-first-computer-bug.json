@@ -4,6 +4,7 @@
   "title": "The First Computer 'Bug' Was an Actual Bug",
   "description": "Before \"bug\" meant a software glitch, it meant an actual insect stuck in a computer. Here's the real 1947 story, and the logbook page that's still around to prove it.\n\n#shorts #techfacts #computerhistory",
   "tags": ["tech facts", "computer history", "programming", "did you know", "shorts"],
+  "visual_mode": "video",
   "scenes": [
     { "text": "The first ever computer bug was a literal moth, stuck inside a room-sized machine at Harvard in 1947.", "visual_query": "moth insect macro" },
     { "text": "The Harvard Mark II kept failing, and nobody could figure out why -- until the team opened it up.", "visual_query": "old mainframe computer room vintage" },

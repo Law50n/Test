@@ -4,6 +4,7 @@
   "title": "Why All-Nighters Wreck Your Memory the Next Day",
   "description": "Pulling an all-nighter doesn't just make you tired. Here's what's actually happening to your memory while you skip sleep.\n\nEducational content, not medical advice.\n\n#shorts #wellbeing #sleepfacts",
   "tags": ["wellbeing", "sleep facts", "brain facts", "did you know", "shorts"],
+  "visual_mode": "video",
   "scenes": [
     { "text": "Skipping a full night of sleep doesn't just make you tired. It changes how your brain handles what you just learned.", "visual_query": "person tired studying night" },
     { "text": "During deep sleep, the brain replays the day's experiences, moving them from short-term into longer-term storage.", "visual_query": "brain sleep illustration" },

@@ -4,6 +4,7 @@
   "title": "This Animal Survived Being Launched Into Space",
   "description": "In 2007, scientists exposed a tiny animal to the vacuum of space with no protection at all, on purpose. Most of them lived.\n\n#shorts #sciencefacts #space",
   "tags": ["science facts", "tardigrade", "space facts", "did you know", "shorts"],
+  "visual_mode": "video",
   "scenes": [
     { "text": "In 2007, scientists launched a creature into space with basically no protection, on purpose.", "visual_query": "rocket launch space" },
     { "text": "It's called a tardigrade, or water bear, less than a millimeter long.", "visual_query": "microscopic organism macro" },

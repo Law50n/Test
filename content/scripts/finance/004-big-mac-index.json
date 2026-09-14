@@ -4,6 +4,7 @@
   "title": "Economists Compare Countries Using the Price of a Burger",
   "description": "There's a real, semi-serious index that economists use to check if a currency is over or undervalued, and it's based entirely on the price of a Big Mac.\n\nEducational content, not financial advice.\n\n#shorts #financefacts #economics",
   "tags": ["finance facts", "economics", "currency", "did you know", "shorts"],
+  "visual_mode": "video",
   "scenes": [
     { "text": "Since 1986, The Economist magazine has tracked one of the most useful tools in international finance. It's a burger.", "visual_query": "burger fast food restaurant" },
     { "text": "It's called the Big Mac Index, and it compares the price of the same burger in different countries.", "visual_query": "world map countries currency" },
