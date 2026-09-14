@@ -86,6 +86,35 @@ episode's second research pass), so collapsing research into one
 big up-front batch risks missing exactly what this workflow exists to
 catch.
 
+# Community/engagement conventions
+
+- **Facts and Mysteries scripts end on a genuine, on-topic question**, as
+  a real closing scene (its own line, not tacked onto the last fact) --
+  e.g. "Do you wear blue light glasses, and have you actually noticed a
+  difference?" or, for a mystery, "Which theory do you find most
+  convincing?" The goal is real comments/community, not a "like and
+  subscribe" ask -- skip it if a genuine question doesn't fit the topic
+  rather than forcing a generic one.
+- **Fiction scripts skip this.** They're built to trail off on the
+  twist/final line -- see `docs/episode-workflow.md` and the existing
+  fiction scripts. A tacked-on question undercuts the ending on purpose.
+- **Watch for visual_query overlap with existing scripts**, especially
+  within the same category (e.g. two wellbeing scripts about screen eye
+  strain reusing near-identical query phrasing) -- Pexels will likely
+  return the same stock photo for near-duplicate queries, which reads as
+  repetitive across the channel. Grep existing scripts'
+  `visual_query` values before finalizing a new script's, and prefer
+  specific phrasing (a concrete object/angle) over generic ones (a
+  person, a screen, a desk) that any topic could reuse.
+- **For real image variety**, a script's `scenes[].local_image` (path
+  resolved relative to the script file, same as `background_images`)
+  overrides the Pexels lookup for that one scene with a real local
+  file -- use it when Will wants to supply his own photo for a specific
+  scene (a real product shot, something distinct from the stock photo
+  pool) rather than leaving every scene on auto-fetched stock. Also see
+  `thumbnail_scene` to point the thumbnail at whichever scene has the
+  strongest visual, local or not.
+
 # Long-form/`stories` episode content rules
 
 These apply automatically to every unsolved-mystery/true-story episode --

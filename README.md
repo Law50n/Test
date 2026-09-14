@@ -310,6 +310,27 @@ advice" line in the description, same as scripts 001 in each of those
 folders. That's a content-liability line, not boilerplate — skipping it on
 these two categories is the one shortcut worth not taking.
 
+### Using a real image instead of a Pexels lookup
+
+Every scene fetches its visual from Pexels by default (`visual_query`), but
+a specific scene can use a real local file instead:
+
+```json
+{ "text": "...", "visual_query": "fallback search terms", "local_image": "assets/my-photo.jpg" }
+```
+
+`local_image` (resolved relative to the script file, same as
+`background_images`) skips the Pexels lookup for that scene entirely.
+`visual_query` is still required by the schema even when `local_image` is
+set — keep it as a reasonable fallback description, it just won't be used.
+Useful for breaking up Pexels' stock-photo pool when a category's scripts
+start visually resembling each other, or when a specific real photo (a
+product shot, something you actually took) fits better than stock. Put the
+image in an `assets/` folder next to the script (see
+`content/scripts/stories/assets/` for the convention). `thumbnail_scene`
+(default `0`, the first scene) picks which scene's visual — local or
+fetched — becomes the thumbnail background.
+
 ### Two ways to source a script
 
 **Evergreen facts** — a standalone fact that doesn't depend on anything
