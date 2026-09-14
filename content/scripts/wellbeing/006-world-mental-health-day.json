@@ -1,0 +1,17 @@
+{
+  "category": "wellbeing",
+  "id": "006-world-mental-health-day",
+  "title": "1 In 7 People On Earth Live With This. Under 2% Of Health Budgets Go Toward It.",
+  "description": "To mark World Mental Health Day (October 10): the real scale of mental health worldwide, in WHO's own numbers, and the story of how the day itself began.\n\nIf you or someone you know is struggling, please reach out to a mental health professional or someone you trust.\n\nSource: WHO's mental health fact sheet; World Federation for Mental Health.\n\n#shorts #wellbeing #worldmentalhealthday",
+  "tags": ["wellbeing", "mental health", "world mental health day", "did you know", "shorts"],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "More than 1 billion people worldwide -- roughly 1 in 7 -- are living with a mental health condition right now.", "visual_query": "crowd walking city street" },
+    { "text": "World Mental Health Day itself is younger than you'd think. First observed on 10/10/1992, it didn't even have a theme for its first two years.", "visual_query": "calendar page october marked" },
+    { "text": "Of people living with anxiety, mood, or substance use disorders, only around 14 percent actually receive treatment. In low income countries, that gap is over 89 percent.", "visual_query": "empty waiting room chairs" },
+    { "text": "Less than 2 percent of health budgets worldwide go toward mental health care, even though many of these conditions are treatable at a relatively low cost.", "visual_query": "government budget documents desk" },
+    { "text": "Depression and anxiety alone are estimated to cost the global economy a trillion dollars a year in lost productivity -- twelve billion working days, every single year.", "visual_query": "empty office desk morning light" },
+    { "text": "This year's official theme is 'Lived experiences heard: real voices, real change,' built around actually listening to the people who've been through it, not just talking about them.", "visual_query": "two people talking bench outdoors" },
+    { "text": "Did any of these numbers surprise you as much as they surprised us?", "visual_query": "sunrise over city skyline" }
+  ]
+}
