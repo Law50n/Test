@@ -1,0 +1,22 @@
+{
+  "category": "stories",
+  "id": "011-lead-masks-case",
+  "title": "Two Men Were Found Dead On A Brazilian Hillside Wearing Lead Masks. Nobody Knows Why.",
+  "description": "In 1966, two electronics technicians were found dead outside Rio de Janeiro, dressed in suits and wearing handmade lead masks over their eyes. Investigators never determined how they died.\n\n#shorts #truestory #unsolvedmystery",
+  "tags": ["true story", "unsolved mystery", "lead masks case", "brazil", "shorts"],
+  "sources": [
+    "Wikipedia's Lead masks case entry",
+    "Dangerous Minds' account, \"Be at the specified location: The baffling lead mask mystery of 1966\"",
+    "The Cold File's coverage, \"The Masks on Vintem Hill: The Lead Masks Case, 1966\""
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "In August of 1966, two men were found dead on a hillside outside Rio de Janeiro, wearing formal suits and handmade lead masks over their eyes.", "visual_query": "grassy hillside overlook rio brazil" },
+    { "text": "Manoel Pereira da Cruz and Miguel Jose Viana were electronics technicians from Campos dos Goytacazes, last seen alive by their families on 17/08/1966, heading to Niteroi for what they said was a work trip.", "visual_query": "vintage electronics workbench soldering" },
+    { "text": "Three days later, a boy flying a kite on Morro do Vintem found their bodies. There were no visible wounds. Next to them was a notebook with a cryptic instruction: be at the agreed place, swallow capsules, after effect protect metals, wait for the mask signal. No capsules were ever found.", "visual_query": "handwritten notebook cryptic closeup" },
+    { "text": "Robbery was ruled out almost immediately. Miguel had the equivalent of over a hundred thousand cruzeiros hidden in his pants, and Manoel still had cash in his jacket, both completely untouched.", "visual_query": "old brazilian currency banknotes" },
+    { "text": "By the time investigators performed the autopsy weeks later, the bodies had decomposed too far to test for poison. The actual cause of death was never determined.", "visual_query": "forensic morgue table stainless steel" },
+    { "text": "The men were into radio and amateur science, which fed two competing theories: that they died during some kind of clandestine radio operation, or that they were part of a spiritist group trying to contact the dead, wearing the masks to shield their eyes from an expected blinding light. A local resident even reported a glowing orange light over the hill that same night. Neither theory has ever been proven.", "visual_query": "amateur radio dials closeup" },
+    { "text": "Which theory do you find most convincing here -- a spiritist ritual, a radio operation gone wrong, or something else entirely?", "visual_query": "night sky hillside silhouette" }
+  ]
+}
