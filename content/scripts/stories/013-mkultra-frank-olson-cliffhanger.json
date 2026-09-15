@@ -1,0 +1,20 @@
+{
+  "category": "stories",
+  "id": "013-mkultra-frank-olson-cliffhanger",
+  "title": "His Colleague Secretly Drugged Him. Nine Days Later, He Was Dead.",
+  "description": "In 1953, the CIA secretly drugged an Army scientist with LSD as part of a classified mind-control program. Nine days later, he was dead -- and it took decades for even part of the truth to come out.\n\nThe full story -- the cover-up, the destroyed evidence, and who else this program touched -- is in the pinned comment.\n\n#shorts #truestory #mkultra #coldwar",
+  "tags": ["true story", "mkultra", "cia", "cold war", "shorts"],
+  "sources": [
+    "Wikipedia's Frank Olson entry",
+    "Contemporary reporting on the 1975 Ford administration apology and settlement"
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "In 1953, the CIA started secretly testing mind control on American citizens -- without their knowledge or consent.", "visual_query": "vintage government building exterior" },
+    { "text": "One of them was Frank Olson, an Army scientist. At a work retreat in November of that year, his own colleague secretly spiked his drink with LSD, as part of a classified experiment.", "visual_query": "person drinking cocktail 1950s" },
+    { "text": "Nobody told him what had happened. Over the next several days, he spiraled -- disoriented, paranoid, unable to explain what was wrong with him.", "visual_query": "disoriented person hallway blur" },
+    { "text": "Nine days later, Frank Olson fell to his death from the 13th floor of a New York hotel room.", "visual_query": "hotel window city night vintage" },
+    { "text": "The government called it suicide. Then something else. What actually happened in that room has never been fully settled.", "visual_query": "newspaper headline vintage closeup" },
+    { "text": "And Frank Olson wasn't the only person this program touched. The full story -- the cover-up, the destroyed files, and who else it connects to -- is in the pinned comment.", "visual_query": "classified file folder stamped" }
+  ]
+}

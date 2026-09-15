@@ -1,0 +1,84 @@
+{
+  "category": "stories",
+  "id": "012-mkultra-mind-control",
+  "title": "The CIA Secretly Drugged American Citizens For 20 Years. Most Of The Evidence Was Destroyed On Purpose.",
+  "format": "longform",
+  "background_images": [
+    "assets/mkultra-cia-building.jpg",
+    "assets/mkultra-lab-vials.jpg",
+    "assets/mkultra-documents.jpg",
+    "assets/mkultra-hotel-window.jpg",
+    "assets/mkultra-prison.jpg",
+    "assets/mkultra-hearing.jpg"
+  ],
+  "sources": [
+    "National Security Archive's MKUltra document collection, including the December 2024 CIA declassification (1,200+ pages)",
+    "National Security Archive's October 2025 publication of Sidney Gottlieb's 1975 Church Committee testimony transcripts",
+    "1977 Joint Senate Hearing record, \"Project MKUltra, the CIA's Program of Research in Behavioral Modification\"",
+    "Wikipedia's Frank Olson entry; contemporary reporting on the 1975 Ford administration apology and settlement",
+    "Reporting on Whitey Bulger's own account of the Atlanta Penitentiary LSD experiments (History.com, AllThatsInteresting, IrishCentral)",
+    "Wikipedia's Operation Midnight Climax entry; Snopes's fact-check confirming the program's existence",
+    "Reporting on the Ted Kaczynski/Henry Murray Harvard experiments and the disputed nature of a direct MKUltra funding link (Bunk History, LegalClarity)",
+    "CBC News's reporting on the Allan Memorial Institute/Ewen Cameron experiments and the 2025 Quebec class-action ruling",
+    "Seymour Hersh's 22/12/1974 New York Times investigation; Wikipedia's entry on the Rockefeller Commission"
+  ],
+  "description": "In 1953, the CIA started secretly drugging American and Canadian citizens as part of a mind-control research program -- and when the truth started to come out two decades later, the agency had already destroyed most of the evidence on purpose. New documents are still being declassified as recently as 2025.\n\n#unsolvedmystery #truestory #mkultra #coldwar #longform",
+  "tags": ["true story", "mkultra", "cia", "cold war", "declassified", "longform"],
+  "scenes": [
+    { "text": "In 1953, the CIA began secretly drugging American citizens with LSD, without their knowledge or consent -- and it went on for twenty years.", "visual_query": "" },
+    { "text": "It was called MKUltra. On 13/04/1953, CIA Director Allen Dulles gave the order, and a chemist named Sidney Gottlieb was put in charge of running it.", "visual_query": "" },
+    { "text": "The fear behind it was Cold War paranoia: American officials believed the Soviets, Chinese, and North Koreans had cracked real mind control on US prisoners during the Korean War.", "visual_query": "" },
+    { "text": "MKUltra wasn't one experiment. It grew into 149 separate subprojects, spread across roughly 80 universities, hospitals, and prisons across the US and Canada.", "visual_query": "" },
+    { "text": "The methods included high-dose LSD, hypnosis, electroshock, and sensory deprivation -- alongside two related, lesser-known programs that ran under the code names Bluebird and Artichoke.", "visual_query": "" },
+    { "text": "Many of the people involved had no idea they were part of an experiment at all.", "visual_query": "" },
+
+    { "text": "One of them was Frank Olson, an Army scientist based at Fort Detrick, Maryland.", "visual_query": "" },
+    { "text": "On 19/11/1953, at a work retreat, Gottlieb secretly spiked the after-dinner drinks of Olson and several colleagues with LSD, as an MKUltra field test.", "visual_query": "" },
+    { "text": "Nine days later, on 28/11/1953, Olson fell to his death from the 13th floor window of a New York hotel.", "visual_query": "" },
+    { "text": "The government's official explanation changed twice: first suicide, then 'misadventure.'", "visual_query": "" },
+    { "text": "In 1994, the Olson family had his body exhumed. The examiner found blunt force trauma to his skull -- damage that happened before the fall, not from it.", "visual_query": "" },
+    { "text": "In 1975, the Ford administration publicly apologized to the family and paid them $750,000, admitting the CIA had drugged Olson without his knowledge.", "visual_query": "" },
+    { "text": "What actually happened in that hotel room, and why, has never been fully resolved.", "visual_query": "" },
+
+    { "text": "Frank Olson wasn't the only life MKUltra tore through -- some of the people it touched went on to become household names for entirely different reasons.", "visual_query": "" },
+    { "text": "In 1957, Boston crime boss James 'Whitey' Bulger was a federal inmate at Atlanta Penitentiary.", "visual_query": "" },
+    { "text": "He volunteered for what he was told was research into curing schizophrenia, in exchange for a reduced sentence.", "visual_query": "" },
+    { "text": "Instead, he was given large daily doses of LSD for roughly fifteen months, without ever being told what the drug actually was.", "visual_query": "" },
+    { "text": "Bulger later described hallucinations, paranoia, and feeling like he was losing his mind -- and argued for the rest of his life that the experiment changed who he became.", "visual_query": "" },
+
+    { "text": "At least Bulger had technically volunteered. Under a project nicknamed Operation Midnight Climax, plenty of people never agreed to anything at all.", "visual_query": "" },
+    { "text": "Starting in 1953, a federal narcotics agent named George Hunter White, hired directly by Gottlieb, set up safehouses in San Francisco and in Greenwich Village, New York.", "visual_query": "" },
+    { "text": "Paid sex workers lured men off the street back to the apartments and dosed their drinks with LSD, with no consent and no warning.", "visual_query": "" },
+    { "text": "CIA staff watched the entire thing happen, live, through one-way mirrors built into the walls.", "visual_query": "" },
+    { "text": "It ran for a decade. The San Francisco houses closed in 1965, and the New York location followed in 1966.", "visual_query": "" },
+
+    { "text": "MKUltra also gets connected, constantly, to Ted Kaczynski -- the Unabomber -- who took part in a brutal Harvard psychology experiment as a student in the late 1950s.", "visual_query": "" },
+    { "text": "The experiment, run by psychologist Henry Murray, subjected students to deliberately hostile, personally humiliating interrogations while wired to monitors, then made them watch recordings of their own breakdowns.", "visual_query": "" },
+    { "text": "It's constantly described online as an MKUltra project. That specific link is actually disputed -- there's no solid evidence Murray's study was funded by MKUltra itself, though Murray had worked with US intelligence during World War Two.", "visual_query": "" },
+    { "text": "What isn't disputed is how brutal the experiment was, or that biographer Alston Chase argued it helped shape the anger Kaczynski carried into adulthood. The MKUltra label, though, is likely more myth than confirmed fact.", "visual_query": "" },
+
+    { "text": "In Montreal, the program's shadow ran even darker.", "visual_query": "" },
+    { "text": "At the Allan Memorial Institute, psychiatrist Ewen Cameron treated patients who'd been admitted for ordinary anxiety and depression.", "visual_query": "" },
+    { "text": "He subjected them to repeated electroshock, LSD, drug-induced comas, and looped audio recordings -- what he called 'psychic driving' -- meant to erase a patient's personality and rebuild it from nothing.", "visual_query": "" },
+    { "text": "The CIA covertly funded part of Cameron's work, through a front organization called the Society for the Investigation of Human Ecology.", "visual_query": "" },
+    { "text": "Some patients came out of it unable to remember who they were.", "visual_query": "" },
+    { "text": "In 2025, a Quebec judge cleared a class-action lawsuit from survivors of the Montreal experiments to proceed, against the Canadian government, the province of Quebec, and McGill University.", "visual_query": "" },
+
+    { "text": "For twenty years, almost none of this reached the public.", "visual_query": "" },
+    { "text": "In 1973, CIA Director Richard Helms ordered most MKUltra records destroyed.", "visual_query": "" },
+    { "text": "In his own later testimony to Congress, Helms said he did it so the people who'd helped the CIA 'would not be subject to follow-up questions.'", "visual_query": "" },
+    { "text": "It should have stayed buried. It didn't, because of an unrelated story.", "visual_query": "" },
+    { "text": "On 22/12/1974, journalist Seymour Hersh published a New York Times investigation into illegal CIA spying on American antiwar activists -- nothing to do with MKUltra specifically, just the CIA operating illegally inside its own country.", "visual_query": "" },
+    { "text": "The fallout was big enough that President Ford created an investigative body the following month, the Rockefeller Commission, and MKUltra was named publicly for the very first time in 1975 -- more than twenty years after it started.", "visual_query": "" },
+    { "text": "The Senate's own Church Committee investigated the same territory through 1975 and 1976.", "visual_query": "" },
+    { "text": "Then, in 1977, a records search for an unrelated Freedom of Information request accidentally turned up seven boxes of MKUltra financial paperwork that had survived Helms's 1973 purge.", "visual_query": "" },
+    { "text": "That accidental discovery is what actually let investigators put real numbers and details behind a program the public already knew existed but barely understood -- leading directly to Senate hearings in August and September of 1977.", "visual_query": "" },
+
+    { "text": "The story isn't finished, either.", "visual_query": "" },
+    { "text": "In December 2024, the CIA declassified another 1,200 pages of MKUltra-related documents, including a 1956 memo approving high-dose LSD tests on federal prisoners, and a 1963 internal report that had already questioned the ethics of testing unknowing Americans.", "visual_query": "" },
+    { "text": "Then in October 2025, fifty years after his original appearance before Congress, the National Security Archive published Sidney Gottlieb's full Church Committee testimony transcripts for the first time.", "visual_query": "" },
+    { "text": "Because most of the original files were deliberately destroyed, nobody will ever know the true full number of people MKUltra experimented on, or what happened to all of them.", "visual_query": "" },
+
+    { "text": "Which part of this surprised you the most -- how long it actually lasted, or how much of it was destroyed on purpose?", "visual_query": "" }
+  ]
+}

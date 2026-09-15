@@ -145,6 +145,18 @@ two are different bets and get treated differently:
 - **Fiction scripts skip this.** They're built to trail off on the
   twist/final line -- see `docs/episode-workflow.md` and the existing
   fiction scripts. A tacked-on question undercuts the ending on purpose.
+- **A cliffhanger Short paired with a longform episode skips this too**,
+  for the same reason as Fiction: it's built to cut off mid-story and
+  redirect ("the full story is in the pinned comment/linked below")
+  rather than resolve, so a closing question would undercut the
+  redirect on purpose. See the MKUltra pair
+  (`012-mkultra-mind-control.json` longform +
+  `013-mkultra-frank-olson-cliffhanger.json` short) for the pattern:
+  release both together, the Short teases one real anchor story from
+  the longform and stops before the resolution, and the link to the
+  full episode goes in a pinned comment once both are live (not baked
+  into metadata ahead of time, since the real YouTube URL doesn't
+  exist until upload).
 - **Watch for visual_query overlap with existing scripts**, especially
   within the same category (e.g. two wellbeing scripts about screen eye
   strain reusing near-identical query phrasing) -- Pexels will likely
