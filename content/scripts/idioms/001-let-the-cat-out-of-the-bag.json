@@ -1,0 +1,17 @@
+{
+  "category": "idioms",
+  "id": "001-let-the-cat-out-of-the-bag",
+  "title": "The Popular Story Behind \"Let The Cat Out Of The Bag\" Might Be Wrong",
+  "description": "The story behind this phrase has been repeated in etymology books for years -- but it probably never actually happened the way you've heard.\n\n#shorts #idioms #etymology #didyouknow",
+  "tags": ["idioms", "etymology", "word origins", "did you know", "shorts"],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "The popular story behind \"let the cat out of the bag\" has been repeated in etymology books for years -- and it probably never happened the way you've heard.", "visual_query": "old book pages closeup" },
+    { "text": "The claim: dishonest market sellers would swap a live cat for a piglet inside a sealed bag, and the buyer only discovered the switch once they got home and let the cat out.", "visual_query": "market stall bag closeup vintage" },
+    { "text": "There's a problem with that story. A squirming cat feels nothing like a piglet, even through a bag -- a buyer would have noticed instantly, not later at home.", "visual_query": "cat peeking out bag" },
+    { "text": "The earliest recorded use of the phrase actually comes from 1530, in a letter the reformer Johannes Agricola wrote to Martin Luther.", "visual_query": "old handwritten letter 1500s" },
+    { "text": "A second, less-repeated theory points to something else entirely: the \"cat o' nine tails,\" a multi-tailed whip used to flog sailors, documented in print long before the phrase itself ever appeared.", "visual_query": "ship sailor rope deck vintage" },
+    { "text": "Neither theory has ever been definitively proven. But etymologists generally treat the whip theory as the one with the stronger paper trail.", "visual_query": "old library books shelf" },
+    { "text": "Which theory do you find more believable -- the market swap, or the sailor's whip?", "visual_query": "vintage compass old map" }
+  ]
+}
