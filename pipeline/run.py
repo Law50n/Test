@@ -241,11 +241,23 @@ def _synthesize_scene(
     except TTSError as e:
         print(f"  ! TTS failed: {e}", file=sys.stderr)
         raise SystemExit(1)
+    # `words` timing comes back relative to the raw TTS output, but
+    # normalize_audio's loudnorm pass can shift a clip's actual duration by
+    # a small amount (padding/resampling) -- on a Short that's imperceptible,
+    # but summed across dozens of scenes in a longform episode it drifts the
+    # captions noticeably behind the audio by the end. Rescale the word
+    # timings to the *actual* post-normalization duration so every scene's
+    # captions stay locked to its own audio regardless of that shift, rather
+    # than accumulating error across the whole episode.
+    raw_duration = assemble.get_duration(out_path)
     assemble.normalize_audio(out_path)
     duration = assemble.get_duration(out_path)
+    scale = duration / raw_duration if raw_duration > 0 else 1.0
     if words:
         for w in words:
-            all_captions.append({**w, "start": w["start"] + cursor, "end": w["end"] + cursor})
+            all_captions.append(
+                {**w, "start": w["start"] * scale + cursor, "end": w["end"] * scale + cursor}
+            )
     else:
         for w in captions.estimate_word_timings(text, duration):
             all_captions.append({**w, "start": w["start"] + cursor, "end": w["end"] + cursor})
