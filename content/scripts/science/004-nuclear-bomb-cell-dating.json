@@ -1,0 +1,18 @@
+{
+  "category": "science",
+  "id": "004-nuclear-bomb-cell-dating",
+  "title": "Nuclear Bombs Revealed the True Age of Your Cells",
+  "description": "Cold War nuclear bomb tests left a radioactive fingerprint in every living thing on Earth -- and decades later, scientists turned it into a way to literally date individual cells inside your body. Here's what they found.\n\n#shorts #sciencefacts #biology #didyouknow",
+  "tags": ["science facts", "biology", "human body", "did you know", "shorts"],
+  "visual_mode": "video",
+  "thumbnail_highlight": "Cells",
+  "scenes": [
+    { "text": "In the 1950s and 60s, nuclear bomb tests left a fingerprint inside every human cell on Earth -- one scientists later learned to read.", "visual_query": "nuclear test mushroom cloud desert" },
+    { "text": "Those tests roughly doubled the carbon-14 in Earth's atmosphere. Plants absorbed it, we ate the plants, and it got built into every new cell your body has made since.", "visual_query": "wheat field sunlight aerial" },
+    { "text": "Decades later, researchers at Sweden's Karolinska Institute realized that same carbon signature could tell them exactly when a specific cell in a living person was made.", "visual_query": "scientist laboratory dna analysis" },
+    { "text": "Heart muscle cells, it turns out, get replaced at about one percent a year in your twenties, dropping to under half a percent by your seventies.", "visual_query": "human heart anatomy illustration" },
+    { "text": "Fat cells turn over roughly ten times faster -- about one in ten dies and gets replaced every single year, whether you're lean or overweight.", "visual_query": "fat cells microscope illustration" },
+    { "text": "But when they dated neurons in the brain's outer layer, the carbon signature matched almost exactly to the year the person was born. Those cells are never replaced at all.", "visual_query": "brain cortex illustration glow" },
+    { "text": "If a lab could carbon-date any part of your body right now, which part do you think would come back the oldest?", "visual_query": "fingerprint macro closeup" }
+  ]
+}
