@@ -185,6 +185,26 @@ two are different bets and get treated differently:
   pool) rather than leaving every scene on auto-fetched stock. Also see
   `thumbnail_scene` to point the thumbnail at whichever scene has the
   strongest visual, local or not.
+- **Custom AI-generated art (e.g. via Grok) is welcome for a hero
+  scene/thumbnail, background art only, never with text baked in.**
+  `pipeline/thumbnail.py::make_thumbnail()` already overlays the real,
+  correctly-spelled video title itself (bold text, gold-highlighted
+  payoff word, contrast/saturation boost, bottom scrim) onto whatever
+  source image it's given -- AI image generation cannot reliably render
+  text (confirmed: an early Grok mockup misspelled "reverses" as
+  "revenses" right in the image), so asking for a clean, text-free
+  background and letting the pipeline's own overlay do the words avoids
+  that failure mode entirely, guaranteed-correct every time. Workflow:
+  generate one clean image, save it, set that scene's `local_image` to
+  it and `thumbnail_scene` to that scene's index -- no code changes
+  needed, and it doubles as both the thumbnail source and that scene's
+  in-video visual. Keep this to one hero image per video (thumbnail
+  scene), not a full replacement for the automatic Pexels pipeline
+  across every scene -- it doesn't scale to a whole video's worth of
+  visuals and isn't needed to, given the video/photo fallback above.
+  Prefer a single strong focal subject over a busy, layered
+  composition -- thumbnails are viewed small, in a scrolling feed, and
+  a cluttered image reads slower than one clear subject.
 
 # Long-form/`stories` episode content rules
 
