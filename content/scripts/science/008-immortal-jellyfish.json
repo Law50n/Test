@@ -5,8 +5,9 @@
   "description": "There's a real jellyfish species that, instead of dying of old age, can turn back into an earlier version of itself and start its life cycle over.\n\n#shorts #sciencefacts #jellyfish #didyouknow",
   "tags": ["science facts", "jellyfish", "biology facts", "did you know", "shorts"],
   "visual_mode": "video",
+  "thumbnail_scene": 0,
   "scenes": [
-    { "text": "There's a jellyfish that, instead of dying of old age, can turn back into a baby version of itself and start its life over.", "visual_query": "purple jellyfish glowing ocean" },
+    { "text": "There's a jellyfish that, instead of dying of old age, can turn back into a baby version of itself and start its life over.", "visual_query": "purple jellyfish glowing ocean", "local_image": "assets/jellyfish-hero.jpg" },
     { "text": "It's called Turritopsis dohrnii, barely 4.5 millimeters across -- smaller than your pinky nail.", "visual_query": "tiny jellyfish macro closeup" },
     { "text": "When it's injured, starving, or under stress, its fully grown adult cells actually transform back into an earlier form, through a process called transdifferentiation.", "visual_query": "translucent cells microscope glow" },
     { "text": "It's the biological equivalent of a butterfly reverting back into a caterpillar, cell by cell.", "visual_query": "butterfly caterpillar transformation" },
