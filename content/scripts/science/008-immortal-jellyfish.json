@@ -1,0 +1,17 @@
+{
+  "category": "science",
+  "id": "008-immortal-jellyfish",
+  "title": "The Jellyfish That Reverses Aging",
+  "description": "There's a real jellyfish species that, instead of dying of old age, can turn back into an earlier version of itself and start its life cycle over.\n\n#shorts #sciencefacts #jellyfish #didyouknow",
+  "tags": ["science facts", "jellyfish", "biology facts", "did you know", "shorts"],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "There's a jellyfish that, instead of dying of old age, can turn back into a baby version of itself and start its life over.", "visual_query": "purple jellyfish glowing ocean" },
+    { "text": "It's called Turritopsis dohrnii, barely 4.5 millimeters across -- smaller than your pinky nail.", "visual_query": "tiny jellyfish macro closeup" },
+    { "text": "When it's injured, starving, or under stress, its fully grown adult cells actually transform back into an earlier form, through a process called transdifferentiation.", "visual_query": "translucent cells microscope glow" },
+    { "text": "It's the biological equivalent of a butterfly reverting back into a caterpillar, cell by cell.", "visual_query": "butterfly caterpillar transformation" },
+    { "text": "Theoretically, it can repeat this cycle forever, which is why scientists call it biologically immortal. It can still die -- eaten, diseased, injured beyond repair -- it just doesn't die of old age the way almost everything else does.", "visual_query": "jellyfish swimming deep sea" },
+    { "text": "It was first noticed doing this in 1988, by a student studying jellyfish in the Mediterranean. It's since spread to oceans worldwide, likely hitching rides in the ballast water of cargo ships.", "visual_query": "cargo ship ocean horizon" },
+    { "text": "If you could reset your own age every time things got hard, would you actually want to?", "visual_query": "hourglass sand time" }
+  ]
+}
