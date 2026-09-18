@@ -109,7 +109,7 @@ def build_short(script: VideoScript, cfg: Config, out_dir: Path) -> None:
             narration = normalize_dates_for_speech(scene.text)
             print(f"[{i + 1}/{len(script.scenes)}] {narration[:60]}...")
 
-            audio_path = tmp_dir / f"scene_{i:02d}.mp3"
+            audio_path = tmp_dir / f"scene_{i:02d}.wav"
             try:
                 words = synthesize(narration, audio_path, cfg)
             except TTSError as e:
@@ -303,11 +303,11 @@ def _build_longform_segment(script: VideoScript, cfg: Config, tmp_dir: Path, pre
     for i, scene in enumerate(script.scenes):
         narration = normalize_dates_for_speech(scene.text)
         print(f"  [{i + 1}/{len(script.scenes)}] {narration[:60]}...")
-        audio_path = tmp_dir / f"{prefix}_scene_{i:02d}.mp3"
+        audio_path = tmp_dir / f"{prefix}_scene_{i:02d}.wav"
         cursor += _synthesize_scene(narration, audio_path, cfg, cursor, all_captions)
         audio_paths.append(audio_path)
 
-    narration_path = tmp_dir / f"{prefix}_narration.mp3"
+    narration_path = tmp_dir / f"{prefix}_narration.wav"
     assemble.concat_audio(audio_paths, narration_path)
     total_duration = assemble.get_duration(narration_path)
     print(f"  segment narration: {total_duration:.1f}s")
@@ -429,7 +429,7 @@ def build_compilation(script: VideoScript, cfg: Config, out_dir: Path) -> None:
 
         if script.vanishing_hours:
             first_episode = VideoScript.load(script.episodes[0])
-            intro_audio = tmp_dir / "series_intro.mp3"
+            intro_audio = tmp_dir / "series_intro.wav"
             intro_text = _vanishing_hours_intro(script.episode_number)
             intro_duration = _synthesize_scene(intro_text, intro_audio, cfg, cursor, all_captions)
             cursor += intro_duration
@@ -461,7 +461,7 @@ def build_compilation(script: VideoScript, cfg: Config, out_dir: Path) -> None:
                 # case's ending trails straight into the next case's cold
                 # open with nothing to mark the change.
                 intro_text = f"Case {ep_idx + 1}. {episode.title}."
-                intro_audio = tmp_dir / f"intro_{ep_idx:02d}.mp3"
+                intro_audio = tmp_dir / f"intro_{ep_idx:02d}.wav"
                 intro_duration = _synthesize_scene(intro_text, intro_audio, cfg, cursor, all_captions)
                 cursor += intro_duration
                 narration_paths.append(intro_audio)
@@ -483,7 +483,7 @@ def build_compilation(script: VideoScript, cfg: Config, out_dir: Path) -> None:
             background_paths.append(seg["background_path"])
 
         print("\nConcatenating all narration...")
-        narration_path = tmp_dir / "narration.mp3"
+        narration_path = tmp_dir / "narration.wav"
         assemble.concat_audio(narration_paths, narration_path)
 
         print("Concatenating all backgrounds...")

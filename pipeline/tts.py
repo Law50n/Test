@@ -14,19 +14,37 @@ class TTSError(RuntimeError):
     pass
 
 
-def synthesize(text: str, out_mp3: Path, cfg: Config) -> list[dict]:
-    """Renders `text` to `out_mp3`. Returns a list of
-    {"word": str, "start": float, "end": float} in seconds, relative to the
-    start of this clip. Empty list if the engine can't provide word timing.
+def synthesize(text: str, out_wav: Path, cfg: Config) -> list[dict]:
+    """Renders `text` to `out_wav` -- always a lossless WAV, regardless of
+    engine, even though most engines' native output is actually MP3 (edge,
+    ElevenLabs, Google) or get converted from WAV to MP3 themselves
+    (offline, piper). Every per-scene call in run.py used to write MP3
+    directly, then assemble.normalize_audio() re-encoded MP3-to-MP3, then
+    assemble.concat_audio() stream-copied a whole longform episode's worth
+    of separately-encoded MP3s back-to-back -- MP3 concatenation like that
+    is well known to drift at each boundary (encoder priming/padding
+    doesn't line up cleanly across independently-encoded files), and with
+    dozens of scenes in one episode those small per-boundary errors
+    compound into real, audible caption drift by the end. Confirmed by
+    Will on a real render.
+
+    Keeping everything losslessly in WAV from just after synthesis through
+    normalization and concatenation, and only encoding to a lossy format
+    once at the very end (assemble.mux_audio's AAC encode when muxing onto
+    video), removes the actual source of that drift instead of estimating
+    and compensating for it after the fact. Returns a list of
+    {"word": str, "start": float, "end": float} in seconds, relative to
+    the start of this clip. Empty list if the engine can't provide word
+    timing.
     """
     if cfg.tts_engine == "edge":
-        return asyncio.run(_synthesize_edge(text, out_mp3, cfg.tts_voice, cfg.tts_rate))
+        return asyncio.run(_synthesize_edge(text, out_wav, cfg.tts_voice, cfg.tts_rate))
     if cfg.tts_engine == "offline":
-        return _synthesize_offline(text, out_mp3)
+        return _synthesize_offline(text, out_wav)
     if cfg.tts_engine == "piper":
         return _synthesize_piper(
             text,
-            out_mp3,
+            out_wav,
             cfg.piper_model_path,
             cfg.piper_speaker_id,
             cfg.piper_sentence_silence,
@@ -36,7 +54,7 @@ def synthesize(text: str, out_mp3: Path, cfg: Config) -> list[dict]:
     if cfg.tts_engine == "elevenlabs":
         return _synthesize_elevenlabs(
             text,
-            out_mp3,
+            out_wav,
             cfg.elevenlabs_api_key,
             cfg.elevenlabs_voice_id,
             cfg.elevenlabs_stability,
@@ -45,81 +63,98 @@ def synthesize(text: str, out_mp3: Path, cfg: Config) -> list[dict]:
         )
     if cfg.tts_engine == "google":
         return _synthesize_google(
-            text, out_mp3, cfg.google_tts_api_key, cfg.google_tts_voice_name, cfg.google_tts_language_code
+            text, out_wav, cfg.google_tts_api_key, cfg.google_tts_voice_name, cfg.google_tts_language_code
         )
     raise TTSError(
         f"Unknown TTS_ENGINE {cfg.tts_engine!r}, expected 'edge', 'offline', 'piper', 'elevenlabs', or 'google'"
     )
 
 
-async def _synthesize_edge(text: str, out_mp3: Path, voice: str, rate: str = "+0%") -> list[dict]:
+def _decode_to_wav(src_bytes: bytes, src_suffix: str, out_wav: Path, engine_name: str) -> None:
+    """Shared by the cloud engines that only ever hand back compressed
+    audio (MP3) -- writes it to a temp file and decodes that once to WAV,
+    rather than leaving it compressed for normalize_audio/concat_audio to
+    repeatedly re-encode later. This one decode doesn't undo whatever the
+    cloud service's own MP3 encoder already baked in, but it stops that
+    from compounding further downstream, which is the actual source of
+    the drift this whole redesign exists to fix.
+    """
+    tmp_path = out_wav.with_suffix(f".tmp{src_suffix}")
+    try:
+        tmp_path.write_bytes(src_bytes)
+        subprocess.run(
+            ["ffmpeg", "-y", "-loglevel", "error", "-i", str(tmp_path), str(out_wav)],
+            check=True,
+            capture_output=True,
+        )
+    except FileNotFoundError as e:
+        raise TTSError(f"{engine_name} needs ffmpeg on PATH to decode its audio to WAV") from e
+    except subprocess.CalledProcessError as e:
+        raise TTSError(f"ffmpeg failed decoding {engine_name} audio to WAV: {e.stderr.decode(errors='replace')}") from e
+    finally:
+        tmp_path.unlink(missing_ok=True)
+
+
+async def _synthesize_edge(text: str, out_wav: Path, voice: str, rate: str = "+0%") -> list[dict]:
     import edge_tts
 
     words: list[dict] = []
+    mp3_bytes = bytearray()
     try:
         communicate = edge_tts.Communicate(text, voice, rate=rate)
-        with open(out_mp3, "wb") as f:
-            async for chunk in communicate.stream():
-                if chunk["type"] == "audio":
-                    f.write(chunk["data"])
-                elif chunk["type"] == "WordBoundary":
-                    # edge-tts reports offsets in 100-nanosecond units. Each
-                    # "text" is a bare word with no trailing space, so add one
-                    # here -- captions.words_to_captions() joins these back
-                    # together and expects the same convention _synthesize_offline
-                    # below already uses.
-                    words.append(
-                        {
-                            "word": chunk["text"] + " ",
-                            "start": chunk["offset"] / 1e7,
-                            "end": (chunk["offset"] + chunk["duration"]) / 1e7,
-                        }
-                    )
+        async for chunk in communicate.stream():
+            if chunk["type"] == "audio":
+                mp3_bytes.extend(chunk["data"])
+            elif chunk["type"] == "WordBoundary":
+                # edge-tts reports offsets in 100-nanosecond units. Each
+                # "text" is a bare word with no trailing space, so add one
+                # here -- captions.words_to_captions() joins these back
+                # together and expects the same convention _synthesize_offline
+                # below already uses.
+                words.append(
+                    {
+                        "word": chunk["text"] + " ",
+                        "start": chunk["offset"] / 1e7,
+                        "end": (chunk["offset"] + chunk["duration"]) / 1e7,
+                    }
+                )
     except TTSError:
         raise
     except Exception as e:
         raise TTSError(f"edge-tts failed: {e}") from e
-    if out_mp3.stat().st_size == 0:
+    if not mp3_bytes:
         raise TTSError(
             "edge-tts returned no audio (usually a network/firewall issue reaching "
             "Microsoft's speech service). Try TTS_ENGINE=offline to test the "
             "pipeline without internet."
         )
+    _decode_to_wav(bytes(mp3_bytes), ".mp3", out_wav, "edge-tts")
     return words
 
 
-def _synthesize_offline(text: str, out_mp3: Path) -> list[dict]:
+def _synthesize_offline(text: str, out_wav: Path) -> list[dict]:
     """espeak-ng fallback: no internet required, no word-level timing, and
     a noticeably robotic formant voice -- see TTS_ENGINE=piper for a much
-    more natural-sounding option that's still fully offline.
+    more natural-sounding option that's still fully offline. Writes WAV
+    directly (espeak-ng's own native output format) -- no MP3 round trip
+    to undo here at all.
     """
-    wav_path = out_mp3.with_suffix(".tmp.wav")
     try:
         subprocess.run(
-            ["espeak-ng", "-v", "en-us", "-s", "160", "-w", str(wav_path), text],
-            check=True,
-            capture_output=True,
-        )
-        subprocess.run(
-            ["ffmpeg", "-y", "-loglevel", "error", "-i", str(wav_path), str(out_mp3)],
+            ["espeak-ng", "-v", "en-us", "-s", "160", "-w", str(out_wav), text],
             check=True,
             capture_output=True,
         )
     except FileNotFoundError as e:
-        raise TTSError(
-            "offline engine needs espeak-ng and ffmpeg on PATH "
-            "(e.g. `apt-get install espeak-ng ffmpeg`)"
-        ) from e
+        raise TTSError("offline engine needs espeak-ng on PATH (e.g. `apt-get install espeak-ng`)") from e
     except subprocess.CalledProcessError as e:
-        raise TTSError(f"espeak-ng/ffmpeg failed: {e.stderr.decode(errors='replace')}") from e
-    finally:
-        wav_path.unlink(missing_ok=True)
+        raise TTSError(f"espeak-ng failed: {e.stderr.decode(errors='replace')}") from e
     return []
 
 
 def _synthesize_piper(
     text: str,
-    out_mp3: Path,
+    out_wav: Path,
     model_path: str,
     speaker_id: int,
     sentence_silence: float,
@@ -140,14 +175,15 @@ def _synthesize_piper(
     5 variants that this combination read as noticeably less monotone than
     the model's defaults, more than switching speakers did.
 
-    Needs a voice model downloaded once -- see README setup.
+    Needs a voice model downloaded once -- see README setup. Writes WAV
+    directly (Piper's own native output format) -- no MP3 round trip to
+    undo here at all.
     """
     if not Path(model_path).exists():
         raise TTSError(
             f"Piper voice model not found at {model_path!r}. Download it first -- see "
             "README's \"Better offline voice: Piper\" section for the exact command."
         )
-    wav_path = out_mp3.with_suffix(".tmp.wav")
     try:
         subprocess.run(
             [
@@ -165,23 +201,16 @@ def _synthesize_piper(
                 "--noise-w-scale",
                 str(noise_w),
                 "-f",
-                str(wav_path),
+                str(out_wav),
             ],
             input=text.encode(),
             check=True,
             capture_output=True,
         )
-        subprocess.run(
-            ["ffmpeg", "-y", "-loglevel", "error", "-i", str(wav_path), str(out_mp3)],
-            check=True,
-            capture_output=True,
-        )
     except FileNotFoundError as e:
-        raise TTSError("piper engine needs `pip install piper-tts` and ffmpeg on PATH") from e
+        raise TTSError("piper engine needs `pip install piper-tts` on PATH") from e
     except subprocess.CalledProcessError as e:
-        raise TTSError(f"piper/ffmpeg failed: {e.stderr.decode(errors='replace')}") from e
-    finally:
-        wav_path.unlink(missing_ok=True)
+        raise TTSError(f"piper failed: {e.stderr.decode(errors='replace')}") from e
     return []
 
 
@@ -190,7 +219,7 @@ ELEVENLABS_API_BASE = "https://api.elevenlabs.io/v1"
 
 def _synthesize_elevenlabs(
     text: str,
-    out_mp3: Path,
+    out_wav: Path,
     api_key: str,
     voice_id: str,
     stability: float,
@@ -244,7 +273,7 @@ def _synthesize_elevenlabs(
     import base64
 
     try:
-        out_mp3.write_bytes(base64.b64decode(data["audio_base64"]))
+        mp3_bytes = base64.b64decode(data["audio_base64"])
         alignment = data.get("alignment") or {}
         words = _chars_to_words(
             alignment.get("characters", []),
@@ -253,6 +282,7 @@ def _synthesize_elevenlabs(
         )
     except (KeyError, ValueError) as e:
         raise TTSError(f"unexpected response shape from ElevenLabs: {e}") from e
+    _decode_to_wav(mp3_bytes, ".mp3", out_wav, "ElevenLabs")
     return words
 
 
@@ -284,7 +314,7 @@ GOOGLE_TTS_API_BASE = "https://texttospeech.googleapis.com/v1"
 
 
 def _synthesize_google(
-    text: str, out_mp3: Path, api_key: str, voice_name: str, language_code: str
+    text: str, out_wav: Path, api_key: str, voice_name: str, language_code: str
 ) -> list[dict]:
     """Google Cloud Text-to-Speech -- a genuinely generous recurring free
     tier (1M characters/month for Neural2 voices, confirmed live via search,
@@ -336,9 +366,10 @@ def _synthesize_google(
     import base64
 
     try:
-        out_mp3.write_bytes(base64.b64decode(data["audioContent"]))
+        mp3_bytes = base64.b64decode(data["audioContent"])
     except (KeyError, ValueError) as e:
         raise TTSError(f"unexpected response shape from Google TTS: {e}") from e
+    _decode_to_wav(mp3_bytes, ".mp3", out_wav, "Google TTS")
 
     starts: list[float | None] = [None] * len(words_list)
     for tp in data.get("timepoints", []):
@@ -350,7 +381,7 @@ def _synthesize_google(
 
     from pipeline.assemble import get_duration
 
-    total_duration = get_duration(out_mp3)
+    total_duration = get_duration(out_wav)
     words: list[dict] = []
     for i, w in enumerate(words_list):
         start = starts[i] if starts[i] is not None else 0.0

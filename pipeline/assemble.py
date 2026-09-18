@@ -76,8 +76,17 @@ def normalize_audio(audio_path: Path, target_lufs: float = -16.0) -> None:
     building) touches the audio, so everything after this already sees a
     consistent level. -16 LUFS is a standard target for spoken-word/online
     video (podcasts, YouTube's own normalization reference).
+
+    The temp filename keeps audio_path's own suffix (e.g. "foo.wav" ->
+    "foo.norm.wav") rather than hardcoding ".mp3" -- ffmpeg picks its
+    output container/codec from that final extension, so a hardcoded
+    ".mp3" here used to silently re-encode every WAV to MP3 content on
+    every call (while os.replace put it back under the original ".wav"
+    name regardless), which would have quietly reintroduced the exact
+    per-boundary MP3 concatenation drift this file's callers now exist to
+    avoid. See tts.synthesize's docstring for the full story.
     """
-    tmp_path = audio_path.with_suffix(audio_path.suffix + ".norm.mp3")
+    tmp_path = audio_path.with_name(audio_path.stem + ".norm" + audio_path.suffix)
     run(
         [
             "ffmpeg",
