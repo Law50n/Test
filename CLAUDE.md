@@ -147,16 +147,22 @@ two are different bets and get treated differently:
   fiction scripts. A tacked-on question undercuts the ending on purpose.
 - **A cliffhanger Short paired with a longform episode skips this too**,
   for the same reason as Fiction: it's built to cut off mid-story and
-  redirect ("the full story is in the pinned comment/linked below")
+  redirect ("the full story is linked in the description below")
   rather than resolve, so a closing question would undercut the
   redirect on purpose. See the MKUltra pair
   (`012-mkultra-mind-control.json` longform +
-  `013-mkultra-frank-olson-cliffhanger.json` short) for the pattern:
-  release both together, the Short teases one real anchor story from
-  the longform and stops before the resolution, and the link to the
-  full episode goes in a pinned comment once both are live (not baked
-  into metadata ahead of time, since the real YouTube URL doesn't
-  exist until upload).
+  `013-mkultra-frank-olson-cliffhanger.json` short, and the follow-up
+  `014-mkultra-whitey-bulger-cliffhanger.json`) for the pattern:
+  the Short teases one real anchor story from the longform and stops
+  before the resolution, and the link to the full episode goes in the
+  video description, not a pinned comment -- posting a comment
+  right after publishing is a manual extra step and Will's take is it
+  risks reading as unusual activity to the algorithm, so description
+  is the default now. The real YouTube URL still doesn't exist until
+  the longform is uploaded, so the description text ships with the
+  "linked in the description below" line and Will adds the actual
+  URL by editing the video's description after upload -- same manual
+  step as before, just a different field.
 - **Watch for visual_query overlap with existing scripts**, especially
   within the same category (e.g. two wellbeing scripts about screen eye
   strain reusing near-identical query phrasing) -- Pexels will likely
