@@ -1,0 +1,64 @@
+{
+  "category": "stories",
+  "id": "016-vanishing-hours-somerton-man",
+  "title": "The Somerton Man: A Body, A Code, And A Name Nobody Found For 74 Years",
+  "format": "longform",
+  "background_images": [
+    "assets/somerton-beach.jpg",
+    "assets/somerton-book.jpg",
+    "assets/somerton-code.jpg",
+    "assets/somerton-seawall.jpg"
+  ],
+  "sources": [
+    "Wikipedia's Somerton Man entry",
+    "Smithsonian Magazine's coverage of the Somerton Man case and its 2022 DNA identification",
+    "CNN's reporting on the 2022 DNA identification of Carl \"Charles\" Webb",
+    "ABC News's \"Tamam Shud and the five other clues that have failed to solve the Somerton Man mystery\" and its coverage of the 2021 exhumation"
+  ],
+  "description": "In December of 1948, a well-dressed man was found dead on an Australian beach. No name, no wallet, every label cut from his clothes -- and a scrap of paper hidden in a secret pocket that read, simply, 'it is finished.' It took 74 years to learn his name. Nobody has ever learned how he died.\n\n#truestory #unsolvedmystery #vanishinghours #somertonman #longform",
+  "tags": ["true story", "unsolved mystery", "somerton man", "vanishing hours", "longform"],
+  "sleep_narration": true,
+  "scenes": [
+    { "text": "On a summer morning in December of 1948, a man was found dead on a beach near Adelaide, Australia -- propped up against a low seawall, almost as if he'd simply sat down to rest and never gotten up again.", "visual_query": "" },
+    { "text": "He's believed to have died the evening before, sometime after dark, with the tide coming in quietly nearby and no one around to notice.", "visual_query": "" },
+    { "text": "He was well dressed, in a neat suit, with nothing about him to suggest any violence at all. No struggle. No wound. Nothing.", "visual_query": "" },
+    { "text": "And he carried nothing that could say who he was. No wallet. No papers. Every single label had been carefully cut out of his clothing, as if someone -- perhaps even the man himself -- had gone to real trouble to make sure of that.", "visual_query": "" },
+    { "text": "It's a strange kind of absence to sit with. A well-dressed, apparently healthy man, found calmly at rest on a beach, with every ordinary trace of a life deliberately removed from him.", "visual_query": "" },
+    { "text": "His fingerprints and dental records were circulated to police departments around the world, for years afterward. Every response came back the same. Nobody, anywhere, ever recognized him.", "visual_query": "" },
+
+    { "text": "Months into the investigation, with nothing else to go on, a pathologist went back over his clothing a second time -- and found something the first search had missed entirely.", "visual_query": "" },
+    { "text": "Sewn into the waistband of his trousers was a tiny pocket, smaller than most, easy enough to overlook once and never think to check again.", "visual_query": "" },
+    { "text": "Inside it was a single scrap of paper, tightly rolled, printed with just two words: Tamam Shud. Persian for 'it is ended.'", "visual_query": "" },
+    { "text": "Those words, it turned out, came from the very last page of a poem collection called The Rubaiyat of Omar Khayyam. And that exact final page, investigators realized, had been deliberately torn out of a copy somewhere.", "visual_query": "" },
+    { "text": "Weeks later, that copy actually surfaced. A local man came forward with a rare edition of the same book, its last page missing, which he said had simply turned up thrown onto the back seat of his unlocked car, parked near the beach around the time of the man's death.", "visual_query": "" },
+
+    { "text": "Inside the book's back cover was something else again -- five lines of handwritten capital letters, one line crossed out, and beneath them, a telephone number.", "visual_query": "" },
+    { "text": "In the decades since, both professional codebreakers and dedicated amateurs have tried to make sense of those five lines. Military ciphers, foreign alphabets, simple substitution codes -- all of it's been tried. None of it has ever conclusively cracked it.", "visual_query": "" },
+
+    { "text": "The phone number, though, actually led somewhere real. It belonged to a nurse living less than half a kilometer from where the body had been found. Her name was Jessica Thomson. Those close to her called her Jestyn.", "visual_query": "" },
+    { "text": "Questioned by police in 1949, she said plainly that she had never known the man. And for a long while afterward, that was exactly where the thread stopped.", "visual_query": "" },
+    { "text": "There's a wrinkle to that phone number, though, that has nothing to do with the dead man at all. Separately, years earlier in 1945, Jestyn had given a copy of that same rare book to a man named Alfred Boxall, inscribed in her own handwriting -- including that same phone number.", "visual_query": "" },
+    { "text": "When Boxall turned up alive and perfectly well in 1949, briefly raising real hope that he might somehow be the dead man himself, he still had his own copy sitting on his shelf. It confirmed the number truly was hers. It explained nothing else about the stranger on the beach at all.", "visual_query": "" },
+    { "text": "Decades later, Jestyn's own daughter said publicly that her mother had privately hinted, more than once, at knowing exactly who the dead man had been -- but had always refused to say anything further. Jestyn died in 2007, having never confirmed a word of it to anyone.", "visual_query": "" },
+
+    { "text": "The cause of his death turned out to be its own separate, entirely unresolved mystery.", "visual_query": "" },
+    { "text": "There wasn't a mark on him anywhere. No wound, no bruising, no sign of any struggle at all -- the kind of body that, on appearance alone, looked like a man who had simply lain down and stopped.", "visual_query": "" },
+    { "text": "And yet standard toxicology testing at the time found nothing unusual in him either. No cyanide. No common poison of any recognizable kind. Investigators remained fairly convinced, from the circumstances alone, that he'd been poisoned regardless -- they just couldn't find the poison itself.", "visual_query": "" },
+    { "text": "Pathologist John Barkley Bennett and pharmacologist Cedric Stanton Hicks both proposed a rare kind of answer: a precisely timed dose of digitalis, or a related toxin called ouabain -- substances that, administered correctly, could kill without leaving anything behind for 1948-era laboratory testing to actually catch.", "visual_query": "" },
+    { "text": "In 1994, a senior Australian judge who reviewed the case concluded that digitalis was, in his own opinion, the likely cause. But that's exactly what it remains, all these years later -- an informed opinion, nothing more. No poison was ever actually detected in his body, then or at any point since.", "visual_query": "" },
+
+    { "text": "For decades, journalists and authors have floated another idea entirely -- that the man's total anonymity, the hidden code, and the era itself all point toward espionage.", "visual_query": "" },
+    { "text": "Adelaide sat within reach of a real rocket-testing facility at the time, and the early years of the Cold War were exactly the kind of setting in which a man might work hard, deliberately, to leave no trace of himself behind anywhere.", "visual_query": "" },
+    { "text": "No government has ever confirmed any connection to him, though. More than seventy years on, that theory has never moved past atmosphere and pattern into anything that could actually be proven.", "visual_query": "" },
+
+    { "text": "For more than seven decades, that was where the whole case stood -- a name nobody could find, and a handful of threads that never quite tied together.", "visual_query": "" },
+    { "text": "Then, in May of 2021, South Australian police exhumed his body. Not to solve the mystery outright, but simply to recover a cleaner DNA sample than the one investigators had managed to pull, years earlier, from a single hair caught in an old plaster cast made of his face.", "visual_query": "" },
+    { "text": "The following year, University of Adelaide professor Derek Abbott and genetic genealogist Colleen Fitzpatrick used that sample to build out a family tree of more than four thousand people, tracing distant relatives across generations until the branches finally converged on one man.", "visual_query": "" },
+    { "text": "It led them, at last, to a name: Carl Webb, an electrical engineer born in Melbourne in 1905. South Australian police confirmed it not long after.", "visual_query": "" },
+    { "text": "Seventy-four years after he was found on that beach, the Somerton Man finally had a name again.", "visual_query": "" },
+
+    { "text": "But naming him didn't finish the case. It just moved the boundary of what's still unknown.", "visual_query": "" },
+    { "text": "How he actually died, why he'd come to Adelaide at all, what those five crossed-out lines in the back of a torn book really say, and whether he had any real connection to a nurse living half a kilometer away -- every one of those questions sits exactly where it did in 1948.", "visual_query": "" },
+    { "text": "Somewhere now, a family tree finally has his name written into it properly, decades late. Everything about his final evening on that beach is still, quietly, his alone.", "visual_query": "" }
+  ]
+}

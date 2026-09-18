@@ -1,0 +1,12 @@
+{
+  "category": "stories",
+  "id": "020-vanishing-hours-vol-2",
+  "title": "The Vanishing Hours -- Episode 2: The Somerton Man",
+  "description": "Real, sourced cases of people who vanished without explanation -- calmly told, perfect for falling asleep to. Episode 2: in 1948, a well-dressed man was found dead on an Australian beach with no name, no wallet, and a hidden note reading 'it is finished.' It took 74 years to learn who he was. Nobody has ever learned how he died.\n\nEvery case in this series is real and sourced -- see the sources list.\n\n#truestory #unsolvedmystery #vanishinghours #sleepstories #somertonman",
+  "tags": ["true story", "unsolved mystery", "vanishing hours", "sleep stories", "somerton man", "longform"],
+  "format": "compilation",
+  "episodes": ["016-vanishing-hours-somerton-man.json"],
+  "vanishing_hours": true,
+  "sleep_narration": true,
+  "episode_number": 2
+}
