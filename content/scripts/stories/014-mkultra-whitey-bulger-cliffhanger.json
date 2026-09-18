@@ -1,0 +1,21 @@
+{
+  "category": "stories",
+  "id": "014-mkultra-whitey-bulger-cliffhanger",
+  "title": "He Was Secretly Dosed With LSD 50+ Times In Prison. He Later Became One of America's Most Wanted Men.",
+  "description": "In the 1950s, a young federal inmate named James 'Whitey' Bulger volunteered for what he thought was a medical study. It was actually a CIA mind-control program.\n\nThe full story of MKUltra -- and how much of it the CIA tried to erase -- is in the pinned comment.\n\n#shorts #truestory #mkultra #whiteybulger #coldwar",
+  "tags": ["true story", "mkultra", "cia", "cold war", "whitey bulger", "shorts"],
+  "sources": [
+    "Wikipedia's James \"Whitey\" Bulger entry",
+    "AllThatsInteresting's account, \"The CIA Dosed Crime Boss 'Whitey' Bulger With LSD More Than 50 Times\"",
+    "IrishCentral's coverage of Bulger's CIA LSD testing"
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "In the 1950s, long before he became one of the most feared crime bosses in America, a young federal inmate named James 'Whitey' Bulger volunteered for a medical study.", "visual_query": "vintage prison exterior 1950s" },
+    { "text": "He was told it could help cure schizophrenia, and that volunteering might shave time off his sentence. It was actually a CIA mind-control program called MKUltra.", "visual_query": "prison inmate silhouette bars" },
+    { "text": "For roughly fifteen months, Bulger and other inmates were dosed with LSD, sometimes daily, without ever being told what the drug actually was.", "visual_query": "liquid drops glass vial closeup" },
+    { "text": "He was dosed more than fifty times. Bulger later described the experience as a 'black hole of horror,' hallucinating blood pouring down the walls of his cell.", "visual_query": "dark cell shadow flicker" },
+    { "text": "He said the nightmares from those months never fully stopped, and for the rest of his life, he believed the experiment changed something in him permanently.", "visual_query": "old man reflection window" },
+    { "text": "Bulger wasn't the only life this program touched. The full story of MKUltra, and how much of it the CIA tried to erase, is in the pinned comment.", "visual_query": "shredded paper documents pile" }
+  ]
+}
