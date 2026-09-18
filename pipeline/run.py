@@ -34,17 +34,21 @@ DEFAULT_CHANNEL = "Facts"
 
 _FICTION_DISCLOSURE = "This is a work of fiction. It is not a true story."
 
-# Spoken once, identically, at the start of every "The Vanishing Hours"
-# compilation -- see script.vanishing_hours in build_compilation(). Kept
-# short and mood-setting on purpose: no spoken subscribe ask, since a
-# verbal CTA is exactly the "corny/annoying" risk for calm sleep content.
-# Any subscribe nudge for this series is meant to be a brief, silent-ish
-# visual/audio cue instead (not yet implemented).
-VANISHING_HOURS_INTRO = (
-    "Welcome to The Vanishing Hours. Every case tonight really happened, "
-    "and every one of them is still, genuinely, unexplained. Get "
-    "comfortable. Let's begin."
-)
+# Spoken once, at the start of every "The Vanishing Hours" compilation --
+# see script.vanishing_hours in build_compilation(). Wording stays fixed
+# so it reads/sounds the same episode to episode (only the number
+# changes) -- that consistency is the point, not a template to restyle
+# per volume. Kept short and mood-setting on purpose: no spoken subscribe
+# ask, since a verbal CTA is exactly the "corny/annoying" risk for calm
+# sleep content. episode_number == 0 (unset) drops the "episode N" clause
+# rather than saying "episode 0".
+def _vanishing_hours_intro(episode_number: int) -> str:
+    episode_clause = f" Episode {episode_number}." if episode_number > 0 else ""
+    return (
+        f"Welcome to The Vanishing Hours.{episode_clause} Every case tonight "
+        "really happened, and every one of them is still, genuinely, "
+        "unexplained. Get comfortable. Let's begin."
+    )
 
 
 def _compose_metadata(script: VideoScript) -> str:
@@ -426,7 +430,8 @@ def build_compilation(script: VideoScript, cfg: Config, out_dir: Path) -> None:
         if script.vanishing_hours:
             first_episode = VideoScript.load(script.episodes[0])
             intro_audio = tmp_dir / "series_intro.mp3"
-            intro_duration = _synthesize_scene(VANISHING_HOURS_INTRO, intro_audio, cfg, cursor, all_captions)
+            intro_text = _vanishing_hours_intro(script.episode_number)
+            intro_duration = _synthesize_scene(intro_text, intro_audio, cfg, cursor, all_captions)
             cursor += intro_duration
             narration_paths.append(intro_audio)
 

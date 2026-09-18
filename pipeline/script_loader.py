@@ -75,6 +75,11 @@ class VideoScript:
     # than folded into sleep_narration so a future non-"Vanishing Hours"
     # sleep-toned series doesn't inherit this show's specific intro line.
     vanishing_hours: bool = False
+    # "compilation" + vanishing_hours only: which volume this is, spoken
+    # in the fixed intro ("Episode N") so viewers can track where they
+    # are in the series. 0 = unset, drops the "episode N" clause instead
+    # of saying "episode 0" -- see run.py::_vanishing_hours_intro.
+    episode_number: int = 0
 
     @classmethod
     def load(cls, path: Path) -> "VideoScript":
@@ -113,6 +118,7 @@ class VideoScript:
                 episodes=episodes,
                 sleep_narration=data.get("sleep_narration", False),
                 vanishing_hours=data.get("vanishing_hours", False),
+                episode_number=data.get("episode_number", 0),
             )
 
         if not data["scenes"]:
