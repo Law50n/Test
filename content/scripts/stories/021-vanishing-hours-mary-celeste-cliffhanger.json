@@ -11,11 +11,11 @@
   ],
   "visual_mode": "video",
   "scenes": [
-    { "text": "In December of 1872, a ship was spotted drifting in the middle of the Atlantic Ocean -- sails still set, moving steadily, with nobody at the helm.", "visual_query": "sailing ship no crew ocean" },
-    { "text": "A crew boarded her expecting to find a wreck. Instead, they found a ship in perfect working order. Cargo untouched. Money and valuables still sitting exactly where they'd been left.", "visual_query": "empty ship deck vintage wood" },
-    { "text": "There was no sign of a struggle anywhere on board. No blood. No damage. Nothing broken.", "visual_query": "old ship railing closeup" },
-    { "text": "The only things missing were the ship's single lifeboat, and every one of the ten people who'd been aboard her -- a captain, his wife, their two-year-old daughter, and seven crew.", "visual_query": "captains cabin empty vintage" },
-    { "text": "None of them were ever seen again. No bodies. No wreckage. Nothing.", "visual_query": "atlantic ocean fog horizon" },
+    { "text": "A ship was found sailing itself in the middle of the ocean. No captain. No crew. Not one person left on board.", "visual_query": "sailing ship no crew ocean" },
+    { "text": "This actually happened, in December of 1872 -- and what the boarding crew found only made it stranger.", "visual_query": "empty ship deck vintage wood" },
+    { "text": "The ship was in perfect working order. Cargo untouched. Money and valuables still sitting exactly where they'd been left.", "visual_query": "old ship railing closeup" },
+    { "text": "No blood. No damage. No sign of a struggle anywhere on board.", "visual_query": "captains cabin empty vintage" },
+    { "text": "The only things missing were the ship's lifeboat, and every one of the ten people who'd been aboard her -- a captain, his wife, their two-year-old daughter, and seven crew. None of them were ever seen again.", "visual_query": "atlantic ocean fog horizon" },
     { "text": "This is the real story of the Mary Celeste -- and most of what you've actually heard about it is fiction, not history. The true story is linked in the description below.", "visual_query": "old book candlelight desk" }
   ]
 }
