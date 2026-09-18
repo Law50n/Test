@@ -1,0 +1,81 @@
+{
+  "category": "stories",
+  "title": "The Mary Celeste: A Ship Found Sailing Itself",
+  "format": "longform",
+  "background_images": [
+    "assets/mary-celeste-ship.jpg",
+    "assets/mary-celeste-ocean.jpg",
+    "assets/mary-celeste-deck.jpg",
+    "assets/mary-celeste-storm.jpg"
+  ],
+  "sources": [
+    "Wikipedia's Mary Celeste entry",
+    "Smithsonian Magazine's \"Abandoned Ship: The Mary Celeste\"",
+    "Royal Museums Greenwich's account of the Mary Celeste mystery",
+    "History.com's coverage of the Mary Celeste's discovery",
+    "History Today's \"A curiosity that has never been satisfied\", on the case and the Conan Doyle myth",
+    "Coverage of Dr. Andrea Sella's 2005 alcohol-vapor explosion reconstruction"
+  ],
+  "id": "017-vanishing-hours-mary-celeste",
+  "description": "In December of 1872, a ship was found drifting in the Atlantic, fully seaworthy, sails still set -- with nobody aboard. Ten people had vanished without a trace, without a struggle, without a single sign of what happened to them. This is the real story, not the legend that grew around it.\n\n#truestory #unsolvedmystery #vanishinghours #marycelestemystery #longform",
+  "tags": ["true story", "unsolved mystery", "mary celeste", "vanishing hours", "longform"],
+  "sleep_narration": true,
+  "scenes": [
+    { "text": "In the winter of 1872, a ship was found drifting in the middle of the Atlantic Ocean. Her sails were still set. Her cargo was untouched. And there was not a single person left aboard her.", "visual_query": "" },
+    { "text": "No struggle. No fire. No damage that could explain it. Just an empty ship, sailing quietly on, as if the ten people who'd been aboard her had simply stepped off into the water and kept walking.", "visual_query": "" },
+    { "text": "This is the real story of the Mary Celeste. Not the version most people have heard -- that one, it turns out, was mostly invented years later. The true version is quieter, stranger, and somehow harder to explain.", "visual_query": "" },
+
+    { "text": "The Mary Celeste was a brigantine, a two-masted sailing ship, and on the seventh of November, 1872, she left New York harbor bound for Genoa, Italy.", "visual_query": "" },
+    { "text": "In her hold sat close to seventeen hundred barrels of industrial alcohol, cargo bound for fortifying Italian wine.", "visual_query": "" },
+    { "text": "Her captain was Benjamin Briggs, well regarded among his peers, experienced, and financially invested in the voyage himself -- he held a personal share in both the ship and her cargo.", "visual_query": "" },
+    { "text": "With him were his wife, Sarah, and their two-year-old daughter, Sophia. This was to be a working voyage the whole family made together.", "visual_query": "" },
+    { "text": "Seven more were aboard: first mate Albert Richardson, second mate Andrew Gilling, steward Edward Head, and four German seamen -- Volkert Lorenzen, Arian Martens, Boz Lorenzen, and Gottlieb Goodschaad.", "visual_query": "" },
+    { "text": "Ten people in total. All of them experienced. None of them, as far as anyone could ever determine, with any reason to want to disappear.", "visual_query": "" },
+
+    { "text": "The night before they sailed, Briggs had dinner in New York with an old friend, Captain David Morehouse. Morehouse commanded another ship, the Dei Gratia, which was due to follow a similar route about a week later.", "visual_query": "" },
+    { "text": "Neither man could have known it then, but that quiet dinner between friends would end up being the reason anyone ever found out what happened to the Mary Celeste at all.", "visual_query": "" },
+
+    { "text": "The ship's final log entry is dated the twenty fifth of November, recording her position near the Azores. After that, nothing. No further entry was ever written.", "visual_query": "" },
+    { "text": "On the fifth of December, more than a week later and some four hundred nautical miles further east, the Dei Gratia's crew spotted a ship moving strangely on the horizon -- sailing, but handled by no one.", "visual_query": "" },
+    { "text": "As they drew closer, Morehouse recognized her immediately. It was Briggs's ship. It was the Mary Celeste.", "visual_query": "" },
+
+    { "text": "A boarding party crossed over to investigate. What they found was not a wreck. It was a ship in working order, moving under partial sail, with no one at the helm and no one anywhere on board.", "visual_query": "" },
+    { "text": "There was water in the hold, but only about three and a half feet of it -- well within what her pumps could have handled, if anyone had still been aboard to work them.", "visual_query": "" },
+    { "text": "One of her two pumps had been taken apart. On deck, they found a makeshift sounding rod, the tool used to measure how much water sat in the hold below -- left out, as if someone had been in the middle of checking it.", "visual_query": "" },
+    { "text": "The ship's single lifeboat was gone. So were her navigational instruments -- her chronometer and sextant -- and her official papers. But her captain's log book had been left behind.", "visual_query": "" },
+    { "text": "Of the seventeen hundred barrels of alcohol in her hold, nine would later be found empty when the cargo was finally unloaded in Genoa. The rest were still full.", "visual_query": "" },
+    { "text": "Personal belongings, money, and valuables -- the crew's and the Briggs family's alike -- were all still aboard. Untouched.", "visual_query": "" },
+    { "text": "Nowhere on the ship was there any sign of violence. No blood. No struggle. No damage that could explain why an experienced captain would order his ship abandoned.", "visual_query": "" },
+    { "text": "Benjamin Briggs, Sarah, Sophia, and all seven crew were never seen again. No bodies were ever recovered. No wreckage from the missing lifeboat was ever found.", "visual_query": "" },
+
+    { "text": "When the Mary Celeste was brought in to Gibraltar, the vice-admiralty court's inquiry, led by Attorney General Frederick Solly-Flood, suspected the worst -- mutiny, murder, insurance fraud, some crime that had emptied the ship of everyone aboard.", "visual_query": "" },
+    { "text": "The inquiry held the ship and her cargo for months. And in the end, for all that suspicion, it never proved that any crime had taken place at all.", "visual_query": "" },
+
+    { "text": "Here is where the story usually goes wrong. Not the real one -- the one most people actually picture when they hear the name Mary Celeste.", "visual_query": "" },
+    { "text": "In 1884, a young doctor and aspiring writer published an anonymous short story loosely based on the case. His name was Arthur Conan Doyle, more than a decade before he'd create Sherlock Holmes.", "visual_query": "" },
+    { "text": "Doyle's fiction described a ship found in an almost undisturbed state, her lifeboat still aboard, everything calm and untouched -- the exact opposite of the real record, where the lifeboat was gone and the ship had clearly been through rough weather.", "visual_query": "" },
+    { "text": "Later retellings added even more -- a hot meal still steaming on the table, coffee still warm on the stove. None of that was ever in the real report. It was invented, decades after the fact, and it stuck.", "visual_query": "" },
+    { "text": "Frederick Solly-Flood himself, the man who had actually led the real Gibraltar inquiry, publicly called Doyle's story, quote, a fabrication from beginning to end. The correction never traveled as far as the fiction did.", "visual_query": "" },
+    { "text": "So if the version you've heard involves a warm breakfast waiting on the table, that part isn't history. The true version has no dinner scene at all. Just a working ship, and ten people who were simply gone.", "visual_query": "" },
+
+    { "text": "The ship herself kept sailing for another twelve years under new owners, gathering a reputation as an unlucky vessel along the way.", "visual_query": "" },
+    { "text": "In 1885, her final owner, a man named Gilman Parker, deliberately ran her aground near Port-au-Prince, Haiti, loaded with cargo he'd falsely overvalued -- a straightforward insurance fraud. It was uncovered quickly. Parker was tried, though never convicted, and he died in poverty within months.", "visual_query": "" },
+    { "text": "That's a real event, and a real court case. But it happened thirteen years after the disappearance, involved none of the original crew, and explains nothing about what actually happened to the ten people who vanished in 1872. It's a separate story that occasionally gets folded into this one.", "visual_query": "" },
+
+    { "text": "So what did happen. The most physically grounded explanation comes not from a historian, but from a chemist.", "visual_query": "" },
+    { "text": "In 2005, Dr. Andrea Sella of University College London recreated conditions similar to what the Mary Celeste's hold may have experienced -- leaking vapor from industrial alcohol barrels, the same cargo she'd been carrying.", "visual_query": "" },
+    { "text": "In his reconstruction, that vapor didn't need an open flame to become dangerous. Under the right conditions, it could flash -- a fast, violent pressure wave, strong enough to blow open the hatches, loud and frightening enough to convince anyone nearby that the ship itself was about to explode.", "visual_query": "" },
+    { "text": "And critically, a flash like that can happen without leaving scorch marks or lasting structural damage behind -- which fits a ship that was later found intact, with nine barrels mysteriously empty.", "visual_query": "" },
+    { "text": "Sella's own conclusion was direct. He called it the most compelling explanation, the one that fits the facts best. Briggs, in this version, ordered everyone into the lifeboat to wait at a safe distance, possibly still tethered to the ship by a line -- and something, a parted rope, a sudden squall, rough water, separated them from the Mary Celeste for good.", "visual_query": "" },
+    { "text": "It's the theory that explains the most with the least invention. What it can't fully explain is why, if they were simply waiting nearby, not one of the ten was ever found, alive or otherwise.", "visual_query": "" },
+
+    { "text": "Other explanations exist too, each attributed to whoever actually proposed them, none of them proven.", "visual_query": "" },
+    { "text": "Some historians, including a descendant of Briggs's own family, have pointed to a sudden storm or a waterspout -- violent enough to make the crew believe, wrongly, that the ship was sinking beneath them. The ship's final logged days do describe rough conditions, but no specific storm at that exact place and time was ever independently confirmed.", "visual_query": "" },
+    { "text": "The original Gibraltar inquiry, under Solly-Flood, pursued mutiny hardest -- the idea that the crew turned on Briggs and his family, perhaps drunk on the very cargo they were carrying. It was the official suspicion of the time. It was also never supported by a single trace of violence anywhere on the ship.", "visual_query": "" },
+    { "text": "A fringe theory even suggested Briggs staged his own disappearance for insurance money. It's rarely taken seriously by historians -- a man with a real financial stake in his own ship's safe arrival, and his wife and two-year-old daughter aboard with him, had little apparent reason to sabotage the voyage himself.", "visual_query": "" },
+
+    { "text": "What's left, in the end, is a genuinely strange kind of mystery -- not violent, not sensational, just quietly, thoroughly unexplained.", "visual_query": "" },
+    { "text": "A ship that never stopped being seaworthy. A cargo that was barely touched. Money and belongings left exactly where they'd been set down. And ten people who stepped away from all of it, into the ocean, and were never seen again.", "visual_query": "" },
+    { "text": "More than a hundred and fifty years later, the Mary Celeste is still out there, in a sense -- not as a ghost ship, just as a question nobody was ever able to fully close.", "visual_query": "" }
+  ]
+}

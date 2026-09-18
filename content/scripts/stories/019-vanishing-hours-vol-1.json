@@ -1,0 +1,12 @@
+{
+  "category": "stories",
+  "id": "019-vanishing-hours-vol-1",
+  "title": "The Vanishing Hours -- Episode 1: The Mary Celeste",
+  "description": "Real, sourced cases of people who vanished without explanation -- calmly told, perfect for falling asleep to. Episode 1: in 1872, a fully seaworthy ship was found adrift in the Atlantic. Her cargo was untouched, her sails still set. Ten people who'd been aboard her were simply gone.\n\nEvery case in this series is real and sourced -- see the sources list.\n\n#truestory #unsolvedmystery #vanishinghours #sleepstories #marycelestemystery",
+  "tags": ["true story", "unsolved mystery", "vanishing hours", "sleep stories", "mary celeste", "longform"],
+  "format": "compilation",
+  "episodes": ["017-vanishing-hours-mary-celeste.json"],
+  "vanishing_hours": true,
+  "sleep_narration": true,
+  "episode_number": 1
+}
