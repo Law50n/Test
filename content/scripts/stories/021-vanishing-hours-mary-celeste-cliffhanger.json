@@ -1,0 +1,21 @@
+{
+  "category": "stories",
+  "id": "021-vanishing-hours-mary-celeste-cliffhanger",
+  "title": "A Ship Was Found Sailing Itself In The Middle Of The Ocean. Nobody Was Ever Found.",
+  "description": "In 1872, a fully seaworthy ship was found drifting in the Atlantic -- sails still set, cargo untouched, not a single person aboard. Ten people vanished without a trace. And most of what you've heard about this case isn't even true.\n\nThe real story is linked in the description below.\n\n#shorts #truestory #unsolvedmystery #vanishinghours #marycelestemystery",
+  "tags": ["true story", "unsolved mystery", "mary celeste", "vanishing hours", "shorts"],
+  "sources": [
+    "Wikipedia's Mary Celeste entry",
+    "Smithsonian Magazine's \"Abandoned Ship: The Mary Celeste\"",
+    "History Today's \"A curiosity that has never been satisfied\", on the case and the Conan Doyle myth"
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "In December of 1872, a ship was spotted drifting in the middle of the Atlantic Ocean -- sails still set, moving steadily, with nobody at the helm.", "visual_query": "sailing ship no crew ocean" },
+    { "text": "A crew boarded her expecting to find a wreck. Instead, they found a ship in perfect working order. Cargo untouched. Money and valuables still sitting exactly where they'd been left.", "visual_query": "empty ship deck vintage wood" },
+    { "text": "There was no sign of a struggle anywhere on board. No blood. No damage. Nothing broken.", "visual_query": "old ship railing closeup" },
+    { "text": "The only things missing were the ship's single lifeboat, and every one of the ten people who'd been aboard her -- a captain, his wife, their two-year-old daughter, and seven crew.", "visual_query": "captains cabin empty vintage" },
+    { "text": "None of them were ever seen again. No bodies. No wreckage. Nothing.", "visual_query": "atlantic ocean fog horizon" },
+    { "text": "This is the real story of the Mary Celeste -- and most of what you've actually heard about it is fiction, not history. The true story is linked in the description below.", "visual_query": "old book candlelight desk" }
+  ]
+}
