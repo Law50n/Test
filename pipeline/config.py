@@ -16,6 +16,9 @@ class Config:
     pexels_api_key: str
     tts_engine: str
     tts_voice: str
+    tts_rate: str
+    tts_voice_sleep: str
+    tts_rate_sleep: str
     video_format: str
     piper_model_path: str
     piper_speaker_id: int
@@ -46,6 +49,14 @@ class Config:
             pexels_api_key=os.environ.get("PEXELS_API_KEY", "").strip(),
             tts_engine=os.environ.get("TTS_ENGINE", "edge").strip(),
             tts_voice=os.environ.get("TTS_VOICE", "en-US-GuyNeural").strip(),
+            tts_rate=os.environ.get("TTS_RATE", "+0%").strip(),
+            # Used instead of TTS_VOICE/TTS_RATE for any script with
+            # "sleep_narration": true -- see script_loader.VideoScript and
+            # "The Vanishing Hours" in CLAUDE.md. Only wired up for
+            # TTS_ENGINE=edge today (edge-tts is the only engine this file
+            # passes a rate string through to).
+            tts_voice_sleep=os.environ.get("TTS_VOICE_SLEEP", "en-GB-RyanNeural").strip(),
+            tts_rate_sleep=os.environ.get("TTS_RATE_SLEEP", "-10%").strip(),
             video_format=video_format,
             piper_model_path=os.environ.get("PIPER_MODEL_PATH", "voices/en-us-libritts-high.onnx").strip(),
             piper_speaker_id=int(os.environ.get("PIPER_SPEAKER_ID", "90")),

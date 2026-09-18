@@ -5,6 +5,7 @@ horizontal) video and a thumbnail out per script.
     python -m pipeline.run content/scripts/tech/*.json   # a whole category
 """
 import argparse
+import dataclasses
 import glob
 import shutil
 import sys
@@ -61,6 +62,12 @@ def _compose_metadata(script: VideoScript) -> str:
 
 def build(script_path: Path, cfg: Config, out_dir: Path) -> None:
     script = VideoScript.load(script_path)
+    if script.sleep_narration:
+        # Swap in the calmer voice/rate for this whole render -- checked
+        # once here rather than per-scene, so a "compilation" wrapper's
+        # flag alone covers its stitched-in episodes too without each of
+        # them needing their own copy of it.
+        cfg = dataclasses.replace(cfg, tts_voice=cfg.tts_voice_sleep, tts_rate=cfg.tts_rate_sleep)
     if script.format == "compilation":
         build_compilation(script, cfg, out_dir)
     elif script.format == "longform":

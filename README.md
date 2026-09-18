@@ -70,6 +70,9 @@ Output lands in `output/<category>/<script-id>/`: `video.mp4`, `thumbnail.jpg`,
 | `PEXELS_API_KEY` | (empty) | leave unset to use placeholder visuals |
 | `TTS_ENGINE` | `edge` | `edge` (free, natural, needs internet), `piper` (free, natural, fully offline — see below), or `offline` (espeak-ng, robotic, no download needed) |
 | `TTS_VOICE` | `en-US-GuyNeural` | any voice from `edge-tts --list-voices` (only used by `TTS_ENGINE=edge`) |
+| `TTS_RATE` | `+0%` | speech rate offset, e.g. `-10%` slower; only used by `TTS_ENGINE=edge` |
+| `TTS_VOICE_SLEEP` | `en-GB-RyanNeural` | used instead of `TTS_VOICE` for any script with `"sleep_narration": true` — see "The Vanishing Hours" in CLAUDE.md |
+| `TTS_RATE_SLEEP` | `-10%` | used instead of `TTS_RATE` for the same scripts |
 | `PIPER_MODEL_PATH` | `voices/en-us-libritts-high.onnx` | only used by `TTS_ENGINE=piper` |
 | `PIPER_SPEAKER_ID` | `90` | LibriTTS is a 904-speaker model; only used by `TTS_ENGINE=piper` |
 | `PIPER_SENTENCE_SILENCE` | `0.35` | pause (seconds) between sentences within a scene; only used by `TTS_ENGINE=piper` |

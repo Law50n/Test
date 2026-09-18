@@ -61,6 +61,14 @@ class VideoScript:
     # lives under category "fiction" instead, which needs no sourcing at
     # all -- see content/scripts/fiction/.
     sources: list[str] = field(default_factory=list)
+    # Swaps in Config.tts_voice_sleep/tts_rate_sleep for this script's whole
+    # render instead of the regular TTS_VOICE/rate -- run.py::build() checks
+    # this once per top-level script, so a "compilation" wrapper only needs
+    # it set on the wrapper itself, not on every episode it stitches
+    # together. Set it on a standalone episode too if it might ever be
+    # rendered on its own outside the compilation. See "The Vanishing
+    # Hours" in CLAUDE.md.
+    sleep_narration: bool = False
 
     @classmethod
     def load(cls, path: Path) -> "VideoScript":
@@ -97,6 +105,7 @@ class VideoScript:
                 scenes=[],
                 format=video_format,
                 episodes=episodes,
+                sleep_narration=data.get("sleep_narration", False),
             )
 
         if not data["scenes"]:
@@ -152,4 +161,5 @@ class VideoScript:
             format=video_format,
             background_images=background_images,
             sources=sources,
+            sleep_narration=data.get("sleep_narration", False),
         )

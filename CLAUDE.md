@@ -238,3 +238,35 @@ Follow the research -> writing -> skeptic-check process in
 `docs/episode-workflow.md` for every real-case episode, especially
 longform ones -- it's what actually keeps the above rules from drifting
 as an episode gets drafted.
+
+# "The Vanishing Hours" -- calm, longform sleep series
+
+A distinct format within `stories`/Mysteries, not a replacement for the
+regular Shorts/longform mix: 1-2 hour compilations of real, sourced
+cases meant to play in the background while falling asleep, built with
+`pipeline/run.py`'s existing `format: "compilation"` mechanism (several
+`format: "longform"` episode scripts stitched together with a short
+spoken transition between each -- see `run.py::build_compilation`).
+Nothing new needed there; what's specific to this series:
+
+- **Case selection stays deliberately low-violence and atmosphere-first**
+  -- unidentified people, disappearances, things left unexplained, not
+  graphic crime. The point is unsettling-but-calm, not alert/adrenaline;
+  a vivid description of violence undermines the format's actual job
+  (see the Axeman discussion this series grew out of -- gore keeps
+  people awake, it doesn't ease them toward sleep). Isdal Woman, Somerton
+  Man, and the Mary Celeste are the first lineup.
+- **Writing tone is genuinely different from the rest of the channel's
+  scripts**: longer, slower-building sentences, no punchy cold-open
+  hooks or rhetorical jabs, nothing written to spike attention. Still
+  follows every rule in the section above (real/checkable claims,
+  disputed theories hedged and attributed, real non-empty `sources`) --
+  the tone changes, the accuracy bar doesn't.
+- **Narration voice/rate swap automatically** -- set
+  `"sleep_narration": true` on a script and `run.py::build()` renders it
+  with `TTS_VOICE_SLEEP`/`TTS_RATE_SLEEP` (`.env`, defaults
+  `en-GB-RyanNeural` / `-10%`) instead of the regular
+  `TTS_VOICE`/`TTS_RATE`. Set it on the `"compilation"` wrapper script
+  and it covers every episode stitched into it automatically -- no need
+  to also set it on each individual episode file unless that episode
+  might ever be rendered standalone outside the compilation too.

@@ -20,7 +20,7 @@ def synthesize(text: str, out_mp3: Path, cfg: Config) -> list[dict]:
     start of this clip. Empty list if the engine can't provide word timing.
     """
     if cfg.tts_engine == "edge":
-        return asyncio.run(_synthesize_edge(text, out_mp3, cfg.tts_voice))
+        return asyncio.run(_synthesize_edge(text, out_mp3, cfg.tts_voice, cfg.tts_rate))
     if cfg.tts_engine == "offline":
         return _synthesize_offline(text, out_mp3)
     if cfg.tts_engine == "piper":
@@ -52,12 +52,12 @@ def synthesize(text: str, out_mp3: Path, cfg: Config) -> list[dict]:
     )
 
 
-async def _synthesize_edge(text: str, out_mp3: Path, voice: str) -> list[dict]:
+async def _synthesize_edge(text: str, out_mp3: Path, voice: str, rate: str = "+0%") -> list[dict]:
     import edge_tts
 
     words: list[dict] = []
     try:
-        communicate = edge_tts.Communicate(text, voice)
+        communicate = edge_tts.Communicate(text, voice, rate=rate)
         with open(out_mp3, "wb") as f:
             async for chunk in communicate.stream():
                 if chunk["type"] == "audio":
