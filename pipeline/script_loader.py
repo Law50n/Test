@@ -69,6 +69,12 @@ class VideoScript:
     # rendered on its own outside the compilation. See "The Vanishing
     # Hours" in CLAUDE.md.
     sleep_narration: bool = False
+    # "compilation" only: prepends run.py's fixed VANISHING_HOURS_INTRO
+    # line before episode 1, spoken and rendered the same way as the
+    # inter-episode "Case N" transitions. Kept as its own flag rather
+    # than folded into sleep_narration so a future non-"Vanishing Hours"
+    # sleep-toned series doesn't inherit this show's specific intro line.
+    vanishing_hours: bool = False
 
     @classmethod
     def load(cls, path: Path) -> "VideoScript":
@@ -106,6 +112,7 @@ class VideoScript:
                 format=video_format,
                 episodes=episodes,
                 sleep_narration=data.get("sleep_narration", False),
+                vanishing_hours=data.get("vanishing_hours", False),
             )
 
         if not data["scenes"]:

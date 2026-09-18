@@ -1,0 +1,21 @@
+{
+  "category": "stories",
+  "id": "018-vanishing-hours-somerton-man-cliffhanger",
+  "title": "He Was Found Dead With No Name. Hidden In His Pocket Was A Two-Word Note.",
+  "description": "In 1948, a man was found dead on an Australian beach. No ID, no name, every label cut from his clothes -- and a secret pocket hiding a two-word note that's never been fully explained.\n\nThis is one of three real cases in The Vanishing Hours -- true stories, calmly told. The full episode is linked below.\n\n#shorts #truestory #unsolvedmystery #vanishinghours",
+  "tags": ["true story", "unsolved mystery", "somerton man", "vanishing hours", "shorts"],
+  "sources": [
+    "Wikipedia's Somerton Man entry",
+    "Smithsonian Magazine's coverage of the Somerton Man case and its 2022 DNA identification",
+    "ABC News's \"Tamam Shud and the five other clues that have failed to solve the Somerton Man mystery\""
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "In December of 1948, a man was found dead on a beach in Australia. No wallet. No ID. Every label had been cut out of his clothes.", "visual_query": "empty beach dawn australia" },
+    { "text": "Nobody could identify him. Not his fingerprints, not his dental records -- nothing, for over seventy years.", "visual_query": "vintage police file cabinet" },
+    { "text": "Then a pathologist found something the first examination had missed: a tiny hidden pocket, sewn into his trousers.", "visual_query": "sewing seam fabric closeup" },
+    { "text": "Inside it was a scrap of paper, torn from a book, with two words printed on it: 'Tamam Shud.' Persian for 'it is finished.'", "visual_query": "torn paper scrap closeup" },
+    { "text": "That wasn't even the strangest part. The book turned up weeks later, with a code written inside that's never been cracked, and a phone number that led straight to a woman who denied ever knowing him.", "visual_query": "handwritten code notebook closeup" },
+    { "text": "This is one of three real cases in The Vanishing Hours -- true stories, calmly told, perfect for falling asleep to. The full episode is linked in the description below.", "visual_query": "candle flame dark room" }
+  ]
+}

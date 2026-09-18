@@ -34,6 +34,18 @@ DEFAULT_CHANNEL = "Facts"
 
 _FICTION_DISCLOSURE = "This is a work of fiction. It is not a true story."
 
+# Spoken once, identically, at the start of every "The Vanishing Hours"
+# compilation -- see script.vanishing_hours in build_compilation(). Kept
+# short and mood-setting on purpose: no spoken subscribe ask, since a
+# verbal CTA is exactly the "corny/annoying" risk for calm sleep content.
+# Any subscribe nudge for this series is meant to be a brief, silent-ish
+# visual/audio cue instead (not yet implemented).
+VANISHING_HOURS_INTRO = (
+    "Welcome to The Vanishing Hours. Every case tonight really happened, "
+    "and every one of them is still, genuinely, unexplained. Get "
+    "comfortable. Let's begin."
+)
+
 
 def _compose_metadata(script: VideoScript) -> str:
     """Builds metadata.txt's content, folding script.sources into a
@@ -410,6 +422,23 @@ def build_compilation(script: VideoScript, cfg: Config, out_dir: Path) -> None:
         all_captions: list[dict] = []
         cursor = 0.0
         first_image: Path | None = None
+
+        if script.vanishing_hours:
+            first_episode = VideoScript.load(script.episodes[0])
+            intro_audio = tmp_dir / "series_intro.mp3"
+            intro_duration = _synthesize_scene(VANISHING_HOURS_INTRO, intro_audio, cfg, cursor, all_captions)
+            cursor += intro_duration
+            narration_paths.append(intro_audio)
+
+            intro_bg = tmp_dir / "series_intro_bg.mp4"
+            assemble.make_hero_clip(
+                first_episode.background_images[0],
+                intro_duration + assemble.LONGFORM_CROSSFADE_DURATION,
+                intro_bg,
+                cfg.size,
+                zoom_in=True,
+            )
+            background_paths.append(intro_bg)
 
         for ep_idx, ep_path in enumerate(script.episodes):
             episode = VideoScript.load(ep_path)
