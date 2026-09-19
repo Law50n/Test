@@ -1,0 +1,18 @@
+{
+  "category": "finance",
+  "id": "006-bitcoin-pizza-day",
+  "title": "He Traded 10,000 Bitcoin For Two Pizzas",
+  "description": "In 2010, a programmer paid 10,000 Bitcoin for two pizzas -- the first real-world purchase ever made with it. Here's what those coins would be worth today.\n\n#shorts #financefacts #bitcoin #didyouknow",
+  "tags": ["finance facts", "bitcoin", "crypto history", "did you know", "shorts"],
+  "visual_mode": "video",
+  "thumbnail_highlight": "Pizzas",
+  "scenes": [
+    { "text": "In May of 2010, a Florida programmer named Laszlo Hanyecz posted online offering ten thousand Bitcoin to anyone willing to order him two pizzas.", "visual_query": "pizza box delivery closeup" },
+    { "text": "A nineteen year old on the same forum took him up on it, ordered two large Papa John's pizzas, and delivered them in exchange for the coins.", "visual_query": "person typing forum laptop" },
+    { "text": "At the time, ten thousand Bitcoin was worth about forty one dollars. It was the first known real-world purchase ever made with it.", "visual_query": "vintage computer desk 2010" },
+    { "text": "Bitcoin's price has moved a long way since then. As of one recent pricing snapshot, that same ten thousand coins would be worth well over seven hundred million dollars.", "visual_query": "bitcoin coin gold closeup" },
+    { "text": "Hanyecz has said publicly, more than once, that he doesn't regret it -- somebody had to actually spend the stuff to prove it worked as real money.", "visual_query": "hand holding smartphone crypto app" },
+    { "text": "Every year on May twenty second, the crypto world marks the anniversary as Bitcoin Pizza Day.", "visual_query": "calendar date circled marker" },
+    { "text": "If you had ten thousand Bitcoin sitting untouched right now, would you actually be able to leave it alone?", "visual_query": "stack of cash money table" }
+  ]
+}
