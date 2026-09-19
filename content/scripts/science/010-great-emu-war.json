@@ -1,11 +1,10 @@
 {
   "category": "science",
   "id": "010-great-emu-war",
-  "title": "Australia Declared War On Emus. The Emus Won.",
+  "title": "This Army Lost A War To Birds",
   "description": "In 1932, the Australian military sent soldiers with machine guns to deal with an emu problem. It did not go well for the soldiers.\n\n#shorts #sciencefacts #history #didyouknow",
   "tags": ["science facts", "history", "australia", "emu war", "did you know", "shorts"],
   "visual_mode": "video",
-  "thumbnail_highlight": "Won",
   "scenes": [
     { "text": "In 1932, Australia declared war on emus. The emus won.", "visual_query": "emu bird standing outback" },
     { "text": "Farmers in Western Australia were dealing with around twenty thousand emus trampling crops, and asked the government for military help.", "visual_query": "wheat farm outback aerial" },
