@@ -1,0 +1,16 @@
+{
+  "category": "idioms",
+  "id": "002-rule-of-thumb-myth",
+  "title": "The Dark Origin Story Behind \"Rule Of Thumb\" Is Actually False",
+  "description": "You've probably heard where the phrase \"rule of thumb\" supposedly comes from. That story isn't true -- here's what etymologists have actually found.\n\n#shorts #idioms #etymology #didyouknow",
+  "tags": ["idioms", "etymology", "word origins", "did you know", "shorts"],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "You've probably heard that \"rule of thumb\" comes from an old law letting a man beat his wife with a stick no wider than his thumb. That law never existed.", "visual_query": "old book pages closeup" },
+    { "text": "Historians and etymologists have searched for it. No such law has ever turned up in any legal record, anywhere.", "visual_query": "old library books shelf" },
+    { "text": "The claim actually only started spreading in the 1970s, when it got repeated in legal and academic writing about domestic abuse -- and from there, it was treated as settled fact.", "visual_query": "vintage typewriter paper closeup" },
+    { "text": "The real origin is much older, and far more ordinary. The phrase shows up in print as early as the 1600s, describing using your thumb as a rough, practical measurement -- close enough, without needing exact tools.", "visual_query": "hand measuring wood craftsman" },
+    { "text": "So the actual story here isn't dark at all. It's an ordinary measuring phrase that somehow picked up a completely invented, disturbing backstory three centuries later.", "visual_query": "old handwritten letter 1600s" },
+    { "text": "Had you heard the wife-beating version before, and were you surprised the law behind it never actually existed?", "visual_query": "vintage compass old map" }
+  ]
+}
