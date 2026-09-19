@@ -1,0 +1,17 @@
+{
+  "category": "science",
+  "id": "011-wow-signal",
+  "title": "A Signal From Space Was So Strange, A Scientist Wrote 'Wow!' Next To It",
+  "description": "In 1977, a radio telescope picked up a signal so unusual that the astronomer reviewing it circled the reading and wrote 'Wow!' in the margin. Decades later, it's still debated.\n\n#shorts #sciencefacts #space #didyouknow",
+  "tags": ["science facts", "space facts", "astronomy", "wow signal", "did you know", "shorts"],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "In August of 1977, a radio telescope in Ohio picked up a signal so unusual that the astronomer reviewing the printout circled it and wrote a single word in the margin: Wow!", "visual_query": "radio telescope dish array" },
+    { "text": "The signal lasted seventy two seconds, was far stronger than the background noise around it, and came from the direction of the constellation Sagittarius.", "visual_query": "night sky constellation stars" },
+    { "text": "It was never detected again, despite astronomers pointing telescopes back at that exact patch of sky many times since.", "visual_query": "observatory dome night exterior" },
+    { "text": "In 2017, a research team proposed an explanation: two previously undiscovered comets passing through that same patch of sky, since comets can give off a faint hydrogen radio signal of their own.", "visual_query": "comet tail deep space" },
+    { "text": "That explanation is genuinely disputed, though -- other astronomers have pointed out problems with the comets' actual position and brightness that don't fully line up.", "visual_query": "scientist reviewing data screen" },
+    { "text": "So the honest answer, decades later, is that nobody has definitively explained it. The comet idea is a real, published theory, not a settled one.", "visual_query": "vintage printout paper data" },
+    { "text": "If a signal like that showed up again tomorrow, do you think it would turn out to be something natural, or something else?", "visual_query": "milky way night sky wide" }
+  ]
+}
