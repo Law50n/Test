@@ -1,0 +1,17 @@
+{
+  "category": "science",
+  "id": "012-vantablack",
+  "title": "This Is The Blackest Material Ever Made",
+  "description": "Vantablack absorbs 99.965% of the light that hits it -- so much that objects coated in it look flat, like a hole cut into reality. Here's how it actually works.\n\n#shorts #sciencefacts #didyouknow",
+  "tags": ["science facts", "materials science", "vantablack", "did you know", "shorts"],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "This material absorbs 99.965% of the light that hits it. It's called Vantablack, and it's the blackest substance ever made.", "visual_query": "pure black object studio" },
+    { "text": "It isn't paint. It's a dense forest of carbon nanotubes, grown straight up, each one about 3,500 times thinner than a human hair.", "visual_query": "microscopic nanotube structure closeup" },
+    { "text": "Light hitting that forest gets trapped, bouncing between nanotube walls over and over, losing energy as heat each time, until almost none escapes.", "visual_query": "light rays bouncing dark" },
+    { "text": "Objects coated in it stop looking three dimensional at all. A crumpled sheet just reads as a flat black shape, like a hole cut into the image.", "visual_query": "crumpled object silhouette flat" },
+    { "text": "It's used on real spacecraft instruments and telescopes, where blocking out stray light lets sensors pick up incredibly faint signals they'd otherwise miss.", "visual_query": "space telescope instrument closeup" },
+    { "text": "In 2016, artist Anish Kapoor secured exclusive rights to use it in art. Other artists were furious -- one, Stuart Semple, responded by making a hot pink paint available to everyone in the world except Kapoor.", "visual_query": "art gallery dark exhibit" },
+    { "text": "Would you actually want something in your house painted in the blackest material ever made?", "visual_query": "dark room minimal interior" }
+  ]
+}
