@@ -1,0 +1,18 @@
+{
+  "category": "science",
+  "id": "010-great-emu-war",
+  "title": "Australia Declared War On Emus. The Emus Won.",
+  "description": "In 1932, the Australian military sent soldiers with machine guns to deal with an emu problem. It did not go well for the soldiers.\n\n#shorts #sciencefacts #history #didyouknow",
+  "tags": ["science facts", "history", "australia", "emu war", "did you know", "shorts"],
+  "visual_mode": "video",
+  "thumbnail_highlight": "Won",
+  "scenes": [
+    { "text": "In 1932, Australia declared war on emus. The emus won.", "visual_query": "emu bird standing outback" },
+    { "text": "Farmers in Western Australia were dealing with around twenty thousand emus trampling crops, and asked the government for military help.", "visual_query": "wheat farm outback aerial" },
+    { "text": "The Royal Australian Artillery sent three soldiers, two mounted machine guns, and ten thousand rounds of ammunition, to cull the birds.", "visual_query": "vintage machine gun tripod" },
+    { "text": "It went badly almost immediately. The guns jammed constantly, and emus can run over thirty miles an hour, far faster than anyone expected.", "visual_query": "emu running fast outback" },
+    { "text": "Each emu group even posted its own lookout bird, which would spot the soldiers early and scatter the rest before a single shot landed.", "visual_query": "emu alert head turning" },
+    { "text": "After a month of fighting, fewer than a thousand emus had been killed, out of the original ten thousand rounds fired. The military withdrew, and news of the loss made headlines worldwide.", "visual_query": "vintage newspaper headline 1930s" },
+    { "text": "If you were in charge, what would you have tried differently to win the Emu War?", "visual_query": "outback sunset horizon" }
+  ]
+}
