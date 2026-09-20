@@ -7,11 +7,11 @@
   "visual_mode": "video",
   "scenes": [
     { "text": "This banknote was worth about thirty dollars on the very first day it was ever printed.", "visual_query": "banknote closeup texture" },
-    { "text": "It's a real, genuine currency note -- for one hundred trillion dollars.", "visual_query": "stack of banknotes large numbers" },
+    { "text": "It's a real, genuine currency note -- for one hundred trillion dollars.", "visual_query": "stack of banknotes large numbers", "local_image": "assets/zimbabwe-note-front.jpg" },
     { "text": "It was issued by Zimbabwe in January of 2009, during a currency collapse so severe that prices were doubling roughly every twenty four hours.", "visual_query": "zimbabwe currency crisis" },
     { "text": "At its peak, the country's annual inflation rate was estimated at 89.7 sextillion percent -- a number with 21 zeros after it.", "visual_query": "large numbers calculator screen" },
     { "text": "The note was pulled from circulation just three months after release, when the country abandoned its own currency completely.", "visual_query": "empty bank counter closed" },
-    { "text": "Because it lost almost all its value within days, most of these notes were never actually spent -- which is exactly why so many still exist today in perfect, uncirculated condition.", "visual_query": "collector currency display case" },
+    { "text": "Because it lost almost all its value within days, most of these notes were never actually spent -- which is exactly why so many still exist today in perfect, uncirculated condition.", "visual_query": "collector currency display case", "local_image": "assets/zimbabwe-note-collector.jpg" },
     { "text": "Would you keep a genuine hundred trillion dollar note as a souvenir, even knowing it's worthless?", "visual_query": "hand holding old banknote" }
   ]
 }
