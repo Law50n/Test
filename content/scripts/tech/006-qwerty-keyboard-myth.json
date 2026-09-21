@@ -1,0 +1,16 @@
+{
+  "category": "tech",
+  "id": "006-qwerty-keyboard-myth",
+  "title": "Your Keyboard Wasn't Designed To Slow You Down",
+  "description": "You've probably heard QWERTY was deliberately designed to slow typists down so old typewriters wouldn't jam. The patent itself says nothing of the kind -- and there's a real competing theory for where the layout actually came from.\n\n#shorts #techfacts #qwerty #didyouknow",
+  "tags": ["tech facts", "qwerty", "keyboard history", "did you know", "shorts"],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "You've probably heard that the QWERTY keyboard was deliberately designed to slow typists down, so old mechanical typewriters wouldn't jam. That story doesn't actually hold up.", "visual_query": "old typewriter qwerty keys" },
+    { "text": "Early typewriters really did jam -- their metal type-arms could clash and lock together if you struck certain letters too quickly, one right after another.", "visual_query": "old typewriter metal arms mechanism" },
+    { "text": "But when Christopher Latham Sholes patented the QWERTY layout in 1878, the patent itself never mentions slowing typists down as the goal -- and at the time, nobody could type fast enough for that to even be a problem. Touch typing hadn't been invented yet.", "visual_query": "antique typewriter patent document" },
+    { "text": "In 2011, researchers at Kyoto University proposed a different explanation: that the layout was actually shaped by early telegraph operators, arranging keys to transcribe Morse code efficiently -- not by a plan to hobble anyone.", "visual_query": "telegraph morse code key vintage" },
+    { "text": "There's a twist to the 'better keyboard' story too. A famous World War Two Navy study claimed the Dvorak layout made typists dramatically faster -- that study was later found to be biased, and partly overseen by Dvorak himself. More careful modern testing puts the real advantage at around five to ten percent, nowhere near the dramatic leap most people have heard.", "visual_query": "computer keyboard typing hands" },
+    { "text": "Have you ever actually tried typing on a different keyboard layout?", "visual_query": "person typing computer keyboard fast" }
+  ]
+}
