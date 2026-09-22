@@ -1,0 +1,23 @@
+{
+  "category": "science",
+  "id": "013-lake-natron-calcified-animals",
+  "title": "The Lake That 'Turns Animals To Stone' Isn't Doing What You Think",
+  "description": "Viral photos show birds and bats perfectly preserved, like they turned to stone in a lake in Tanzania. That's not quite what's happening -- and the real explanation involves a one-of-a-kind volcano and 2.5 million flamingos.\n\n#shorts #sciencefacts #naturefacts #didyouknow",
+  "tags": ["science facts", "lake natron", "nature facts", "myth busting", "did you know", "shorts"],
+  "sources": [
+    "Smithsonian Magazine's \"This Alkaline African Lake Turns Animals to Stone\"",
+    "Wikipedia's Lake Natron entry",
+    "Wikipedia's Natrocarbonatite entry on Ol Doinyo Lengai's lava",
+    "Coverage of photographer Nick Brandt's calcified-animal photo series (National Geographic, PetaPixel)"
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "There's a lake in Tanzania where photographers have found birds and bats perfectly preserved, frozen mid-pose, looking like they turned to stone. The real explanation is stranger than the photos suggest.", "visual_query": "tanzania lake landscape aerial" },
+    { "text": "Lake Natron's water is thick with dissolved minerals from a nearby volcano -- so alkaline its pH tops 12, and hot enough in places to reach 140 degrees Fahrenheit.", "visual_query": "red alkaline lake surface" },
+    { "text": "That chemistry comes from Ol Doinyo Lengai, the only volcano on Earth known to erupt this specific type of mineral-rich lava, which has been draining into the lake for thousands of years.", "visual_query": "african volcano lava landscape" },
+    { "text": "Animals don't turn to stone on contact, though. The lake's surface is so mirror-flat and reflective that birds mistake it for open sky and crash into it, the same way birds fly into windows. It's only after they die that the water's minerals calcify their bodies.", "visual_query": "still water reflection mirror surface" },
+    { "text": "Photographer Nick Brandt found the calcified bodies already preserved along the shoreline, and posed them in lifelike positions for the photos that went viral.", "visual_query": "shoreline mineral deposits closeup" },
+    { "text": "And despite all of that, this same lake is the single most important birthplace on Earth for lesser flamingos -- about seventy five percent of the entire world's population is born on its shores, because almost nothing else can survive there long enough to compete with them.", "visual_query": "flamingos flock pink lake" },
+    { "text": "Would you have guessed a lake like that is actually a safe haven for a species, not a death trap?", "visual_query": "flamingo closeup wildlife" }
+  ]
+}
