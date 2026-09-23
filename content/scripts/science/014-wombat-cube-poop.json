@@ -1,0 +1,21 @@
+{
+  "category": "science",
+  "id": "014-wombat-cube-poop",
+  "title": "This Animal Poops In Perfect Cubes, And Scientists Just Figured Out Why",
+  "description": "Wombats are the only known animal whose droppings come out as actual cubes -- flat sides, real corners. It took engineers until 2018 to work out how, and the answer is inside their intestines.\n\n#shorts #sciencefacts #wombat #didyouknow",
+  "tags": ["science facts", "wombat", "animal facts", "weird nature", "did you know", "shorts"],
+  "sources": [
+    "Smithsonian Magazine's \"Wombats Poop Cubes, and Scientists Finally Got to the Bottom of It\"",
+    "National Geographic's \"Wombats have buns of steel -- and they poop in cubes. Here's why.\"",
+    "ScienceDaily's coverage of Patricia Yang's Georgia Tech research, presented at the American Physical Society's Division of Fluid Dynamics meeting"
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "There's an animal that produces droppings shaped like near-perfect cubes -- not round, not oval, actual cubes with flat sides and corners. It's the only species known to do this.", "visual_query": "wombat closeup australia" },
+    { "text": "For decades, nobody knew how. Wombats don't have a cube-shaped opening -- the shape somehow forms on the way out.", "visual_query": "wombat walking grass" },
+    { "text": "In 2018, engineers at Georgia Tech traced the answer to the wombat's own intestines. Sections of the intestinal wall stretch unevenly -- stiffer patches form the flat faces, and more flexible zones pull the corners into shape.", "visual_query": "digestive system illustration animal" },
+    { "text": "By the time the waste reaches the last stretch of the intestine, it's also lost most of its water, which is what lets it hold the cube shape instead of collapsing back round.", "visual_query": "dry cracked earth texture" },
+    { "text": "And it's not just a strange accident. A single wombat can produce up to a hundred of these two centimeter cubes in one night, stacking them on logs and rocks to mark territory -- cubes don't roll off. Round droppings would.", "visual_query": "log rock outdoor australian bush" },
+    { "text": "Did you already know wombat poop was cube shaped, or is this the first you're hearing of it?", "visual_query": "wombat burrow entrance" }
+  ]
+}
