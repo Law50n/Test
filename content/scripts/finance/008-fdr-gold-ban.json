@@ -1,0 +1,22 @@
+{
+  "category": "finance",
+  "id": "008-fdr-gold-ban",
+  "title": "For 41 Years, It Was Illegal To Own Gold In The United States",
+  "description": "In 1933, the US government made it illegal for ordinary Americans to own more than a small amount of gold. The ban lasted over four decades, and there's a real twist in how much the government paid people for it versus what it was worth a year later.\n\n#shorts #financefacts #didyouknow",
+  "tags": ["finance facts", "gold ban", "great depression", "us history", "did you know", "shorts"],
+  "sources": [
+    "Wikipedia's Executive Order 6102 entry",
+    "Federal Reserve History's \"Gold Reserve Act of 1934\"",
+    "The American Presidency Project's text of Executive Order 6102",
+    "Wikipedia's List of Executive Actions by Gerald Ford, on Executive Order 11825"
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "For over forty years, it was illegal for an ordinary American to own more than a small amount of gold. This actually happened, and most people have never heard of it.", "visual_query": "gold bars stacked closeup" },
+    { "text": "In 1933, in the middle of the Great Depression, President Franklin Roosevelt signed Executive Order 6102, ordering Americans to hand over their gold coins, bars, and certificates to the government.", "visual_query": "1930s bank exterior depression era" },
+    { "text": "Anyone caught holding on to it faced a fine of up to ten thousand dollars, or up to ten years in prison. In exchange for turning it in, the government paid twenty dollars and sixty seven cents per ounce.", "visual_query": "vintage US currency dollar bills" },
+    { "text": "Less than a year later, the government revalued that same gold to thirty five dollars an ounce -- almost seventy percent more than what it had just paid ordinary citizens for it.", "visual_query": "gold price ticker digital" },
+    { "text": "The ban stayed in effect for the next forty one years. Private citizens weren't legally allowed to own gold again until January of 1975, when President Gerald Ford lifted the restriction.", "visual_query": "gold coins closeup texture" },
+    { "text": "Did you know it was ever illegal to just own gold in America?", "visual_query": "person holding gold coin" }
+  ]
+}
