@@ -1,0 +1,23 @@
+{
+  "category": "science",
+  "id": "015-blood-falls-antarctica",
+  "title": "This Waterfall In Antarctica Looks Like It's Bleeding",
+  "description": "Bright red water pours out of solid white ice in Antarctica -- and it stumped scientists for almost a century. The real explanation involves ancient trapped seawater and an ecosystem that's been sealed off from the world for millions of years.\n\n#shorts #sciencefacts #antarctica #didyouknow",
+  "tags": ["science facts", "blood falls", "antarctica", "nature facts", "did you know", "shorts"],
+  "sources": [
+    "Wikipedia's Blood Falls entry",
+    "Forbes' 2017 coverage \"Mystery Of Antarctica's Blood Falls Is Finally Solved\"",
+    "UC Santa Barbara Geography's \"Antarctica's Blood Falls\" overview",
+    "Colorado College / University of Alaska Fairbanks's 2017 radar-mapping study on Blood Falls' flow pathway"
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "There's a waterfall in Antarctica that looks like it's bleeding -- bright red water pouring out of solid white ice. It's real, and it's not blood.", "visual_query": "red waterfall ice glacier" },
+    { "text": "It was first found in 1911 by geologist Thomas Griffith Taylor, who assumed the color came from red algae. He was wrong, and nobody actually figured out why for almost a hundred years.", "visual_query": "antarctica explorer vintage expedition" },
+    { "text": "The real cause is iron. A hidden reservoir of super salty water, trapped beneath the glacier, is rich in dissolved iron -- and when it finally reaches the surface and touches oxygen, it rusts almost instantly, turning blood red.", "visual_query": "rust iron oxidation closeup" },
+    { "text": "That water has been sealed under the ice for an extraordinarily long time -- some estimates put it at close to two million years, cut off completely from sunlight and the open air.", "visual_query": "antarctic glacier ice cross section" },
+    { "text": "And it's not empty down there. Scientists have found an entire ecosystem of microbes living in that trapped water, surviving in total darkness with zero oxygen by feeding on the iron and sulfur itself.", "visual_query": "hidden underground water reservoir" },
+    { "text": "In 2017, researchers finally mapped how the water actually travels up through the glacier. But one thing is still a genuine mystery -- nobody knows what triggers it to flow when it does.", "visual_query": "antarctic ice landscape aerial" },
+    { "text": "Would you have guessed that red water was actually rust, not blood?", "visual_query": "close up dripping red water ice" }
+  ]
+}
