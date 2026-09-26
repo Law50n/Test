@@ -191,6 +191,20 @@ two are different bets and get treated differently:
   pool) rather than leaving every scene on auto-fetched stock. Also see
   `thumbnail_scene` to point the thumbnail at whichever scene has the
   strongest visual, local or not.
+- **A script built around one specific, named real place or object --
+  a particular landmark, a specific artifact, a location that's the
+  whole point of the video -- can't rely on a generic `visual_query`
+  for its key scene(s).** Pexels has no reason to hold footage of that
+  exact place; a query like "red waterfall ice glacier" or "bent pine
+  trees forest poland" will silently return an unrelated stock forest
+  or waterfall instead of the actual subject, and a "here's this real
+  thing" script quietly stops showing the real thing. Before finalizing
+  a script like this, flag it and get a real photo into that scene's
+  `local_image` -- same mechanism as the Zimbabwe banknote photos.
+  Either ask Will for his own photo, or source one (Wikimedia Commons
+  and other public-domain/CC-licensed sources are usually fine, but
+  note the license and any attribution requirement so it can be
+  credited) -- don't ship on unverified generic stock alone.
 - **Custom AI-generated art (e.g. via Grok) is welcome for a hero
   scene/thumbnail, background art only, never with text baked in.**
   `pipeline/thumbnail.py::make_thumbnail()` already overlays the real,
