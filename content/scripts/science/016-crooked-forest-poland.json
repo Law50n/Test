@@ -1,0 +1,22 @@
+{
+  "category": "science",
+  "id": "016-crooked-forest-poland",
+  "title": "Nobody Knows Why These Trees All Bend The Same Way",
+  "description": "About 400 pine trees in a forest in Poland all bend sideways at the same sharp angle right at the base, then grow straight up. They were planted around 1930, and nobody has ever definitively proven why.\n\n#shorts #sciencefacts #unsolvedmystery #didyouknow",
+  "tags": ["science facts", "crooked forest", "poland", "unsolved mystery", "did you know", "shorts"],
+  "sources": [
+    "Wikipedia's Crooked Forest entry",
+    "Discovery's \"The Crooked Forest In Poland is an Unsolved Mystery\"",
+    "IFLScience's coverage of the Crooked Forest's competing theories",
+    "OddFeed's \"The Secret History of Poland's Crooked Forest\""
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "There's a forest in Poland where about four hundred pine trees all bend sideways at the exact same sharp angle, right at the base, before growing straight up like nothing happened. Nobody has ever definitively explained why.", "visual_query": "bent pine trees forest poland" },
+    { "text": "The trees were planted around 1930, and every other pine nearby grows completely straight. Whatever caused it only affected this one patch.", "visual_query": "pine forest straight trees" },
+    { "text": "The leading theory is that local farmers deliberately bent the young saplings using stakes or wires, when they were only seven to ten years old, to grow curved wood for boat parts and furniture.", "visual_query": "old wooden furniture craftsman workshop" },
+    { "text": "But World War Two emptied the area before anyone could harvest them, and the town wasn't resettled again until the 1970s. Whoever actually knew the real reason is long gone.", "visual_query": "abandoned village overgrown ruins" },
+    { "text": "Other researchers have proposed heavy snow crushing the saplings, unusual soil, or a rare windstorm while the trees were still young and flexible. None of it has ever been proven.", "visual_query": "heavy snow forest ground" },
+    { "text": "Which explanation do you find more convincing -- people, or nature?", "visual_query": "sunlight forest canopy path" }
+  ]
+}
