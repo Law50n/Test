@@ -1,0 +1,23 @@
+{
+  "category": "science",
+  "id": "017-zebra-stripes-flies",
+  "title": "Zebra Stripes Were Never About Camouflage",
+  "description": "The popular explanation for zebra stripes -- camouflage from lions -- has actually been tested and doesn't hold up. Researchers have since found the real reason, and it has nothing to do with predators.\n\n#shorts #sciencefacts #zebra #didyouknow",
+  "tags": ["science facts", "zebra", "animal facts", "myth busting", "did you know", "shorts"],
+  "sources": [
+    "UCLA Newsroom's \"Why do zebras have stripes?\"",
+    "National Geographic's coverage of the 2018 Scientific Reports temperature study",
+    "Egri et al., Journal of Experimental Biology (2012), \"Polarotactic tabanids find striped patterns... least attractive\"",
+    "PMC/NCBI coverage of horsefly polarotaxis and zebra stripe research"
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "You've probably heard that zebras have stripes for camouflage, to confuse lions during a chase. Scientists actually tested that idea, and it doesn't hold up.", "visual_query": "zebra herd savanna africa" },
+    { "text": "Researchers compared striping patterns against real lion attack data and found no meaningful link at all. Lions catch striped zebras about as easily as anything else.", "visual_query": "lion stalking grassland" },
+    { "text": "A separate theory, that the stripes cool zebras down by creating tiny air currents, was also directly tested in 2018. It didn't hold up either.", "visual_query": "zebra closeup stripes texture" },
+    { "text": "The explanation with the strongest evidence is almost absurdly small: biting flies. Horseflies are drawn to polarized light bouncing off a smooth, solid-colored coat.", "visual_query": "horsefly insect macro" },
+    { "text": "In a 2012 study, striped models attracted far fewer flies than solid black, brown, or grey ones -- the alternating stripes break up that polarized reflection, making zebras a much harder target to land on.", "visual_query": "zebra pattern black white closeup" },
+    { "text": "That matters more than it sounds. These flies spread serious diseases, so avoiding them is a real survival advantage, not a small one.", "visual_query": "zebra grazing wildlife" },
+    { "text": "Did you grow up believing the camouflage explanation too?", "visual_query": "zebra walking dust sunlight" }
+  ]
+}
