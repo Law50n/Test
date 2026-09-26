@@ -1,0 +1,21 @@
+{
+  "category": "science",
+  "id": "018-honey-never-spoils",
+  "title": "Archaeologists Found 3,000 Year Old Honey That's Still Edible",
+  "description": "Sealed jars of honey found in ancient Egyptian tombs have been tested as still perfectly safe to eat, thousands of years later. The reason comes down to honey's own chemistry.\n\n#shorts #sciencefacts #honey #didyouknow",
+  "tags": ["science facts", "honey", "food science", "ancient egypt", "did you know", "shorts"],
+  "sources": [
+    "Smithsonian Magazine's \"The Science Behind Honey's Eternal Shelf Life\"",
+    "My Modern Met's \"Honey Found in 3,000-Year-Old Ancient Egyptian Tombs Is Still Safe To Eat\"",
+    "History Facts' coverage of 3,000-year-old edible honey found in Egyptian tombs"
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "Archaeologists have opened sealed jars of honey inside Egyptian tombs over three thousand years old, and found it still perfectly edible.", "visual_query": "ancient clay jar artifact" },
+    { "text": "When Howard Carter's team opened Tutankhamun's tomb in 1922, among the artifacts were jars holding a thick, amber residue. Chemists later confirmed it was honey.", "visual_query": "egyptian tomb artifacts gold" },
+    { "text": "Honey survives because almost nothing can actually grow in it. It's naturally low in water, and sugar pulls moisture out of anything nearby, including bacteria trying to live in it.", "visual_query": "honey dripping jar closeup" },
+    { "text": "It's also naturally acidic, with a pH low enough to kill off most microorganisms on contact. Bees add a natural enzyme too, which produces small amounts of hydrogen peroxide as the honey cures.", "visual_query": "bees honeycomb closeup" },
+    { "text": "The one thing that has to hold up is the seal. Left open in a humid kitchen, honey will slowly absorb moisture from the air and can eventually spoil -- sealed and left alone, it basically doesn't.", "visual_query": "honey jar kitchen counter" },
+    { "text": "Do you have honey in your kitchen right now, and do you actually know how old it is?", "visual_query": "spoon honey golden light" }
+  ]
+}
