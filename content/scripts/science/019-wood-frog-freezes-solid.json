@@ -1,0 +1,22 @@
+{
+  "category": "science",
+  "id": "019-wood-frog-freezes-solid",
+  "title": "This Frog Freezes Solid Every Winter And Comes Back To Life",
+  "description": "As temperatures drop, this frog's heart stops beating, its kidneys stop working, and most of the water in its body turns to actual ice. By every normal measure, it's dead. Then spring comes.\n\n#shorts #sciencefacts #frog #didyouknow",
+  "tags": ["science facts", "wood frog", "animal facts", "extreme biology", "did you know", "shorts"],
+  "sources": [
+    "Discover Wildlife's coverage of wood frog freeze survival",
+    "National Geographic's \"These animals can freeze solid in winter. Here's how they survive.\"",
+    "ZME Science's coverage of wood frog research and organ preservation applications"
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "There's a frog that freezes completely solid every winter -- its heart stops, it stops breathing, and by any normal definition, it's dead. Then spring comes, and it thaws back to life.", "visual_query": "frog winter snow ice" },
+    { "text": "As the temperature drops, up to seventy percent of the water in its body actually turns to ice. Its heart stops beating and its kidneys stop functioning completely.", "visual_query": "ice crystals frozen closeup" },
+    { "text": "It survives because its liver floods its body with glucose, acting like a natural antifreeze. That keeps the fluid inside each individual cell from freezing -- only the fluid around the cells turns to ice, which is exactly what makes the difference between surviving and not.", "visual_query": "liver organ illustration biology" },
+    { "text": "This can go on for up to eight months, in temperatures as low as negative sixteen degrees Celsius.", "visual_query": "frozen pond winter ice" },
+    { "text": "When spring arrives, it thaws from the inside out, starting with its heart and brain, and is back to normal within about ten hours.", "visual_query": "melting ice spring thaw" },
+    { "text": "Scientists are actually studying this exact mechanism for one very practical reason -- it could change how human organs are preserved for transplant.", "visual_query": "medical laboratory research" },
+    { "text": "Would you have guessed an animal could actually freeze solid and come back?", "visual_query": "frog closeup wildlife" }
+  ]
+}
