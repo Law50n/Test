@@ -1,0 +1,22 @@
+{
+  "category": "science",
+  "id": "020-bombardier-beetle-survives-eaten",
+  "title": "This Beetle Can Survive Being Eaten Alive By A Toad",
+  "description": "This beetle carries two chemicals inside its body that explode when mixed -- and when a toad swallows it whole, that's exactly what it does, from the inside.\n\n#shorts #sciencefacts #beetle #didyouknow",
+  "tags": ["science facts", "bombardier beetle", "animal facts", "extreme biology", "did you know", "shorts"],
+  "sources": [
+    "Royal Society Biology Letters: Sugiura & Sato (2018), \"Successful escape of bombardier beetles from predator digestive systems\"",
+    "National Geographic's \"See the Amazing Way a Beetle Survives Being Eaten\"",
+    "Chemistry Steps' \"The Chemistry Behind Bombardier Beetle's Spray\""
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "There's a beetle that can survive actually being swallowed alive by a toad -- and it does it by setting off a chemical explosion inside the toad's own stomach.", "visual_query": "beetle closeup macro" },
+    { "text": "It carries two separate chemicals inside its body that are harmless on their own. When threatened, it mixes them together on purpose, using its own internal enzymes as the trigger.", "visual_query": "chemistry laboratory reaction" },
+    { "text": "That reaction is genuinely explosive. It heats the mixture to the boiling point of water, and fires it out in rapid pulses -- up to five hundred tiny explosions every single second.", "visual_query": "steam explosion pressure release" },
+    { "text": "In a real 2018 study, researchers actually fed these beetles to toads on purpose, to see what would happen.", "visual_query": "toad amphibian closeup" },
+    { "text": "Once swallowed, the beetle sets off that same chemical explosion, this time inside the toad's stomach. The heat and irritation force the toad to vomit it back up, alive.", "visual_query": "frog throat closeup" },
+    { "text": "In that study, over ninety percent of the beetles survived being swallowed whole and blasted their way back out.", "visual_query": "beetle walking ground macro" },
+    { "text": "Would you have guessed a beetle could survive being eaten alive?", "visual_query": "beetle wildlife nature" }
+  ]
+}
