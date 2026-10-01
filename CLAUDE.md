@@ -171,22 +171,27 @@ two are different bets and get treated differently:
   `visual_query` values before finalizing a new script's, and prefer
   specific phrasing (a concrete object/angle) over generic ones (a
   person, a screen, a desk) that any topic could reuse.
-- **Avoid visceral predation/gore language in titles and hooks, even for
-  completely factual, family-friendly science.** The bombardier-beetle
-  short ("eaten alive," "inside the toad's stomach," "vomit") got 3
-  views total on a channel whose other Facts shorts were pulling
-  hundreds to 1K+ -- everything else checked out (public, correct
-  runtime, normal visuals, same posting time), which points at
-  YouTube's automated classifiers quietly suppressing distribution for
-  content that reads as violent/disturbing, independent of how
-  educational it actually is and with no notification when it happens.
-  Describe the real mechanism instead of the gore of it -- "this beetle
-  survives a predator's attempt to eat it" over "eaten alive," "forces
-  the predator to release it" over "vomited back up." The underlying
-  fact can stay exactly as dramatic; it's specifically the
-  blood/guts/violence-coded phrasing in the title and opening hook that
-  risks tripping this, since that's what a classifier (and a thumbnail)
-  actually reads.
+- **Steer clear of death/predation as a Facts-channel topic, not just the
+  wording of one.** The bombardier-beetle short ("eaten alive," "inside
+  the toad's stomach," "vomit") got 3 views total on a channel whose
+  other Facts shorts were pulling hundreds to 1K+; everything else
+  checked out (public, correct runtime, normal visuals, same posting
+  time), which points at YouTube's automated classifiers quietly
+  suppressing distribution for content that reads as violent/
+  disturbing, independent of how educational it actually is and with no
+  notification when it happens. Confirmed the next day: a same-channel
+  short on an unrelated, death/predation-free topic (the Mpemba effect)
+  pulled 239 views within hours, so this isn't a channel-wide problem --
+  it's specifically that category of topic. Will's call: don't pick a
+  Facts topic built around something dying, being eaten, being killed,
+  etc. at all for now, rather than keeping the topic and just softening
+  the phrasing -- a predation/survival angle is exactly the kind of
+  thing that reads as disturbing to a classifier no matter how it's
+  worded. This doesn't touch Mysteries/`stories` content, which already
+  runs on its own separate rules (hedged theories, real sourcing) and
+  isn't held to the same "nothing unsettling" bar -- this is specifically
+  about what to pick for the Facts channel's science/tech/finance/
+  wellbeing/idioms Shorts.
 - **Every script sets `"visual_mode": "video"`** (Facts included, matching
   Mysteries/Fiction). This isn't "commit the whole script to video" --
   `pipeline/video_clips.py::fetch_video_clip` tries a real Pexels video
