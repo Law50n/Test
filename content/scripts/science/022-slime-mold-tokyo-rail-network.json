@@ -1,0 +1,23 @@
+{
+  "category": "science",
+  "id": "022-slime-mold-tokyo-rail-network",
+  "title": "This Brainless Organism Redesigned Tokyo's Entire Rail Network",
+  "description": "A single-celled slime mold with no brain and no nervous system can solve a maze -- and when researchers tested it on a bigger problem, it built something remarkably close to Tokyo's actual rail network.\n\n#shorts #sciencefacts #biology #didyouknow",
+  "tags": ["science facts", "slime mold", "biology", "did you know", "shorts"],
+  "sources": [
+    "Nakagaki et al., Nature (2000), \"Maze-solving by an amoeboid organism\"",
+    "Tero et al., Science (2010), \"Rules for Biologically Inspired Adaptive Network Design\"",
+    "ScienceDaily's \"Slime design mimics Tokyo's rail system\"",
+    "National Geographic's coverage of the Tokyo rail slime mold study"
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "There's a living organism with no brain, no neurons, not even a single nervous system cell -- and it can still solve a maze.", "visual_query": "slime mold yellow texture closeup" },
+    { "text": "In 2000, researchers placed this slime mold in a maze with food at both ends. Within hours, it had pulled back from every dead end and connected both food sources along the single shortest path through the maze.", "visual_query": "maze puzzle overhead view" },
+    { "text": "A decade later, the same researchers tried something far bigger. They placed oat flakes on a map in the exact positions of Tokyo's major cities, and let the slime mold grow its own network connecting them.", "visual_query": "map cities network lines" },
+    { "text": "What it built was remarkably close to Tokyo's actual rail system -- built by professional engineers over decades -- in both efficiency and total cost.", "visual_query": "train railway tracks aerial" },
+    { "text": "It does all this with one simple rule: the more a path gets used, the stronger it grows. The less it's used, the more it shrinks away on its own.", "visual_query": "time lapse organic growth" },
+    { "text": "It wasn't flawless, though. The real Tokyo rail network still beat it on one measure -- losing a single connection broke apart the slime mold's version more often than it did the real one.", "visual_query": "subway train station platform" },
+    { "text": "Would you have guessed a brainless organism could design something close to a real transit system?", "visual_query": "slime mold macro texture" }
+  ]
+}
