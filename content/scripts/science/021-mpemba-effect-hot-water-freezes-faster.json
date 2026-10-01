@@ -1,0 +1,23 @@
+{
+  "category": "science",
+  "id": "021-mpemba-effect-hot-water-freezes-faster",
+  "title": "Hot Water Can Freeze Faster Than Cold Water",
+  "description": "A teenager in Tanzania stumbled onto this by accident in 1963, and physicists still don't fully agree on why it happens -- or exactly when it actually does.\n\n#shorts #sciencefacts #physics #didyouknow",
+  "tags": ["science facts", "mpemba effect", "physics", "did you know", "shorts"],
+  "sources": [
+    "PBS NOVA's \"The ice cream that changed physics\"",
+    "Wikipedia's Mpemba effect and Erasto B. Mpemba entries",
+    "Quanta Magazine's \"Does Hot Water Freeze Faster Than Cold? Physicists Keep Asking.\"",
+    "Nature Scientific Reports: Burridge & Linden (2016), \"Questioning the Mpemba effect\""
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "In 1963, a teenager in Tanzania made a batch of ice cream, and accidentally stumbled onto something physicists still can't fully agree on.", "visual_query": "ice cream freezer closeup" },
+    { "text": "Erasto Mpemba skipped letting his boiled milk cool before freezing it, just to beat his classmates to the last ice tray. An hour later, his was already frozen -- while theirs, started from cold, was still liquid.", "visual_query": "student classroom vintage africa" },
+    { "text": "His own physics teacher told him that wasn't possible. Years later, a visiting physicist took the question seriously, tested it properly, and published the results.", "visual_query": "handwritten physics notes paper" },
+    { "text": "It turns out Aristotle, Francis Bacon, and Descartes had all separately noted the same strange thing, centuries earlier -- nobody had ever properly explained it.", "visual_query": "old philosophy book pages" },
+    { "text": "It's now called the Mpemba effect, and it's still genuinely disputed. Some controlled experiments have reproduced it. Others, including a well known 2016 study, found it depends heavily on exactly how and where you measure the temperature.", "visual_query": "thermometer water glass" },
+    { "text": "Nobody's saying hot water always freezes faster. The honest answer is that under very specific conditions, it sometimes can -- and scientists still don't fully agree on why.", "visual_query": "ice forming water surface" },
+    { "text": "Would you have believed hot water could freeze before cold water?", "visual_query": "frozen ice cubes closeup" }
+  ]
+}
