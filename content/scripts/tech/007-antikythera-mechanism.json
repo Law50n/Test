@@ -1,0 +1,23 @@
+{
+  "category": "tech",
+  "id": "007-antikythera-mechanism",
+  "title": "Ancient Greeks Built A Working Computer 2,000 Years Ago",
+  "description": "A corroded lump of bronze pulled from a Greek shipwreck in 1901 turned out to be a working mechanical computer -- it tracked the sun, moon, and planets, and predicted eclipses. Nothing this advanced shows up again for roughly a thousand years.\n\n#shorts #techfacts #antikythera #didyouknow",
+  "tags": ["tech facts", "antikythera mechanism", "ancient history", "did you know", "shorts"],
+  "sources": [
+    "Wikipedia's Antikythera mechanism entry",
+    "History.com's \"How the Secrets of an Ancient Greek 'Computer' Were Revealed\"",
+    "National Hellenic Museum's \"The World's Oldest Computer: The Antikythera Mechanism\"",
+    "World History Encyclopedia's Antikythera Mechanism entry"
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "In 1901, divers searching a Greek shipwreck pulled up a corroded lump of bronze that turned out to be a working computer -- built over two thousand years ago.", "visual_query": "ancient bronze artifact corroded" },
+    { "text": "Inside were at least thirty interlocking gears, precisely cut to track the positions of the sun, moon, and planets, and to predict eclipses years in advance.", "visual_query": "intricate clockwork gears closeup" },
+    { "text": "It even displayed which panhellenic games -- including the Olympics -- would be held in any given year, all from hand-turning a single crank.", "visual_query": "ancient greek temple columns" },
+    { "text": "Researchers only fully understood what it did decades later, using X-ray imaging to read inscriptions and gear patterns hidden inside the corroded bronze.", "visual_query": "x-ray scan technology closeup" },
+    { "text": "Nothing built with this level of precision shows up again in the historical record for roughly another thousand years.", "visual_query": "medieval clock tower ancient" },
+    { "text": "One part of it even used a clever pin-and-slot gear design to mimic the moon's slightly uneven orbit -- something you wouldn't expect from a culture working entirely by hand, with no electricity.", "visual_query": "hand crank mechanical device" },
+    { "text": "Would you have guessed something this advanced existed two thousand years ago?", "visual_query": "ancient bronze gear macro" }
+  ]
+}
