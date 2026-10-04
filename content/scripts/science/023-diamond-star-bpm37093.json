@@ -1,0 +1,23 @@
+{
+  "category": "science",
+  "id": "023-diamond-star-bpm37093",
+  "title": "There's A Star That's Basically One Giant Diamond",
+  "description": "About fifty light years away, a burned-out star has crystallized into pure carbon -- the same structure as a diamond, just roughly the size of our moon.\n\n#shorts #sciencefacts #astronomy #didyouknow",
+  "tags": ["science facts", "diamond star", "astronomy", "did you know", "shorts"],
+  "sources": [
+    "Wikipedia's BPM 37093 entry",
+    "Futurism's \"Lucy's in the Sky with Diamonds: Meet the Most Expensive Star Ever Found\"",
+    "Space Today Online's coverage of the Harvard-Smithsonian announcement",
+    "Kanaan et al. (2004) asteroseismology study via the Whole Earth Telescope"
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "About fifty light years away, there's a star that astronomers believe is basically one giant diamond.", "visual_query": "raw diamond crystal structure" },
+    { "text": "It's called a white dwarf -- the dense, burned-out core left behind after a star like our sun runs out of fuel.", "visual_query": "white dwarf star illustration" },
+    { "text": "As it cools, its carbon core doesn't just stay solid -- it actually crystallizes, locking into the exact same structure as a diamond here on Earth.", "visual_query": "crystal formation closeup" },
+    { "text": "Astronomers confirmed this by studying the star's natural pulsations, almost like starquakes, which revealed that roughly ninety percent of its mass had already crystallized.", "visual_query": "sound wave vibration visualization" },
+    { "text": "It's about four thousand kilometers across -- roughly the size of our own moon -- but packed with more mass than our entire sun.", "visual_query": "moon surface closeup detail" },
+    { "text": "Based on its size, astronomers estimated it at roughly ten billion trillion trillion carats, and nicknamed it Lucy, after the Beatles song.", "visual_query": "cut diamond facets closeup" },
+    { "text": "Would you have guessed there's an actual diamond star out there, bigger than anything on Earth?", "visual_query": "starfield night sky wide" }
+  ]
+}
