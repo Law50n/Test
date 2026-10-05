@@ -1,0 +1,23 @@
+{
+  "category": "science",
+  "id": "024-wallace-line",
+  "title": "There's An Invisible Line Where Animals Completely Change",
+  "description": "In Indonesia, islands barely twenty miles apart have completely different animals -- tigers and monkeys on one side, cockatoos and marsupials on the other. The real reason comes down to water that never closed, even during the ice age.\n\n#shorts #sciencefacts #wallaceline #didyouknow",
+  "tags": ["science facts", "wallace line", "biogeography", "indonesia", "did you know", "shorts"],
+  "sources": [
+    "Wikipedia's Wallace Line entry",
+    "Silversea's \"Meet the 'Darwin of the East': The Extraordinary Life of Alfred Russel Wallace\"",
+    "ZME Science's coverage of Wallace Line research",
+    "Komodo Guide's \"Wallacea: Wallace Line, Lydekker Line, Komodo\""
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "There's an invisible line running through Indonesia where, on one side, you find tigers and monkeys, and on the other, cockatoos and marsupials -- despite some of these islands sitting barely twenty miles apart.", "visual_query": "tropical islands aerial strait" },
+    { "text": "It's named after Alfred Russel Wallace, the naturalist who noticed it in the 1850s while exploring the region -- the same man who independently arrived at the theory of evolution by natural selection, right alongside Darwin.", "visual_query": "naturalist exploring jungle vintage" },
+    { "text": "Cross from Bali, and you're in Asian territory. Monkeys, wild boars, woodpeckers, even tigers and elephants further west.", "visual_query": "monkey wild boar jungle" },
+    { "text": "Cross the strait to Lombok, just twenty two miles away, and the animals change almost completely. Cockatoos, honeyeaters, tree-climbing marsupials -- species found nowhere near Asia.", "visual_query": "cockatoo colorful tropical bird" },
+    { "text": "The reason comes down to water, not distance. That strait is so deep that even during the ice age, when sea levels dropped and land bridges connected much of the region, this particular gap never closed.", "visual_query": "deep ocean strait aerial blue" },
+    { "text": "Wallace noticed it first in the birds. Bali and Java, separated by a much narrower, shallower strait, share about ninety seven percent of their bird species. Bali and Lombok share only about half.", "visual_query": "tropical bird flying rainforest" },
+    { "text": "Would you have guessed a twenty mile gap could separate two completely different animal worlds?", "visual_query": "island coastline ocean view" }
+  ]
+}
