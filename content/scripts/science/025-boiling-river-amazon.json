@@ -1,0 +1,23 @@
+{
+  "category": "science",
+  "id": "025-boiling-river-amazon",
+  "title": "There's A River In The Amazon Hot Enough To Cook You Alive",
+  "description": "Shanay-Timpishka is a real six kilometer stretch of river in Peru that averages 86 degrees Celsius -- and the nearest volcano is over 400 miles away. Scientists are still refining why.\n\n#shorts #sciencefacts #amazon #didyouknow",
+  "tags": ["science facts", "boiling river", "amazon", "peru", "did you know", "shorts"],
+  "sources": [
+    "Wikipedia's Shanay-timpishka entry",
+    "Forbes' \"Legendary Boiling River Of The Amazon Is A Geological Anomaly\"",
+    "IFLScience's coverage of the Boiling River's temperature",
+    "ScienceBlog's coverage of Andrés Ruzo's 2011 confirmation"
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "There's a river in the Peruvian Amazon that runs hot enough to cook you alive -- and for years, scientists didn't believe it was real.", "visual_query": "steaming river jungle" },
+    { "text": "Geologist Andres Ruzo grew up hearing about it as a legend from his grandfather. In 2011, he actually went looking for it himself.", "visual_query": "amazon rainforest dense canopy" },
+    { "text": "It's called Shanay-Timpishka, and it's real -- a six kilometer stretch of river that averages eighty six degrees Celsius, hot enough to seriously injure or kill animals that fall in.", "visual_query": "hot spring water steam" },
+    { "text": "That alone wouldn't be that unusual near a volcano. But the nearest active volcano is over four hundred miles away -- making this one of the largest non-volcanic hot rivers ever documented.", "visual_query": "jungle river aerial view" },
+    { "text": "The leading explanation is a fault-fed hydrothermal system -- water sinks deep underground, gets heated by the earth itself, and gets forced back up to the surface through cracks in the rock.", "visual_query": "underground rock formation geology" },
+    { "text": "Some researchers think the water may even start as glacier meltwater from the Andes, traveling underground for miles before it ever reaches the surface here. It's still being studied.", "visual_query": "andes mountains snow peaks" },
+    { "text": "Would you have believed a jungle river could actually be hot enough to cook something that fell in?", "visual_query": "amazon river mist morning" }
+  ]
+}
