@@ -1,0 +1,23 @@
+{
+  "category": "science",
+  "id": "026-darvaza-gas-crater",
+  "title": "This Crater Has Been On Fire Since 1971",
+  "description": "A crater in the Turkmen desert has been burning continuously for over fifty years. Nobody's even certain how it actually started -- and it's finally going out, right now.\n\n#shorts #sciencefacts #darvaza #didyouknow",
+  "tags": ["science facts", "darvaza crater", "door to hell", "turkmenistan", "did you know", "shorts"],
+  "sources": [
+    "Wikipedia's Darvaza gas crater entry",
+    "National Geographic's Q&A on George Kourounis's Door to Hell expedition",
+    "Discover Wildlife's \"After 54 years of fire, the 'Door to Hell' is finally closing\"",
+    "The Times Of Central Asia's coverage of Turkmenistan's extinguishing efforts"
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "There's a crater in the middle of a desert in Turkmenistan that's been on fire continuously since 1971 -- more than fifty years, nonstop.", "visual_query": "burning crater night fire" },
+    { "text": "The common story is that Soviet engineers were drilling for gas, the ground collapsed into a hidden cavern, and they set it on fire on purpose, expecting the methane to burn out within a few days.", "visual_query": "desert drilling rig vintage" },
+    { "text": "Nobody's actually certain that's true, though. There's no official record of the incident at all, and a separate local legend claims it was really a herder who rolled a burning tire in to stop it poisoning his sheep.", "visual_query": "desert herder sheep" },
+    { "text": "Whatever actually happened, the crater that resulted is about seventy meters across and thirty meters deep -- and it just kept burning, for over fifty years straight.", "visual_query": "massive crater desert aerial" },
+    { "text": "In 2013, explorer George Kourounis became the first person to actually climb down inside it, in a heat-resistant suit, to search the soil for microbes that might survive conditions that extreme.", "visual_query": "protective heat suit exploration" },
+    { "text": "It's actually going out now, though. Turkmenistan has spent the last few years drilling wells around it to redirect the gas, and by 2025 its heat had already dropped by more than seventy five percent.", "visual_query": "gas well desert industrial" },
+    { "text": "Would you rather have seen it still burning, or watched it finally go out?", "visual_query": "desert night stars horizon" }
+  ]
+}
