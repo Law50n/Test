@@ -1,0 +1,23 @@
+{
+  "category": "science",
+  "id": "029-richat-structure-eye-of-sahara",
+  "title": "This Giant Bullseye Is So Big, Astronauts Use It As A Landmark",
+  "description": "There's a massive bullseye pattern in the middle of the Sahara, roughly 25 miles across. For decades, scientists weren't even sure what it actually was.\n\n#shorts #sciencefacts #sahara #didyouknow",
+  "tags": ["science facts", "richat structure", "eye of the sahara", "mauritania", "did you know", "shorts"],
+  "sources": [
+    "NASA Earth Observatory's \"The Eye of Sahara\"",
+    "WorldAtlas's \"The Eye Of The Sahara - Mauritania's Richat Structure\"",
+    "How Stuff Works' \"What Exactly Is the Eye of the Sahara, aka the Richat Structure?\"",
+    "ZME Science's \"The eye of the Sahara -- how such a bizarre formation came to be\""
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "There's a giant bullseye in the middle of the Sahara Desert, so large that astronauts have used it as a landmark from orbit. For decades, nobody could agree on what it actually was.", "visual_query": "satellite image desert pattern" },
+    { "text": "It's called the Richat Structure, and it's roughly forty kilometers across -- about twenty five miles wide, so large you can't actually tell what it is from ground level.", "visual_query": "aerial desert landscape wide" },
+    { "text": "The first guess was an impact crater, since meteor strikes usually leave behind exactly this kind of circular shape.", "visual_query": "rocky desert terrain texture" },
+    { "text": "But detailed studies never found any of the evidence a real impact actually leaves behind -- no shock-altered rock, no melted impact debris. It's not a crater at all.", "visual_query": "exposed rock layers geology" },
+    { "text": "The leading explanation now is that it's a dome of rock that got pushed up from below, then slowly eroded -- different rock layers wearing away at different rates is what carved out those perfect rings.", "visual_query": "concentric rock ridges desert" },
+    { "text": "It's also become a magnet for a much wilder theory -- that it's the lost city of Atlantis, because its rings vaguely match Plato's original description. There's no real evidence for that either.", "visual_query": "ancient ruins mystery ocean" },
+    { "text": "Would you have guessed this was natural, not something built?", "visual_query": "sahara desert dunes horizon" }
+  ]
+}
