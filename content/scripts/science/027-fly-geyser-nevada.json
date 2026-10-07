@@ -4,6 +4,7 @@
   "title": "This Rainbow Geyser Is Completely Man-Made, By Accident",
   "description": "A surreal, rainbow-colored geyser in the Nevada desert looks like something from another planet. It's man-made, the result of a failed well -- and the famous photos aren't quite as big as they look.\n\n#shorts #sciencefacts #flygeyser #didyouknow",
   "tags": ["science facts", "fly geyser", "nevada", "did you know", "shorts"],
+  "thumbnail_scene": 0,
   "sources": [
     "Wikipedia's Fly Geyser entry",
     "Snopes' fact-check on Fly Geyser",
@@ -12,9 +13,9 @@
   ],
   "visual_mode": "video",
   "scenes": [
-    { "text": "This surreal, rainbow-colored geyser in the Nevada desert looks like something out of another planet. It's actually completely man-made, by accident.", "visual_query": "colorful mineral formation desert" },
+    { "text": "This surreal, rainbow-colored geyser in the Nevada desert looks like something out of another planet. It's actually completely man-made, by accident.", "visual_query": "colorful mineral formation desert", "local_image": "assets/fly-geyser-full.jpg" },
     { "text": "In 1964, a company drilled a geothermal test well here, hoping to tap into heat for energy. The water wasn't hot enough for what they wanted, so they tried to seal the well back up.", "visual_query": "geothermal test well equipment" },
-    { "text": "The seal failed. Pressurized, mineral-rich water started escaping instead, and it's never actually stopped -- continuously building its own mound out of dissolved minerals ever since.", "visual_query": "calcium carbonate mound texture" },
+    { "text": "The seal failed. Pressurized, mineral-rich water started escaping instead, and it's never actually stopped -- continuously building its own mound out of dissolved minerals ever since.", "visual_query": "calcium carbonate mound texture", "local_image": "assets/fly-geyser-spray.jpg" },
     { "text": "It wasn't even the first accident on this exact spot. A separate well drilled back in 1916, also looking for irrigation water, had already created an earlier mineral cone nearby.", "visual_query": "vintage farm equipment desert" },
     { "text": "The vivid reds and greens aren't paint or dye. They come from thermophilic algae -- organisms that actually thrive in that hot mineral water, and that can die permanently if a single human hand touches them.", "visual_query": "algae colorful texture closeup" },
     { "text": "It's also smaller than most photos make it look. Those sweeping shots are usually taken close and low, and the geyser itself only stands a few feet tall.", "visual_query": "desert landscape wide open" },
