@@ -1,0 +1,24 @@
+{
+  "category": "science",
+  "id": "028-giants-causeway",
+  "title": "Local Legend Blamed A Giant For This. Geology Explains It Instead.",
+  "description": "Forty thousand stone columns line the coast of Northern Ireland, packed together so perfectly that legend says a giant built them. The real explanation is volcanic -- and it has a genuine twist connecting it to Scotland.\n\n#shorts #sciencefacts #giantscauseway #didyouknow",
+  "tags": ["science facts", "giants causeway", "geology", "ireland", "did you know", "shorts"],
+  "thumbnail_scene": 0,
+  "sources": [
+    "Wikipedia's Giant's Causeway entry",
+    "Geological Society of America's \"Giant's Causeway, Northern Ireland: One of the First 100 IUGS Geological Heritage Sites\"",
+    "Wilderness Ireland's \"Irish Folklore, Myth & Legend: Finn McCool & Giant's Causeway\"",
+    "MAHO on Earth's coverage of the Giant's Causeway and Fingal's Cave geological link"
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "Along the coast of Northern Ireland, there are forty thousand stone columns, packed together so perfectly it looks like someone built them on purpose.", "visual_query": "basalt columns coastline ocean", "local_image": "assets/giants-causeway-coastal.jpg" },
+    { "text": "Local legend says an Irish giant named Finn McCool built it himself, as a bridge to fight a Scottish giant across the sea.", "visual_query": "historical engraving illustration columns", "local_image": "assets/giants-causeway-engraving.jpg" },
+    { "text": "When the Scottish giant actually showed up, Finn's wife disguised him as a giant baby. The Scottish giant took one look, assumed the father must be enormous, and fled back across the water -- tearing up the bridge behind him.", "visual_query": "stormy sea coastline dramatic" },
+    { "text": "The real explanation is volcanic. Around fifty to sixty million years ago, molten lava cooled and cracked here, and the exact way it contracted as it cooled is what formed these uniform, mostly six-sided columns.", "visual_query": "basalt rock texture closeup", "local_image": "assets/giants-causeway-columns-closeup.jpg" },
+    { "text": "The tallest columns stand about twelve meters high, and in places the solidified lava bed underneath them is twenty eight meters thick.", "visual_query": "people standing rock formation scale", "local_image": "assets/giants-causeway-scale.jpg" },
+    { "text": "There's a genuine twist to the legend, too. Across the water in Scotland, Fingal's Cave has the exact same kind of basalt columns -- because both were actually formed by the same ancient lava flow.", "visual_query": "sea cave rock formation scotland" },
+    { "text": "Which do you find more interesting -- the real geology, or the giant's legend it inspired?", "visual_query": "ocean waves rocky shore sunset" }
+  ]
+}
