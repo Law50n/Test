@@ -1,0 +1,23 @@
+{
+  "category": "science",
+  "id": "030-coriolis-toilet-myth",
+  "title": "Your Toilet Doesn't Flush The Way You Think It Does",
+  "description": "You've probably heard toilets flush opposite directions depending on the hemisphere, because of the Earth's rotation. A real MIT experiment actually proves the effect exists -- just nowhere near your bathroom.\n\n#shorts #sciencefacts #myth #didyouknow",
+  "tags": ["science facts", "coriolis effect", "myth busting", "physics", "did you know", "shorts"],
+  "sources": [
+    "Snopes' fact-check \"Does the Coriolis Effect Determine Which Direction Water Goes Down a Drain?\"",
+    "HuffPost's \"Which Way Does Your Toilet Flush? Investigating The Coriolis Effect 'Down Under'\"",
+    "Shapiro, A. (1962), \"Bath-Tub Vortex,\" Nature 196, 1080-1081",
+    "Washington Post's \"Myth busted: Water does swirl in different directions across the globe, but it's not a toilet thing\""
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "You've probably heard that toilets flush in opposite directions depending which hemisphere you're in, because of the Earth's rotation. That's not actually why.", "visual_query": "bathroom interior modern" },
+    { "text": "At the size of a toilet or a sink, the Earth's rotation is far too weak to matter. One physicist estimated gravity's pull on that water is about thirty million times stronger than the Coriolis effect at that scale.", "visual_query": "water swirling drain closeup" },
+    { "text": "What actually decides which way the water spins is the shape of the bowl and the angle of the jets pushing the water in. Without any of that built-in asymmetry, the direction is basically a coin flip.", "visual_query": "sink basin water closeup" },
+    { "text": "The effect is real, though, just not at that scale. In 1962, an MIT engineer built a six foot wide tank, let the water sit completely still for twenty four hours, then drained it under tightly controlled conditions.", "visual_query": "laboratory water tank science" },
+    { "text": "It took about twenty minutes before the water even started to rotate, and then it turned counterclockwise, exactly as predicted. Colleagues in the Southern Hemisphere repeated it and got the opposite direction.", "visual_query": "slow water ripple surface" },
+    { "text": "That's the real Coriolis effect, proven -- but it needed total stillness, shelter from drafts, and twenty minutes just to start turning. Nothing like how fast an actual toilet drains.", "visual_query": "stopwatch timer closeup" },
+    { "text": "The Coriolis effect is real, and it's exactly why hurricanes spin the way they do. It just has nothing to do with your bathroom. Did you believe the toilet version before now?", "visual_query": "hurricane satellite view space" }
+  ]
+}
