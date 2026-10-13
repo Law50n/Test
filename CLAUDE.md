@@ -192,6 +192,19 @@ two are different bets and get treated differently:
   isn't held to the same "nothing unsettling" bar -- this is specifically
   about what to pick for the Facts channel's science/tech/finance/
   wellbeing/idioms Shorts.
+- **Publish Shorts immediately after rendering; don't use YouTube's
+  Schedule feature.** Six straight immediately-published Facts shorts
+  (Oct 4-9) pulled 341 to 1.2K views each. The next two (Oct 10-11),
+  which Will scheduled instead of publishing right away, pulled 14 and
+  7 -- one of which (the Richat Structure short) already had real
+  sourced photos wired in and still flopped, ruling out the usual
+  content-quality explanations. Scheduling was the one thing that
+  changed between the strong run and the flop, which lines up with a
+  known pattern: a scheduled Short's initial push into the Shorts feed
+  doesn't reliably get the same algorithmic treatment as one published
+  the moment it's ready. Until this is tested and disproven, treat
+  "scheduled" as a real risk and publish live instead, even if that
+  means uploading at a less convenient time.
 - **Every script sets `"visual_mode": "video"`** (Facts included, matching
   Mysteries/Fiction). This isn't "commit the whole script to video" --
   `pipeline/video_clips.py::fetch_video_clip` tries a real Pexels video
