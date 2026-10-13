@@ -1,0 +1,23 @@
+{
+  "category": "science",
+  "id": "031-catatumbo-lightning",
+  "title": "This Spot Gets Hit By Lightning Almost Every Single Night",
+  "description": "A stretch of water in Venezuela sees lightning storms more nights than not -- the highest concentration of lightning anywhere on Earth. Sailors used to navigate by it.\n\n#shorts #sciencefacts #lightning #didyouknow",
+  "tags": ["science facts", "catatumbo lightning", "venezuela", "weather", "did you know", "shorts"],
+  "sources": [
+    "Wikipedia's Catatumbo lightning entry",
+    "Mental Floss's \"9 Dazzling Facts about the Catatumbo Lightning\"",
+    "McGill Office for Science and Society's \"Catatumbo Lightning\"",
+    "Slate's \"An everlasting lightning storm that rages 260 days a year\""
+  ],
+  "visual_mode": "video",
+  "scenes": [
+    { "text": "There's a spot in Venezuela where lightning storms happen almost every single night, so often it's considered the most lightning-struck place on Earth.", "visual_query": "lightning storm night sky dramatic" },
+    { "text": "Estimates vary, but it can happen anywhere from around a hundred forty to over two hundred fifty nights a year, right over the same stretch of water.", "visual_query": "lightning strikes multiple night" },
+    { "text": "It's called the Catatumbo Lightning, and it's bright enough to see from twenty five miles out at sea. For centuries, sailors actually used it to navigate at night, nicknaming it the Beacon of Maracaibo.", "visual_query": "lake night storm distant" },
+    { "text": "The real cause is geography. A wall of mountains traps warm Caribbean winds, which collide head-on with cold air pouring down from the Andes -- and the lake underneath adds moisture to the mix, setting up a thunderstorm almost every single night.", "visual_query": "mountain range clouds weather" },
+    { "text": "There's also a genuinely unresolved side to it. Some researchers think methane rising from the surrounding swamps and oil deposits might make the air more conductive, but that part is still unproven.", "visual_query": "swamp wetland mist" },
+    { "text": "In 2010, it actually stopped completely for a few months during a severe drought. Scientists and locals genuinely worried it might be gone for good, and then it came back.", "visual_query": "dry drought cracked landscape" },
+    { "text": "Would you have believed a single spot could get struck by lightning almost every night of the year?", "visual_query": "lightning bolt dark clouds" }
+  ]
+}
